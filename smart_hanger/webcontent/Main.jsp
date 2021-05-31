@@ -1,3 +1,4 @@
+
 <%@page import="java.util.ArrayList"%>
 <%@page import="Model.WebClothesDTO"%>
 <%@page import="Model.WebClothesDAO"%>
@@ -42,7 +43,9 @@
 <%
    WebClothesDAO dao = new WebClothesDAO();
    ArrayList<WebClothesDTO> cloth_list = dao.SearchClothes();
-
+   
+   
+   
 %>
 
    <!-- Wrapper-->
@@ -90,7 +93,9 @@
                         <!-- 여기가 옷장에 있는 이미지 불러오는곳  -->
                         <%for(int row = 0; row < cloth_list.size(); row++){ %>   
                            <div class="col-4 col-6-medium col-12-small">
-                              <a href="viewCloth.jsp?num=<%= cloth_list.get(row).getNum() %>" class="image fit"><img class="cloth_imgs" src="cloth_img/<%= cloth_list.get(row).getClothesPath() %>" alt=""></a>                           </div>
+                              <a href="viewCloth.jsp?num=<%= cloth_list.get(row).getNum() %>" class="image fit">
+                              <img class="cloth_imgs" src="cloth_img/<%= cloth_list.get(row).getClothesPath() %>" alt=""></a>                           
+                        </div>
                         <% } %>
                         
                         
@@ -102,7 +107,7 @@
                   <!-- 여기는 코디 -->
                   <article id="Stylist" class="panel">
  					<script>
- 						btnclick("#Stylist", "cody.html");
+ 						btnclick("#Stylist", "cody.jsp");
  					</script>
                   </article>
                   

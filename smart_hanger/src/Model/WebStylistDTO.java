@@ -4,11 +4,11 @@ public class WebStylistDTO {
 
 	private int num; //시퀀스
 	private String cody_num; //코디코드
-	private int my_clothes_num; // 옷 코드
+	private String my_clothes_num; // 옷 코드
 	private String userid; // 유저아이디
 	private String clothespath; //경로
 	
-	public WebStylistDTO(int num, String cody_num, int my_clothes_num, String userid, String clothespath) {
+	public WebStylistDTO(int num, String cody_num, String my_clothes_num, String userid, String clothespath) {
 		this.num = num;
 		this.cody_num = cody_num;
 		this.my_clothes_num = my_clothes_num;
@@ -32,11 +32,11 @@ public class WebStylistDTO {
 		this.cody_num = cody_num;
 	}
 
-	public int getMy_clothes_num() {
+	public String getMy_clothes_num() {
 		return my_clothes_num;
 	}
 
-	public void setMy_clothes_num(int my_clothes_num) {
+	public void setMy_clothes_num(String my_clothes_num) {
 		this.my_clothes_num = my_clothes_num;
 	}
 
@@ -55,6 +55,8 @@ public class WebStylistDTO {
 	public void setClothespath(String clothespath) {
 		this.clothespath = clothespath;
 	}
+
+	
 	
 	
 	
