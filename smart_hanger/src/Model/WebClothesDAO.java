@@ -53,11 +53,15 @@ public class WebClothesDAO {
 		conn();
 		
 		try {
-			String sql = "insert into my_clothes values(num_message.nextval, ?, ?, ?, sysdate)";
+			String sql = "insert into my_clothes values(num_clothes.nextval, ?, ?, ?, ?, sysdate, ?)";
+			
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, dto.getUsername() );
-			psmt.setString(2, dto.getClothesname());
-			psmt.setString(3, dto.getClothestype());
+			psmt.setString(1, dto.getMy_clothes_num());
+			psmt.setString(2, dto.getUserid());
+			psmt.setString(3, dto.getClothesname());
+			psmt.setString(4, dto.getClothestype());
+			psmt.setString(5, dto.getMemo());
+			
 			
 			cnt = psmt.executeUpdate();
 			} catch (SQLException e) {		
@@ -83,14 +87,16 @@ public class WebClothesDAO {
 			
 			while (rs.next()) {
 				int num = rs.getInt(1);
-				String clothesname = rs.getString(2);
-				String clothesPath = rs.getString(3);
-				String username = rs.getString(4);
-				String clothestype = rs.getString(5);
-				String day2 = rs.getString(6);
+				String my_clothes_num = rs.getString(2);
+				String userid = rs.getString(3);
+				String clothesname = rs.getString(4);
+				String username = rs.getString(5);
+				String clothestype = rs.getString(6);
+				String day2 = rs.getString(7);
+				String memo = rs.getString(8);
 				
 				
-				list.add(new WebClothesDTO(num, clothesname, clothesPath, username, clothestype, day2));
+				list.add(new WebClothesDTO(num, my_clothes_num, userid, clothesname, username, clothestype, day2, memo));
 				
 			}
 			
@@ -101,4 +107,42 @@ public class WebClothesDAO {
 		}
 		return list;
 	}
+	
+	//  옷 하나 조회
+	public WebClothesDTO SearchOneClothes(String in_num) {
+		WebClothesDTO info = null;
+		
+		conn();
+		
+		try {
+			String sql = "select * from my_clothes where num = ?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, in_num);
+			
+			rs = psmt.executeQuery();
+			
+			while (rs.next()) {
+				int num = rs.getInt(1);
+				String my_clothes_num = rs.getString(2);
+				String userid = rs.getString(3);
+				String clothesname = rs.getString(4);
+				String username = rs.getString(5);
+				String clothestype = rs.getString(6);
+				String day2 = rs.getString(7);
+				String memo = rs.getString(8);
+				
+				
+				info = new WebClothesDTO(num, my_clothes_num, userid, clothesname, username, clothestype, day2, memo);
+						
+			}
+			
+		} catch (SQLException e) {		
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return info;
+	}
+    // 여기는 옷장 수정 할 곳 
+	
 }
