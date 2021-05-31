@@ -1,0 +1,55 @@
+#loginFrame_back {
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	position: relative;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-content: flex-end;
+	align-items: flex-start;
+}
+
+#loginFrame_back::after {
+	width: 100%;
+	height: 100%;
+	content: "";
+	background: url("./images/bg.jpg");
+	background-size: 100% 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	opacity: 0.8;
+}
+
+#loginFrame {
+	width: 450px;
+	height: 500px;
+	margin: 0px;
+	top: 206px;
+	/* 이거 수정 끝나면 삭제 예정 */
+	border: 1px solid black;
+	position: fixed;
+}
+
+h2 {
+	position: relative;
+	top: 100px;
+}
+
+table {
+	margin-left: 80px;
+}
+
+li {
+	list-style: none;
+}
+
+.Login_input {
+	width: 200px !important;
+	height: 10px;
+}

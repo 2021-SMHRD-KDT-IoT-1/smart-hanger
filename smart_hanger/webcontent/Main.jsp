@@ -10,26 +10,28 @@
       <meta charset="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
       <link rel="stylesheet" href="assets/css/main.css" />
+      <link rel="stylesheet" href="assets/css/loginFrame.css" />
       <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 </head>
 
 <body class="is-preload">
 
 
+
       <!-- div 요소 불러오는 jq -->
       <script src = "./js/jquery-3.6.0.min.js"></script>
       <script type="text/javascript">
       
-      
+      /* 페이지 불러오기 (바꿀 div id입력 , 가져올 파일) */
 	    function btnclick(inner, _url){
 	        $.ajax({
 	            url : _url,
 	            type : 'post',
 	            success: function(data) {
-	                $(inner).html(data);
+	                $('#'+inner).html(data);
 	            },
 	                error: function() {
-	                $(inner).text('페이지 점검중 입니다.');
+	                $('#'+inner).text('페이지 점검중 입니다.');
 	            }
 	        });
 	    }
@@ -46,8 +48,9 @@
 %>
 
    <!-- Wrapper-->
+   
+   <button onclick="btnclick('loginWindow','loginWindow.jsp')" style="position: absolute; left: 74%; top:10%;ntop: 50%;">로그인</button>
 
-   <button onclick="btnclick('#loginWindow', 'loginWindow.jsp')" style="position: absolute; left: 74%; top:10%;ntop: 50%;">로그인</button>
       <div id="wrapper">
       
          <!-- Nav -->
@@ -60,9 +63,10 @@
             
             </nav>
             
-            
-            
+            <!-- 로그인 레이어 팝업 -->
             <div id="loginWindow"></div>
+            
+
             
             
             
@@ -108,7 +112,7 @@
                   <!-- 여기는 코디 -->
                   <article id="Stylist" class="panel">
  					<script>
- 						btnclick("#Stylist", "cody.html");
+ 						btnclick("Stylist", "cody.html");
  					</script>
                   </article>
                   
@@ -147,11 +151,11 @@
                      
                   </article>
                   
-                  <!-- Contact -->
+                  <!-- 고객센터 -->
 							<article id="contact" class="panel">
 							
 							<script>
- 								btnclick("#contact", "service.jsp");
+ 								btnclick("contact", "service.jsp");
  							</script>
 							  
 							</article>
