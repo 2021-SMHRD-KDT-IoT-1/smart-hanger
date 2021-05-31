@@ -29,6 +29,30 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;}
 
+
+
+ /* -------- 진석이가 추가한 곳 -------- */
+
+commtitle > .co5 {
+    height: 37px;
+    border-width: 2px 0 1px;
+    border-style: solid;
+    border-color: #29367c;
+    vertical-align: middle;
+    text-align: center;
+    color: #333;
+    font-family: Dotum,'돋움';
+    
+}
+
+
+
+/* ------- 진석이꺼 끝 -------- */
+
+
+
+
+
 body {
 	line-height: 1;
 }

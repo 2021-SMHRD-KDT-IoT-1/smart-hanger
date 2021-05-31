@@ -1,6 +1,7 @@
 
 drop table my_clothes;
 
+--이거는 옷 등록 
 create table my_clothes (
 num number,
 clothesname varchar2(200), 
@@ -8,6 +9,12 @@ clothesPath varchar2(200),
 username varchar2(200), 
 clothestype varchar2(200), 
 day2 date
+)
+
+--이거는 코디 옷 테이블 
+create table cody_clothes (
+num number,
+
 )
 
 -- 시퀀스 생성

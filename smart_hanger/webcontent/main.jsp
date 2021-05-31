@@ -29,7 +29,9 @@
 			<!-- Nav -->
 				<nav id="nav">
 					<a href="#" class="icon solid fa-home"><span>Home</span></a>
+					
 					<a href="#work" class="icon solid fa-folder"><span>Work</span></a>
+					
 					<a href="#Stylist" class="icon solid fa-folder"><span>Stylist</span></a>
 					
 					<a href="#Community" class="icon solid fa-envelope"><span>Community</span></a>
@@ -51,13 +53,13 @@
 							</header>
 							<a href="#work" class="jumplink pic">
 								<span class="arrow icon solid fa-chevron-right"><span>See my work</span></span>
-								<img src="images/me.jpg" alt="" />
+								<img src="images/me.jpg" alt="" >
 							</a>
 						</article>
 
 					<!-- Work -->
 						<article id="work" class="panel">
-						<div> <input type="submit"  value="옷 등록" style="float: right;" onClick="location.href='picture.html'"> >  </div>
+						<div> <input type="submit"  value="옷 등록" style="float: right;" onClick="location.href='picture.html'">   </div>
 							<header>
 								<h2>옷장 : 나중에 이거 바꿈</h2>
 							</header>
@@ -68,7 +70,7 @@
 							
 							<section>
 							
-								<div class="row" style="overflow:scroll; width:750px; height:400px;"  >
+								<div class="row" style="overflow-y: scroll; width:750px; height:400px; "  >
 								
 								<!-- 여기가 옷장에 있는 이미지 불러오는곳  -->
 								<%for(int row = 0; row < cloth_list.size(); row++){ %>	
@@ -83,7 +85,8 @@
 						</article>
 						
 						<!-- 여기는 코디 -->
-						<article id="Stylist" class="panel">
+						<article id="Stylist" class="panel" style = "background-image:images/me.jpg">
+						
 						<div> <input type="submit" value="코디 등록" style="float: right;">  </div>
 							<header>
 								<h2>옷장 : 나중에 이거 바꿈</h2>
@@ -95,7 +98,7 @@
 							
 							<section>
 							
-								<div class="row" style="overflow:scroll; width:750px; height:400px;"  >
+								<div class="row" style="overflow-y :scroll; width:750px; height:400px; background-color : white;"  >
 								
 								<!-- 여기가 코디  이미지 불러오는곳  -->
 								
