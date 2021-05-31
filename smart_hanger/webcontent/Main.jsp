@@ -46,8 +46,8 @@
 %>
 
    <!-- Wrapper-->
-   
-   <input type="submit" value="로그인" style="position: absolute; left: 74%; top:10%;ntop: 50%;">
+
+   <button onclick="btnclick('#loginWindow', 'loginWindow.jsp')" style="position: absolute; left: 74%; top:10%;ntop: 50%;">로그인</button>
       <div id="wrapper">
       
          <!-- Nav -->
@@ -59,6 +59,12 @@
                <a href="#contact" class="icon solid fas fa-phone"><span>고객센터</span></a>
             
             </nav>
+            
+            
+            
+            <div id="loginWindow"></div>
+            
+            
             
          <!-- Main -->
             <div id="main">
