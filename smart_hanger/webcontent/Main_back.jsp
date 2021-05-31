@@ -15,31 +15,6 @@
 
 <body class="is-preload">
 
-
-
-      <!-- div 요소 불러오는 jq -->
-      <script src = "./js/jquery-3.6.0.min.js"></script>
-      <script type="text/javascript">
-      
-      
-	    function btnclick(inner, _url){
-	        $.ajax({
-	            url : _url,
-	            type : 'post',
-	            success: function(data) {
-	                $(inner).html(data);
-	            },
-	                error: function() {
-	                $(inner).text('페이지 점검중 입니다.');
-	            }
-	        });
-	    }
-		
-	    
-	    </script>
-
-
-
 <%
    WebClothesDAO dao = new WebClothesDAO();
    ArrayList<WebClothesDTO> cloth_list = dao.SearchClothes();
@@ -102,9 +77,41 @@
                   
                   <!-- 여기는 코디 -->
                   <article id="Stylist" class="panel">
- 					<script>
- 						btnclick("#Stylist", "cody.html");
- 					</script>
+                  <div> <input type="submit" value="코디 등록" style="float: right;">  </div>
+                     <header>
+                        <h2>옷장 : 나중에 이거 바꿈</h2>
+                     </header>
+                     <p>
+                        옷장 이미지 띄우는곳 설명은 나중에 바꿈
+                     </p>
+                     
+                     
+                     <section>
+                     
+                        <div class="row" style="overflow-y :scroll; width:750px; height:400px; "  >
+                        
+                        <!-- 여기가 코디  이미지 불러오는곳  -->
+                        
+                        <a href ="viewStylist.jsp" style="position: relative; width: 200px; height: 200px; top: 50px;  border: 1px solid; margin : 20px;">
+                            </a>
+                            <a href ="viewStylist.jsp"  style="position: relative; width: 200px; height: 200px; top: 50px;  border: 1px solid; margin : 20px;">
+                            </a>
+                            <a href ="viewStylist.jsp"  style="position: relative; width: 200px; height: 200px; top: 50px;  border: 1px solid; margin : 20px;">
+                            </a>
+                            
+                            <a href ="viewStylist.jsp"  style="position: relative; width: 200px; height: 200px; top: 50px;  border: 1px solid; margin : 20px;">
+                            </a>
+                            <a href ="viewStylist.jsp"  style="position: relative; width: 200px; height: 200px; top: 50px;  border: 1px solid; margin : 20px;">
+                            </a>
+                            <a href ="viewStylist.jsp"  style="position: relative; width: 200px; height: 200px; top: 50px;  border: 1px solid; margin : 20px;">
+                            </a>
+                            
+            
+                        
+                        
+                        </div>
+                        
+                     </section>
                   </article>
                   
 
@@ -144,11 +151,30 @@
                   
                   <!-- Contact -->
 							<article id="contact" class="panel">
-							
-							<script>
- 								btnclick("#contact", "service.jsp");
- 							</script>
-							  
+								<header>
+									<h2>문의사항</h2>
+								</header>
+								<form action="#" method="post">
+									<div>
+										<div class="row">
+											<div class="col-6 col-12-medium">
+												<input type="text" name="name" placeholder="Name" />
+											</div>
+											<div class="col-6 col-12-medium">
+												<input type="text" name="email" placeholder="Email" />
+											</div>
+											<div class="col-12">
+												<input type="text" name="subject" placeholder="Subject" />
+											</div>
+											<div class="col-12">
+												<textarea name="message" placeholder="Message" rows="6"></textarea>
+											</div>
+											<div class="col-12">
+												<input type="submit" value="Send Message" />
+											</div>
+										</div>
+									</div>
+								</form>
 							</article>
                   
 
@@ -171,7 +197,26 @@
       
       
       
-
+      <!-- div 요소 불러오는 jq -->
+      <script src = "./js/jquery-3.6.0.min.js"></script>
+      <script type="text/javascript">
+      
+      
+	    function btnclick(_url){
+	        $.ajax({
+	            url : _url,
+	            type : 'post',
+	            success: function(data) {
+	                $('#Stylist').html(data);
+	            },
+	                error: function() {
+	                $('#Stylist').text('페이지 점검중 입니다.');
+	            }
+	        });
+	    }
+		
+	    
+	    </script>
 
 
 
