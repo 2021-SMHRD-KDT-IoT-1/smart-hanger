@@ -54,6 +54,7 @@ public class WebClothesDAO {
 		
 		try {
 			String sql = "insert into my_clothes values(num_clothes.nextval, ?, ?, ?, ?, sysdate, ?)";
+			
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, dto.getMy_clothes_num());
 			psmt.setString(2, dto.getUserid());
