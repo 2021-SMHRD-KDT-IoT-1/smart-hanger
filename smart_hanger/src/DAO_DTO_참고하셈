@@ -3,7 +3,7 @@
 		등록 : 테이블명_Insert()
 		전체조회 : 테이블명_All_Select()
 		개별조회 : 테이블명_One_select() 
-		개벌삭제 : 테이블명_One_delete_()
+		개벌삭제 : 테이블명_One_delete()
 		
 		
 		테이블명_DAO
