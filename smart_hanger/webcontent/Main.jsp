@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
 <!DOCTYPE HTML>
 <!--
 	Astral by HTML5 UP
@@ -13,16 +15,16 @@
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
-
 		<!-- Wrapper-->
 			<div id="wrapper">
 
 				<!-- Nav -->
 					<nav id="nav">
-						<a href="#" class="icon solid fa-home"><span>Home</span></a>
-						<a href="#work" class="icon solid fa-folder"><span>Work</span></a>
-						<a href="#contact" class="icon solid fa-envelope"><span>Contact</span></a>
-						<a href="https://twitter.com/ajlkn" class="icon brands fa-twitter"><span>Twitter</span></a>
+						<a href="#" class="icon solid fa-home"><span>메인</span></a>
+						<a href="#work" class="icon solid fa-folder"><span>옷장</span></a>
+						<a href="#contact" class="icon solid fa-envelope"><span>코디</span></a>
+						<a href="https://twitter.com/ajlkn" class="icon brands fa-twitter"><span>커뮤니티</span></a>
+						<a href="#contact" class="icon solid fa-envelope"><span>고객센터</span></a>
 					</nav>
 
 				<!-- Main -->
