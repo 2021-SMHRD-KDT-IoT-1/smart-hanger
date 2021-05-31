@@ -16,6 +16,10 @@
 
 <body class="is-preload">
 
+
+
+
+
 	<!-- Wrapper-->
 	<div id="wrapper">
 
@@ -25,18 +29,32 @@
 		<div id="main" style="height: 500px">
 
 
-
-
-
-
 			<!-- 왼쪽 영역 -->
 			<div id="left" style="width: 50%; height: 100%; float: left;">
 
 
-				<div
-					style="position: relative; width: 300px; height: 320px; top: 20px; left: 20px; border: 1px solid;">
+				<div id="container_div" >
+						
+						<div id="container">
+						
+						
+						    <video autoplay="true" id="videoElement">	
+						    	<script type="text/javascript">
+									var video = document.querySelector("#videoElement");
+								 
+									if (navigator.mediaDevices.getUserMedia) {
+										navigator.mediaDevices.getUserMedia({ video: true }).then(function (stream) {
+											video.srcObject = stream;
+								    })
+									    .catch(function (err0r) {
+									      console.log("Something went wrong!");
+								    	});
+									}
+								</script>
+						    </video>
+					</div>
+					
 				</div>
-
 
 				<div style="position: relative; top: 20px; left: 20px;">
 					<input type="button" style="position: relative;" value="사진찍기"
@@ -44,14 +62,6 @@
 
 				</div>
 			</div>
-
-
-
-
-
-
-
-
 
 
 			<!-- 오른쪽 영역 -->
@@ -79,15 +89,6 @@
 				</div>
 
 			</div>
-
-
-
-
-
-
-
-
-
 
 		</div>
 
