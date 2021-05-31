@@ -25,6 +25,7 @@
 						<a href="#contact" class="icon solid fa-envelope"><span>코디</span></a>
 						<a href="https://twitter.com/ajlkn" class="icon brands fa-twitter"><span>커뮤니티</span></a>
 						<a href="#contact" class="icon solid fa-envelope"><span>고객센터</span></a>
+						<a href="#contact" class="icon solid <i class="fas fa-home"></i>"><span>고객센터</span></a>
 					</nav>
 
 				<!-- Main -->
