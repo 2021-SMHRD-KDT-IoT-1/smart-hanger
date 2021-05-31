@@ -52,6 +52,7 @@ resize: none; height: 215px;
 
 <body class="is-preload">
 
+<<<<<<< HEAD
 <%
    WebClothesDAO dao = new WebClothesDAO();
    
@@ -60,6 +61,11 @@ resize: none; height: 215px;
    WebClothesDTO cloth_info = dao.SearchOneClothes(num);
 
 %>
+=======
+
+
+
+>>>>>>> branch 'main' of https://github.com/2021-SMHRD-KDT-IoT-1/smart-hanger.git
 
 	<!-- Wrapper-->
 	<div id="wrapper">
@@ -67,19 +73,52 @@ resize: none; height: 215px;
 		<!-- Main -->
 		<!-- red == 여기는 옷 사진 출력  -->
 
+<<<<<<< HEAD
 		<div id="main">
+=======
+		<div id="main" style="height: 500px">
+>>>>>>> branch 'main' of https://github.com/2021-SMHRD-KDT-IoT-1/smart-hanger.git
 
 
 			<!-- 왼쪽 영역 -->
 			<div id="left" >
 
+<<<<<<< HEAD
 				<div id="pickcloth">
 								
 				<img class="cloth_imgs" src="cloth_img/<%= cloth_info.getClothesPath() %>" alt="" style="width: 100%">				
 				
+=======
+
+				<div id="container_div" >
+						
+						<div id="container">
+						
+						
+						    <video autoplay="true" id="videoElement">	
+						    	<script type="text/javascript">
+									var video = document.querySelector("#videoElement");
+								 
+									if (navigator.mediaDevices.getUserMedia) {
+										navigator.mediaDevices.getUserMedia({ video: true }).then(function (stream) {
+											video.srcObject = stream;
+								    })
+									    .catch(function (err0r) {
+									      console.log("Something went wrong!");
+								    	});
+									}
+								</script>
+						    </video>
+					</div>
+					
+>>>>>>> branch 'main' of https://github.com/2021-SMHRD-KDT-IoT-1/smart-hanger.git
 				</div>
 
+<<<<<<< HEAD
 				<div id ="pickbutten">
+=======
+				<div style="position: relative; top: 20px; left: 20px;">
+>>>>>>> branch 'main' of https://github.com/2021-SMHRD-KDT-IoT-1/smart-hanger.git
 					<input type="button" style="position: relative;" value="사진찍기"
 						onclick="history.back();">
 
@@ -87,7 +126,10 @@ resize: none; height: 215px;
 			</div>
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> branch 'main' of https://github.com/2021-SMHRD-KDT-IoT-1/smart-hanger.git
 			<!-- 오른쪽 영역 -->
 			<div id="right"  >
 				<div id="input_tag_div">
@@ -112,8 +154,11 @@ resize: none; height: 215px;
 
 			</div>
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> branch 'main' of https://github.com/2021-SMHRD-KDT-IoT-1/smart-hanger.git
 		</div>
 
 		<input type="button" value="뒤로가기" onclick="history.back();" />
