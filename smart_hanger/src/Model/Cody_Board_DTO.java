@@ -1,6 +1,6 @@
 package Model;
 
-public class Cody_BoardDTO {
+public class Cody_Board_DTO {
 
 	private String cody_board_num; //코디 게시글 코드
 	private String userid;         //유저아이디
@@ -9,8 +9,9 @@ public class Cody_BoardDTO {
 	private String upload_date;    //게시글등록날짜
 	private String like_num;       //좋아요
 	private String view_num;       //조회수
+	private String clothespath;    //사진경로
 	
-	public Cody_BoardDTO(String cody_board_num, String userid, String title, String content, String upload_date, String like_num, String view_num) {
+	public Cody_Board_DTO(String cody_board_num, String userid, String title, String content, String upload_date, String like_num, String view_num, String clothespath) {
 		this.cody_board_num = cody_board_num;
 		this.userid = userid;
 		this.title = title;
@@ -18,6 +19,7 @@ public class Cody_BoardDTO {
 		this.upload_date = upload_date;
 		this.like_num = like_num;
 		this.view_num = view_num;
+		this.clothespath = clothespath;
 	}
 
 	public String getCody_board_num() {
@@ -75,6 +77,17 @@ public class Cody_BoardDTO {
 	public void setView_num(String view_num) {
 		this.view_num = view_num;
 	}
+
+	public String getClothespath() {
+		return clothespath;
+	}
+
+	public void setClothespath(String clothespath) {
+		this.clothespath = clothespath;
+	}
+	
+	
+	
 	
 	
 	
