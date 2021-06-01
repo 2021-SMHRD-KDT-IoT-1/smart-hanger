@@ -7,14 +7,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class WebMemberDAO {
+public class ClothMemberDAO {
 
 	Connection conn = null;
 	PreparedStatement psmt = null;
 	int cnt = 0;
 	ResultSet rs = null;
-	WebMemberDTO dto = null;
-	ArrayList<WebMemberDTO> list = null;
+	ClothMemberDTO dto = null;
+	ArrayList<ClothMemberDTO> list = null;
 
 	public void conn() {
 		try {
@@ -46,17 +46,17 @@ public class WebMemberDAO {
 		}
 	}
 
-	public int join(WebMemberDTO dto) {
+	public int join(ClothMemberDTO dto) {
 		conn();
 		
 		try {
 
-			String sql = "insert into web_member values(?,?,?,?)";
+			String sql = "insert into cloth_member values(?,?,?,?)";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, dto.getEmail());
 			psmt.setString(2, dto.getPw());
-			psmt.setString(3, dto.getTel());
-			psmt.setString(4, dto.getAddr());
+			psmt.setString(3, dto.getName());
+			psmt.setString(4, dto.getAge());
 
 			cnt = psmt.executeUpdate();
 
@@ -69,11 +69,11 @@ public class WebMemberDAO {
 		return cnt;
 	}
 	
-	public WebMemberDTO login(WebMemberDTO InputDto) {
+	public ClothMemberDTO login(ClothMemberDTO InputDto) {
 		conn();
 	
 		try {
-			String sql = "select * from web_member where email = ? and pw = ?";
+			String sql = "select * from cloth_member where email = ? and pw = ?";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, InputDto.getEmail());
 			psmt.setString(2, InputDto.getPw());
@@ -82,10 +82,10 @@ public class WebMemberDAO {
 			if(rs.next()) {
 				String email = rs.getString(1);
 				String pw = rs.getString(2);
-				String tel = rs.getString(3);
-				String addr = rs.getString(4);
+				String name = rs.getString(3);
+				String age = rs.getString(4);
 				
-				dto = new WebMemberDTO(email, pw, tel, addr);
+				dto = new ClothMemberDTO(email, pw, name, age);
 			}
 			
 		} catch (SQLException e) {
@@ -98,34 +98,34 @@ public class WebMemberDAO {
 	
 	}
 	
-	public int update(WebMemberDTO dto) {
-		conn();
-
-		try {
-			String sql = "update web_member set pw=?, tel=?, address=? where email=?";
-			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, dto.getPw());
-			psmt.setString(2, dto.getTel());
-			psmt.setString(3, dto.getAddr());
-			psmt.setString(4, dto.getEmail());
-			cnt = psmt.executeUpdate();
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close();
-		}
-		
-		return cnt;
-	}
+//	public int update(clothMemberDTO dto) {
+//		conn();
+//
+//		try {
+//			String sql = "update cloth_member set pw=?, tel=?, address=? where email=?";
+//			psmt = conn.prepareStatement(sql);
+//			psmt.setString(1, dto.getPw());
+//			psmt.setString(2, dto.getTel());
+//			psmt.setString(3, dto.getAddr());
+//			psmt.setString(4, dto.getEmail());
+//			cnt = psmt.executeUpdate();
+//			
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		} finally {
+//			close();
+//		}
+//		
+//		return cnt;
+//	}
 	
-	public ArrayList<WebMemberDTO> select() {
+	public ArrayList<ClothMemberDTO> select() {
 		
-		list = new ArrayList<WebMemberDTO>();
+		list = new ArrayList<ClothMemberDTO>();
 		conn();
 		
 		try {
-			String sql = "select * from web_member";
+			String sql = "select * from cloth_member";
 			psmt = conn.prepareStatement(sql);
 			rs = psmt.executeQuery();
 			
@@ -133,10 +133,10 @@ public class WebMemberDAO {
 			
 				String email = rs.getString(1);
 				String pw = rs.getString(2);
-				String tel = rs.getString(3);
-				String addr = rs.getString(4);
+				String name = rs.getString(3);
+				String age = rs.getString(4);
 				
-				dto = new WebMemberDTO(email, pw, tel, addr);
+				dto = new ClothMemberDTO(email, pw, name, age);
 				list.add(dto);
 			}
 			
@@ -149,11 +149,11 @@ public class WebMemberDAO {
 		return list;
 	}
 	
-	public int delete(WebMemberDTO dto) {
+	public int delete(ClothMemberDTO dto) {
 		conn();
 		
 		try {
-			String sql = "delete from web_member where email = ? and pw = ?";
+			String sql = "delete from cloth_member where email = ? and pw = ?";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, dto.getEmail());
 			psmt.setString(2, dto.getPw());
