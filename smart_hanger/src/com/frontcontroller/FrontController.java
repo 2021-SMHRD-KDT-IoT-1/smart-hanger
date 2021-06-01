@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.command.Command;
+import com.command.Command;
 //import com.controller_Class.DeleteServiceCon;
 import com.controller_Class.JoinServiceCon;
 import com.controller_Class.LoginServiceCon;
@@ -59,7 +60,6 @@ public class FrontController extends HttpServlet {
 		String resultURI = reqURI.substring(path.length()+1);
 		System.out.println("서블릿 이름 : "+resultURI);
 		
-		request.setCharacterEncoding("EUC-KR");
 		
 		//업캐스팅 하기 위해서 수퍼클래스 선언
 		Command command = null;
@@ -73,11 +73,11 @@ public class FrontController extends HttpServlet {
 			
 			
 			
-//		}else if(resultURI.equals("JoinServiceCon.do")) {
-//			command = new JoinServiceCon();
-//			
-//			
-//			
+		else if(resultURI.equals("JoinServiceCon.do")) {
+			command = new JoinServiceCon();}
+			
+			
+			
 //		}else if(resultURI.equals("DeleteServiceCon.do")) {
 //			command = new DeleteServiceCon();
 //			

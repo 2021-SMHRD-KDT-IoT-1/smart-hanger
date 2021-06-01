@@ -1,3 +1,4 @@
+<%@page import="com.Model.My_clothesDAO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="Model.WebClothesDTO"%>
 <%@page import="Model.WebClothesDAO"%>
@@ -54,7 +55,7 @@ resize: none; height: 215px;
 
 
 <%
-   WebClothesDAO dao = new WebClothesDAO();
+	My_clothesDAO dao = new My_clothesDAO();
    
    String num = request.getParameter("num");
    
@@ -80,7 +81,7 @@ resize: none; height: 215px;
 
 				<div id="pickcloth">
 								
-				<img class="cloth_imgs" src="cloth_img/<%= cloth_info.getClothesPath() %>" alt="" style="width: 100%">				
+				<img class="cloth_imgs" src="cloth_img/<%= cloth_info.get %>" alt="" style="width: 100%">				
 				
 
 				</div>

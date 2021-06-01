@@ -8,8 +8,8 @@ import com.command.Command;
 import Model.ClothMemberDAO;
 import Model.ClothMemberDTO;
 
-import Model.ClothMemberDAO;
-import Model.ClothMemberDTO;
+import com.Model.MemberDAO;
+import com.Model.MemberDTO;
 
 public class JoinServiceCon implements Command {
 
@@ -19,25 +19,32 @@ public class JoinServiceCon implements Command {
 		String moveURL = null;
 		
 		// 값 받아오기
-		String email = request.getParameter("email");
-		String pw = request.getParameter("pw");
-		String tel = request.getParameter("name");
-		String addr = request.getParameter("age");
+		String userId = request.getParameter("userId");
+		String userPw = request.getParameter("userPw");
+		String userName = request.getParameter("userName");
+		String userAge = request.getParameter("userAge");
 
-		ClothMemberDTO dto = new ClothMemberDTO(email, pw, tel, addr);
-		ClothMemberDAO dao = new ClothMemberDAO();
+		
+		System.out.println(userId);
+		System.out.println(userPw);
+		System.out.println(userName);
+		System.out.println(userAge);
+		
+		
+		MemberDTO dto = new MemberDTO(userId, userPw, userName, userAge);
+		MemberDAO dao = new MemberDAO();
 		int cnt = dao.join(dto);
 
 		if (cnt > 0) {
 			System.out.println("회원가입 성공");
 
 			HttpSession session = request.getSession();
-			session.setAttribute("email", email);
+			session.setAttribute("email", userId);
 			moveURL = "join_success.jsp";
 			
 		} else {
 			System.out.println("회원가입 실패");
-			moveURL = "main.jsp";
+			moveURL = "Main.jsp";
 			
 		}
 

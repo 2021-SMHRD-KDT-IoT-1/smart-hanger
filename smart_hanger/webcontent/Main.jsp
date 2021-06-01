@@ -1,4 +1,5 @@
 
+<%@page import="com.Model.MemberDTO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="Model.WebClothesDTO"%>
 <%@page import="Model.WebClothesDAO"%>
@@ -31,6 +32,7 @@
 	            type : 'post',
 	            success: function(data) {
 	                $('#'+inner).html(data);
+	                $('#'+inner).css("display","block");
 	            },
 	                error: function() {
 	                $('#'+inner).text('페이지 점검중 입니다.');
@@ -46,15 +48,19 @@
 <%
    WebClothesDAO dao = new WebClothesDAO();
    ArrayList<WebClothesDTO> cloth_list = dao.SearchClothes();
-   
-   
+   MemberDTO dto = (MemberDTO)session.getAttribute("dto");
+
    
 %>
 
    <!-- Wrapper-->
    
    <button onclick="btnclick('loginWindow','loginWindow.jsp')" style="position: absolute; left: 74%; top:10%;ntop: 50%;">로그인</button>
-
+   <% 
+   
+   
+   
+   %>
       <div id="wrapper">
       
          <!-- Nav -->

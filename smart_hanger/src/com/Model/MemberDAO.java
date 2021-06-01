@@ -51,7 +51,7 @@ public class MemberDAO {
 		
 		try {
 
-			String sql = "insert into cloth_member values(?,?,?,?)";
+			String sql = "insert into member values(?,?,?,?)";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, dto.getEmail());
 			psmt.setString(2, dto.getPw());
@@ -73,7 +73,7 @@ public class MemberDAO {
 		conn();
 	
 		try {
-			String sql = "select * from cloth_member where email = ? and pw = ?";
+			String sql = "select * from member where userid = ? and userpw = ?";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, InputDto.getEmail());
 			psmt.setString(2, InputDto.getPw());
@@ -125,7 +125,7 @@ public class MemberDAO {
 		conn();
 		
 		try {
-			String sql = "select * from cloth_member";
+			String sql = "select * from member";
 			psmt = conn.prepareStatement(sql);
 			rs = psmt.executeQuery();
 			
@@ -153,7 +153,7 @@ public class MemberDAO {
 		conn();
 		
 		try {
-			String sql = "delete from cloth_member where email = ? and pw = ?";
+			String sql = "delete from member where email = ? and pw = ?";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, dto.getEmail());
 			psmt.setString(2, dto.getPw());
