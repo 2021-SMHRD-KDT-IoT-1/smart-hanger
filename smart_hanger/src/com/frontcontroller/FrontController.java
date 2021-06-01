@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.command.Command;
-import com.command.Command;
+import com.controller_Class.ClothesUpdateServiceCon;
 //import com.controller_Class.DeleteServiceCon;
 import com.controller_Class.JoinServiceCon;
 import com.controller_Class.LoginServiceCon;
@@ -24,8 +24,6 @@ import com.controller_Class.LogoutServiceCon;
 //import com.controller_Class.WriterBoard;
 //import com.model.WebBoardDAO;
 //import com.model.WebBoardDTO;
-import Model.ClothMemberDAO;
-import Model.ClothMemberDTO;
 //import com.model.WebMessageDAO;
 //import com.model.WebMessageDTO;
 import com.oreilly.servlet.MultipartRequest;
@@ -60,6 +58,7 @@ public class FrontController extends HttpServlet {
 		String resultURI = reqURI.substring(path.length()+1);
 		System.out.println("서블릿 이름 : "+resultURI);
 		
+		request.setCharacterEncoding("EUC-KR");
 		
 		//업캐스팅 하기 위해서 수퍼클래스 선언
 		Command command = null;
@@ -68,16 +67,14 @@ public class FrontController extends HttpServlet {
 		
 		
 		if(resultURI.equals("LoginServiceCon.do")) {
-			command = new LoginServiceCon();}
+			command = new LoginServiceCon();
+		
 			
-			
-			
-			
-		else if(resultURI.equals("JoinServiceCon.do")) {
-			command = new JoinServiceCon();}
-			
-			
-			
+//		}else if(resultURI.equals("JoinServiceCon.do")) {
+//			command = new JoinServiceCon();
+//			
+//			
+//			
 //		}else if(resultURI.equals("DeleteServiceCon.do")) {
 //			command = new DeleteServiceCon();
 //			
@@ -112,12 +109,14 @@ public class FrontController extends HttpServlet {
 //			
 //			
 //			
-//		}else if(resultURI.equals("WriterBoard.do")) {
-//			command = new WriterBoard();
-//			
-//		}
+		}else if(resultURI.equals("ClothesUpdateServiceCon.do")) {
+			command = new ClothesUpdateServiceCon();
+			
+		}
+		
 		
 		String moveURL = command.execute(request, response);
+		System.out.println(moveURL);
 		response.sendRedirect(moveURL);
 		
 		

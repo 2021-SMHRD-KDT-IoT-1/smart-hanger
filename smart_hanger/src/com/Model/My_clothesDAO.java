@@ -78,7 +78,7 @@ public class My_clothesDAO {
 		conn();
 
 		try {
-			String sql = "select * from my_clothes_Insert";
+			String sql = "select * from my_clothes";
 			psmt = conn.prepareStatement(sql);
 
 			rs = psmt.executeQuery();
@@ -110,7 +110,7 @@ public class My_clothesDAO {
 		conn();
 
 		try {
-			String sql = "select * from my_clothes_Insert where num = ?";
+			String sql = "select * from my_clothes where my_clothes_num = ?";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, num);
 
@@ -155,5 +155,32 @@ public class My_clothesDAO {
 			close();
 		}
 		return cnt;
+	}
+	// 수정(업데이트)
+	public int My_clothes_Update(My_clothesDTO dto) {
+		
+		conn();
+		
+		try {
+			String sql = "update my_clothes set clothesname=?, memo=?, clothespath=? where my_clothes_num=?";
+			psmt = conn.prepareStatement(sql);
+			
+			psmt.setString(1, dto.getClothesName());
+			psmt.setString(2, dto.getMemo());
+			psmt.setString(3, dto.getClothespath());
+			psmt.setString(4, dto.getMy_clothes_num());
+			
+			cnt = psmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		
+		return cnt;
+	
+
+		
 	}
 }

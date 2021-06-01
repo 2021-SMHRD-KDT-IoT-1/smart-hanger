@@ -1,10 +1,6 @@
 
-<<<<<<< HEAD
-<%@page import="com.Model.MemberDTO"%>
-=======
 <%@page import="com.Model.My_clothesDTO"%>
 <%@page import="com.Model.My_clothesDAO"%>
->>>>>>> branch 'main' of https://github.com/2021-SMHRD-KDT-IoT-1/smart-hanger.git
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
@@ -35,7 +31,6 @@
 	            type : 'post',
 	            success: function(data) {
 	                $('#'+inner).html(data);
-	                $('#'+inner).css("display","block");
 	            },
 	                error: function() {
 	                $('#'+inner).text('페이지 점검중 입니다.');
@@ -49,8 +44,10 @@
 
 
 <%
+
    My_clothesDAO clothesdao = new My_clothesDAO();
    ArrayList<My_clothesDTO> clothes_list = clothesdao.My_clothes_All_Select();
+   System.out.print(clothes_list.size());
    
    
    
@@ -59,11 +56,7 @@
    <!-- Wrapper-->
    
    <button onclick="btnclick('loginWindow','loginWindow.jsp')" style="position: absolute; left: 74%; top:10%;ntop: 50%;">로그인</button>
-   <% 
-   
-   
-   
-   %>
+
       <div id="wrapper">
       
          <!-- Nav -->
@@ -114,7 +107,7 @@
                         <%for(int row = 0; row < clothes_list.size(); row++){ %>   
                            <div class="col-4 col-6-medium col-12-small">
                               <a href="viewCloth.jsp?num=<%= clothes_list.get(row).getMy_clothes_num() %>" class="image fit">
-                              <img class="cloth_imgs" src="cloth_img/<%= clothes_list.get(row).getClothesName()%>" alt=""></a>                           
+                              <img class="cloth_imgs" src="cloth_img/<%= clothes_list.get(row).getClothespath()%>" alt="#" style="height:100%"></a>                           
                         </div>
                         <% } %>
                         

@@ -1,54 +1,85 @@
-<<<<<<< HEAD
-=======
+<%@page import="java.net.URLEncoder"%>
 <%@page import="com.Model.My_clothesDTO"%>
->>>>>>> branch 'main' of https://github.com/2021-SMHRD-KDT-IoT-1/smart-hanger.git
 <%@page import="com.Model.My_clothesDAO"%>
 <%@page import="java.util.ArrayList"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <title>Astral by HTML5 UP</title>
 <meta charset="utf-8" />
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, user-scalable=no" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="assets/css/main.css" />
 <link rel="stylesheet" href="assets/css/viewCloth.css" />
 <style type="text/css">
-
 #main {
-height: 500px;
+	height: 500px;
 
-/* =================여기는 왼쪽 화면 스타일 ======================= */
+	/* =================여기는 왼쪽 화면 스타일 ======================= */
 }
+
 #left {
-width: 50%; height: 100%; float: left;
+	width: 50%;
+	height: 100%;
+	float: left;
 }
-#pickcloth{
-position: relative; width: 80%; height: 70%; top: 20px; left: 20px; border: 1px solid;
+
+#pickcloth {
+	position: relative;
+	width: 80%;
+	height: 350px;
+	top: 20px;
+	left: 20px;
+	border: 1px solid;
+	overflow: hidden;
 }
-#pickbutten{
-position: relative; top: 20px; left: 20px;
+
+#cloth_imgs {
+	height: 100;
+}
+
+#pickbutten {
+	position: relative;
+	top: 20px;
+	left: 20px;
 }
 
 /* ==============여기는 오른쪽 화면 스타일 ==================== */
 #right {
- overflow-y:scroll; width: 50%; height: 100%; float: left;
-}
-#input_tag_div {
-position: relative; top: 37px; width: 91%; height: 115px;
-}
-#del{
-float: right; height: 50%; width: 30%;
-}
-li > textarea {
-resize: none; height: 215px;
-}
- ol > li > .cr_pick {
- margin: auto; width: 49%;
+	overflow-y: scroll;
+	width: 50%;
+	height: 500px;
+	float: left;
 }
 
+#input_tag_div {
+	position: relative;
+	top: 37px;
+	width: 91%;
+	height: 115px;
+}
+
+#del {
+	float: right;
+	height: 50%;
+	width: 30%;
+}
+
+li>textarea {
+	resize: none;
+	height: 215px;
+}
+
+ol>li>.cr_pick {
+	margin: auto;
+	width: 49%;
+}
+
+#clothespick {
+	margin: auto;
+	width: 49%;
+	height: 59px;
+}
 </style>
 
 </head>
@@ -56,16 +87,29 @@ resize: none; height: 215px;
 <body class="is-preload">
 
 
-<%
+	<%
+		Cookie cookie = null;
 
 	My_clothesDAO dao = new My_clothesDAO();
 
-   
-   String num = request.getParameter("num");
-   
-   My_clothesDTO cloth_info = dao.My_clothes_One_Select(num);
+	String num = request.getParameter("num");
 
-%>
+	if (num != null) {
+		cookie = new Cookie("my_clothes_num", num);
+		cookie.setMaxAge(60 * 60 * 30);
+	} else {
+		// 5. 쿠키 저장 조회
+		Cookie[] cookies = request.getCookies();
+
+		for (Cookie cookie_info : cookies) {
+			if (cookie_info.getName().equals("num")) {
+		num = cookie_info.getValue();
+			}
+		}
+	}
+
+	My_clothesDTO cloth_info = dao.My_clothes_One_Select(num);
+	%>
 
 
 	<!-- Wrapper-->
@@ -76,56 +120,58 @@ resize: none; height: 215px;
 
 
 		<div id="main">
+			<form action="ClothesUpdateServiceCon.do" method="post" enctype="multipart/form-data">
 
 
 
-			<!-- 왼쪽 영역 -->
-			<div id="left" >
+				<!-- 왼쪽 영역 -->
+				<div id="left">
 
 
-				<div id="pickcloth">
-								
+					<div id="pickcloth">
 
-				<img class="cloth_imgs" src="cloth_img/<%= cloth_info.getClothespath()%>" alt="" style="width: 100%">				
-				
+						<img id="cloth_imgs" src="cloth_img/<%=cloth_info.getClothespath()%>" alt="" style="width: 105%; position: relative; right: 2.5%;">
+					</div>
+						
+					<div id="pickbutten">
 
+					<input type="file" name="img_file">
+
+						<input type="button" style="position: relative;" value="사진찍기" onclick="history.back();">
+
+					</div>
 				</div>
 
 
-				<div id ="pickbutten">
 
-					<input type="button" style="position: relative;" value="사진찍기"
-						onclick="history.back();">
-
-				</div>
-			</div>
-
-
-
-			<!-- 오른쪽 영역 -->
-			<div id="right"  >
-				<div id="input_tag_div">
-					<form action="">
+				<!-- 오른쪽 영역 -->
+				<div id="right">
+					<div id="input_tag_div">
 						<ol style="list-style: none;">
-							<div>
-								<input id ="del" type="submit" value="삭제">
-							</div>
-							
+
+							<li><input id="del" type="submit" value="삭제"></li>
+
+
 							<li><%=cloth_info.getClothesName()%></li>
-							
-							<li><input type="text" nema ="Clothtext"></li>
+
+							<li><input type="text" name="title"> <input type="hidden" name="num" value="<%=num%>"></li>
+							<!-- 사용자에게 히든 값을 저장해서 넘겨줌-->
 							<li>옷에 대한 사용자가 적을 것</li>
-							<li><textarea rows="68" cols="60">
+							<li><textarea rows="68" cols="60" name="memo">
 							</textarea></li>
-							<li><input class ="cr_pick" type="submit" value="수정" >
-								<input class ="cr_pick" type="submit" value="선택" ></li>
+
+
+							<li><input class="cr_pick" type="submit" value="수정">
+
+								<button id="clothespick" class="cr_pick">선택</button></li>
 						</ol>
 
-					</form>
+
+					</div>
+
 				</div>
 
-			</div>
-
+			</form>
 
 		</div>
 
