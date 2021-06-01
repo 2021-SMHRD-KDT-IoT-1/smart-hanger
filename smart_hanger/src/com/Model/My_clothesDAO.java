@@ -52,15 +52,15 @@ public class My_clothesDAO {
 		conn();
 
 		try {
-			String sql = "insert from my_clothes_Insert values(?, ?, ?, ?, ?, ?)";
+			String sql = "insert from my_clothes_Insert values(num_my_clothes.nextval, ?, ?, ?, sysdate, ?, ?)";
 			psmt = conn.prepareStatement(sql);
 
-			psmt.setString(1, dto.getMy_clothes_num());
-			psmt.setString(2, dto.getUserId());
-			psmt.setString(3, dto.getClothesName());
-			psmt.setString(4, dto.getClothesType());
-			psmt.setString(5, dto.getUpload_date());
-			psmt.setString(5, dto.getMemo());
+			
+			psmt.setString(1, dto.getUserId());
+			psmt.setString(2, dto.getClothesName());
+			psmt.setString(3, dto.getClothesType());
+			psmt.setString(4, dto.getMemo());
+			psmt.setString(5, dto.getClothespath());
 
 			cnt = psmt.executeUpdate();
 
@@ -73,7 +73,7 @@ public class My_clothesDAO {
 	}
 
 	// ¿Ê µî·Ï
-	public ArrayList<My_clothesDTO> My_clothes_All_Select(My_clothesDTO dto) {
+	public ArrayList<My_clothesDTO> My_clothes_All_Select() {
 		ArrayList<My_clothesDTO> list = new ArrayList<My_clothesDTO>();
 		conn();
 
@@ -90,8 +90,9 @@ public class My_clothesDAO {
 				String clothesType = rs.getString(4);
 				String upload_date = rs.getString(5);
 				String memo = rs.getString(6);
-
-				list.add(new My_clothesDTO(my_clothes_num, userId, clothesName, clothesType, upload_date, memo));
+				String Clothespath = rs.getString(7);
+				
+				list.add(new My_clothesDTO(my_clothes_num, userId, clothesName, clothesType, upload_date, memo, Clothespath));
 
 			}
 
@@ -122,8 +123,9 @@ public class My_clothesDAO {
 				String clothesType = rs.getString(4);
 				String upload_date = rs.getString(5);
 				String memo = rs.getString(6);
+				String Clothespath = rs.getString(7);
 
-				result = new My_clothesDTO(my_clothes_num, userId, clothesName, clothesType, upload_date, memo);
+				result = new My_clothesDTO(my_clothes_num, userId, clothesName, clothesType, upload_date, memo, Clothespath);
 
 			}
 

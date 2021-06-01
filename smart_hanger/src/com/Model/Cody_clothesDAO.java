@@ -51,11 +51,12 @@ public class Cody_clothesDAO {
 		conn();
 
 		try {
-			String sql = "insert from cody_clothes values(?, ?, ?, ?, ?, ?, ?)";
+			////점심 먹고와서 여기부터 다시 시작 sql문 앞에 시퀀스 넣어야하고 
+			String sql = "insert from cody_clothes values(num_cody_clothes.nextval, ?, ?, ?, ?, ?, ?)";
 			psmt = conn.prepareStatement(sql);
 
-			psmt.setString(1, dto.getCody_num());
-			psmt.setString(2, dto.getClothesPath());
+			
+			psmt.setString(2, dto.getMy_clothes_num());
 			psmt.setString(3, dto.getUserID());
 			psmt.setString(4, dto.getTitle());
 			psmt.setString(5, dto.getContent());
@@ -74,7 +75,7 @@ public class Cody_clothesDAO {
 	}
 
 	// 전체 조회
-	public ArrayList<Cody_clothesDTO> Cody_clothes_All_Select(Cody_clothesDTO dto) {
+	public ArrayList<Cody_clothesDTO> Cody_clothes_All_Select() {
 		ArrayList<Cody_clothesDTO> list = new ArrayList<Cody_clothesDTO>();
 		conn();
 

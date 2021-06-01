@@ -1,8 +1,11 @@
 
+<<<<<<< HEAD
 <%@page import="com.Model.MemberDTO"%>
+=======
+<%@page import="com.Model.My_clothesDTO"%>
+<%@page import="com.Model.My_clothesDAO"%>
+>>>>>>> branch 'main' of https://github.com/2021-SMHRD-KDT-IoT-1/smart-hanger.git
 <%@page import="java.util.ArrayList"%>
-<%@page import="Model.WebClothesDTO"%>
-<%@page import="Model.WebClothesDAO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -46,10 +49,10 @@
 
 
 <%
-   WebClothesDAO dao = new WebClothesDAO();
-   ArrayList<WebClothesDTO> cloth_list = dao.SearchClothes();
-   MemberDTO dto = (MemberDTO)session.getAttribute("dto");
-
+   My_clothesDAO clothesdao = new My_clothesDAO();
+   ArrayList<My_clothesDTO> clothes_list = clothesdao.My_clothes_All_Select();
+   
+   
    
 %>
 
@@ -108,10 +111,10 @@
                         <div class="row" style="overflow-y: scroll; width:750px; height:400px; "  >
                         
                         <!-- 여기가 옷장에 있는 이미지 불러오는곳  -->
-                        <%for(int row = 0; row < cloth_list.size(); row++){ %>   
+                        <%for(int row = 0; row < clothes_list.size(); row++){ %>   
                            <div class="col-4 col-6-medium col-12-small">
-                              <a href="viewCloth.jsp?num=<%= cloth_list.get(row).getNum() %>" class="image fit">
-                              <img class="cloth_imgs" src="cloth_img/<%= cloth_list.get(row).getClothesname()%>" alt=""></a>                           
+                              <a href="viewCloth.jsp?num=<%= clothes_list.get(row).getMy_clothes_num() %>" class="image fit">
+                              <img class="cloth_imgs" src="cloth_img/<%= clothes_list.get(row).getClothesName()%>" alt=""></a>                           
                         </div>
                         <% } %>
                         

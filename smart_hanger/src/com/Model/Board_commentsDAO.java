@@ -51,15 +51,15 @@ public class Board_commentsDAO {
 		conn();
 
 		try {
-			String sql = "insert from board_comments values(?, ?, ?, ?, ?)";
+			String sql = "insert from board_comments values(num_board_comments.nextval,?, ?, ?, sysdate)";
 			psmt = conn.prepareStatement(sql);
-
-			psmt.setString(1, dto.getComments_num());
-			psmt.setString(2, dto.getUserId());
-			psmt.setString(3, dto.getCody_board_num());
-			psmt.setString(4, dto.getComments());
-			psmt.setString(5, dto.getUpload_date());
-
+			
+		
+			
+			psmt.setString(1, dto.getUserId());
+			psmt.setString(2, dto.getCody_board_num());
+			psmt.setString(3, dto.getComments());
+			
 
 
 

@@ -1,7 +1,9 @@
+<<<<<<< HEAD
+=======
+<%@page import="com.Model.My_clothesDTO"%>
+>>>>>>> branch 'main' of https://github.com/2021-SMHRD-KDT-IoT-1/smart-hanger.git
 <%@page import="com.Model.My_clothesDAO"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="Model.WebClothesDTO"%>
-<%@page import="Model.WebClothesDAO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -55,11 +57,13 @@ resize: none; height: 215px;
 
 
 <%
+
 	My_clothesDAO dao = new My_clothesDAO();
+
    
    String num = request.getParameter("num");
    
-   WebClothesDTO cloth_info = dao.SearchOneClothes(num);
+   My_clothesDTO cloth_info = dao.My_clothes_One_Select(num);
 
 %>
 
@@ -81,7 +85,8 @@ resize: none; height: 215px;
 
 				<div id="pickcloth">
 								
-				<img class="cloth_imgs" src="cloth_img/<%= cloth_info.get %>" alt="" style="width: 100%">				
+
+				<img class="cloth_imgs" src="cloth_img/<%= cloth_info.getClothespath()%>" alt="" style="width: 100%">				
 				
 
 				</div>
@@ -106,7 +111,7 @@ resize: none; height: 215px;
 								<input id ="del" type="submit" value="삭제">
 							</div>
 							
-							<li><%=cloth_info.getClothesname()%></li>
+							<li><%=cloth_info.getClothesName()%></li>
 							
 							<li><input type="text" nema ="Clothtext"></li>
 							<li>옷에 대한 사용자가 적을 것</li>
