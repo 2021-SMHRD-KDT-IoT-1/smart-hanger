@@ -5,8 +5,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.command.Command;
-import Model.ClothMemberDAO;
-import Model.ClothMemberDTO;
 
 import Model.ClothMemberDAO;
 import Model.ClothMemberDTO;

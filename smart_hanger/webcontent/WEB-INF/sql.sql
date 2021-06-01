@@ -73,8 +73,7 @@ CREATE TABLE MEMBER (
 select * from MEMBER;
 -- ÄÚµð ¿Ê 
 CREATE TABLE cody_clothes (
-    num number NOT NULL PRIMARY KEY,
-	cody_num varchar2(200) NOT NULL,
+	cody_num varchar2(200) NOT NULL PRIMARY KEY,
 	my_clothes_num varchar2(200) NOT NULL,
 	userID varchar2(200) NOT NULL,
 	title varchar2(200)  NULL,
@@ -234,7 +233,9 @@ CREATE TABLE my_clothes (
 	clothesname varchar2(200) ,
 	clothestype varchar2(200) ,
 	upload_date date NOT NULL ,
-	Memo varchar2(500) , 
+	Memo varchar2(500) ,
+	clothesPath   varchar2(200)  NOT  NULL,
+	
 	
 	constraint my_clothes_userID_fk foreign key(userid) 
 	references member(userid)

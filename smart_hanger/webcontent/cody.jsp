@@ -1,7 +1,7 @@
+<%@page import="com.Model.Cody_clothesDTO"%>
+<%@page import="com.Model.Cody_clothesDAO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
-<%@page import="Model.WebStylistDTO"%>
-<%@page import="Model.WebStylistDAO"%>
 <%@page import="java.util.ArrayList"%>
 <!DOCTYPE html>
 <html>
@@ -19,10 +19,10 @@ overflow-y: scroll; width: 750px; height: 400px;
 
 
 
-
+    
 	<%
-	WebStylistDAO codydao = new WebStylistDAO();
-	ArrayList<WebStylistDTO> cody_list = codydao.SearchStylise();
+	Cody_clothesDAO codydao = new Cody_clothesDAO();
+	ArrayList<Cody_clothesDTO> cody_list = codydao.Cody_clothes_All_Select();
 	%>
 
 
@@ -45,8 +45,8 @@ overflow-y: scroll; width: 750px; height: 400px;
 
 			<% for (int row = 0; row < cody_list.size(); row++) { %>
 			<div class="col-4 col-6-medium col-12-small">
-				<a href="viewStylist.jsp?num=" <%=cody_list.get(row).getNum()%> class="image fit">
-				<img class="cody_imgs" src="./cody_img/<%=cody_list.get(row).getClothespath()%>" alt=""></a>
+				<a href="viewStylist.jsp?num=" <%=cody_list.get(row).getCody_num()%> class="image fit">
+				<img class="cody_imgs" src="./cody_img/<%=cody_list.get(row).getClothesPath()%>" alt=""></a>
 			</div>
 			<% } %>
 
