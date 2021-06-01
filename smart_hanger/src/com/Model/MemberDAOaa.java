@@ -7,7 +7,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import Model.WebMemberDTO;
 
 public class MemberDAOaa {
 
@@ -48,7 +47,7 @@ public class MemberDAOaa {
 		}
 	}
 
-	public int join(WebMemberDTO dto) {
+	public int join(MemberDTOaa dto) {
 		conn();
 
 		try {
