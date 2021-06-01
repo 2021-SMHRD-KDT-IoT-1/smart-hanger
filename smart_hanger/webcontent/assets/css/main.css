@@ -1399,7 +1399,7 @@ input, select, textarea {
 	}
 
 	h2 {
-		font-size: 1.8em;
+		font-size: 1em;
 		letter-spacing: -0.015em;
 	}
 
@@ -1458,7 +1458,7 @@ input, select, textarea {
 	}
 
 	p, ul, ol, dl, table, blockquote, form {
-		margin-bottom: 2em;
+		margin-bottom: 1em;
 	}
 
 /* Table */
@@ -1502,7 +1502,7 @@ input, select, textarea {
 		-webkit-appearance: none;
 		border: 0;
 		background: #f4f4f4;
-		padding: 0.75em;
+		padding: 1em;
 		width: 100%;
 		-moz-transition: background-color .25s ease-in-out;
 		-webkit-transition: background-color .25s ease-in-out;

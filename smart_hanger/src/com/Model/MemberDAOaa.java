@@ -14,8 +14,6 @@ public class MemberDAOaa {
 	PreparedStatement psmt = null;
 	int cnt = 0;
 	ResultSet rs = null;
-	My_clothesDTO dto = null;
-	ArrayList<My_clothesDTO> list = null;
 
 	public void conn() {
 		try {
@@ -47,7 +45,11 @@ public class MemberDAOaa {
 		}
 	}
 
+<<<<<<< HEAD
 	public int join(MemberDTOaa dto) {
+=======
+	public int join(MemberDTO dto) {
+>>>>>>> branch 'main' of https://github.com/2021-SMHRD-KDT-IoT-1/smart-hanger.git
 		conn();
 
 		try {
@@ -56,8 +58,8 @@ public class MemberDAOaa {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, dto.getEmail());
 			psmt.setString(2, dto.getPw());
-			psmt.setString(3, dto.getTel());
-			psmt.setString(4, dto.getAddr());
+			psmt.setString(3, dto.getName());
+			psmt.setString(4, dto.getAge());
 
 			cnt = psmt.executeUpdate();
 

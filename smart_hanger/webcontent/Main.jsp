@@ -105,7 +105,7 @@
                         <%for(int row = 0; row < cloth_list.size(); row++){ %>   
                            <div class="col-4 col-6-medium col-12-small">
                               <a href="viewCloth.jsp?num=<%= cloth_list.get(row).getNum() %>" class="image fit">
-                              <img class="cloth_imgs" src="cloth_img/<%= cloth_list.get(row).get%>" alt=""></a>                           
+                              <img class="cloth_imgs" src="cloth_img/<%= cloth_list.get(row).getClothesname()%>" alt=""></a>                           
                         </div>
                         <% } %>
                         
