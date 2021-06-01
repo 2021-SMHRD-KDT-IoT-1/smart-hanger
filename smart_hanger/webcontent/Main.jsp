@@ -11,7 +11,6 @@
       <meta charset="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
       <link rel="stylesheet" href="assets/css/main.css" />
-      <link rel="stylesheet" href="assets/css/loginFrame.css" />
       <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
       
     
@@ -106,7 +105,7 @@
                         <%for(int row = 0; row < cloth_list.size(); row++){ %>   
                            <div class="col-4 col-6-medium col-12-small">
                               <a href="viewCloth.jsp?num=<%= cloth_list.get(row).getNum() %>" class="image fit">
-                              <img class="cloth_imgs" src="cloth_img/<%= cloth_list.get(row).getClothesPath() %>" alt=""></a>                           
+                              <img class="cloth_imgs" src="cloth_img/<%= cloth_list.get(row).get%>" alt=""></a>                           
                         </div>
                         <% } %>
                         
