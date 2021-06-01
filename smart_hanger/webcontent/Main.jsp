@@ -1,3 +1,4 @@
+
 <%@page import="java.util.ArrayList"%>
 <%@page import="Model.WebClothesDTO"%>
 <%@page import="Model.WebClothesDAO"%>
@@ -11,6 +12,8 @@
       <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
       <link rel="stylesheet" href="assets/css/main.css" />
       <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+      
+    
 </head>
 
 <body class="is-preload">
@@ -43,7 +46,9 @@
 <%
    WebClothesDAO dao = new WebClothesDAO();
    ArrayList<WebClothesDTO> cloth_list = dao.SearchClothes();
-
+   
+   
+   
 %>
 
    <!-- Wrapper-->
@@ -85,7 +90,7 @@
                   <article id="work" class="panel">
                   <div> <input type="submit"  value="옷 등록" style="float: right;" onClick="location.href='picture.html'"> >  </div>
                      <header>
-                        <h2>옷장 : 나중에 이거 바꿈</h2>
+                        <h2 Style = "position: relative; top: 10px;">옷장 : 여기 수정해야함</h2>
                      </header>
                      <p>
                         옷장 이미지 띄우는곳 설명은 나중에 바꿈
@@ -99,7 +104,9 @@
                         <!-- 여기가 옷장에 있는 이미지 불러오는곳  -->
                         <%for(int row = 0; row < cloth_list.size(); row++){ %>   
                            <div class="col-4 col-6-medium col-12-small">
-                              <a href="viewCloth.jsp?num=<%= cloth_list.get(row).getNum() %>" class="image fit"><img class="cloth_imgs" src="cloth_img/<%= cloth_list.get(row).getClothesPath() %>" alt=""></a>                           </div>
+                              <a href="viewCloth.jsp?num=<%= cloth_list.get(row).getNum() %>" class="image fit">
+                              <img class="cloth_imgs" src="cloth_img/<%= cloth_list.get(row).getClothesname()%>" alt=""></a>                           
+                        </div>
                         <% } %>
                         
                         
@@ -111,7 +118,7 @@
                   <!-- 여기는 코디 -->
                   <article id="Stylist" class="panel">
  					<script>
- 						btnclick("Stylist", "cody.html");
+ 						btnclick("Stylist", "cody.jsp");
  					</script>
                   </article>
                   

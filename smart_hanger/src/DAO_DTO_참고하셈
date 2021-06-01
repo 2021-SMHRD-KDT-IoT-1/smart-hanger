@@ -1,0 +1,55 @@
+
+
+		등록 : 테이블명_Insert()
+		전체조회 : 테이블명_All_Select()
+		개별조회 : 테이블명_One_select() 
+		개벌삭제 : 테이블명_One_delete()
+		
+		
+		테이블명_DAO
+		테이블명_DTO
+		% 단!!!  게시판 이미지 테이블은 따로 만들지마 말고 게시글 DTO,DAO에 통합하여 작성
+		
+		
+		다른거는 여기에 기록했으니 참고하셈! 진석스가 만듬 오케잇
+		
+		
+============================================================================
+
+
+1.
+
+
+
+2.
+
+
+
+3.
+
+
+
+4.
+		
+		
+		
+				
+============================================================================
+
+
+
+
+this.cody_board_num = cody_board_num;
+		this.userid = userid;
+		this.title = title;
+		this.content = content;
+		this.upload_date = upload_date;
+		this.like_num = like_num;
+		this.view_num = view_num;
+
+
+
+
+
+
+		

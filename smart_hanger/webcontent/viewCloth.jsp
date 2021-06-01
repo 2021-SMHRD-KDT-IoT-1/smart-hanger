@@ -12,9 +12,56 @@
 	content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="assets/css/main.css" />
 <link rel="stylesheet" href="assets/css/viewCloth.css" />
+<style type="text/css">
+
+#main {
+height: 500px;
+
+/* =================여기는 왼쪽 화면 스타일 ======================= */
+}
+#left {
+width: 50%; height: 100%; float: left;
+}
+#pickcloth{
+position: relative; width: 80%; height: 70%; top: 20px; left: 20px; border: 1px solid;
+}
+#pickbutten{
+position: relative; top: 20px; left: 20px;
+}
+
+/* ==============여기는 오른쪽 화면 스타일 ==================== */
+#right {
+ overflow-y:scroll; width: 50%; height: 100%; float: left;
+}
+#input_tag_div {
+position: relative; top: 37px; width: 91%; height: 115px;
+}
+#del{
+float: right; height: 50%; width: 30%;
+}
+li > textarea {
+resize: none; height: 215px;
+}
+ ol > li > .cr_pick {
+ margin: auto; width: 49%;
+}
+
+</style>
+
 </head>
 
 <body class="is-preload">
+
+
+<%
+   WebClothesDAO dao = new WebClothesDAO();
+   
+   String num = request.getParameter("num");
+   
+   WebClothesDTO cloth_info = dao.SearchOneClothes(num);
+
+%>
+
 
 	<!-- Wrapper-->
 	<div id="wrapper">
@@ -22,23 +69,25 @@
 		<!-- Main -->
 		<!-- red == 여기는 옷 사진 출력  -->
 
-		<div id="main" style="height: 500px">
 
-
-
+		<div id="main">
 
 
 
 			<!-- 왼쪽 영역 -->
-			<div id="left" style="width: 50%; height: 100%; float: left;">
+			<div id="left" >
 
 
-				<div
-					style="position: relative; width: 300px; height: 320px; top: 20px; left: 20px; border: 1px solid;">
+				<div id="pickcloth">
+								
+				<img class="cloth_imgs" src="cloth_img/<%= cloth_info.getClothesPath() %>" alt="" style="width: 100%">				
+				
+
 				</div>
 
 
-				<div style="position: relative; top: 20px; left: 20px;">
+				<div id ="pickbutten">
+
 					<input type="button" style="position: relative;" value="사진찍기"
 						onclick="history.back();">
 
@@ -47,46 +96,29 @@
 
 
 
-
-
-
-
-
-
-
 			<!-- 오른쪽 영역 -->
-			<div id="right" style="width: 50%; height: 100%; float: left;">
-				<div id="input_tag_div"
-					style="position: relative; top: 37px; width: 91%; height: 115px;">
-					<form action="#">
+			<div id="right"  >
+				<div id="input_tag_div">
+					<form action="">
 						<ol style="list-style: none;">
 							<div>
-								<input type="submit" value="삭제"
-									style="float: right; height: 50%; width: 30%;">
+								<input id ="del" type="submit" value="삭제">
 							</div>
-
-							<li>옷 이름></li>
-							<li><input type="text"></li>
+							
+							<li><%=cloth_info.getClothesname()%></li>
+							
+							<li><input type="text" nema ="Clothtext"></li>
 							<li>옷에 대한 사용자가 적을 것</li>
-							<li><textarea rows="68" cols="60"
-									style="resize: none; height: 215px;">
+							<li><textarea rows="68" cols="60">
 							</textarea></li>
-							<li><input type="submit" value="수정" style=" margin: auto; width: 49%;">
-								<input type="submit" value="선택" style=" margin: auto; width: 49%;"></li>
+							<li><input class ="cr_pick" type="submit" value="수정" >
+								<input class ="cr_pick" type="submit" value="선택" ></li>
 						</ol>
 
 					</form>
 				</div>
 
 			</div>
-
-
-
-
-
-
-
-
 
 
 		</div>
