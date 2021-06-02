@@ -12,10 +12,23 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.command.Command;
-import com.command.Command;
+import com.controller_Class.ClothesOneDeleteServicCon;
+import com.controller_Class.ClothesUpdateServiceCon;
+//import com.controller_Class.DeleteServiceCon;
 import com.controller_Class.JoinServiceCon;
 import com.controller_Class.LoginServiceCon;
 import com.controller_Class.LogoutServiceCon;
+//import com.controller_Class.MessageDeleteOneServiceCon;
+//import com.controller_Class.MessageDeleteServiceCon;
+//import com.controller_Class.MessageServiceCon;
+//import com.controller_Class.UpdateServiceCon;
+//import com.controller_Class.WriterBoard;
+//import com.model.WebBoardDAO;
+//import com.model.WebBoardDTO;
+//import com.model.WebMessageDAO;
+//import com.model.WebMessageDTO;
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 
 
@@ -46,6 +59,7 @@ public class FrontController extends HttpServlet {
 		String resultURI = reqURI.substring(path.length()+1);
 		System.out.println("서블릿 이름 : "+resultURI);
 		
+		request.setCharacterEncoding("EUC-KR");
 		
 		//업캐스팅 하기 위해서 수퍼클래스 선언
 		Command command = null;
@@ -54,28 +68,26 @@ public class FrontController extends HttpServlet {
 		
 		
 		if(resultURI.equals("LoginServiceCon.do")) {
-			command = new LoginServiceCon();}
+			command = new LoginServiceCon();
+		
 			
-			
-			
-			
-		else if(resultURI.equals("JoinServiceCon.do")) {
-			command = new JoinServiceCon();}
-			
-			
-			
+//		}else if(resultURI.equals("JoinServiceCon.do")) {
+//			command = new JoinServiceCon();
+//			
+//			
+//			
 //		}else if(resultURI.equals("DeleteServiceCon.do")) {
 //			command = new DeleteServiceCon();
 //			
 //			
 //			
 //			
-		else if(resultURI.equals("LogoutServiceCon.do")) {
-			command = new LogoutServiceCon();}
-			
-			
-			
-			
+//		}else if(resultURI.equals("LogoutServiceCon.do")) {
+//			command = new LogoutServiceCon();
+//			
+//			
+//			
+//			
 //		}else if(resultURI.equals("MessageDeleteServiceCon.do")) {
 //			command = new MessageDeleteServiceCon();
 //			
@@ -98,12 +110,23 @@ public class FrontController extends HttpServlet {
 //			
 //			
 //			
-//		}else if(resultURI.equals("WriterBoard.do")) {
-//			command = new WriterBoard();
-//			
-//		}
+			
+			
+		// 여기는 등록된 옷 삭제	
+		}else if(resultURI.equals("ClothesOneDeleteServicCon.do")) {
+			command = new ClothesOneDeleteServicCon();
+			
+			
+			
+	    // 여기는 옷 수정 
+		}else if(resultURI.equals("ClothesUpdateServiceCon.do")) {
+			command = new ClothesUpdateServiceCon();
+			
+		}
+		
 		
 		String moveURL = command.execute(request, response);
+		System.out.println(moveURL);
 		response.sendRedirect(moveURL);
 		
 		
