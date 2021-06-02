@@ -22,10 +22,20 @@
 		
 		/* 로그인 연결 */
 		function join_click() {
+
+			
+			userId = $('#email').val();
+			userPw = $('#pw').val();
+			userName = $('#name').val();
+			userAge = $('#age').val();
+			
+			
+			
+			
 			$.ajax({
 				url : 'JoinServiceCon.do',
 				type : 'post',
-				data : {userId : $('#email').val(), userPw : $('#pw').val(), userName : $('#name').val(), userAge : $('#age').val()},
+				data : {userId : userId, userPw : userPw, userName : userName, userAge : userAge},
 				success : function(data) {
 					$('#loginFrame').html(data);
 				},

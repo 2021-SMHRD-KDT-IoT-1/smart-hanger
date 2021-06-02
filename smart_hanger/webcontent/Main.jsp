@@ -1,4 +1,5 @@
 
+<%@page import="java.net.URLEncoder"%>
 <%@page import="com.Model.My_clothesDTO"%>
 <%@page import="com.Model.My_clothesDAO"%>
 <%@page import="com.Model.MemberDTO"%>
@@ -42,15 +43,6 @@
 		
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		// 코디
 		btnclick("Stylist", "cody.jsp");
 	</script>
@@ -62,6 +54,21 @@
 	ArrayList<My_clothesDTO> clothes_list = clothesdao.My_clothes_All_Select();
 
 	MemberDTO dto = (MemberDTO) session.getAttribute("dto");
+	
+	String email = null;
+	String pw = null;
+	String name = null;
+	String age = null;
+	
+	if(dto != null){
+		email = dto.getEmail(); 
+		pw = dto.getPw(); 
+		name = dto.getName(); 
+		age = dto.getAge(); 
+		
+	}
+	
+	
 	%>
 
 	<!-- Wrapper-->
@@ -105,19 +112,27 @@
 
 
 
+
+
+
+
+
+
+
+
 		<!-- Main -->
 		<div id="main">
 
 			<!-- Me -->
 			<article id="home" class="panel intro"> <header>
 			<h1>
-				<%if (dto != null) {%><%= dto.getEmail()%><%}else{} %>
+				<%if (dto != null) {%><%= email%><%}else{} %>
 			</h1>
 			<h1>
-				<%if (dto != null) {%><%= dto.getName()%><%}else{} %>
+				<%if (dto != null) {%><%= name%><%}else{} %>
 			</h1>
 			<h1>
-				<%if (dto != null) {%><%= dto.getAge()%><%}else{} %>
+				<%if (dto != null) {%><%= age%><%}else{} %>
 			</h1>
 			<p>SmartHanger에 오신것을 환영합니다!</p>
 			</header> <a href="#work" class="jumplink pic"> <span class="arrow icon solid fa-chevron-right"><span>See my work</span></span> <img src="images/me.jpg" alt="" />
