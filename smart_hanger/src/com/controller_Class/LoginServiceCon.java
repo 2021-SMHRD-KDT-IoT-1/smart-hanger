@@ -14,6 +14,7 @@ public class LoginServiceCon implements Command {
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 
 		String moveURL = null;
+		
 
 		// 값 받아오기.
 
@@ -26,7 +27,6 @@ public class LoginServiceCon implements Command {
 		MemberDTO resultDTO = dao.login(dto);
 
 		if (resultDTO != null) {
-			System.out.println("로그인 성공");
 
 			HttpSession session = request.getSession();
 			session.setAttribute("userInfo", resultDTO);
@@ -34,7 +34,7 @@ public class LoginServiceCon implements Command {
 			System.out.println("로그인 실패");
 
 			HttpSession session = request.getSession();
-			session.removeAttribute("dto");
+			session.invalidate();
 		}
 
 		moveURL = "Main.jsp";

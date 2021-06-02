@@ -47,11 +47,8 @@
 					<tr>
 						<td><input type="submit" value="LogIn" class="button fit"></td>
 
-<<<<<<< HEAD
-						<td><a style = "mmargin-right: 100px;" onclick="btnclick('loginFrame','joinWindow.jsp')" class="button fit">join</a>
-=======
+
 						<td><a onclick="btnclick('loginFrame','joinWindow.jsp')" class="button fit">join</a>
->>>>>>> branch 'main' of https://github.com/2021-SMHRD-KDT-IoT-1/smart-hanger.git
 					</tr>
 				</table>
 			</form>

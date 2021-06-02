@@ -21,7 +21,7 @@
 
 </head>
 
-<body class="is-preload">
+<body class="is-preload" style="height: auto;">
 
 
 	<%

@@ -12,6 +12,19 @@ public class My_clothesDTO {
 	
 	
 	
+	public My_clothesDTO(String userId, String clothesName, String clothesType, String memo, String clothespath) {
+		super();
+		this.userId = userId;
+		this.clothesName = clothesName;
+		this.clothesType = clothesType;
+		this.memo = memo;
+		this.clothespath = clothespath;
+	}
+
+
+
+
+
 	public My_clothesDTO(String my_clothes_num, String userId, String clothesName, String clothesType, String upload_date, String memo, String clothespath) {
 		super();
 		this.my_clothes_num = my_clothes_num;
