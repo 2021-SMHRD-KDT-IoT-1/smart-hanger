@@ -5,13 +5,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.command.Command;
 
-public class addClothServiceCon implements Command {
+public class AddClothServiceCon implements Command {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
-		
-		String moveURL = null;
-		
+
 		
 		
 		

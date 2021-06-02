@@ -2,13 +2,15 @@
 <%@page import="com.Model.My_clothesDTO"%>
 <%@page import="com.Model.My_clothesDAO"%>
 <%@page import="java.util.ArrayList"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+	pageEncoding="EUC-KR"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <title>Astral by HTML5 UP</title>
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="assets/css/main.css" />
 <link rel="stylesheet" href="assets/css/viewCloth.css" />
 <style type="text/css">
@@ -88,7 +90,7 @@ ol>li>.cr_pick {
 
 
 	<%
-		Cookie cookie = null;
+	Cookie cookie = null;
 
 	My_clothesDAO dao = new My_clothesDAO();
 
@@ -115,26 +117,24 @@ ol>li>.cr_pick {
 
 
 	<script type="text/javascript">
-	
-		function oneDelete(num){
-	        $.ajax({
-	            url : 'ClothesOneDeleteServicCon.do',
-	            type : 'post',
-	            data : {num : num},
-	            success: function(data) {
-	                alert('삭제성공');
-	                alert(data);
-	                window.location.href = data;
-	            },
-	            	error: function() {
-	                alert('삭제실패');
-	            }
-	        });
-		
+		function oneDelete(num) {
+			$.ajax({
+				url : 'ClothesOneDeleteServicCon.do',
+				type : 'post',
+				data : {
+					num : num
+				},
+				success : function(data) {
+					alert('삭제성공');
+					alert(data);
+					window.location.href = data;
+				},
+				error : function() {
+					alert('삭제실패');
+				}
+			});
+
 		}
-		
-		
-		
 	</script>
 
 	<!-- Wrapper-->
@@ -144,57 +144,58 @@ ol>li>.cr_pick {
 		<!-- red == 여기는 옷 사진 출력  -->
 
 		<div id="main" style="height: 500px">
-		<form action = "addClothServiceCon.do" method = "post" enctype="multipart/form-data">
+			<form action="AddClothServiceCon.do" method="post"
+				enctype="multipart/form-data">
 
 
 
 
 
-			<!-- 왼쪽 영역 -->
-			<div id="left" style="width: 50%; height: 100%; float: left;">
+				<!-- 왼쪽 영역 -->
+				<div id="left" style="width: 50%; height: 100%; float: left;">
 
 
-				<div
-					style="position: relative; width: 80%; height: 64%; top: 10%; left: 10%; border: 1px solid;">
+					<div
+						style="position: relative; width: 80%; height: 64%; top: 10%; left: 10%; border: 1px solid;">
+					</div>
+
+
+					<div style="position: relative; top: 20px; left: 20px;">
+						<input type="button"
+							style="position: absolute; margin-left: 29%; margin-top: 10%"
+							value="사진찍기" onclick="history.back();"> <input
+							type="file" name="img_file">
+
+					</div>
 				</div>
 
 
-				<div style="position: relative; top: 20px; left: 20px;">
-					<input type="button" style="position: absolute; margin-left: 29%; margin-top: 10%" value="사진찍기" 
-						onclick="history.back();" >
-						<input type="file" name="img_file">
 
+
+
+
+
+
+
+
+				<!-- 오른쪽 영역 -->
+				<div id="right" style="width: 50%; height: 100%; float: left;">
+					<div id="input_tag_div"
+						style="position: relative; top: 37px; width: 91%; height: 115px;">
+							<ol style="list-style: none;">
+								<li>옷 이름></li>
+								<li><input type="text"></li>
+								<li>옷에 대한 사용자가 적을 것</li>
+								<li><textarea rows="68" cols="60"
+										style="resize: none; height: 215px;">
+							</textarea></li>
+								<li><input type="submit" value="등록완료"
+									onClick="location.href='main.jsp'" style="margin-left: 30%;"></li>
+							</ol>
+					</div>
 				</div>
-			</div>
+			</form>
 
-
-
-
-
-
-
-
-
-
-			<!-- 오른쪽 영역 -->
-			<div id="right" style="width: 50%; height: 100%; float: left;">
-				<div id="input_tag_div"  style = "position: relative; top : 37px; width: 91%; height : 115px;" >
-					<form action="#">
-						<ol style="list-style: none;">
-							<li>옷 이름></li>
-							<li><input type="text"></li>
-							<li>옷에 대한 사용자가 적을 것</li>
-							<li>
-							<textarea rows="68" cols="60" style = "resize: none; height : 215px;">
-							</textarea> 
-							</li>
-							<li><input type="submit" value ="등록완료" onClick="location.href='main.jsp'" style = "margin-left: 30%; "></li>
-						</ol>
-
-					</form>
-				</div>
-
-			</div>
 
 
 

@@ -73,6 +73,7 @@ public class MemberDAO {
 		conn();
 	
 		try {
+
 			String sql = "select * from member where USERID = ? and USERPW = ?";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, InputDto.getUserId());
@@ -153,6 +154,7 @@ public class MemberDAO {
 		conn();
 		
 		try {
+
 			String sql = "delete from member where USERID = ? and USERPW = ?";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, dto.getUserId());
