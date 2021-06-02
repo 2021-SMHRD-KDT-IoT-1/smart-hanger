@@ -4,10 +4,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.Model.MemberDAO;
+import com.Model.MemberDTO;
 import com.command.Command;
-
-import Model.ClothMemberDAO;
-import Model.ClothMemberDTO;
 
 public class JoinServiceCon implements Command {
 
@@ -22,8 +21,8 @@ public class JoinServiceCon implements Command {
 		String tel = request.getParameter("name");
 		String addr = request.getParameter("age");
 
-		ClothMemberDTO dto = new ClothMemberDTO(email, pw, tel, addr);
-		ClothMemberDAO dao = new ClothMemberDAO();
+		MemberDTO dto = new MemberDTO(email, pw, tel, addr);
+		MemberDAO dao = new MemberDAO();
 		int cnt = dao.join(dto);
 
 		if (cnt > 0) {

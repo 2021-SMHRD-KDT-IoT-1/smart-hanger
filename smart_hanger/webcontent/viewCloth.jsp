@@ -23,15 +23,19 @@ height: 500px;
 width: 50%; height: 100%; float: left;
 }
 #pickcloth{
-position: relative; width: 80%; height: 70%; top: 20px; left: 20px; border: 1px solid;
+position: relative; width: 80%; height: 70%; top: 20px; left: 20px; border: 1px solid; overflow: hidden;
 }
+#cloth_imgs{
+	height: 100;
+}
+
 #pickbutten{
 position: relative; top: 20px; left: 20px;
 }
 
 /* ==============여기는 오른쪽 화면 스타일 ==================== */
 #right {
- overflow-y:scroll; width: 50%; height: 100%; float: left;
+ overflow-y:scroll; width: 50%; height: 500px; float: left;
 }
 #input_tag_div {
 position: relative; top: 37px; width: 91%; height: 115px;
@@ -44,6 +48,9 @@ resize: none; height: 215px;
 }
  ol > li > .cr_pick {
  margin: auto; width: 49%;
+}
+#clothespick {
+margin: auto; width: 49%; height: 59px;
 }
 
 </style>
@@ -71,6 +78,7 @@ resize: none; height: 215px;
 
 
 		<div id="main">
+					<form action="ClothesUpdateServiceCon.do" method="post" enctype="multipart/form-data">
 
 
 
@@ -80,9 +88,8 @@ resize: none; height: 215px;
 
 				<div id="pickcloth">
 								
-				<img class="cloth_imgs" src="cloth_img/<%= cloth_info.getClothespath()%>" alt="" style="width: 100%">				
-				
-
+				<img id="cloth_imgs" src="cloth_img/<%= cloth_info.getClothespath()%>" alt="" style="width: 105%; position: relative; right: 2.5%;">			
+				<input type="file" name="img_file">
 				</div>
 
 
@@ -99,27 +106,32 @@ resize: none; height: 215px;
 			<!-- 오른쪽 영역 -->
 			<div id="right"  >
 				<div id="input_tag_div">
-					<form action="">
 						<ol style="list-style: none;">
-							<div>
-								<input id ="del" type="submit" value="삭제">
-							</div>
+
+							<li><input id ="del" type="submit" value="삭제"></li>
+
 							
 							<li><%=cloth_info.getClothesName()%></li>
 							
-							<li><input type="text" nema ="Clothtext"></li>
+							<li><input type="text" name ="Clothtext">
+							<input type="hidden" name ="num" value="<%=num %>"></li> 
+							<!-- 사용자에게 히든 값을 저장해서 넘겨줌-->
 							<li>옷에 대한 사용자가 적을 것</li>
-							<li><textarea rows="68" cols="60">
+							<li><textarea rows="68" cols="60" name = "Clothtextarea">
 							</textarea></li>
+							
+							
 							<li><input class ="cr_pick" type="submit" value="수정" >
-								<input class ="cr_pick" type="submit" value="선택" ></li>
+							
+								<button id ="clothespick" class ="cr_pick" >선택</button> </li>
 						</ol>
 
-					</form>
+					
 				</div>
 
 			</div>
 
+					</form>
 
 		</div>
 
