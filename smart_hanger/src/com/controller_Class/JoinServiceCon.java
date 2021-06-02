@@ -1,5 +1,7 @@
 package com.controller_Class;
 
+import java.io.UnsupportedEncodingException;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -15,21 +17,28 @@ public class JoinServiceCon implements Command {
 
 		String moveURL = null;
 		
+		
+		try {
+			request.setCharacterEncoding("UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		// 값 받아오기
-		String email = request.getParameter("email");
-		String pw = request.getParameter("pw");
-		String tel = request.getParameter("name");
-		String addr = request.getParameter("age");
+		String email = request.getParameter("userId");
+		String pw = request.getParameter("userPw");
+		String tel = request.getParameter("userName");
+		String addr = request.getParameter("userAge");
 
-		MemberDTO dto = new MemberDTO(email, pw, tel, addr);
+
+	
 		MemberDAO dao = new MemberDAO();
-		int cnt = dao.join(dto);
+		int cnt = dao.join(new MemberDTO(email, pw, tel, addr));
 
 		if (cnt > 0) {
-			System.out.println("회원가입 성공");
+			//System.out.println("회원가입 성공");
 
-			HttpSession session = request.getSession();
-			session.setAttribute("email", email);
 			moveURL = "join_success.jsp";
 			
 		} else {

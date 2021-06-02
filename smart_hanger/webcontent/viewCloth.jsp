@@ -123,8 +123,7 @@ ol>li>.cr_pick {
 	            data : {num : num},
 	            success: function(data) {
 	                alert('삭제성공');
-	                alert(data);
-	                window.location.href = data;
+	                $(location).attr('href', 'Main.jsp');
 	            },
 	            	error: function() {
 	                alert('삭제실패');

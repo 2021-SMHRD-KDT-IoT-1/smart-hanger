@@ -67,9 +67,20 @@ public class FrontController extends HttpServlet {
 		
 		
 		
-		if(resultURI.equals("LoginServiceCon.do")) {
+		if (resultURI.equals("LoginServiceCon.do")) {
 			command = new LoginServiceCon();
+
+		}
+
+		else if (resultURI.equals("JoinServiceCon.do")) {
+			System.out.println("µé¾î¿È!");
+			command = new JoinServiceCon();
+		}
 		
+		else if (resultURI.equals("LogoutServiceCon.do")) {
+			command = new LogoutServiceCon();
+			
+			
 			
 //		}else if(resultURI.equals("JoinServiceCon.do")) {
 //			command = new JoinServiceCon();
