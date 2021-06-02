@@ -41,6 +41,7 @@ public class JoinServiceCon implements Command {
 			moveURL = "join_success.jsp";
 			
 		} else {
+			
 			System.out.println("회원가입 실패");
 			moveURL = "Main.jsp";
 			

@@ -27,11 +27,10 @@
 				type : 'post',
 				data : {userId : $('#email').val(), userPw : $('#pw').val(), userName : $('#name').val(), userAge : $('#age').val()},
 				success : function(data) {
-					//$('#loginWindow').html(data);
-					$('#loginWindow').text('조인 성공');
+					$('#loginFrame').html(data);
 				},
 				error : function() {
-					$('#loginWindow').text('회원가입 실패');
+					$('#loginFrame').text('회원가입 실패');
 				}
 			});
 		}
