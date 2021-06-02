@@ -18,6 +18,7 @@ import com.controller_Class.ClothesUpdateServiceCon;
 import com.controller_Class.JoinServiceCon;
 import com.controller_Class.LoginServiceCon;
 import com.controller_Class.LogoutServiceCon;
+import com.controller_Class.addClothServiceCon;
 //import com.controller_Class.MessageDeleteOneServiceCon;
 //import com.controller_Class.MessageDeleteServiceCon;
 //import com.controller_Class.MessageServiceCon;
@@ -121,6 +122,14 @@ public class FrontController extends HttpServlet {
 //			
 //			
 //			
+			
+		
+			
+			
+			
+			// 여기는 옷 등록	
+		}else if(resultURI.equals("addClothServiceCon.do")) {
+			command = new addClothServiceCon();	
 			
 			
 		// 여기는 등록된 옷 삭제	

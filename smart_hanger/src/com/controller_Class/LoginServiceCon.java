@@ -17,11 +17,11 @@ public class LoginServiceCon implements Command {
 
 		// 값 받아오기.
 
-		String email = request.getParameter("email");
-		String pw = request.getParameter("pw");
+		String userId = request.getParameter("userId");
+		String userPw = request.getParameter("userPw");
 		// rok , 123
 
-		MemberDTO dto = new MemberDTO(email, pw);
+		MemberDTO dto = new MemberDTO(userId, userPw);
 		MemberDAO dao = new MemberDAO();
 		MemberDTO resultDTO = dao.login(dto);
 
@@ -29,7 +29,7 @@ public class LoginServiceCon implements Command {
 			System.out.println("로그인 성공");
 
 			HttpSession session = request.getSession();
-			session.setAttribute("dto", resultDTO);
+			session.setAttribute("userInfo", resultDTO);
 		} else {
 			System.out.println("로그인 실패");
 

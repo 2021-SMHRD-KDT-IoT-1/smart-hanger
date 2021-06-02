@@ -1,4 +1,6 @@
 
+<%@page import="java.beans.Encoder"%>
+<%@page import="javax.sound.sampled.AudioFormat.Encoding"%>
 <%@page import="java.net.URLEncoder"%>
 <%@page import="com.Model.My_clothesDTO"%>
 <%@page import="com.Model.My_clothesDAO"%>
@@ -22,71 +24,81 @@
 <body class="is-preload">
 
 
+	<%
+
+
+	MemberDTO dto = (MemberDTO) session.getAttribute("userInfo");
+	
+	String userId = null;
+	String userPw = null;
+	String userName = null;
+	String userAge = null;
+	
+	if(dto != null){
+		userId = dto.getUserId(); 
+		userPw = dto.getUserPw(); 
+		userName = dto.getUserName(); 
+		userAge = dto.getUserAge(); 
+		
+	}
+	
+	
+	%>
+
 
 	<!-- div 요소 불러오는 jq -->
 	<script src="./js/jquery-3.6.0.min.js"></script>
 	<script type="text/javascript">
+	
+	
+		// 페이지 전환용 변수
 		/* 페이지 불러오기 (바꿀 div id입력 , 가져올 파일) */
 		function btnclick(inner, _url) {
+			
+			
 			$.ajax({
 				url : _url,
 				type : 'post',
 				success : function(data) {
 					$('#' + inner).html(data);
-					//$('#' + inner).css("display", "block");
 				},
 				error : function() {
 					$('#' + inner).text('페이지 점검중 입니다.');
 				}
 			});
 		}
+	
 		
+
 		
+		// 메인화면
+		btnclick("home", "home.jsp");
 		
 		// 코디
+		btnclick("work", "my_cloth.jsp");
+		
+		// 옷장
 		btnclick("Stylist", "cody.jsp");
+		
+		// 커뮤니티 게시판
+		btnclick("Community", "Community.jsp");
+		
+		
+		
 	</script>
 
 
 
-	<%
-	My_clothesDAO clothesdao = new My_clothesDAO();
-	ArrayList<My_clothesDTO> clothes_list = clothesdao.My_clothes_All_Select();
-
-	MemberDTO dto = (MemberDTO) session.getAttribute("dto");
-	
-	String email = null;
-	String pw = null;
-	String name = null;
-	String age = null;
-	
-	if(dto != null){
-		email = dto.getEmail(); 
-		pw = dto.getPw(); 
-		name = dto.getName(); 
-		age = dto.getAge(); 
-		
-	}
-	
-	
-	%>
-
 	<!-- Wrapper-->
-	<%
-	if (dto != null) {
-	%>
+	<% if (userId != null) { %>
 	<h1 style="margin-left: 760px; font-size: 30px; color: white">
 		Welcome to
-		<%=dto.getEmail()%>!
+		<%=dto.getUserName()%>!
 	</h1>
 	<button class="btn_logout" onClick="location.href='LogoutServiceCon.do'" style="position: absolute; left: 74%; top: 10%; ntop: 50%;">로그아웃</button>
-	<%
-	} else {
-	%>
+	<% } else {	%>
 	<button class="btn_login" onclick="btnclick('loginWindow','loginWindow.jsp')" style="position: absolute; left: 74%; top: 10%; ntop: 50%;">로그인</button>
-	<%
-	}
-	%>
+	<% } %>
 
 
 
@@ -124,51 +136,18 @@
 		<div id="main">
 
 			<!-- Me -->
-			<article id="home" class="panel intro"> <header>
-			<h1>
-				<%if (dto != null) {%><%= email%><%}else{} %>
-			</h1>
-			<h1>
-				<%if (dto != null) {%><%= name%><%}else{} %>
-			</h1>
-			<h1>
-				<%if (dto != null) {%><%= age%><%}else{} %>
-			</h1>
-			<p>SmartHanger에 오신것을 환영합니다!</p>
-			</header> <a href="#work" class="jumplink pic"> <span class="arrow icon solid fa-chevron-right"><span>See my work</span></span> <img src="images/me.jpg" alt="" />
-			</a> </article>
+			<article id="home" class="panel intro">
+			
+			</article>
 
-			<!-- Work -->
+
+
+
+
+			<!-- 옷장!!! -->
 			<article id="work" class="panel">
-			<div>
-				<input type="submit" value="옷 등록" style="float: right;" onClick="location.href='addCloth.jsp'">
-			</div>
-			<header>
-			<h2 Style="position: relative; top: 10px;">옷장 : 여기 수정해야함</h2>
-			</header>
-			<p>옷장 이미지 띄우는곳 설명은 나중에 바꿈</p>
-
-
-			<section>
-
-			<div class="row" style="overflow-y: scroll; width: 750px; height: 400px;">
-
-				<!-- 여기가 옷장에 있는 이미지 불러오는곳  -->
-				<%
-				for (int row = 0; row < clothes_list.size(); row++) {
-				%>
-				<div class="col-4 col-6-medium col-12-small">
-					<a href="viewCloth.jsp?num=<%=clothes_list.get(row).getMy_clothes_num()%>" class="image fit"> <img class="cloth_imgs"
-						src="cloth_img/<%=clothes_list.get(row).getClothesName()%>" alt=""></a>
-				</div>
-				<%
-				}
-				%>
-
-
-			</div>
-
-			</section> </article>
+				
+			</article>
 
 			<!-- 여기는 코디 -->
 			<article id="Stylist" class="panel"> 
@@ -177,32 +156,8 @@
 
 
 			<!-- Community -->
-			<article id="Community" class="panel"> <header>
-			<h2>커뮤니티 게시판</h2>
-			</header> <input type="submit" value="글작성" style="position: relative; left: 85%;">
-			<div style="border: 1px solid; width: 100%; height: 20%;">
-
-
-				<table id="commtitle">
-					<tr>
-						<th class="co5" id=c1>번호</th>
-						<!-- <th class= "co5" id = c2>말머리</th> -->
-						<th class="co5" id=c3>제목</th>
-						<th class="co5" id=c4>글쓴이</th>
-						<th class="co5" id=c5>작성일</th>
-						<!-- <th class= "co5">조회</th>
-                      <th class= "co5">추천</th> -->
-					</tr>
-					<tr onClick="location.href='CommunityLink.jsp'" style="border: 1px solid;">
-						<th class="co5" id=c1>1</th>
-						<!-- <th class= "co5" id = c2>말머리</th> -->
-						<th class="co5" id=c3>제목을 엄청나게 길게쓴다면 이렇게 늘어남</th>
-						<th class="co5" id=c4>홍진석</th>
-						<th class="co5" id=c5>2021-05-30</th>
-						<!-- <th class= "co5">조회</th>
-                      <th class= "co5">추천</th> -->
-					</tr>
-				</table>
+			<article id="Community" class="panel"> 
+			
 			</article>
 
 			<!-- 고객센터 -->

@@ -144,7 +144,7 @@ ol>li>.cr_pick {
 		<!-- red == 여기는 옷 사진 출력  -->
 
 		<div id="main" style="height: 500px">
-
+		<form action = "addClothServiceCon.do" method = "post" enctype="multipart/form-data">
 
 
 
@@ -162,6 +162,7 @@ ol>li>.cr_pick {
 				<div style="position: relative; top: 20px; left: 20px;">
 					<input type="button" style="position: absolute; margin-left: 29%; margin-top: 10%" value="사진찍기" 
 						onclick="history.back();" >
+						<input type="file" name="img_file">
 
 				</div>
 			</div>

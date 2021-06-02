@@ -38,17 +38,16 @@
 			<h2>로그인</h2>
 			<form action="LoginServiceCon.do" method="post">
 				<ul>
-					<li><input class="Login_input" type="text" placeholder="Email을 입력하세요" name="email"></li>
+					<li><input class="Login_input" type="text" placeholder="Email을 입력하세요" name="userId"></li>
 				</ul>
 				<ul>
-					<li><input class="Login_input" type="password"
-						placeholder="PW를 입력하세요" name="pw"></li>
+					<li><input class="Login_input" type="password" placeholder="PW를 입력하세요" name="userPw"></li>
 				</ul>
 				<table>
 					<tr>
 						<td><input type="submit" value="LogIn" class="button fit"></td>
 
-						<td><a style = mmargin-right: 100px; "btnclick('loginFrame','joinWindow.jsp')" class="button fit">join</a>
+						<td><a style = "mmargin-right: 100px;" onclick="btnclick('loginFrame','joinWindow.jsp')" class="button fit">join</a>
 					</tr>
 				</table>
 			</form>

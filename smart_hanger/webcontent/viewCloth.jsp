@@ -175,7 +175,7 @@ ol>li>.cr_pick {
 
 							<li><input type="button" id="del" value="ªË¡¶" onclick="oneDelete(<%=num%>)"></li>
 							
-							<li>ø  ¿Ã∏ß <li>
+				 			<li>ø  ¿Ã∏ß <li>
 							
 							
 							
