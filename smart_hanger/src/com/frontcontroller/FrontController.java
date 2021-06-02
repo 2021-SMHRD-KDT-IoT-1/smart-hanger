@@ -2,36 +2,22 @@ package com.frontcontroller;
 
 import java.io.IOException;
 
-import java.net.URLEncoder;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.command.Command;
-import com.command.Command;
-//import com.controller_Class.DeleteServiceCon;
 import com.controller_Class.JoinServiceCon;
 import com.controller_Class.LoginServiceCon;
 import com.controller_Class.LogoutServiceCon;
-//import com.controller_Class.MessageDeleteOneServiceCon;
-//import com.controller_Class.MessageDeleteServiceCon;
-//import com.controller_Class.MessageServiceCon;
-//import com.controller_Class.UpdateServiceCon;
-//import com.controller_Class.WriterBoard;
-//import com.model.WebBoardDAO;
-//import com.model.WebMessageDAO;
-//import com.model.WebMessageDTO;
-import com.oreilly.servlet.MultipartRequest;
-import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 
 
 @WebServlet("*.do")  // *를 통해서 .do라는 확장자가 붙은 친구들은 다 이 서블릿으로 오게 만들어 준다.
 public class FrontController extends HttpServlet {
+	private static final long serialVersionUID = 1L;
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
@@ -81,12 +67,12 @@ public class FrontController extends HttpServlet {
 //			
 //			
 //			
-//		}else if(resultURI.equals("LogoutServiceCon.do")) {
-//			command = new LogoutServiceCon();
-//			
-//			
-//			
-//			
+		else if(resultURI.equals("LogoutServiceCon.do")) {
+			command = new LogoutServiceCon();}
+			
+			
+			
+			
 //		}else if(resultURI.equals("MessageDeleteServiceCon.do")) {
 //			command = new MessageDeleteServiceCon();
 //			

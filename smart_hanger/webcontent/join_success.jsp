@@ -18,15 +18,15 @@
 	                $('#'+inner).css("display","none"); 
 	    }
 	</script>
-	
+
 	<div style="text-align: center;">
 
-						<ul class="actions vertical">
-							<li style = "margin-top : 30%"><h1>환영합니다!</h1></li>
-							<li>회원가입을 축하합니다.</li>
-							<li><button onclick='location.href="Main.jsp"'>시작하기</button></li>
-						</ul>		
-			</div>
+		<ul class="actions vertical">
+			<li style="margin-top: 30%"><h1>환영합니다!</h1></li>
+			<li>회원가입을 축하합니다.</li>
+			<li><button onclick='location.href="Main.jsp"'>시작하기</button></li>
+		</ul>
+	</div>
 
 </body>
 </html>
