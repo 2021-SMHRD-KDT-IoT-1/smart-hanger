@@ -22,7 +22,7 @@ drop sequence num_board
 
 
 
-
+insert into my_clothes values(num_my_clothes.nextval, '12', '12', '12', sysdate, '12', '12');
 
 
 
