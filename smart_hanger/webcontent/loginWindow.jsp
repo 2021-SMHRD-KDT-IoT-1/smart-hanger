@@ -48,7 +48,7 @@
 					<tr>
 						<td><input type="submit" value="LogIn" class="button fit"></td>
 
-						<td><a onclick="btnclick('loginFrame','joinWindow.jsp')" class="button fit">join</a>
+						<td><a style = mmargin-right: 100px; "btnclick('loginFrame','joinWindow.jsp')" class="button fit">join</a>
 					</tr>
 				</table>
 			</form>

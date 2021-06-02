@@ -31,6 +31,7 @@
 	width: 450px;
 	height: 350px;
 	margin: 0px;
+	margin-right : 100px;
 	top: 150px;
 	/* 이거 수정 끝나면 삭제 예정 */
 	border: 1px solid black;
@@ -54,14 +55,14 @@ li {
 
 .Login_input {
 	width: 200px !important;
-	height: 10px;
+	height: 30px ;
 	top : 100px;
 }
 
 
 .Jogin_input {
 	width: 200px !important;
-	height: 10px;
+	height: 30px ; 
 	top : 100px;
 }
 
