@@ -143,62 +143,66 @@ ol>li>.cr_pick {
 		<!-- Main -->
 		<!-- red == 여기는 옷 사진 출력  -->
 
-
-		<div id="main">
-			<form action="ClothesUpdateServiceCon.do" method="post" enctype="multipart/form-data">
+		<div id="main" style="height: 500px">
 
 
 
-				<!-- 왼쪽 영역 -->
-				<div id="left">
 
 
-					<div id="pickcloth">
 
-						<img id="cloth_imgs" src="cloth_img/<%=cloth_info.getClothespath()%>" alt="" style="width: 105%; position: relative; right: 2.5%;">
-					</div>
-						
-					<div id="pickbutten">
+			<!-- 왼쪽 영역 -->
+			<div id="left" style="width: 50%; height: 100%; float: left;">
 
-					<input type="file" name="img_file">
 
-						<input type="button" style="position: relative;" value="사진찍기" onclick="history.back();">
-
-					</div>
+				<div
+					style="position: relative; width: 80%; height: 64%; top: 10%; left: 10%; border: 1px solid;">
 				</div>
 
 
+				<div style="position: relative; top: 20px; left: 20px;">
+					<input type="button" style="position: absolute; margin-left: 29%; margin-top: 10%" value="사진찍기" 
+						onclick="history.back();" >
 
-				<!-- 오른쪽 영역 -->
-				<div id="right">
-					<div id="input_tag_div">
+				</div>
+			</div>
+
+
+
+
+
+
+
+
+
+
+			<!-- 오른쪽 영역 -->
+			<div id="right" style="width: 50%; height: 100%; float: left;">
+				<div id="input_tag_div"  style = "position: relative; top : 37px; width: 91%; height : 115px;" >
+					<form action="#">
 						<ol style="list-style: none;">
-
-							<li><input type="button" id="del" value="삭제" onclick="oneDelete(<%=num%>)"></li>
-							
-							<li>옷 이름 <li>
-							
-							
-							
-							<li><input type="text" name="title" value = " <%=cloth_info.getClothesName()%>" > 
-							<input type="hidden" name="num" value="<%=num%>"><input type="hidden" name="old_img_path" value="<%=cloth_info.getClothespath() %>" > </li>
-							<!-- 사용자에게 히든 값을 저장해서 넘겨줌-->
+							<li>옷 이름></li>
+							<li><input type="text"></li>
 							<li>옷에 대한 사용자가 적을 것</li>
-							<li><textarea rows="68" cols="60" name="memo"><%=cloth_info.getMemo() %>
-							</textarea></li>
-
-
-							<li><input class="cr_pick" type="submit" value="수정">
-
-								<button id="clothespick" class="cr_pick">선택</button></li>
+							<li>
+							<textarea rows="68" cols="60" style = "resize: none; height : 215px;">
+							</textarea> 
+							</li>
+							<li><input type="submit" value ="등록완료" onClick="location.href='main.jsp'" style = "margin-left: 30%; "></li>
 						</ol>
 
-
-					</div>
-
+					</form>
 				</div>
 
-			</form>
+			</div>
+
+
+
+
+
+
+
+
+
 
 		</div>
 

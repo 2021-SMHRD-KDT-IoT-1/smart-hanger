@@ -16,16 +16,16 @@ public class ClothesOneDeleteServicCon implements Command {
 		String moveURL = null;
 		
 		String num = request.getParameter("num");
- 		
 		
 		
-		
-		int my_clothes = Integer.parseInt(num);		
 		
 		My_clothesDAO dao = new My_clothesDAO();
-		
 		int cnt = dao.My_clothes_One_delete(num);
 	
+		
+		
+		
+		
 		if(cnt >0) {
 			//System.out.println("삭세 성공");
 		}else {

@@ -73,7 +73,8 @@ public class MemberDAO {
 		conn();
 	
 		try {
-			String sql = "select * from member where email = ? and pw = ?";
+
+			String sql = "select * from member where USERID = ? and USERPW = ?";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, InputDto.getEmail());
 			psmt.setString(2, InputDto.getPw());
@@ -102,7 +103,7 @@ public class MemberDAO {
 //		conn();
 //
 //		try {
-//			String sql = "update cloth_member set pw=?, tel=?, address=? where email=?";
+//			String sql = "update member set pw=?, tel=?, address=? where email=?";
 //			psmt = conn.prepareStatement(sql);
 //			psmt.setString(1, dto.getPw());
 //			psmt.setString(2, dto.getTel());
@@ -153,7 +154,8 @@ public class MemberDAO {
 		conn();
 		
 		try {
-			String sql = "delete from member where email = ? and pw = ?";
+
+			String sql = "delete from member where USERID = ? and USERPW = ?";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, dto.getEmail());
 			psmt.setString(2, dto.getPw());

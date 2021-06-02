@@ -141,7 +141,7 @@
 			<!-- Work -->
 			<article id="work" class="panel">
 			<div>
-				<input type="submit" value="옷 등록" style="float: right;" onClick="location.href='picture.html'">
+				<input type="submit" value="옷 등록" style="float: right;" onClick="location.href='addCloth.jsp'">
 			</div>
 			<header>
 			<h2 Style="position: relative; top: 10px;">옷장 : 여기 수정해야함</h2>

@@ -30,6 +30,8 @@ public class ClothesUpdateServiceCon implements Command {
 					// getServletContext : 서블릿의 정보
 					// getRealPath : 실제 경로
 					String savePath = request.getServletContext().getRealPath("cloth_img");
+					
+					System.out.println(savePath);
 
 
 					// 이미지 크기 지정
