@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-=======
 <%@page import="com.Model.My_clothesDTO"%>
->>>>>>> branch 'main' of https://github.com/2021-SMHRD-KDT-IoT-1/smart-hanger.git
 <%@page import="com.Model.My_clothesDAO"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
