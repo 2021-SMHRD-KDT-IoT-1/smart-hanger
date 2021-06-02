@@ -109,6 +109,12 @@ public class FrontController extends HttpServlet {
 //			
 //			
 //			
+			
+			
+		// 여기는 등록된 옷 삭제	
+		}else if(resultURI.equals("ClothesOneDeleteServicCon.do")) {
+			command = new ClothesUpdateServiceCon();
+	    // 여기는 옷 수정 
 		}else if(resultURI.equals("ClothesUpdateServiceCon.do")) {
 			command = new ClothesUpdateServiceCon();
 			
