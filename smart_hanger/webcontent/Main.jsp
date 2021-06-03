@@ -81,9 +81,7 @@
 		
 		// 커뮤니티 게시판
 		btnclick("Community", "Community.jsp");
-		
-		
-		
+				
 	</script>
 
 
