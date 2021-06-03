@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="assets/css/loginFrame.css" />
+<link rel="stylesheet" href="assets/css/joinFrame.css" />
 
 </head>
 <body>
@@ -67,12 +67,11 @@
 		</ul>
 		<table>
 			<tr>
-				<!-- <td><input type="submit" value="Join" class="button fit"></td> -->
 
-				<td><a onclick="join_click()" class="button fit">join</a>
+				<td><a id="real-join" onclick="join_click()" class="button fit">join</a>
 				
 				
-				<td><a onclick="btnclick('loginWindow')" class="button fit">Loginhome</a>
+				<td><a id="home" onclick="btnclick('loginWindow')" class="button fit">home</a>
 			</tr>
 		</table>
 

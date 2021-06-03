@@ -124,15 +124,15 @@
 		<div id="main">
 
 			<!-- Me -->
-			<article id="home" class="panel intro"> <header>
+			<article id="home" class="panel intro"> <header >
 			<h1>
-				<%if (dto != null) {%><%= email%><%}else{} %>
+				<%if (dto != null) {%>Mail : <%= email%><%}else{} %>
 			</h1>
 			<h1>
-				<%if (dto != null) {%><%= name%><%}else{} %>
+				<%if (dto != null) {%>Name :<%= name%><%}else{} %>
 			</h1>
 			<h1>
-				<%if (dto != null) {%><%= age%><%}else{} %>
+				<%if (dto != null) {%>AGE :`<%= age%><%}else{} %>
 			</h1>
 			<p>SmartHanger에 오신것을 환영합니다!</p>
 			</header> <a href="#work" class="jumplink pic"> <span class="arrow icon solid fa-chevron-right"><span>See my work</span></span> <img src="images/me.jpg" alt="" />
