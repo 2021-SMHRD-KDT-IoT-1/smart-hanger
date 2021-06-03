@@ -49,7 +49,7 @@ public class My_clothesDAO {
 
 	// ¿Ê µî·Ï
 	public String My_clothes_Insert(My_clothesDTO dto) {
-		String cody_num = null;
+		String clothes_num = null;
 		conn();
 
 		try {
@@ -65,12 +65,8 @@ public class My_clothesDAO {
 
 			if (psmt.executeUpdate() > 0) {
 				sql = "select * from my_clothes where userID = ? and clothesname = ? and clothespath = ?";
+				
 				psmt = conn.prepareStatement(sql);
-				
-				System.out.println(dto.getUserId());
-				System.out.println(dto.getClothesName());
-				System.out.println(dto.getClothespath());
-				
 				
 				psmt.setString(1, dto.getUserId());
 				psmt.setString(2, dto.getClothesName());
@@ -79,8 +75,8 @@ public class My_clothesDAO {
 				rs = psmt.executeQuery();
 				
 				if (rs.next()) {
-					cody_num = rs.getString(1);
-					System.out.println(cody_num);
+					clothes_num = rs.getString(1);
+					System.out.println(clothes_num);
 				}
 			}
 
@@ -89,7 +85,7 @@ public class My_clothesDAO {
 		} finally {
 			close();
 		}
-		return cody_num;
+		return clothes_num;
 	}
 
 	// ¿Ê µî·Ï

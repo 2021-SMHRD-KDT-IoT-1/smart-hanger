@@ -45,9 +45,9 @@ public class Cody_Board_DAO {
 		}
 	}
 	// 코디게시판 등록
-	public int Cody_BoardInsert(Cody_Board_DTO dto) {
+	public String Cody_BoardInsert(Cody_Board_DTO dto) {
 		conn();
-		
+		String cody_num = null;
 		
 		try {
 			String sql = "insert into cody_board values(num_cody_board.nextval,?, ?, ?, sysdate, ?, ?, ?)";
@@ -60,14 +60,28 @@ public class Cody_Board_DAO {
 			psmt.setString(5, dto.getView_num());
 			psmt.setString(6, dto.getClothespath());
 			
-			cnt = psmt.executeUpdate();
+			if (psmt.executeUpdate() > 0 ) {
+				sql = "select * from my_clothes where userID = ? and title = ? and clothespath = ?";
+				
+				psmt = conn.prepareStatement(sql);
+				
+				psmt.setString(1, dto.getUserid());
+				psmt.setString(2, dto.getTitle());
+				psmt.setString(3, dto.getClothespath());
+				
+				rs = psmt.executeQuery();
+				
+				if(rs.next()) {
+					cody_num = rs.getString(1);
+				}
+			}
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally {
 			close();
 		}
-		return cnt;
+		return cody_num;
 		
 	}
 	// 코디게시판 전체조회
@@ -114,9 +128,12 @@ public class Cody_Board_DAO {
 		conn();
 		
 		try {
-			String sql = "select * from cody_board where num = ?";
+			String sql = "select * from cody_board where cody_board_num = ?";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, in_num);
+			
+			
+			rs = psmt.executeQuery();
 			
 			while(rs.next()) {
 				
@@ -133,7 +150,6 @@ public class Cody_Board_DAO {
 			
 			}
 			
-			rs = psmt.executeQuery();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally {

@@ -1,3 +1,7 @@
+<%@page import="com.Model.Cody_Board_DTO"%>
+<%@page import="com.Model.Cody_Board_DAO"%>
+<%@page import="com.Model.My_clothesDTO"%>
+<%@page import="com.Model.My_clothesDAO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -9,10 +13,92 @@
 	content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="assets/css/main.css" />
 <link rel="stylesheet" href="assets/css/viewCloth.css" />
+<STYLE TYPE="text/css">
+table {
+	font-size: 8pt;
+}
+</STYLE>
+<style type="text/css">
+#main {
+	height: 500px
+}
+
+/* ----------왼쪽영역 */
+#left {
+	width: 50%;
+	height: 100%;
+	float: left;
+}
+
+#camera {
+	position: relative;
+	width: 95%;
+	height: 90%;
+	top: 20px;
+	left: 20px;
+	border: 1px solid;
+}
+
+/* ------------오른쪽영역 */
+#right {
+	width: 50%;
+	height: 100%;
+	float: left;
+}
+
+#input_tag_div {
+	position: relative;
+	top: 37px;
+	width: 91%;
+	height: 115px;
+	overflow: scroll;
+	height: 100%;
+}
+
+#my_content {
+	border: 1px solid;
+	padding: 5%;
+	width: 100%;
+	height: 20%;
+}
+
+#comments {
+	border: 1px solid;
+	padding: 1%;
+	width: 100%;
+	height: 20%;
+}
+</style>
 </head>
 
 <!-- =====================================여기는 코디 상세 페이지 ======================================================== -->
 <body class="is-preload">
+
+	<%
+	Cookie cookie = null;
+
+	Cody_Board_DAO dao = new Cody_Board_DAO();
+
+	String num = request.getParameter("num");
+
+	if (num != null) {
+		cookie = new Cookie("cody_num", num);
+	} else {
+		Cookie[] cookies = request.getCookies();
+
+		for (Cookie cookie_info : cookies) {
+			if (cookie_info.getName().equals("num")) {
+		num = cookie_info.getValue();
+			}
+		}
+	}
+
+	Cody_Board_DTO cody_info = dao.Cody_Board_One_Select(num);
+
+	// 사용자아이디를 가져오고 내가 작성한 것들을 가져옴
+	// 그래서 사용자 아이디랑 내용을 합쳐서 테이블에 올림
+	// 이걸 dao 에서 만들고 서블릿도 만들면 됩니다
+	%>
 
 	<!-- Wrapper-->
 	<div id="wrapper">
@@ -20,7 +106,7 @@
 		<!-- Main -->
 		<!-- red == 여기는 옷 사진 출력  -->
 
-		<div id="main" style="height: 500px">
+		<div id="main">
 
 
 
@@ -28,15 +114,13 @@
 
 
 			<!-- 왼쪽 영역 -->
-			<div id="left" style="width: 50%; height: 100%; float: left;">
+			<div id="left">
 
 
-				<div
-					style="position: relative; width: 95%; height: 90%; top: 20px; left: 20px; border: 1px solid;">
-				</div>
+				<div id="camera"></div>
 
 
-				
+
 			</div>
 
 
@@ -49,32 +133,47 @@
 
 
 			<!-- 오른쪽 영역 -->
-			<div id="right" style="width: 50%; height: 100%; float: left;">
-				<div id="input_tag_div"
-					style="position: relative; top: 37px; width: 91%; height: 115px; overflow:scroll; height: 100%;">
+			<div id="right">
+				<div id="input_tag_div">
 					<form action="#">
 						<ol style="list-style: none;">
-							
 
-							<div style = "border: 1px solid; padding:5%; width:100%; height: 20%; " >  
-							여기는 사용자가 게시할 때 올린 내용 
-							</div>
-							
-							
-							<div style = "border: 1px solid; padding:20%; width:100%; height: 20%; " >  
-							<li>여기는 사용자와 코디를 보는 사람이 댓글을 쓰면 댓글을 볼 수 있는곳<li>
-							</div>
-							
-							 <li><input type="submit" value="이거는 아이콘으로" style=" margin: auto; width: 49%;">
-								<input type="submit" value="이거는 아이콘으로" style=" margin: auto; width: 49%;"></li>
-								
-								
+
+							<div id="my_content">여기는 사용자가 게시할 때 올린 내용</div>
+
+
+							<!-- <div id="comments"> -->
+
+							<ul id="comments" Style = "list-style: none">
 								<div>
-								<input type = "text" value ="여기는 댓글 적는곳" style = "width: 75%;">	
-								<input type = "button" value = "작성 " Style =" width : 23%; text-align:center;" >							
+									<li><span>
+											<tr onClick="location.href='CommunityLink.jsp'"
+												style="border: 1px solid; margin: auto; text-align: center;">
+												<th class="co5" id=c1>1</th>
+
+												<th class="co5" id=c3>제목을 엄청나게 길게쓴다면 이렇게 늘어남 만약 더욱더
+													엄청나게 쓴다면 ??</th>
+												<th class="co5" id=c4>홍진석</th>
+												<th class="co5" id=c5>2021-05-30</th>
+											<tr>
+									</span></li>
 								</div>
-								
-						   
+							</ul>
+
+							<!-- </div> -->
+
+							<li><input type="button" value="이거는 아이콘으로"
+								style="margin: auto; width: 49%;"> <input type="button"
+								value="이거는 아이콘으로" style="margin: auto; width: 49%;"></li>
+
+
+							<div>
+								<input type="text" value="여기는 댓글 적는곳" style="width: 75%;">
+								<input type="button" value="작성 "
+									Style="width: 23%; text-align: center;">
+							</div>
+
+
 						</ol>
 
 					</form>

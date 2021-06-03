@@ -21,6 +21,17 @@ public class Cody_Board_DTO {
 		this.like_num = like_num;
 		this.view_num = view_num;
 		this.clothespath = clothespath;
+		
+		
+		
+	}
+
+	public Cody_Board_DTO(String userid, String title, String content, String clothespath) {
+		super();
+		this.userid = userid;
+		this.title = title;
+		this.content = content;
+		this.clothespath = clothespath;
 	}
 
 	public String getCody_board_num() {

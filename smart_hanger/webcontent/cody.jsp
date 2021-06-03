@@ -27,7 +27,7 @@ overflow-y: scroll; width: 750px; height: 400px;
 
 
 	<div>
-		<input type="submit" value="코디 등록" style="float: right;">
+		<input type="button" value="코디 등록" style="float: right;" onclick="location.href='viewStylist.jsp'">
 	</div>
 	<header>
 		<h2 Style = "position: relative; top: 10px;">옷장 : 여기 수정해야함</h2>
