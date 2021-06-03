@@ -1,3 +1,6 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.Model.CommunityDAO"%>
+<%@page import="com.Model.CommunityDTO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -7,31 +10,36 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<%
+	CommunityDTO commudto = (CommunityDTO)session.getAttribute("dto");
+	CommunityDAO commudao = new CommunityDAO();
+	ArrayList<CommunityDTO> main_list =new ArrayList<CommunityDTO>();
+	ArrayList<CommunityDTO> community_list =new ArrayList<CommunityDTO>();
+	
+	%>
 <header>
+
 			<h2>커뮤니티 게시판</h2>
-			</header> <input type="submit" value="글작성" style="position: relative; left: 85%;">
+			</header> <button onclick="location.href='writerCommu.jsp'" id="writer"  style="position: relative; left: 85%;">작성하러가기</button>
 			<div style="border: 1px solid; width: 100%; height: 20%;">
 
 
 				<table id="commtitle">
-					<tr>
-						<th class="co5" id=c1>번호</th>
-						<!-- <th class= "co5" id = c2>말머리</th> -->
-						<th class="co5" id=c3>제목</th>
-						<th class="co5" id=c4>글쓴이</th>
-						<th class="co5" id=c5>작성일</th>
-						<!-- <th class= "co5">조회</th>
-                      <th class= "co5">추천</th> -->
-					</tr>
-					<tr onClick="location.href='CommunityLink.jsp'" style="border: 1px solid;">
-						<th class="co5" id=c1>1</th>
-						<!-- <th class= "co5" id = c2>말머리</th> -->
-						<th class="co5" id=c3>제목을 엄청나게 길게쓴다면 이렇게 늘어남</th>
-						<th class="co5" id=c4>홍진석</th>
-						<th class="co5" id=c5>2021-05-30</th>
-						<!-- <th class= "co5">조회</th>
-                      <th class= "co5">추천</th> -->
-					</tr>
+					
+					<%
+			for (int i = 0; i < main_list.size(); i++) {
+			%>
+			<tr>
+				<td><%=i + 1%></td>
+				<td><a href="CommunityLink.jsp?num=<%=main_list.get(i).getBoard_num()%>">
+						<%=main_list.get(i).getTitle()%>
+				</a></td>
+				<td><%=main_list.get(i).getUserid()%></td>
+				<td><%=main_list.get(i).getUpload_date()%></td>
+			</tr>
+			<%
+			}
+			%>
 				</table>
 </body>
 </html>

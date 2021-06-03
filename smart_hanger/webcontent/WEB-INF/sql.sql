@@ -27,9 +27,6 @@ insert into my_clothes values(num_my_clothes.nextval, '12', '12', '12', sysdate,
 
 
 
-
-
-
 -- 코디 게시판 댓글
 CREATE TABLE cody_board_comments (
 	comments_num   VARCHAR(255)   PRIMARY KEY,

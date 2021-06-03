@@ -1,4 +1,6 @@
 
+<%@page import="com.Model.CommunityDAO"%>
+<%@page import="com.Model.CommunityDTO"%>
 <%@page import="java.beans.Encoder"%>
 <%@page import="javax.sound.sampled.AudioFormat.Encoding"%>
 <%@page import="java.net.URLEncoder"%>
@@ -15,7 +17,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="assets/css/main.css" />
 <noscript>
-	<link rel="stylesheet" href="assets/css/noscript.css" />
+<link rel="stylesheet" href="assets/css/noscript.css" />
 </noscript>
 
 
@@ -39,11 +41,9 @@
 		userPw = dto.getUserPw(); 
 		userName = dto.getUserName(); 
 		userAge = dto.getUserAge(); 
-		
 	}
-	
-	
 	%>
+
 
 
 	<!-- div 요소 불러오는 jq -->
@@ -157,9 +157,10 @@
 
 
 			<!-- Community -->
-			<article id="Community" class="panel"> 
-			
+			<article id="Community" class="panel"> <header>
+
 			</article>
+			  
 
 			<!-- 고객센터 -->
 			<article id="contact" class="panel"> 
