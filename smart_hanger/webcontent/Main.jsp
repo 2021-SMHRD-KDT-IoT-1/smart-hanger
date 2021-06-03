@@ -69,7 +69,6 @@
 		}
 	
 		
-
 		
 		// 메인화면
 		btnclick("home", "home.jsp");
@@ -93,7 +92,7 @@
 	<% if (userId != null) { %>
 	<h1 style="margin-left: 760px; font-size: 30px; color: white">
 		Welcome to
-		<%=dto.getUserName()%>!
+		<%=dto.getUserName()%>
 	</h1>
 	<button class="btn_logout" onClick="location.href='LogoutServiceCon.do'" style="position: absolute; left: 74%; top: 10%; ntop: 50%;">로그아웃</button>
 	<% } else {	%>
