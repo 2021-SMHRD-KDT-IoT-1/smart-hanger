@@ -53,10 +53,10 @@ public class MemberDAO {
 
 			String sql = "insert into member values(?,?,?,?)";
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, dto.getEmail());
-			psmt.setString(2, dto.getPw());
-			psmt.setString(3, dto.getName());
-			psmt.setString(4, dto.getAge());
+			psmt.setString(1, dto.getUserId());
+			psmt.setString(2, dto.getUserPw());
+			psmt.setString(3, dto.getUserName());
+			psmt.setString(4, dto.getUserAge());
 
 			cnt = psmt.executeUpdate();
 
@@ -76,8 +76,8 @@ public class MemberDAO {
 
 			String sql = "select * from member where USERID = ? and USERPW = ?";
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, InputDto.getEmail());
-			psmt.setString(2, InputDto.getPw());
+			psmt.setString(1, InputDto.getUserId());
+			psmt.setString(2, InputDto.getUserPw());
 			rs = psmt.executeQuery();
 			
 			if(rs.next()) {
@@ -157,8 +157,8 @@ public class MemberDAO {
 
 			String sql = "delete from member where USERID = ? and USERPW = ?";
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, dto.getEmail());
-			psmt.setString(2, dto.getPw());
+			psmt.setString(1, dto.getUserId());
+			psmt.setString(2, dto.getUserPw());
 			cnt = psmt.executeUpdate();
 			
 		} catch (SQLException e) {

@@ -175,7 +175,7 @@ ol>li>.cr_pick {
 
 							<li><input type="button" id="del" value="삭제" onclick="oneDelete(<%=num%>)"></li>
 							
-							<li>옷 이름 <li>
+				 			<li>옷 이름 <li>
 							
 							
 							
@@ -201,7 +201,7 @@ ol>li>.cr_pick {
 
 		</div>
 
-		<input type="button" value="뒤로가기" onclick="history.back();" />
+		<input type="button" value="뒤로가기" onclick="location.href='Main.jsp#work'" />
 		<!-- style="color:black" -->
 		<!-- Footer -->
 		<div id="footer">

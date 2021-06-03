@@ -14,7 +14,7 @@ public class LogoutServiceCon implements Command {
 		String moveURL = null;
 		
 		HttpSession session = request.getSession();
-		session.removeAttribute("dto");
+		session.invalidate();
 		
 		moveURL = "Main.jsp";
 		

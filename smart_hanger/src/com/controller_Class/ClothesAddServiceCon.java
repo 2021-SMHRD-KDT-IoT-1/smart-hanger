@@ -5,21 +5,24 @@ import java.net.URLEncoder;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
 
+import com.Model.MemberDTO;
 import com.Model.My_clothesDAO;
 import com.Model.My_clothesDTO;
 import com.command.Command;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
-public class ClothesUpdateServiceCon implements Command {
+public class ClothesAddServiceCon implements Command {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		// title, writer, content에 대한 인코딩
 		
 		
-
+		HttpSession session = request.getSession();
 		
 		
 		String moveURL = null;		
@@ -30,8 +33,6 @@ public class ClothesUpdateServiceCon implements Command {
 					// getServletContext : 서블릿의 정보
 					// getRealPath : 실제 경로
 					String savePath = request.getServletContext().getRealPath("cloth_img");
-					
-					System.out.println(savePath);
 
 
 					// 이미지 크기 지정
@@ -48,28 +49,22 @@ public class ClothesUpdateServiceCon implements Command {
 					
 					
 					// 데이터베이스에 저장하기위해서 fileName, title, content 등의 정보 가져오기
-					String title = multi.getParameter("title");
+					String userId = (String)((MemberDTO)session.getAttribute("userInfo")).getUserId();
+					String clothesType = "no";
+					String clothesName = multi.getParameter("title");
 					String memo = multi.getParameter("memo");
-					String num = multi.getParameter("num");   // hidden 속성으로 전달
-					String fileName = multi.getParameter("old_img_path");     // hidden 속성으로 전달
-					System.out.println(fileName);
-					
-					// 이미지태그에 작성 시 16진수로 나타내줘야해서 인코딩을 진행
-					try {
-						fileName = URLEncoder.encode(multi.getFilesystemName("img_file"), "EUC-KR");
-						//fileName = multi.getFilesystemName("img_file");
-						
-					} catch (Exception e) {
-						//System.out.println("사진 없음");
-					}
+					//String clothespath = URLEncoder.encode(multi.getFilesystemName("img_file"), "EUC-KR");
+					String clothespath = multi.getFilesystemName("img_file");
 
-					System.out.println(fileName);
+					
+					
+					
 					My_clothesDAO dao = new My_clothesDAO();
 
-					int cnt = dao.My_clothes_Update(new My_clothesDTO(num, title, memo, fileName));
+					String cody_num = dao.My_clothes_Insert(new My_clothesDTO(userId, clothesName, clothesType, memo, clothespath));
 					
 				
-					moveURL="viewCloth.jsp?num="+ num;
+					moveURL="viewCloth.jsp?num="+ cody_num;
 		
 					
 		} catch (IOException e) {

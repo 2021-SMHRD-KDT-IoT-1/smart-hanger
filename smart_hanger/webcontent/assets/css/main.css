@@ -1969,6 +1969,7 @@ input, select, textarea {
 /* Main */
 
 	#main {
+		border-radius: 17px;
 		position: relative;
 		overflow: hidden;
 		width: 100%;

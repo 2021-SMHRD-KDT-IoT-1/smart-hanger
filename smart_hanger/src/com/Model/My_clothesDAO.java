@@ -48,11 +48,12 @@ public class My_clothesDAO {
 
 
 	// ¿Ê µî·Ï
-	public int My_clothes_Insert(My_clothesDTO dto) {
+	public String My_clothes_Insert(My_clothesDTO dto) {
+		String cody_num = null;
 		conn();
 
 		try {
-			String sql = "insert from my_clothes_Insert values(num_my_clothes.nextval, ?, ?, ?, sysdate, ?, ?)";
+			String sql = "insert into my_clothes values(num_my_clothes.nextval, ?, ?, ?, sysdate, ?, ?)";
 			psmt = conn.prepareStatement(sql);
 
 			
@@ -62,28 +63,50 @@ public class My_clothesDAO {
 			psmt.setString(4, dto.getMemo());
 			psmt.setString(5, dto.getClothespath());
 
-			cnt = psmt.executeUpdate();
+			if (psmt.executeUpdate() > 0) {
+				sql = "select * from my_clothes where userID = ? and clothesname = ? and clothespath = ?";
+				psmt = conn.prepareStatement(sql);
+				
+				System.out.println(dto.getUserId());
+				System.out.println(dto.getClothesName());
+				System.out.println(dto.getClothespath());
+				
+				
+				psmt.setString(1, dto.getUserId());
+				psmt.setString(2, dto.getClothesName());
+				psmt.setString(3, dto.getClothespath());
+				
+				rs = psmt.executeQuery();
+				
+				if (rs.next()) {
+					cody_num = rs.getString(1);
+					System.out.println(cody_num);
+				}
+			}
 
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			close();
 		}
-		return cnt;
+		return cody_num;
 	}
 
 	// ¿Ê µî·Ï
-	public ArrayList<My_clothesDTO> My_clothes_All_Select() {
+	public ArrayList<My_clothesDTO> My_clothes_All_Select(String in_userId) {
 		ArrayList<My_clothesDTO> list = new ArrayList<My_clothesDTO>();
 		conn();
 
 		try {
-			String sql = "select * from my_clothes";
+			String sql = "select * from my_clothes where userId = ?";
 			psmt = conn.prepareStatement(sql);
+			
+			psmt.setString(1, in_userId);
 
 			rs = psmt.executeQuery();
 
 			while (rs.next()) {
+				
 				String my_clothes_num = rs.getString(1);
 				String userId = rs.getString(2);
 				String clothesName = rs.getString(3);

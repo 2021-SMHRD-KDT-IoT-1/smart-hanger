@@ -26,15 +26,15 @@ public class JoinServiceCon implements Command {
 		}
 		
 		// 값 받아오기
-		String email = request.getParameter("userId");
-		String pw = request.getParameter("userPw");
-		String tel = request.getParameter("userName");
-		String addr = request.getParameter("userAge");
+		String userId = request.getParameter("userId");
+		String userPw = request.getParameter("userPw");
+		String userName = request.getParameter("userName");
+		String userAge = request.getParameter("userAge");
 
 
 	
 		MemberDAO dao = new MemberDAO();
-		int cnt = dao.join(new MemberDTO(email, pw, tel, addr));
+		int cnt = dao.join(new MemberDTO(userId, userPw, userName, userAge));
 
 		if (cnt > 0) {
 			//System.out.println("회원가입 성공");

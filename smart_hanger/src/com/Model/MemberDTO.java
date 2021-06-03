@@ -1,80 +1,46 @@
 package com.Model;
 
 public class MemberDTO {
-	
-	private String email;
-	private String pw;
-	private String name;
-	private String age;
-	
-	
-	
-	public MemberDTO(String email, String pw, String name, String age) {
+
+	private String userId;
+	private String userPw;
+	private String userName;
+	private String userAge;
+
+	public MemberDTO(String userId, String userPw, String userName, String userAge) {
 		super();
-		this.email = email;
-		this.pw = pw;
-		this.name = name;
-		this.age = age;
+		this.userId = userId;
+		this.userPw = userPw;
+		this.userName = userName;
+		this.userAge = userAge;
 	}
 	
-	public MemberDTO(String email, String pw) {
+	
+	
+
+	public MemberDTO(String userId, String userPw) {
 		super();
-		this.email = email;
-		this.pw = pw;
-		
+		this.userId = userId;
+		this.userPw = userPw;
 	}
 
 
 
-	public String getEmail() {
-		return email;
+
+	public String getUserId() {
+		return userId;
 	}
 
-
-
-	public void setEmail(String email) {
-		this.email = email;
+	public String getUserPw() {
+		return userPw;
 	}
 
-
-
-	public String getPw() {
-		return pw;
+	public String getUserName() {
+		return userName;
 	}
 
-
-
-	public void setPw(String pw) {
-		this.pw = pw;
+	public String getUserAge() {
+		return userAge;
 	}
 
-
-
-	public String getName() {
-		return name;
-	}
-
-
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-
-
-	public String getAge() {
-		return age;
-	}
-
-
-
-	public void setAge(String age) {
-		this.age = age;
-	}
-	
-	
-	
-	
-	
-	
 }

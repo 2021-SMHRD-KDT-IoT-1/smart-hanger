@@ -14,27 +14,27 @@ public class LoginServiceCon implements Command {
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 
 		String moveURL = null;
+		
 
 		// 값 받아오기.
 
-		String email = request.getParameter("email");
-		String pw = request.getParameter("pw");
+		String userId = request.getParameter("userId");
+		String userPw = request.getParameter("userPw");
 		// rok , 123
 
-		MemberDTO dto = new MemberDTO(email, pw);
+		MemberDTO dto = new MemberDTO(userId, userPw);
 		MemberDAO dao = new MemberDAO();
 		MemberDTO resultDTO = dao.login(dto);
 
 		if (resultDTO != null) {
-			System.out.println("로그인 성공");
 
 			HttpSession session = request.getSession();
-			session.setAttribute("dto", resultDTO);
+			session.setAttribute("userInfo", resultDTO);
 		} else {
 			System.out.println("로그인 실패");
 
 			HttpSession session = request.getSession();
-			session.removeAttribute("dto");
+			session.invalidate();
 		}
 
 		moveURL = "Main.jsp";
