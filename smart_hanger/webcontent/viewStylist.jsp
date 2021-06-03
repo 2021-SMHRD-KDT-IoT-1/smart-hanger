@@ -81,18 +81,6 @@ table {
 
 	String num = request.getParameter("num");
 
-	if (num != null) {
-		cookie = new Cookie("cody_num", num);
-	} else {
-		Cookie[] cookies = request.getCookies();
-
-		for (Cookie cookie_info : cookies) {
-			if (cookie_info.getName().equals("num")) {
-		num = cookie_info.getValue();
-			}
-		}
-	}
-
 	Cody_Board_DTO cody_info = dao.Cody_Board_One_Select(num);
 
 	// 사용자아이디를 가져오고 내가 작성한 것들을 가져옴
@@ -117,7 +105,11 @@ table {
 			<div id="left">
 
 
-				<div id="camera"></div>
+				<div id="camera">
+				
+					<img id="cloth_imgs" src="cody_img/<%=cody_info.getClothespath()%>" alt="">
+				
+				</div>
 
 
 
@@ -139,24 +131,25 @@ table {
 						<ol style="list-style: none;">
 
 
-							<div id="my_content">여기는 사용자가 게시할 때 올린 내용</div>
+							<div id="my_content"><%=cody_info.getContent()%></div>
 
 
 							<!-- <div id="comments"> -->
 
-							<ul id="comments" Style = "list-style: none">
+							<ul id="comments" Style="list-style: none">
 								<div>
-									<li><span>
-											<tr onClick="location.href='CommunityLink.jsp'"
-												style="border: 1px solid; margin: auto; text-align: center;">
+									<li>
+									<table>
+											<tr style="border: 1px solid; margin: auto; text-align: center;">
 												<th class="co5" id=c1>1</th>
 
-												<th class="co5" id=c3>제목을 엄청나게 길게쓴다면 이렇게 늘어남 만약 더욱더
-													엄청나게 쓴다면 ??</th>
-												<th class="co5" id=c4>홍진석</th>
-												<th class="co5" id=c5>2021-05-30</th>
-											<tr>
-									</span></li>
+												<th class="co5" id=c4><%=cody_info.getUserid() %></th>
+												<th class="co5" id=c5><%=cody_info.getUpload_date() %></th>
+											</tr>
+									</table>
+									
+									</li>
+						
 								</div>
 							</ul>
 
@@ -192,7 +185,7 @@ table {
 
 		</div>
 
-		<input type="button" value="뒤로가기" onclick="history.back();" />
+		<input type="button" value="뒤로가기" onclick="location.href='Main.jsp#Stylist'" />
 		<!-- style="color:black" -->
 		<!-- Footer -->
 		<div id="footer">

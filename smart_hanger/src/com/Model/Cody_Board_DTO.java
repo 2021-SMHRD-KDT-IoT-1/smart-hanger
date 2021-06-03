@@ -33,6 +33,16 @@ public class Cody_Board_DTO {
 		this.content = content;
 		this.clothespath = clothespath;
 	}
+	
+	
+	
+
+	public Cody_Board_DTO(String userid, String content, String clothespath) {
+		super();
+		this.userid = userid;
+		this.content = content;
+		this.clothespath = clothespath;
+	}
 
 	public String getCody_board_num() {
 		return cody_board_num;

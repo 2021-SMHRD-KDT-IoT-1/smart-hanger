@@ -20,6 +20,7 @@ public class CodyAddServiceCon implements Command {
 		
 		HttpSession session = request.getSession();
 		
+		
 		String moveURL = null;
 		
 		try {
@@ -33,19 +34,19 @@ public class CodyAddServiceCon implements Command {
 			MultipartRequest multi = new MultipartRequest(request, sevePath, maxSize, encoding, new DefaultFileRenamePolicy());
 			
 			String userId = (String)((MemberDTO)session.getAttribute("userInfo")).getUserId();
-			String codyName = multi.getParameter("title");
-			String codycontent = multi.getParameter("content");
+			String codycontent = multi.getParameter("memo");
 			String codypath = multi.getFilesystemName("img_file");
+			
 			
 			Cody_Board_DAO dao = new Cody_Board_DAO();
 			
-			String cody_num =  dao.Cody_BoardInsert(new Cody_Board_DTO(userId, codyName,  codycontent, codypath));
+			String cody_board_num =  dao.Cody_BoardInsert(new Cody_Board_DTO(userId, codycontent, codypath));
 			
 			
-			moveURL="viewStylost.jsp?num=" + cody_num;
+			moveURL="viewStylist.jsp?num=" + cody_board_num;
 			
 		} catch (Exception e) {
-	
+			e.printStackTrace();
 		}
 		
 		
