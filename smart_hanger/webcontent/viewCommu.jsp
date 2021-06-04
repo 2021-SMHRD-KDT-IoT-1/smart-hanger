@@ -10,13 +10,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="assets/css/main.css" />
 
-<noscript>
-	<link rel="stylesheet" href="assets/css/noscript.css" />
-</noscript>
 
+
+<link rel="stylesheet" href="assets/css/community_view.css" />
 
 </head>
-<body>
+
+<!-- =====================================여기는 코디 상세 페이지 ======================================================== -->
+<body class="is-preload">
+
+
 <%
 	// get 방식으로 보낸 num받아오기
 	String get_num = request.getParameter("board_num");
@@ -25,66 +28,89 @@
 	
 	
 	CommunityDAO dao = new CommunityDAO();
-	CommunityDTO dto = dao.showOne(get_num);
+	CommunityDTO communityInfo = dao.showOne(get_num);
 	
 		
 	%>
-	<%System.out.println("clothespath" + dto.getClothespath()); %>
-	<%System.out.println(dto+"==="); %>
-<div id="wrapper">
-<article id="Community" class="panel"> <header>
-<h2>여기는 커뮤니티 사용자가 쓴 곳을 들어온 페이지</h2>
-</header> 
 
-<div id = "board">
+	<!-- Wrapper-->
+	<div id="wrapper">
 
-				<form>
-				<table bgcolor = "white" border = 1px>
-                    <tr>
-					    <td>번호</td>
-					    <td ><%= dto.getBoard_num() %> </td>
-						<td>공감</td>
-						<td><%= dto.getLike_num() %> </td>
-						<td>조회수</td>
-						<td><%= dto.getView_num() %> </td>
-					</tr>
-					<tr>
-						<td>제목</td>
-						<td><%= dto.getTitle() %> </td>
-					</tr>
-					<tr>
-						<td>작성자</td>
-						<td><%= dto.getUserid() %> </td>
-					</tr>
-					<tr>
-						<td colspan="2">내용</td>
-					</tr>
-					<tr>
-						<td colspan="2">
-						<img src="clothespath/<%= dto.getClothespath() %>">
-						<%= dto.getContent() %>
-							
-								
-						</td>
-					</tr>
-					
-					<tr>
-					<td colspan="2"><a href="Main.jsp"><button>뒤로가기</button></a></td>
-					</tr>
-					
-				</table>
-				</form>
+		<!-- Main -->
+		<!-- red == 여기는 옷 사진 출력  -->
+
+		<div id="main">
+
+
+
+
+
+
+			<!-- 왼쪽 영역 -->
+			<div id="left">
+
+
+				<div id="camera">
+
+					<img id="cloth_imgs" src="clothespath/<%=communityInfo.getClothespath()%>"
+						alt="">
+
+				</div>
+
+
+
 			</div>
-</article>
 
-</div>
 
- 
-<!-- Scripts -->
+
+
+
+
+
+
+
+
+			<!-- 오른쪽 영역 -->
+			<div id="right">
+					<form action="#" id="input_tag">
+						<ul id="my_content">
+							<li><p><%=communityInfo.getUserid()%></p><p><%=communityInfo.getTitle()%></p></li>
+							<li><%=communityInfo.getContent()%></li>
+							<li><p>좋아요 : <%=communityInfo.getLike_num()%></p>  <p> 조회수 : <%=communityInfo.getView_num()%></p></li>
+							<li><%=communityInfo.getUpload_date()%></li>
+							<li>여기 댓글 영역 수정 예정</li>
+							<li><textarea name="comment" placeholder="댓글 입력" ></textarea><input type="submit" value="등록"></li>
+
+						</ul>
+					</form>
+
+			</div>
+
+
+
+
+
+
+
+			<input type="button" value="뒤로가기"
+				onclick="location.href='Main.jsp#Stylist'" />
+			<!-- style="color:black" -->
+			<!-- Footer -->
+			<div id="footer">
+				<ul class="copyright">
+					<li>&copy; Untitled.</li>
+					<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+				</ul>
+			</div>
+
+		</div>
+	</div>
+
+	<!-- Scripts -->
 	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
-
 </body>
 </html>

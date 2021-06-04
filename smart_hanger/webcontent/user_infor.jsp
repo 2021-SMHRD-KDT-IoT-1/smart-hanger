@@ -28,7 +28,7 @@
 
 /* ==============여기는 오른쪽 화면 스타일 ==================== */
 #right {
-	overflow-y: scroll;
+	overflow-y: auto;
 	width: 80%;
 	height: 500px;
 	float: left;
@@ -63,22 +63,20 @@ ol>li>.cr_pick {
 	height: 59px;
 }
 
-#my_infor{
- top: 30px;
+#my_infor {
+	top: 30px;
 }
 
-#board_post{
-
- top: 40px;
+#board_post {
+	top: 40px;
 }
 
 #board_comment {
-
- top: 50px;
+	top: 50px;
 }
 
-h1{
- font-size : 20px;
+h1 {
+	font-size: 20px;
 }
 </style>
 
@@ -87,30 +85,38 @@ h1{
 <body class="is-preload">
 
 
-<%MemberDTO dto = (MemberDTO) session.getAttribute("userInfo"); %>
+	<%
+	MemberDTO dto = (MemberDTO) session.getAttribute("userInfo");
+	%>
 
-
+	<!-- div 요소 불러오는 jq -->
+	<script src="./js/jquery-3.6.0.min.js"></script>
 	<script type="text/javascript">
-	
-		function oneDelete(num){
-	        $.ajax({
-	            url : 'ClothesOneDeleteServicCon.do',
-	            type : 'post',
-	            data : {num : num},
-	            success: function(data) {
-	                alert('삭제성공');
-	                $(location).attr('href', 'Main.jsp');
-	            },
-	            	error: function() {
-	                alert('삭제실패');
-	            }
-	        });
-		
+		// 페이지 전환용 변수
+		/* 페이지 불러오기 (바꿀 div id입력 , 가져올 파일) */
+		function btnclick(inner, _url) {
+
+			$.ajax({
+				url : _url,
+				type : 'post',
+				success : function(data) {
+					$('#' + inner).html(data);
+				},
+				error : function() {
+					$('#' + inner).text('페이지 점검중 입니다.');
+				}
+			});
 		}
-		
-		
-		
+
+		// 사용 방법 btnclick('contact', 'service.jsp');
+
+	
 	</script>
+
+
+
+
+
 
 	<!-- Wrapper-->
 	<div id="wrapper">
@@ -120,72 +126,66 @@ h1{
 
 
 		<div id="main">
-			<form action="ClothesUpdateServiceCon.do" method="post" enctype="multipart/form-data">
 
 
 
-				<!-- 왼쪽 영역 -->
-				<div id="left">
+			<!-- 왼쪽 영역 -->
+			<div id="left">
 
 
-				
-						
-					<div id="pickbutten">
 
-						
 
-						<input id="my_infor" type="button" style="position: relative; width:120pt ;height:45pt;" value="개인정보수정" onclick="location.href='MemberUpdate.jsp';">
-						<input id="board_post" type="button" style="position: relative; width:120pt ;height:45pt;" value="게시글" onclick="history.back();">
-						<input id="board_comment" type="button" style="position: relative; width:120pt ;height:45pt;" value="댓글" onclick="history.back();">
+				<div id="pickbutten">
 
-					</div>
+
+
+					<input id="my_infor" type="button" style="position: relative; width: 120pt; height: 45pt;" value="개인정보수정"
+						onclick="btnclick('right', 'user_infor_member.jsp')"> <input id="board_post" type="button" style="position: relative; width: 120pt; height: 45pt;"
+						value="게시글" onclick="btnclick('right', 'user_infor_community.jsp')"> <input id="board_comment" type="button"
+						style="position: relative; width: 120pt; height: 45pt;" value="댓글" onclick="btnclick('right', 'user_infor_comment.jsp')">
+
 				</div>
+			</div>
 
 
 
-				<!-- 오른쪽 영역 -->
-				<div id="right">
-					<div id="input_tag_div">
-						<ol style="list-style: none;">
-						
-						
-						
-						
-					<!--  오른쪽 내부 영역 -->
-						
-						
+			<!-- 오른쪽 영역 -->
+			<div id="right">
 
-							
-							
-				 			<li>사용자 이름<li>
-							
+
+				<div id="input_tag_div">
+					<ol style="list-style: none;">
+
+
+
+
+						<!--  오른쪽 내부 영역 -->
+
+
+
+
+
+						<li>사용자 이름
+						<li>
+
 							<h1><%=dto.getUserName()%></h1>
-							
-							<li>사용자 나이<li>
-							
-							<h1><%=dto.getUserAge()%>세</h1>
-							
-							<li>소개<li>
-							
-							<h1>스마트 행거를 이용해주셔서 감사합니다.</h1>
-							
-							
-								
-								
-					<!--  오른쪽 내부 영역 여기까지-->			
-								
-								
-								
-								
-								
-						</ol>
+						<li>사용자 나이
+						<li>
 
+							<h1><%=dto.getUserAge()%>세
+							</h1>
+						<li>소개
+						<li>
 
-					</div>
+							<h1>스마트 행거를 이용해주셔서 감사합니다.</h1> <!--  오른쪽 내부 영역 여기까지-->
+					</ol>
+
 
 				</div>
 
-			</form>
+
+
+			</div>
 
 		</div>
 

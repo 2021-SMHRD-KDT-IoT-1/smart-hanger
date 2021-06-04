@@ -93,7 +93,7 @@ public class CommunityDAO {
 				String upload_date = upload_dates[0];
 				int like_num = rs.getInt("like_num");
 				int view_num = rs.getInt("view_num");
-				CommunityDTO dto = new CommunityDTO(board_num, userid, title, content, upload_date, like_num,view_num);
+				CommunityDTO dto = new CommunityDTO(board_num, title, userid, content, upload_date, like_num,view_num);
 				community_list.add(dto);
 
 			}
