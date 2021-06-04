@@ -1,5 +1,6 @@
-<%@page import="com.Model.CommunityDTO"%>
+<%@page import="com.Model.MemberDTO"%>
 <%@page import="com.Model.CommunityDAO"%>
+<%@page import="com.Model.CommunityDTO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -17,20 +18,11 @@
 </head>
 <body>
 <%
-	// get 방식으로 보낸 num받아오기
-	String get_num = request.getParameter("board_num");
-	
-	// String -> int 형변환
-	int num = Integer.parseInt(get_num);
-	
-	CommunityDAO dao = new CommunityDAO();
-	CommunityDTO dto = dao.showOne(num);
-	
-		
+	MemberDTO dto = (MemberDTO)session.getAttribute("userInfo");
 	%>
 <div id="wrapper">
 <article id="Community" class="panel"> <header>
-<h2>여기는 커뮤니티 사용자가 쓴 곳을 들어온 페이지</h2>
+
 </header> 
 
 <div id = "board">
@@ -38,18 +30,18 @@
 				<table id="list">
 					<tr>
 						<td>제목</td>
-						<td><%= dto.getTitle() %> </td>
+						<td><input type="text" name="title"> </td>
 					</tr>
+			
 					<tr>
-						<td>작성자</td>
-						<td><%= dto.getUserid() %> </td>
+						<td>ID</td>
+						<td><%=dto.getUserId() %> </td>
 					</tr>
 					<tr>
 						<td colspan="2">내용</td>
 					</tr>
 					<tr>
 						<td colspan="2">
-						<%= dto.getContent() %>
 							<input name="fileName" type="file" style="float: right;">
 							<textarea name="content" rows="10" style="resize: none;"></textarea>			
 						</td>
