@@ -51,13 +51,13 @@ public class Board_commentsDAO {
 		conn();
 
 		try {
-			String sql = "insert from board_comments values(num_board_comments.nextval,?, ?, ?, sysdate)";
+			String sql = "insert into board_comments values(num_board_comments.nextval,?, ?, ?, sysdate)";
 			psmt = conn.prepareStatement(sql);
 			
 		
 			
 			psmt.setString(1, dto.getUserId());
-			psmt.setString(2, dto.getCody_board_num());
+			psmt.setString(2, dto.getboard_num());
 			psmt.setString(3, dto.getComments());
 			
 
@@ -87,11 +87,11 @@ public class Board_commentsDAO {
 			while (rs.next()) {
 				String comments_num = rs.getString(1);
 				String userId = rs.getString(2);
-				String cody_board_num = rs.getString(3);
+				String board_num = rs.getString(3);
 				String comments = rs.getString(4);
 				String upload_date = rs.getString(5);
 
-				list.add(new Board_commentsDTO(comments_num, userId, cody_board_num, comments, upload_date));
+				list.add(new Board_commentsDTO(comments_num, userId, board_num, comments, upload_date));
 
 			}
 
@@ -118,11 +118,11 @@ public class Board_commentsDAO {
 			if (rs.next()) {
 				String comments_num = rs.getString(1);
 				String userId = rs.getString(2);
-				String cody_board_num = rs.getString(3);
+				String board_num = rs.getString(3);
 				String comments = rs.getString(4);
 				String upload_date = rs.getString(5);
 
-				result = new Board_commentsDTO(comments_num, userId, cody_board_num, comments, upload_date);
+				result = new Board_commentsDTO(comments_num, userId, board_num, comments, upload_date);
 
 			}
 

@@ -209,6 +209,9 @@ CREATE TABLE MEMBER (
 	USERAGE	 varchar2(200)	 NULL
 );
 
+select * from MEMBER;
+drop table member;
+
 -- ÄÚµð ¿Ê
 CREATE TABLE cody_clothes (
 	num varchar2(200) NOT NULL PRIMARY KEY,
