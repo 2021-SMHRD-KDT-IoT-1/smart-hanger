@@ -104,7 +104,7 @@ ol>li>.cr_pick {
 
 
 		<div id="main">
-			<form action="ClothesAddServiceCon.do" method="post" enctype="multipart/form-data">
+			<form action="CodyAddServiceCon.do" method="post" enctype="multipart/form-data">
 
 
 
@@ -170,14 +170,13 @@ ol>li>.cr_pick {
 
 							<li></li>
 							
-				 			<li>옷 이름 <li>
+				 		
 							
 							
 							
-							<li><input type="text" name="title" placeholder="옷 이름을 입력해주세요" > 
 							<!-- 사용자에게 히든 값을 저장해서 넘겨줌-->
-							<li>옷 메모</li>
-							<li><textarea rows="68" cols="60" name="memo" placeholder="옷 이름을 입력해주세요"></textarea></li>
+							<li>코디 게시글에 올릴 내용</li>
+							<li><textarea rows="68" cols="60" name="memo" placeholder="이웃과 함께 할 내용을 입력해주세요"></textarea></li>
 
 							<li><input class="cr_pick" type="submit" value="등록">
 
@@ -192,8 +191,8 @@ ol>li>.cr_pick {
 
 		</div>
 
-		<input type="button" value="뒤로가기" onclick="history.back();" />
-		<!-- style="color:black" -->
+		<input type="button" value="뒤로가기" onclick="location.href='Main.jsp#Stylist'" />
+		<!-- style="color:black" -->                                   
 		<!-- Footer -->
 		<div id="footer">
 			<ul class="copyright">

@@ -1,3 +1,5 @@
+<%@page import="com.Model.Cody_Board_DTO"%>
+<%@page import="com.Model.Cody_Board_DAO"%>
 <%@page import="com.Model.Cody_clothesDTO"%>
 <%@page import="com.Model.Cody_clothesDAO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
@@ -21,13 +23,13 @@ overflow-y: scroll; width: 750px; height: 400px;
 
     
 	<%
-	Cody_clothesDAO codydao = new Cody_clothesDAO();
-	ArrayList<Cody_clothesDTO> cody_list = codydao.Cody_clothes_All_Select();
+	Cody_Board_DAO codydao = new Cody_Board_DAO();
+	ArrayList<Cody_Board_DTO> cody_list = codydao.Cody_Board_All_Select();
 	%>
 
 
 	<div>
-		<input type="submit" value="코디 등록" style="float: right;">
+		<input type="button" value="코디 등록" style="float: right;" onclick="location.href='viewAddStylist.jsp'">
 	</div>
 	<header>
 		<h2 Style = "position: relative; top: 10px;">옷장 : 여기 수정해야함</h2>
@@ -45,8 +47,8 @@ overflow-y: scroll; width: 750px; height: 400px;
 
 			<% for (int row = 0; row < cody_list.size(); row++) { %>
 			<div class="col-4 col-6-medium col-12-small">
-				<a href="viewStylist.jsp?num=" <%=cody_list.get(row).getCody_num()%> class="image fit">
-				<img class="cody_imgs" src="./cody_img/<%=cody_list.get(row).getClothesPath()%>" alt=""></a>
+				<a href="viewStylist.jsp?num=<%=cody_list.get(row).getCody_board_num()%>" class="image fit">
+				<img class="cody_imgs" src="./cody_img/<%=cody_list.get(row).getClothespath()%>" alt=""></a>
 			</div>
 			<% } %>
 

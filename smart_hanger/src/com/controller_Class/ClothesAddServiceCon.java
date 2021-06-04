@@ -48,7 +48,7 @@ public class ClothesAddServiceCon implements Command {
 					MultipartRequest multi = new MultipartRequest(request, savePath, maxSize, encoding, new DefaultFileRenamePolicy());
 					
 					
-					// 데이터베이스에 저장하기위해서 fileName, title, content 등의 정보 가져오기
+					// 데이터베이스에 저장하기위해서 fileName, title, content 등의 정보 가져오기.
 					String userId = (String)((MemberDTO)session.getAttribute("userInfo")).getUserId();
 					String clothesType = "no";
 					String clothesName = multi.getParameter("title");
@@ -61,10 +61,10 @@ public class ClothesAddServiceCon implements Command {
 					
 					My_clothesDAO dao = new My_clothesDAO();
 
-					String cody_num = dao.My_clothes_Insert(new My_clothesDTO(userId, clothesName, clothesType, memo, clothespath));
+					String clothes_num = dao.My_clothes_Insert(new My_clothesDTO(userId, clothesName, clothesType, memo, clothespath));
 					
 				
-					moveURL="viewCloth.jsp?num="+ cody_num;
+					moveURL="viewCloth.jsp?num="+ clothes_num;
 		
 					
 		} catch (IOException e) {
