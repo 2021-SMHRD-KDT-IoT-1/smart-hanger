@@ -16,6 +16,7 @@ import com.controller_Class.CodyAddServiceCon;
 import com.controller_Class.JoinServiceCon;
 import com.controller_Class.LoginServiceCon;
 import com.controller_Class.LogoutServiceCon;
+import com.controller_Class.UserServiceCon;
 import com.controller_Class.WriteCommuCon;
 
 
@@ -75,10 +76,10 @@ public class FrontController extends HttpServlet {
 //			
 //			
 //		
-			
-			
-			
-
+			//요기는 고객센터 등록
+		} else if (resultURI.equals("UserServiceCon.do")) {
+			command = new UserServiceCon();	
+            //여기는 코디 등록
 		} else if (resultURI.equals("CodyAddServiceCon.do")) {
 			command = new CodyAddServiceCon();
 			// 여기는 옷 등록
