@@ -16,7 +16,10 @@ import com.controller_Class.CodyAddServiceCon;
 import com.controller_Class.JoinServiceCon;
 import com.controller_Class.LoginServiceCon;
 import com.controller_Class.LogoutServiceCon;
+import com.controller_Class.MemberUpdateServiceCon;
+import com.controller_Class.UserServiceCon;
 import com.controller_Class.WriteCommuCon;
+
 
 
 @WebServlet("*.do") // *를 통해서 .do라는 확장자가 붙은 친구들은 다 이 서블릿으로 오게 만들어 준다.
@@ -70,15 +73,23 @@ public class FrontController extends HttpServlet {
 //			
 //			
 //			
+			// 회원 정보 수정
+			
+		}else if(resultURI.equals("MemberUpdateServiceCon.do")) {
+			command = new MemberUpdateServiceCon();
+			
+			
+			
+
 //		}else if(resultURI.equals("UpdateServiceCon.do")) {
 //			command = new UpdateServiceCon();
 //			
 //			
 //		
-			
-			
-			
-
+			//요기는 고객센터 등록
+		} else if (resultURI.equals("UserServiceCon.do")) {
+			command = new UserServiceCon();	
+            //여기는 코디 등록
 		} else if (resultURI.equals("CodyAddServiceCon.do")) {
 			command = new CodyAddServiceCon();
 			// 여기는 옷 등록

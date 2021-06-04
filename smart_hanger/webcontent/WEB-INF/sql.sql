@@ -120,7 +120,16 @@ select * from board_comments
 
 
 
+CREATE TABLE email {
 
+SERVICE_NUM  varchar2(200)	 NOT NULL PRIMARY KEY,
+	USERID	 varchar2(200)  NULL,
+	USERPW   varchar2(200)  null,
+	TITLE	 varchar2(200)	 NULL,
+	CONTENT	 varchar2(200) 	NULL,
+	UPLOAD_DATE	 date 	NULL
+	
+);
 
 
 
@@ -205,6 +214,9 @@ CREATE TABLE MEMBER (
 	USERNAME	 varchar2(200)	 NULL,
 	USERAGE	 varchar2(200)	 NULL
 );
+
+select * from MEMBER;
+drop table member;
 
 -- ÄÚµð ¿Ê
 CREATE TABLE cody_clothes (
