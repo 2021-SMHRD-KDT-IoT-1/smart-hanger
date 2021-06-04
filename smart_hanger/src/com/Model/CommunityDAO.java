@@ -89,7 +89,8 @@ public class CommunityDAO {
 				String userid = rs.getString("userid");
 				String title = rs.getString("title");
 				String content = rs.getString("content");
-				String upload_date = rs.getString("upload_date");
+				String[] upload_dates = rs.getString("upload_date").split(" ");
+				String upload_date = upload_dates[0];
 				int like_num = rs.getInt("like_num");
 				int view_num = rs.getInt("view_num");
 				CommunityDTO dto = new CommunityDTO(board_num, userid, title, content, upload_date, like_num,view_num);

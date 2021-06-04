@@ -27,8 +27,6 @@
 
 
 	<%
-
-
 	MemberDTO dto = (MemberDTO) session.getAttribute("userInfo");
 	
 	String userId = null;
@@ -43,9 +41,6 @@
 		userAge = dto.getUserAge(); 
 	}
 	%>
-
-
-
 	<!-- div 요소 불러오는 jq -->
 	<script src="./js/jquery-3.6.0.min.js"></script>
 	<script type="text/javascript">
