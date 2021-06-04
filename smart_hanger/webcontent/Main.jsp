@@ -81,13 +81,13 @@
 		
 		// 커뮤니티 게시판
 		btnclick("Community", "Community.jsp");
-		
-		//  고객센터
+
+		// 고객센터
 		btnclick("contact", "service.jsp");
-				
+
+
+
 	</script>
-
-
 
 	<!-- Wrapper-->
 	<% if (userId != null) { %>
