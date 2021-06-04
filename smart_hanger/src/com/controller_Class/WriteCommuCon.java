@@ -44,17 +44,14 @@ public class WriteCommuCon implements Command {
 			String content = multi.getParameter("content");
 			String clothespath = URLEncoder.encode(multi.getFilesystemName("fileName"), "EUC-KR");
 
-			System.out.println(title);
-			System.out.println(userid);
+			
 			System.out.println(clothespath);
-		
-			System.out.println(content);
 
-			CommunityDTO dto = new CommunityDTO(userid,title,content,clothespath);
+
 			CommunityDAO dao = new CommunityDAO();
 			
 
-			int cnt = dao.community_Insert(dto);
+			int cnt = dao.community_Insert(new CommunityDTO(userid,title,content,clothespath));
 
 			if (cnt > 0) {
 				System.out.println("파일 업로드 성공");
@@ -66,7 +63,7 @@ public class WriteCommuCon implements Command {
 			e.printStackTrace();
 		}
 
-		String moveURL = "Main.jsp";
+		String moveURL = "Main.jsp#Community";
 
 		return moveURL;
 	}

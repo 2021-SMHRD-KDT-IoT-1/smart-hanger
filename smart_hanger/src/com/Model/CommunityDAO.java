@@ -56,12 +56,12 @@ public class CommunityDAO {
 			String sql = "insert into board values(num_board.nextval,?,?,?,sysdate,0,0,?)";
 			psmt = conn.prepareStatement(sql);
 			
-		
+	
 			
 			psmt.setString(1, dto.getUserid());
 			psmt.setString(2, dto.getTitle());
 			psmt.setString(3, dto.getContent());
-			psmt.setString(4, dto.getClothespath());
+			psmt.setString(4, dto.getUpload_date());
 			
 
 			cnt = psmt.executeUpdate();
@@ -175,8 +175,9 @@ public class CommunityDAO {
 				String upload_date = rs.getString("upload_date");
 				int like_num = rs.getInt("like_num");
 				int view_num = rs.getInt("view_num");
+				String clothespath = rs.getString("clothespath");
 				
-				dto = new CommunityDTO(board_num,userid, title,content,upload_date, like_num,view_num);
+				dto = new CommunityDTO(board_num,userid, title,content,upload_date, like_num,view_num, clothespath);
 			}
 			
 		} catch (SQLException e) {

@@ -29,7 +29,7 @@
 	
 		
 	%>
-	<%System.out.println("============="); %>
+	<%System.out.println("clothespath" + dto.getClothespath()); %>
 	<%System.out.println(dto+"==="); %>
 <div id="wrapper">
 <article id="Community" class="panel"> <header>

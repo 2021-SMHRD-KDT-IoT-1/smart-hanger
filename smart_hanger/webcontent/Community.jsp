@@ -49,7 +49,7 @@
 			<tbody>
 				<tr>
 					<td><%=i + 1%></td>
-					<td  onclick="location.href='CommunityLink.jsp?board_num=<%=community_list.get(i).getBoard_num()%>'">
+					<td  onclick="location.href='viewCommu.jsp?board_num=<%=community_list.get(i).getBoard_num()%>'">
 							<%=community_list.get(i).getTitle()%>
 					</td>
 					<td><%=community_list.get(i).getUserid()%></td>
