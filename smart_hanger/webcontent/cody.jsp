@@ -14,6 +14,12 @@
 #cody_sc{
 overflow-y: scroll; width: 750px; height: 400px;
 }
+
+#head_h2{
+	display: inline-block;
+}
+
+
 </style>
 </head>
 <body>
@@ -32,7 +38,7 @@ overflow-y: scroll; width: 750px; height: 400px;
 		<input type="button" value="코디 등록" style="float: right;" onclick="location.href='viewAddStylist.jsp'">
 	</div>
 	<header>
-		<h2 Style = "position: relative; top: 10px;">옷장 : 여기 수정해야함</h2>
+		<h2 id="head_h2" Style = "position: relative; top: 10px;">옷장 : 여기 수정해야함</h2>
 	</header>
 	
 	
