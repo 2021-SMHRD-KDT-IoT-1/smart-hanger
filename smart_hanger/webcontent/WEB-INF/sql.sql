@@ -102,7 +102,7 @@ CREATE TABLE board (
 	upload_date  date  NOT NULL,
 	like_num   varchar2(200) NOT NULL,
 	view_num varchar2(200) NOT NULL,
-	clothespath varchar2(200) NOT NULL
+	clothespath varchar2(200) NULL
 );
 select * from board
 
@@ -214,6 +214,9 @@ CREATE TABLE MEMBER (
 	USERNAME	 varchar2(200)	 NULL,
 	USERAGE	 varchar2(200)	 NULL
 );
+
+select * from MEMBER;
+drop table member;
 
 -- ÄÚµð ¿Ê
 CREATE TABLE cody_clothes (

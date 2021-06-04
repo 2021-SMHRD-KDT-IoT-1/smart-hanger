@@ -9,6 +9,8 @@ import java.util.ArrayList;
 
 
 
+
+
 public class CommunityDAO {
 	Connection conn = null;
 	PreparedStatement psmt = null;
@@ -51,15 +53,15 @@ public class CommunityDAO {
 		conn();
 
 		try {
-			String sql = "insert from board values(num_board.nextval,?,?,?,sysdate,0,0,0)";
+			String sql = "insert into board values(num_board.nextval,?,?,?,sysdate,0,0,?)";
 			psmt = conn.prepareStatement(sql);
 			
-		
+	
 			
 			psmt.setString(1, dto.getUserid());
 			psmt.setString(2, dto.getTitle());
 			psmt.setString(3, dto.getContent());
-			
+			psmt.setString(4, dto.getUpload_date());
 			
 
 			cnt = psmt.executeUpdate();
@@ -73,26 +75,26 @@ public class CommunityDAO {
 	}
 
 	// 전체 조회
-	public ArrayList<CommunityDTO> Community_Show(CommunityDTO dto) {
+	public ArrayList<CommunityDTO> Community_Show() {
 		ArrayList<CommunityDTO> community_list = new ArrayList<CommunityDTO>();
 		conn();
 
 		try {
-			String sql = "select * from board";
+			String sql = "select * from board order by upload_date desc";
 			psmt = conn.prepareStatement(sql);
-
 			rs = psmt.executeQuery();
 
 			while (rs.next()) {
-				int board_num = rs.getInt(1);
-				String userid = rs.getString(2);
-				String title = rs.getString(3);
-				String content = rs.getString(4);
-				String upload_date = rs.getString(5);
-				int like_num = rs.getInt(6);
-				int view_num = rs.getInt(7);
-
-				community_list.add(new CommunityDTO(board_num, userid, title, content, upload_date,like_num,view_num));
+				int board_num = rs.getInt("board_num");
+				String userid = rs.getString("userid");
+				String title = rs.getString("title");
+				String content = rs.getString("content");
+				String[] upload_dates = rs.getString("upload_date").split(" ");
+				String upload_date = upload_dates[0];
+				int like_num = rs.getInt("like_num");
+				int view_num = rs.getInt("view_num");
+				CommunityDTO dto = new CommunityDTO(board_num, title, userid, content, upload_date, like_num,view_num);
+				community_list.add(dto);
 
 			}
 
@@ -104,33 +106,6 @@ public class CommunityDAO {
 		return community_list;
 	}
 	
-	public ArrayList<CommunityDTO> Community_Main(CommunityDTO dto) {
-		ArrayList<CommunityDTO> main_list = new ArrayList<CommunityDTO>();
-		conn();
-
-		try {
-			String sql = "select * from board";
-			psmt = conn.prepareStatement(sql);
-
-			rs = psmt.executeQuery();
-
-			while (rs.next()) {
-				int board_num = rs.getInt(1);
-				String title = rs.getString(2);
-				String userid = rs.getString(3);
-				String upload_date = rs.getString(4);
-
-				main_list.add(new CommunityDTO(board_num, userid, title,upload_date));
-
-			}
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close();
-		}
-		return main_list;
-	}
 
 	// 개별 조회
 	public Board_commentsDTO Board_comments_One_Select(String num) {
@@ -181,15 +156,16 @@ public class CommunityDAO {
 		}
 		return cnt;
 	}
-	public CommunityDTO showOne(int choice) {
+	
+	public CommunityDTO showOne(String choice) {
 		CommunityDTO dto = null;
 		conn();
 		
-		String sql = "select * from  where board_num = ?";
+		String sql = "select * from board where board_num = ?";
 		
 		try {
 			psmt = conn.prepareStatement(sql);
-			psmt.setInt(1, choice);
+			psmt.setString(1, choice);
 			rs = psmt.executeQuery();
 			if(rs.next()) {
 				int board_num = rs.getInt("board_num");
@@ -200,7 +176,8 @@ public class CommunityDAO {
 				int like_num = rs.getInt("like_num");
 				int view_num = rs.getInt("view_num");
 				String clothespath = rs.getString("clothespath");
-				dto = new CommunityDTO(board_num,userid, title,content,upload_date, like_num,view_num,clothespath);
+				
+				dto = new CommunityDTO(board_num,userid, title,content,upload_date, like_num,view_num, clothespath);
 			}
 			
 		} catch (SQLException e) {
@@ -212,5 +189,5 @@ public class CommunityDAO {
 	}
 	
 }
-;
+
 

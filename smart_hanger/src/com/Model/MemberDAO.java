@@ -99,26 +99,26 @@ public class MemberDAO {
 	
 	}
 	
-//	public int update(clothMemberDTO dto) {
-//		conn();
-//
-//		try {
-//			String sql = "update member set pw=?, tel=?, address=? where email=?";
-//			psmt = conn.prepareStatement(sql);
-//			psmt.setString(1, dto.getPw());
-//			psmt.setString(2, dto.getTel());
-//			psmt.setString(3, dto.getAddr());
-//			psmt.setString(4, dto.getEmail());
-//			cnt = psmt.executeUpdate();
-//			
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		} finally {
-//			close();
-//		}
-//		
-//		return cnt;
-//	}
+	public int update(MemberDTO dto) {
+		conn();
+
+		try {
+			String sql = "update member set USERPW=?, USERNAME=?, USERAGE=? where UserId=?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, dto.getUserPw());
+			psmt.setString(2, dto.getUserName());
+			psmt.setString(3, dto.getUserAge());
+			psmt.setString(4, dto.getUserId());
+			cnt = psmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		
+		return cnt;
+	}
 	
 	public ArrayList<MemberDTO> select() {
 		

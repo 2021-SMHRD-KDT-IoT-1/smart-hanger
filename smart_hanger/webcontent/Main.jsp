@@ -27,8 +27,6 @@
 
 
 	<%
-
-
 	MemberDTO dto = (MemberDTO) session.getAttribute("userInfo");
 	
 	String userId = null;
@@ -43,9 +41,6 @@
 		userAge = dto.getUserAge(); 
 	}
 	%>
-
-
-
 	<!-- div 요소 불러오는 jq -->
 	<script src="./js/jquery-3.6.0.min.js"></script>
 	<script type="text/javascript">
@@ -92,10 +87,11 @@
 	<!-- Wrapper-->
 	<% if (userId != null) { %>
 	<h1 style="margin-left: 760px; font-size: 30px; color: white">
-		Welcome to
-		<%=dto.getUserName()%>
+
+		Welcome to <%=dto.getUserName()%> !
 	</h1>
 	<button class="btn_logout" onClick="location.href='LogoutServiceCon.do'" style="position: absolute; left: 74%; top: 10%; ntop: 50%;">로그아웃</button>
+	<button class="btn_logout" onClick="location.href='user_infor.jsp'" style="position: absolute; left: 84%; top: 10%; ntop: 50%;">내정보관리</button>
 	<% } else {	%>
 	<button class="btn_login" onclick="btnclick('loginWindow','loginWindow.jsp')" style="position: absolute; left: 74%; top: 10%; ntop: 50%;">로그인</button>
 	<% } %>
@@ -159,6 +155,7 @@
 
 			<!-- Community -->
 			<article id="Community" class="panel"> <header>
+			
 
 			</article>
 			  

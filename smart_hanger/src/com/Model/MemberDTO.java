@@ -27,6 +27,25 @@ public class MemberDTO {
 
 
 
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+
+	public void setUserPw(String userPw) {
+		this.userPw = userPw;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public void setUserAge(String userAge) {
+		this.userAge = userAge;
+	}
+
+
+
+
 	public String getUserId() {
 		return userId;
 	}

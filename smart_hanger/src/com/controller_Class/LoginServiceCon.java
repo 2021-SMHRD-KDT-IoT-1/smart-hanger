@@ -30,6 +30,7 @@ public class LoginServiceCon implements Command {
 
 			HttpSession session = request.getSession();
 			session.setAttribute("userInfo", resultDTO);
+			
 		} else {
 			System.out.println("로그인 실패");
 
