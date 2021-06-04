@@ -13,6 +13,7 @@ import com.controller_Class.ClothesAddServiceCon;
 import com.controller_Class.ClothesOneDeleteServicCon;
 import com.controller_Class.ClothesUpdateServiceCon;
 import com.controller_Class.CodyAddServiceCon;
+import com.controller_Class.CodyCommentsInsertCon;
 import com.controller_Class.JoinServiceCon;
 import com.controller_Class.LoginServiceCon;
 import com.controller_Class.LogoutServiceCon;
@@ -76,6 +77,9 @@ public class FrontController extends HttpServlet {
 //			
 //			
 //		
+			//여기는 코디 댓글 등록
+		} else if (resultURI.equals("CodyCommentsInsertCon.do")) {
+			command = new CodyCommentsInsertCon();	
 			//요기는 고객센터 등록
 		} else if (resultURI.equals("UserServiceCon.do")) {
 			command = new UserServiceCon();	

@@ -31,7 +31,7 @@
 	String num = request.getParameter("num");
 
 	Cody_Board_DTO cody_info = dao.Cody_Board_One_Select(num);
-
+	
 	// 사용자아이디를 가져오고 내가 작성한 것들을 가져옴
 	// 그래서 사용자 아이디랑 내용을 합쳐서 테이블에 올림
 	// 이걸 dao 에서 만들고 서블릿도 만들면 됩니다
@@ -49,7 +49,6 @@
 
 
 
-
 			<!-- 왼쪽 영역 -->
 			<div id="left">
 
@@ -57,7 +56,7 @@
 				<div id="camera">
 
 					<img id="cloth_imgs" src="cody_img/<%=cody_info.getClothespath()%>"
-						alt="">
+						alt=#>
 
 				</div>
 
@@ -73,11 +72,10 @@
 
 
 
-
 			<!-- 오른쪽 영역 -->
 			<div id="right">
-					<form action="#" id="input_tag">
-						<ul id="my_content">
+					<form action="CodyCommentsCon.do" id="input_tag">
+						<ul id="my_content"> 
 							<li><%=cody_info.getUserid()%></li>
 							<li><%=cody_info.getContent()%></li>
 							<li><p>좋아요 : <%=cody_info.getLike_num()%></p>  <p> 조회수 : <%=cody_info.getView_num()%></p></li>

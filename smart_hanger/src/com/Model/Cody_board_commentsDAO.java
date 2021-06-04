@@ -15,6 +15,7 @@ public class Cody_board_commentsDAO {
 	int cnt = 0;
 	ResultSet rs = null;
 
+	
 	public void conn() {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -51,7 +52,7 @@ public class Cody_board_commentsDAO {
 		conn();
 
 		try {
-			String sql = "insert from Cody_board_commentsDTO values(num_cody_board_comments.nextval, ?, ?, ?,  sysdate)";
+			String sql = "insert into Cody_board_comments values(num_cody_board_comments.nextval, ?, ?, ?,  sysdate)";
 			psmt = conn.prepareStatement(sql);
 
 		
@@ -60,9 +61,6 @@ public class Cody_board_commentsDAO {
 			psmt.setString(3, dto.getComments());
 			
 			
-
-
-
 
 			cnt = psmt.executeUpdate();
 
@@ -74,13 +72,14 @@ public class Cody_board_commentsDAO {
 		return cnt;
 	}
 
+	
 	// 전체 조회
 	public ArrayList<Cody_board_commentsDTO> Board_comments_All_Select(Cody_board_commentsDTO dto) {
 		ArrayList<Cody_board_commentsDTO> list = new ArrayList<Cody_board_commentsDTO>();
 		conn();
 
 		try {
-			String sql = "select * from Cody_board_commentsDTO";
+			String sql = "select * from Cody_board_comments";
 			psmt = conn.prepareStatement(sql);
 
 			rs = psmt.executeQuery();
@@ -112,7 +111,7 @@ public class Cody_board_commentsDAO {
 		conn();
 
 		try {
-			String sql = "select * from Cody_board_commentsDTO where comments_num = ?";
+			String sql = "select * from Cody_board_comments where comments_num = ?";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, num);
 
@@ -145,7 +144,7 @@ public class Cody_board_commentsDAO {
 		conn();
 
 		try {
-			String sql = "delete from Cody_board_commentsDTO where comments_num = ?";
+			String sql = "delete from Cody_board_comments where comments_num = ?";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, num);
 
