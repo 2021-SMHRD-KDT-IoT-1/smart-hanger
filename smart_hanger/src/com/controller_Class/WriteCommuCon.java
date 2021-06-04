@@ -5,9 +5,12 @@ import java.net.URLEncoder;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
 
 import com.Model.CommunityDAO;
 import com.Model.CommunityDTO;
+import com.Model.MemberDTO;
 import com.command.Command;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
@@ -17,7 +20,7 @@ public class WriteCommuCon implements Command {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
-		
+		HttpSession session = request.getSession();
 		String savePath = request.getServletContext().getRealPath("clothespath");
 
 		System.out.println(savePath);
@@ -34,19 +37,22 @@ public class WriteCommuCon implements Command {
 					new DefaultFileRenamePolicy());
 		
 			// 데이터베이스에 저장하기위해서 fileName, title, content 등의 정보 가져오기
+			String userid = (String)((MemberDTO)session.getAttribute("userInfo")).getUserId();
 			String title = multi.getParameter("title");
-			String userid = multi.getParameter("userid");
+			
 			// 이미지태그에 작성 시 16진수로 나타내줘야해서 인코딩을 진행
-			String clothespath = URLEncoder.encode(multi.getFilesystemName("fileName"), "EUC-KR");
 			String content = multi.getParameter("content");
+			String clothespath = URLEncoder.encode(multi.getFilesystemName("fileName"), "EUC-KR");
 
 			System.out.println(title);
 			System.out.println(userid);
 			System.out.println(clothespath);
+		
 			System.out.println(content);
 
-			CommunityDTO dto = new CommunityDTO(title,userid,clothespath, content);
+			CommunityDTO dto = new CommunityDTO(userid,title,content,clothespath);
 			CommunityDAO dao = new CommunityDAO();
+			
 
 			int cnt = dao.community_Insert(dto);
 
@@ -60,7 +66,7 @@ public class WriteCommuCon implements Command {
 			e.printStackTrace();
 		}
 
-		String moveURL = "Community.jsp";
+		String moveURL = "Main.jsp";
 
 		return moveURL;
 	}

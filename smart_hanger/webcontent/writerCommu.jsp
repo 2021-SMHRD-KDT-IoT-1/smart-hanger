@@ -47,9 +47,10 @@
 						</td>
 					</tr>
 					<tr>
-						<td colspan="2">
+						<td colspan="3">
 							<input type="reset" value="초기화">
 							<input type="submit" value="작성하기">
+							<button onclick="location.href='Main.jsp'" id="home"  style="position: relative; left: 85%;">이전</button>
 						</td>
 					</tr>
 				</table>
