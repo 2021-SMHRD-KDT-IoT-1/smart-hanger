@@ -74,11 +74,10 @@ table {
 }
 
 /* 좋아요 , 조회수 */
-#my_content li:nth-of-type(2) {
-	height: 50%;
-	border: none;
-	padding-top: 3%;
-	
+#my_content li:nth-of-type(3) p {
+	width: 50%;
+	float: left;
+	margin: 0px;
 }
 
 

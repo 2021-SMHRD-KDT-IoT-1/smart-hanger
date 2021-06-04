@@ -86,7 +86,6 @@
 							<li><textarea name="comment" placeholder="댓글 입력" ></textarea><input type="submit" value="등록"></li>
 
 						</ul>
-
 					</form>
 
 			</div>
