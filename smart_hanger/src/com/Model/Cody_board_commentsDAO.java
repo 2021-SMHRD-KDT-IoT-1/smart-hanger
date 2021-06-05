@@ -74,7 +74,7 @@ public class Cody_board_commentsDAO {
 
 	
 	// 전체 조회
-	public ArrayList<Cody_board_commentsDTO> Board_comments_All_Select(Cody_board_commentsDTO dto) {
+	public ArrayList<Cody_board_commentsDTO> Board_comments_All_Select() {
 		ArrayList<Cody_board_commentsDTO> list = new ArrayList<Cody_board_commentsDTO>();
 		conn();
 

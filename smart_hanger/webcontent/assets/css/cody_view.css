@@ -59,14 +59,14 @@ table {
 }
 
 /* 제목 */
-#my_content li:nth-of-type(1) {
+#my_content>li:nth-of-type(1) {
 	padding: 10px 0 10px 20px;
 	height: 10%;
 	
 }
 
 /* 게시글 */
-#my_content li:nth-of-type(2) {
+#my_content>li:nth-of-type(2) {
 	height: 50%;
 	border: none;
 	padding-top: 3%;
@@ -74,7 +74,7 @@ table {
 }
 
 /* 좋아요 , 조회수 */
-#my_content li:nth-of-type(3) p {
+#my_content>li:nth-of-type(3) p {
 	width: 50%;
 	float: left;
 	margin: 0px;
@@ -82,7 +82,7 @@ table {
 
 
 /* 좋아요 조회수 등록날짜 */
-#my_content li:nth-child(n+3):nth-child(-n+4){
+#my_content>li:nth-child(n+3):nth-child(-n+4){
 	height: 10%;
 	padding-top : 10px;
 	width : 50%;
@@ -94,18 +94,41 @@ table {
 }
 
 /* 등록날짜 */
-#my_content li:nth-of-type(4){
+#my_content>li:nth-of-type(4){
 	text-align: right;
 	
 }
 
 /* 댓글 목록 */
-#my_content li:nth-of-type(5) {
+#my_content>li:nth-of-type(5) {
 	border: none;
 	height: 15%;
+	
 }
+
+/* 댓글 목록 ul태그 */
+#my_content>li:nth-of-type(5) ul {
+	padding: 0px !important;
+}
+
+/* 댓글 목록 li태그 */
+#my_content>li:nth-of-type(5)>ul>li {
+	padding: 0px !important;
+}
+
+/* 댓글 목록 p태그 */
+#my_content>li:nth-of-type(5)>ul>li p:nth-of-type(n+1):nth-of-type(-n+2) {
+	width: 50%;
+	float: left;
+}
+
+#my_content>li:nth-of-type(5)>ul>li p:nth-of-type(2) {
+	text-align: right;
+}
+
+
 /* 댓글창 입력 */
-#my_content li:nth-of-type(6){
+#my_content>li:nth-of-type(6){
 	float : left;
 	border: none;
 	height: 10%;
@@ -114,7 +137,7 @@ table {
 	width: 100%;
 }
 /* 댓글창 입력 */
-#my_content li:nth-of-type(6)>textarea{
+#my_content>li:nth-of-type(6)>textarea{
 	display : inline-block;
 	position : relative;
 	margin-right : 2%;
@@ -135,7 +158,7 @@ table {
 	
 }
 /* 댓글창 입력 */
-#my_content li:nth-of-type(6)>input{
+#my_content>li:nth-of-type(6)>input{
 	display : inline-block;
 	position : relative;
 	top : -18px;
@@ -152,7 +175,7 @@ table {
 }
 
 
-#my_content li {
+#my_content>li {
 	height: 16.6%;
 	list-style: none;
 	padding: 5px 0px 5px 0px;

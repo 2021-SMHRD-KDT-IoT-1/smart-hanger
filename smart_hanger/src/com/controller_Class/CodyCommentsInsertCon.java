@@ -17,23 +17,31 @@ public class CodyCommentsInsertCon implements Command {
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		
 		HttpSession session = request.getSession();
+		String moveURL = "";
+	
 		
-		String userId = ((MemberDTO)session.getAttribute("userInfo")).getUserId();
+		
+		// 변수 받아옴
+		//String userId = ((MemberDTO)session.getAttribute("userInfo")).getUserId();
+		String userId = "aa";
 		String board_num = request.getParameter("num");
-		
-		String moveURL = null;
-				
 		String comment =request.getParameter("comment");
 		
-		System.out.println(userId+","+board_num+","+comment);
+		System.out.println(comment);
 		
-		Cody_board_commentsDTO dto = new Cody_board_commentsDTO( userId, board_num,comment);
+		
+		
 		Cody_board_commentsDAO dao = new Cody_board_commentsDAO();
 		
-		int cnt = dao.Cody_clothes_Insert(dto);  
+		int cnt = dao.Cody_clothes_Insert(new Cody_board_commentsDTO( userId, board_num,comment));  
 		// from 태그에서 submit으로 받아 오는거니 댓글 등록
 		
 		//dao에서 댓글 등록하는거 찾아봐 있을거야
+		
+		
+		
+		
+		
 		
 		if(cnt>0) {
 			System.out.println("댓글 성공");
@@ -44,7 +52,7 @@ public class CodyCommentsInsertCon implements Command {
 			 
 			
 		}
-	    moveURL = "viewStylist.jsp";
+	    moveURL = "viewStylist.jsp?num=" + board_num;
 		
 		
 		return moveURL;
