@@ -76,8 +76,37 @@ ol>li>.cr_pick {
 }
 
 h1 {
-	font-size: 20px;
+	font-size: 31px;
 }
+
+#my_infor{
+	border-radius: 15px;
+	background-color: gray;
+	font-weight: bold ;
+	font-family: "Gmarket Sans";
+}
+
+#board_post{
+	border-radius: 15px;
+	background-color: gray;
+	font-weight: bold ;
+	font-family: "Gmarket Sans";
+}
+
+#board_comment{
+	border-radius: 15px;
+	background-color: gray;
+	font-weight: bold ;
+	font-family: "Gmarket Sans";
+}
+
+#back_btn{
+	background-color: gray;
+	font-weight: bold ;
+	font-family: "Gmarket Sans";
+	border-radius: 10px;
+}
+
 </style>
 
 </head>
@@ -138,12 +167,9 @@ h1 {
 
 				<div id="pickbutten">
 
-
-
-					<input id="my_infor" type="button" style="position: relative; width: 120pt; height: 45pt;" value="개인정보수정"
-						onclick="btnclick('right', 'user_infor_member.jsp')"> <input id="board_post" type="button" style="position: relative; width: 120pt; height: 45pt;"
-						value="게시글" onclick="btnclick('right', 'user_infor_community.jsp')"> <input id="board_comment" type="button"
-						style="position: relative; width: 120pt; height: 45pt;" value="댓글" onclick="btnclick('right', 'user_infor_comment.jsp')">
+					<input id="my_infor" type="button" style="position: relative; width: 120pt; height: 45pt;" value="개인정보수정" onclick="btnclick('right', 'user_infor_member.jsp')"> 
+					<input id="board_post" type="button" style="position: relative; width: 120pt; height: 45pt;" value="게시글" onclick="btnclick('right', 'user_infor_community.jsp')"> 
+					<input id="board_comment" type="button" style="position: relative; width: 120pt; height: 45pt;" value="댓글" onclick="btnclick('right', 'user_infor_comment.jsp')">
 
 				</div>
 			</div>
@@ -164,17 +190,16 @@ h1 {
 
 
 
-
+						
 
 						<li>사용자 이름
 						<li>
 
-							<h1><%=userInfo.getUserName()%></h1>
+							<h1><%=userInfo.getUserName()%></h1><br>
 						<li>사용자 나이
 						<li>
 
-							<h1><%=userInfo.getUserAge()%>세
-							</h1>
+							<h1><%=userInfo.getUserAge()%>세</h1><br>
 						<li>소개
 						<li>
 
@@ -190,7 +215,7 @@ h1 {
 
 		</div>
 
-		<input type="button" value="뒤로가기" onclick="location.href='Main.jsp#work'" />
+		<input id = "back_btn" type="button" value="뒤로가기" onclick="location.href='Main.jsp#work'" />
 		<!-- style="color:black" -->
 		<!-- Footer -->
 		<div id="footer">

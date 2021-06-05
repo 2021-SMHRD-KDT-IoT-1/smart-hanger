@@ -6,12 +6,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.Model.Board_commentsDAO;
+import com.Model.Board_commentsDTO;
 import com.Model.Cody_board_commentsDAO;
 import com.Model.Cody_board_commentsDTO;
 import com.Model.MemberDTO;
 import com.command.Command;
 
-public class CodyCommentsInsertCon implements Command {
+public class CommunityCommentsInsertCon implements Command {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
@@ -30,9 +32,10 @@ public class CodyCommentsInsertCon implements Command {
 		
 		
 		
-		Cody_board_commentsDAO dao = new Cody_board_commentsDAO();
+		Board_commentsDAO dao = new Board_commentsDAO();
 		
-		int cnt = dao.Cody_clothes_Insert(new Cody_board_commentsDTO( userId, board_num,comment));  
+		int cnt = dao.Board_comments_Insert(new Board_commentsDTO( userId, board_num,comment));  
+		
 		// from 태그에서 submit으로 받아 오는거니 댓글 등록
 		
 		//dao에서 댓글 등록하는거 찾아봐 있을거야
@@ -51,7 +54,7 @@ public class CodyCommentsInsertCon implements Command {
 			 
 			
 		}
-	    moveURL = "viewStylist.jsp?num=" + board_num;
+	    moveURL = "viewCommu.jsp?board_num=" + board_num;
 		
 		
 		return moveURL;

@@ -51,7 +51,6 @@
 						<td><a id="join-btn" onclick="btnclick('loginFrame','joinWindow.jsp')" class="button fit">join</a>
 
 
-						
 					</tr>
 				</table>
 			</form>

@@ -14,6 +14,7 @@ import com.controller_Class.ClothesOneDeleteServicCon;
 import com.controller_Class.ClothesUpdateServiceCon;
 import com.controller_Class.CodyAddServiceCon;
 import com.controller_Class.CodyCommentsInsertCon;
+import com.controller_Class.CommunityCommentsInsertCon;
 import com.controller_Class.JoinServiceCon;
 import com.controller_Class.LoginServiceCon;
 import com.controller_Class.LogoutServiceCon;
@@ -64,8 +65,8 @@ public class FrontController extends HttpServlet {
 	 			
 			
 			
-//		}else if(resultURI.equals("CommunityDeleteOneServiceCon.do")) {
-//			command = new CommunityDeleteOneServiceCon();
+		}else if(resultURI.equals("CommunityCommentsInsertCon.do")) {
+			command = new CommunityCommentsInsertCon();
 			
 		
 			

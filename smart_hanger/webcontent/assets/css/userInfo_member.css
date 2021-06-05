@@ -6,3 +6,27 @@
 	
 	font-size: 10px;
 }
+
+input {
+	border-radius: 10px;
+	bottom : 20px
+}
+
+#id{
+	font-size: 30px;
+	margin-left : 215px;
+	font-weight: bold ;
+}
+
+#update_btn{
+	background-color: gray;
+	font-weight: bold ;
+	font-family: "Gmarket Sans";
+}
+
+#back_btn{
+	background-color: gray;
+	font-weight: bold ;
+	font-family: "Gmarket Sans";
+	
+}
