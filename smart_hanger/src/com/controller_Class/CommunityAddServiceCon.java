@@ -53,8 +53,8 @@ public class CommunityAddServiceCon implements Command {
 					String clothesType = "no";
 					String clothesName = multi.getParameter("title");
 					String memo = multi.getParameter("memo");
-					//String clothespath = URLEncoder.encode(multi.getFilesystemName("img_file"), "EUC-KR");
-					String clothespath = multi.getFilesystemName("img_file");
+					String clothespath = URLEncoder.encode(multi.getFilesystemName("img_file"), "EUC-KR");
+					//String clothespath = multi.getFilesystemName("img_file");
 
 					
 					

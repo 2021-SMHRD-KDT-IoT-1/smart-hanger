@@ -87,6 +87,19 @@ ol>li>.cr_pick {
 	width: 49%;
 	height: 59px;
 }
+
+/* 전송 버튼 */
+#pic_img_bt{
+position: absolute;
+    display: block;
+    right: 10%;
+    top: 80%;
+    width: 20%;
+    height: 10%;
+    font-size: 17px;
+}
+
+
 </style>
 
 </head>
@@ -122,18 +135,14 @@ ol>li>.cr_pick {
 
 			$('#take_picture').click(function() {
 				// 사진을 전송하면 업로드 버튼 출력
-				document.getElementById('img_bt').style.display = 'block';
+				document.getElementById('pic_img_bt').style.display = 'block';
 				document.getElementById('take_picture').style.display = 'none';
 				document.getElementById('img_upload').style.display = 'none';
 				document.getElementById('img_type').value = 'take_picture';
 
-
 			});
-			
 
 		}
-
-
 	</script>
 
 	<!-- Wrapper-->
@@ -144,9 +153,12 @@ ol>li>.cr_pick {
 
 
 		<div id="main">
+
+
+
 			<!-- <button onclick="downImg()">사진 저장</button> -->
 			<button id="img_upload" onclick="file_upLoad()" accept="image/*" onchange="setThumbnail(event)">사진 업로드</button>
-			<form action="ClothesAddServiceCon.do" method="post" enctype="multipart/form-data">
+			<form action="ClothesAddformServiceCon2.do" method="post" enctype="multipart/form-data">
 
 
 
@@ -171,7 +183,7 @@ ol>li>.cr_pick {
 
 					<div id="pickbutten">
 
-						<input type="file" name="img_file" id="img_file" accept=".gif, .jpg, .png" style="display: none;"> <input type=button id="take_picture"
+						<input type="file" name="img_file" id="img_file" accept=".gif, .jpg, .png" style="display: none;"> <input type="button" id="take_picture"
 							value="사진 찍기" onClick="take_snapshot()"
 						>
 
@@ -189,11 +201,10 @@ ol>li>.cr_pick {
 
 							<li>옷 이름
 							<li>
-							<li><input type="text" name="title" placeholder="옷 이름을 입력해주세요"> <!-- 사용자에게 히든 값을 저장해서 넘겨줌-->
+							<li><input type="text" id="title" name="title" placeholder="옷 이름을 입력해주세요"> <!-- 사용자에게 히든 값을 저장해서 넘겨줌-->
 							<li>옷 메모</li>
-							<li><textarea rows="68" cols="60" name="memo" placeholder="옷 이름을 입력해주세요"></textarea>
-							<input type="hidden" name="img_type" id="img_type" value="upload">
-							</li>
+							<li><textarea rows="68" cols="60" id="memo" name="memo" placeholder="옷 이름을 입력해주세요"></textarea> 
+							<input type="hidden" name="img_type" id="img_type" value="upload"></li>
 
 							<li><input id="img_bt" class="cr_pick" type="submit" value="등록" style="display: none;">
 						</ol>
@@ -204,7 +215,7 @@ ol>li>.cr_pick {
 				</div>
 
 			</form>
-
+			<button onclick="upLoadImage()" id="pic_img_bt" class="cr_pick" style="display: none;">등록</button>
 		</div>
 
 		<input type="button" value="뒤로가기" onclick="history.back();" />
@@ -236,18 +247,13 @@ ol>li>.cr_pick {
 
 	<!-- Configure a few settings and attach camera -->
 	<script language="JavaScript">
-	
-	
-	
-	// 사진 업로드 버튼
-	function file_upLoad() {
-		document.getElementById("img_file").click();
-		Webcam.reset();
+		// 사진 업로드 버튼
+		function file_upLoad() {
+			document.getElementById("img_file").click();
+			Webcam.reset();
 
-		pick_div
+		}
 
-	}
-	
 		Webcam.set({
 			width : 640,
 			height : 360,
@@ -273,17 +279,23 @@ ol>li>.cr_pick {
 						$('img').css('width', '75%');
 						$('img').css('height', '100%');
 					});
-		}
-
-		// div 영역 캡쳐 
-		//이미지전송
-		function downImg() {
+			
+			
 			html2canvas($("#pick_div")[0]).then(function(canvas) {
 				var myImage = canvas.toDataURL();
 				// downloadURI(myImage, "cloth_img.png") 
 				saveImage(myImage)
 
 			});
+			
+			
+			
+		}
+
+		// div 영역 캡쳐 
+		//이미지전송
+		function downImg() {
+
 		}
 
 		// url 데이터 파일로 변환
@@ -302,18 +314,52 @@ ol>li>.cr_pick {
 
 			$.ajax({
 				type : 'post',
-				url : 'Save_img',
+				url : 'ClothesSaveServiceCon.do',
 				data : formdata,
 				processData : false, // data 파라미터 강제 string 변환 방지!!
 				contentType : false, // application/x-www-form-urlencoded; 방지!!
 				success : function(data) {
-					alert("성공");
+				}
+			});
+
+		}
+		
+		
+		// 데이터 전송
+		function upLoadImage(imgDataUrl) {
+
+			var fileValue = $("#img_file").val().split("\\");
+			var fileName = fileValue[fileValue.length-1]; // 파일명
+
+			
+			
+			$.ajax({
+				type : 'post',
+				url : 'ClothesAddServiceCon.do',
+				data : {
+					'title' : $('#title').val(),
+					'memo' : $('#memo').val(),
+					'img_type' : $('#img_type').val(),
+					'img_file' : fileName
+				},
+				success : function(data) {
+					//alert("성공");
+					$(location).attr('href', 'viewCloth.jsp?num=' + board_num);
+
 				},
 				error : function() {
 					alert("실패");
 				}
 			});
+
 		}
+		
+		
+		
+		
+		
+		
+		
 	</script>
 
 
@@ -323,5 +369,8 @@ ol>li>.cr_pick {
 
 
 	<!-- document.getElementById('style_test_hi098123').style.margin='20px'; -->
+	
+
+	
 </body>
 </html>

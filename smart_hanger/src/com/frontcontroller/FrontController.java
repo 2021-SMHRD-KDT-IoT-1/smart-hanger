@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.command.Command;
 import com.controller_Class.ClothesAddServiceCon;
+import com.controller_Class.ClothesAddformServiceCon2;
 import com.controller_Class.ClothesOneDeleteServicCon;
 import com.controller_Class.ClothesUpdateServiceCon;
 import com.controller_Class.CodyAddServiceCon;
@@ -18,6 +19,7 @@ import com.controller_Class.JoinServiceCon;
 import com.controller_Class.LoginServiceCon;
 import com.controller_Class.LogoutServiceCon;
 import com.controller_Class.MemberUpdateServiceCon;
+import com.controller_Class.ClothesSaveServiceCon;
 import com.controller_Class.UserServiceCon;
 import com.controller_Class.WriteCommuCon;
 
@@ -65,9 +67,12 @@ public class FrontController extends HttpServlet {
 		}else if (resultURI.equals("ClothesAddServiceCon.do")) {
 			command = new ClothesAddServiceCon();
 			
+			// 사진 저장
+		}else if (resultURI.equals("ClothesSaveServiceCon.do")) {
+			command = new ClothesSaveServiceCon();
 			
 			
-			
+
 //		}else if(resultURI.equals("CommunityDeleteOneServiceCon.do")) {
 //			command = new CommunityDeleteOneServiceCon();
 			
@@ -103,7 +108,9 @@ public class FrontController extends HttpServlet {
 			// 여기는 옷 등록
 		} else if (resultURI.equals("ClothesAddServiceCon.do")) {
 			command = new ClothesAddServiceCon();
-
+			// 여기는 옷 등록2
+		} else if (resultURI.equals("ClothesAddformServiceCon2.do")) {
+			command = new ClothesAddformServiceCon2();
 			// 여기는 등록된 옷 삭제
 		} else if (resultURI.equals("ClothesOneDeleteServicCon.do")) {
 			command = new ClothesOneDeleteServicCon();

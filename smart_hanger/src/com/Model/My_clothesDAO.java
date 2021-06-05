@@ -66,12 +66,6 @@ public class My_clothesDAO {
 			
 			
 
-			System.out.println(dto.getUserId());
-			System.out.println(dto.getClothesName());
-			System.out.println(dto.getClothesType());
-			System.out.println(dto.getMemo());
-			System.out.println(dto.getClothespath());
-
 			if (psmt.executeUpdate() > 0) {
 				sql = "select * from my_clothes where userID = ? and clothesname = ? and clothespath = ?";
 				
@@ -81,11 +75,12 @@ public class My_clothesDAO {
 				psmt.setString(2, dto.getClothesName());
 				psmt.setString(3, dto.getClothespath());
 				
+				
+				
 				rs = psmt.executeQuery();
 				
 				if (rs.next()) {
 					clothes_num = rs.getString(1);
-					System.out.println(clothes_num);
 				}
 			}
 
