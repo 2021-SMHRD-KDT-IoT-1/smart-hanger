@@ -232,7 +232,7 @@ ol>li>.cr_pick {
 
 	<script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
 	<script type="text/javascript" src="webcamjs/webcam.min.js"></script>
-	<script src="js/html2canvas.js"></script>
+	<script type="text/javascript" src="js/html2canvas.js"></script>
 
 	<!-- Configure a few settings and attach camera -->
 	<script language="JavaScript">
