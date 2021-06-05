@@ -15,6 +15,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="assets/css/main.css" />
 
+
+
+
 <link rel="stylesheet" href="assets/css/cody_view.css" />
 
 </head>
@@ -80,7 +83,7 @@
 
 
 			<!-- 오른쪽 영역 -->
-			<div id="right" style="overflow-y: scroll;">
+			<div id="right">
 				<form action="CodyCommentsInsertCon.do" id="input_tag" method="post">
 					<input type="hidden" name="num" value="<%=num%>">
 					<ul id="my_content">
@@ -90,7 +93,7 @@
 							<p>조회수 : <%=cody_info.getView_num()%></p></li>
 						<li><%=cody_info.getUpload_date()%></li>
 						<li>
-							<ul style="list-style:none">
+							<ul>
 							<% for(int row = 0 ; row < commemtLists.size(); row++){ %> 
 								<li>
 									<p> <%= commemtLists.get(row).getUserId() %>	</p> 
@@ -98,12 +101,10 @@
 									<p> <%= commemtLists.get(row).getComments() %> </p>
 								</li>	
 								<% } %>
-								<li id = "line"><textarea class="chat" name="comment" style="resize : none" placeholder="댓글 입력"></textarea><input class="chat2" type="submit" value="등록"></li>
 							</ul>
-							
+
 						</li>
-						
-						
+						<li><textarea name="comment" placeholder="댓글 입력"></textarea><input type="submit" value="등록"></li>
 
 					</ul>
 				</form>

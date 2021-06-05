@@ -16,6 +16,18 @@ public class Cody_board_commentsDTO {
 		this.upload_date = upload_date;
 	}
 
+	public Cody_board_commentsDTO( String userId, String cody_board_num, String comments) {
+		this.userId = userId;
+		this.cody_board_num = cody_board_num;
+		this.comments = comments;
+	}
+	
+	public Cody_board_commentsDTO(String comments) {
+		this.comments = comments;
+	}
+
+
+
 	public String getComments_num() {
 		return comments_num;
 	}

@@ -50,7 +50,7 @@ public class CommunityDTO {
 		this.title = title;
 		this.clothespath = clothespath;
 	}
-	public CommunityDTO(String title,String userid,String content,String upload_date) {
+	public CommunityDTO(String userid,String title,String content,String upload_date) {
 		super();
 		this.title = title;
 		this.userid = userid;

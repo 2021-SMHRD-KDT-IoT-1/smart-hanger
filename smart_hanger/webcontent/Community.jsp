@@ -14,7 +14,7 @@
 </head>
 <body>
 	<%
-	CommunityDTO commudto = (CommunityDTO) session.getAttribute("dto");
+	CommunityDTO commudto = (CommunityDTO) session.getAttribute("userId");
 	CommunityDAO commudao = new CommunityDAO();
 	ArrayList<CommunityDTO> main_list = new ArrayList<CommunityDTO>();
 	ArrayList<CommunityDTO> community_list = commudao.Community_Show();
@@ -50,9 +50,9 @@
 				<tr>
 					<td><%=i + 1%></td>
 					<td  onclick="location.href='viewCommu.jsp?board_num=<%=community_list.get(i).getBoard_num()%>'">
-							<%=community_list.get(i).getTitle()%>
+							<%=community_list.get(i).getUserid()%>
 					</td>
-					<td><%=community_list.get(i).getUserid()%></td>
+					<td><%=community_list.get(i).getTitle()%></td>
 					<td><%=community_list.get(i).getUpload_date()%></td>
 					<td><%=community_list.get(i).getLike_num()%></td>
 					<td><%=community_list.get(i).getView_num()%></td>

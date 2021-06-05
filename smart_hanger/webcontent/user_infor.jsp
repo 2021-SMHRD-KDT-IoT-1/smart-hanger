@@ -1,7 +1,7 @@
 
 <%@page import="com.Model.MemberDTO"%>
+<%@page import="com.Model.MemberDTO"%>
 <%@page import="java.net.URLEncoder"%>
-<%@page import="com.Model.My_clothesDTO"%>
 <%@page import="com.Model.My_clothesDAO"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
@@ -86,7 +86,7 @@ h1 {
 
 
 	<%
-	MemberDTO dto = (MemberDTO) session.getAttribute("userInfo");
+	MemberDTO userInfo = (MemberDTO) session.getAttribute("userInfo");
 	%>
 
 	<!-- div 요소 불러오는 jq -->
@@ -95,6 +95,7 @@ h1 {
 		// 페이지 전환용 변수
 		/* 페이지 불러오기 (바꿀 div id입력 , 가져올 파일) */
 		function btnclick(inner, _url) {
+			
 
 			$.ajax({
 				url : _url,
@@ -168,11 +169,11 @@ h1 {
 						<li>사용자 이름
 						<li>
 
-							<h1><%=dto.getUserName()%></h1>
+							<h1><%=userInfo.getUserName()%></h1>
 						<li>사용자 나이
 						<li>
 
-							<h1><%=dto.getUserAge()%>세
+							<h1><%=userInfo.getUserAge()%>세
 							</h1>
 						<li>소개
 						<li>

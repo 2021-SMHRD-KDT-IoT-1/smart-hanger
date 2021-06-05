@@ -1,4 +1,6 @@
 
+<%@page import="com.Model.CommunityDAO"%>
+<%@page import="com.Model.CommunityDTO"%>
 <%@page import="com.Model.MemberDTO"%>
 <%@page import="java.net.URLEncoder"%>
 <%@page import="com.Model.My_clothesDTO"%>
@@ -20,9 +22,76 @@
 <body class="is-preload">
 
 
+
 	<%
-	MemberDTO dto = (MemberDTO) session.getAttribute("userInfo");
+	MemberDTO userInfo = (MemberDTO) session.getAttribute("userInfo");
+
+	String userId = null;
+	String userPw = null;
+	String userName = null;
+	String userAge = null;
+	
+	ArrayList<CommunityDTO> community_list = null;
+
+	if (userInfo != null) {
+		userId = userInfo.getUserId();
+		userPw = userInfo.getUserPw();
+		userName = userInfo.getUserName();
+		userAge = userInfo.getUserAge();
+		
+		
+		CommunityDAO commudao = new CommunityDAO();
+		community_list = commudao.Community_Select_Show(userId);
+	}
+
 	%>
+	<header>
+
+	<h2>내 게시글</h2>
+
+
+
+	<div style="border: 1px solid; width: 100%; height: 20%;"></div>
+
+	<%
+	System.out.println(userId);
+	%>
+	<table id="commtitle">
+		<thead>
+			<tr>
+				<th scope="col">번호</th>
+				<th scope="col">제목</th>
+				<th scope="col">ID</th>
+				<th scope="col">Day</th>
+				<th scope="col">Like</th>
+				<th scope="col">View</th>
+			</tr>
+		</thead>
+
+		<% if (userId != null) {
+			for (int i = 0; i < community_list.size(); i++) { %>
+		<tbody>
+			<tr>
+				<td><%=i + 1%></td>
+				<td onclick="location.href='viewCommu.jsp?board_num=<%=community_list.get(i).getBoard_num()%>'"><%=community_list.get(i).getUserid()%></td>
+				<td><%=community_list.get(i).getTitle()%></td>
+				<td><%=community_list.get(i).getUpload_date()%></td>
+				<td><%=community_list.get(i).getLike_num()%></td>
+				<td><%=community_list.get(i).getView_num()%></td>
+			</tr>
+		</tbody>
+		<%}%>
+	</table>
+	</header>
+	<%} else {%>
+		<li>접속한 Email : 세션영역에 저장된 email을 출력하시오.</li>
+	<%}%>
+
+	<button onclick="location.href='writerCommu.jsp'" id="writer" style="position: relative; left: 75%;">작성하러가기</button>
+
+
+
+
 
 
 	<script type="text/javascript">
@@ -45,7 +114,8 @@
 		}
 	</script>
 
-여기다 바로 작성 여기는 게시글
+
+
 
 </body>
 </html>

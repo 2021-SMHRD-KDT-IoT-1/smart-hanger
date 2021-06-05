@@ -1,7 +1,6 @@
 <%@page import="com.Model.CommunityDTO"%>
 <%@page import="com.Model.CommunityDAO"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,17 +19,14 @@
 <body class="is-preload">
 
 
-<%
+	<%
 	// get 방식으로 보낸 num받아오기
 	String get_num = request.getParameter("board_num");
-	
+
 	// String -> int 형변환
-	
-	
+
 	CommunityDAO dao = new CommunityDAO();
 	CommunityDTO communityInfo = dao.showOne(get_num);
-	
-		
 	%>
 
 	<!-- Wrapper-->
@@ -52,8 +48,7 @@
 
 				<div id="camera">
 
-					<img id="cloth_imgs" src="clothespath/<%=communityInfo.getClothespath()%>"
-						alt="">
+					<img id="cloth_imgs" src="clothespath/<%=communityInfo.getClothespath()%>" alt="">
 
 				</div>
 
@@ -72,37 +67,41 @@
 
 			<!-- 오른쪽 영역 -->
 			<div id="right">
-					<form action="#" id="input_tag">
-						<ul id="my_content">
-							<li><p><%=communityInfo.getUserid()%></p><p><%=communityInfo.getTitle()%></p></li>
-							<li><%=communityInfo.getContent()%></li>
-							<li><p>좋아요 : <%=communityInfo.getLike_num()%></p>  <p> 조회수 : <%=communityInfo.getView_num()%></p></li>
-							<li><%=communityInfo.getUpload_date()%></li>
-							<li>여기 댓글 영역 수정 예정</li>
-							<li><textarea name="comment" placeholder="댓글 입력" ></textarea><input type="submit" value="등록"></li>
+				<form action="#" id="input_tag">
+					<ul id="my_content">
+						<li><p><%=communityInfo.getUserid()%></p>
+							<p><%=communityInfo.getTitle()%></p></li>
+						<li><%=communityInfo.getContent()%></li>
+						<li><p>
+								좋아요 :
+								<%=communityInfo.getLike_num()%></p>
+							<p>
+								조회수 :
+								<%=communityInfo.getView_num()%></p></li>
+						<li><%=communityInfo.getUpload_date()%></li>
+						<li>여기 댓글 영역 수정 예정</li>
+						<li><textarea name="comment" placeholder="댓글 입력"></textarea><input type="submit" value="등록"></li>
 
-						</ul>
-					</form>
+					</ul>
+				</form>
 
 			</div>
 
 
+		</div>
 
 
 
 
 
-			<input type="button" value="뒤로가기"
-				onclick="location.href='Main.jsp#Stylist'" />
-			<!-- style="color:black" -->
-			<!-- Footer -->
-			<div id="footer">
-				<ul class="copyright">
-					<li>&copy; Untitled.</li>
-					<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-				</ul>
-			</div>
-
+		<input type="button" value="뒤로가기" onclick="location.href='Main.jsp#Stylist'" />
+		<!-- style="color:black" -->
+		<!-- Footer -->
+		<div id="footer">
+			<ul class="copyright">
+				<li>&copy; Untitled.</li>
+				<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+			</ul>
 		</div>
 	</div>
 

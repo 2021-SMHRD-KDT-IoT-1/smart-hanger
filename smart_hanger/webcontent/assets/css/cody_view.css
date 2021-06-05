@@ -32,10 +32,6 @@ table {
 
 
 
-
-
-
-
 /* ------------오른쪽영역 */
 #right {
 	width: 45%;
@@ -59,14 +55,14 @@ table {
 }
 
 /* 제목 */
-#my_content li:nth-of-type(1) {
+#my_content>li:nth-of-type(1) {
 	padding: 10px 0 10px 20px;
 	height: 10%;
 	
 }
 
 /* 게시글 */
-#my_content li:nth-of-type(2) {
+#my_content>li:nth-of-type(2) {
 	height: 50%;
 	border: none;
 	padding-top: 3%;
@@ -74,7 +70,7 @@ table {
 }
 
 /* 좋아요 , 조회수 */
-#my_content li:nth-of-type(3) p {
+#my_content>li:nth-of-type(3) p {
 	width: 50%;
 	float: left;
 	margin: 0px;
@@ -82,7 +78,7 @@ table {
 
 
 /* 좋아요 조회수 등록날짜 */
-#my_content li:nth-child(n+3):nth-child(-n+4){
+#my_content>li:nth-child(n+3):nth-child(-n+4){
 	height: 10%;
 	padding-top : 10px;
 	width : 50%;
@@ -94,27 +90,51 @@ table {
 }
 
 /* 등록날짜 */
-#my_content li:nth-of-type(4){
+#my_content>li:nth-of-type(4){
 	text-align: right;
 	
 }
 
 /* 댓글 목록 */
-#my_content li:nth-of-type(5) {
+#my_content>li:nth-of-type(5) {
 	border: none;
 	height: 15%;
+	
 }
+
+/* 댓글 목록 ul태그 */
+#my_content>li:nth-of-type(5) ul {
+	padding: 0px !important;
+}
+
+/* 댓글 목록 li태그 */
+#my_content>li:nth-of-type(5)>ul>li {
+	padding: 0px !important;
+}
+
+/* 댓글 목록 p태그 */
+#my_content>li:nth-of-type(5)>ul>li p:nth-of-type(n+1):nth-of-type(-n+2) {
+	width: 50%;
+	float: left;
+}
+
+#my_content>li:nth-of-type(6)>ul>li p:nth-of-type(2) {
+	text-align: right;
+}
+
+
 /* 댓글창 입력 */
-#my_content li:nth-of-type(6){
+#my_content>li:nth-of-type(6){
 	float : left;
 	border: none;
 	height: 10%;
 	padding: 0px;
 	margin-top: 10px;
 	width: 100%;
+	
 }
 /* 댓글창 입력 */
-#my_content li:nth-of-type(6)>textarea{
+#my_content>li:nth-of-type(5)>textarea{
 	display : inline-block;
 	position : relative;
 	margin-right : 2%;
@@ -122,8 +142,6 @@ table {
 	border: none;
 	height: 100%;
 	padding : 10px;
-	resize : none;
-
 
 		
 	border-radius: 10px;
@@ -135,7 +153,7 @@ table {
 	
 }
 /* 댓글창 입력 */
-#my_content li:nth-of-type(6)>input{
+#my_content>li:nth-of-type(6)>input{
 	display : inline-block;
 	position : relative;
 	top : -18px;
@@ -144,7 +162,6 @@ table {
 	border: none;
 	height: 100%;
 	margin: 0px;
-	
 	border-radius: 10px;
 	background-color: rgb(150,150,150);
 	font-size: 14px;
@@ -152,7 +169,7 @@ table {
 }
 
 
-#my_content li {
+#my_content>li {
 	height: 16.6%;
 	list-style: none;
 	padding: 5px 0px 5px 0px;
@@ -161,8 +178,7 @@ table {
 	
 	float : left;
 	width : 100%;
-
-		
+			
 	color: #262626;
     color: rgba(var(--i1d,38,38,38),1);
     font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
@@ -177,4 +193,47 @@ table {
 	padding: 1%;
 	width: 100%;
 	height: 20%;
+	resize : none;
+}
+
+.chat {
+	
+	display : inline-block;
+	position : relative;
+	margin-right : 2%;
+	width : 69%;
+	border: none;
+	height: 100%;
+	padding : 10px;
+
+		
+	border-radius: 10px;
+	color: #262626;
+    color: rgba(var(--i1d,38,38,38),1);
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 18px;
+}
+.chat2 {
+	display : inline-block;
+	position : relative;
+	top : -18px;
+	right : 0px;
+	width : 29%;
+	border: none;
+	height: 100%;
+	margin: 0px;
+	border-radius: 10px;
+	background-color: rgb(150,150,150);
+	font-size: 14px;
+		
+}
+#line {
+	float : left;
+	border: none;
+	height: 10%;
+	padding: 0px;
+	margin-top: 10px;
+	width: 100%;
+	
 }

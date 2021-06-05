@@ -1,0 +1,89 @@
+/* //메인 */
+#main {
+	height: 500px;
+
+	/* =================여기는 왼쪽 화면 스타일 ======================= */
+}
+/* 왼쪽화면구성 */
+#left {
+	width: 50%;
+	height: 100%;
+	float: left;
+}
+/* 이미지 */
+#cloth_imgs {
+	width: 105%;
+	position: relative;
+	right: 2.5%;
+	height: 100;
+}
+/* 사진찍기 */
+#pickcloth {
+	position: relative;
+	width: 80%;
+	height: 350px;
+	top: 20px;
+	left: 20px;
+	border: 1px solid;
+	overflow: hidden;
+}
+/* 선택버튼 */
+#pickbutten {
+	position: relative;
+	top: 20px;
+	left: 20px;
+	
+}
+
+/* ==============여기는 오른쪽 화면 스타일 ==================== */
+#right {
+	overflow-y: scroll;
+	width: 50%;
+	height: 500px;
+	float: left;
+}
+
+#input_tag_div {
+	position: relative;
+	top: 37px;
+	width: 91%;
+	height: 115px;
+}
+#del {
+	float: right;
+    height: 50%;
+    width: 30%;
+    position: relative;
+    top: 2px;
+    left: 2px;
+}
+
+li>textarea {
+	resize: none;
+	height: 215px;
+}
+
+
+ol>li>.cr_pick {
+	margin: auto;
+	width: 49%;
+	position: relative;
+	top: 20px;
+	left: 20px;
+	display : inline-block;
+	border: none;
+	height: 40px;
+	
+	border-radius: 10px;
+	background-color: rgb(150,150,150);
+	font-size: 14px;
+}
+
+#input_tag_div>ol {
+	list-style: none;
+}
+
+
+
+
+
