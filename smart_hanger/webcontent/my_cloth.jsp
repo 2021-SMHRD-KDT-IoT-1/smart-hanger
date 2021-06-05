@@ -13,7 +13,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-		<%
+		<% 
 			String userId = ((MemberDTO)session.getAttribute("userInfo")).getUserId();
 		
 			

@@ -11,76 +11,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="assets/css/main.css" />
 <link rel="stylesheet" href="assets/css/viewCloth.css" />
+<link rel="stylesheet" href="assets/css/viewClothiadd.css" />
+
 <style type="text/css">
-#main {
-	height: 500px;
 
-	/* =================여기는 왼쪽 화면 스타일 ======================= */
-}
 
-#left {
-	width: 50%;
-	height: 100%;
-	float: left;
-}
 
-#pickcloth {
-	position: relative;
-	width: 80%;
-	height: 350px;
-	top: 20px;
-	left: 20px;
-	border: 1px solid;
-	overflow: hidden;
-}
 
-#cloth_imgs {
-	height: 100;
-}
 
-#pickbutten {
-	position: relative;
-	top: 20px;
-	left: 20px;
-}
 
-/* ==============여기는 오른쪽 화면 스타일 ==================== */
-#right {
-	overflow-y: scroll;
-	width: 50%;
-	height: 500px;
-	float: left;
-}
 
-#input_tag_div {
-	position: relative;
-	top: 37px;
-	width: 91%;
-	height: 115px;
-}
 
-#del {
-	float: right;
-	height: 50%;
-	width: 30%;
-}
 
-li>textarea {
-	resize: none;
-	height: 215px;
-}
 
-ol>li>.cr_pick {
-	margin: auto;
-	width: 49%;
-}
 
-#clothespick {
-	margin: auto;
-	width: 49%;
-	height: 59px;
-}
+
 </style>
+
 
 </head>
 
@@ -154,14 +101,12 @@ ol>li>.cr_pick {
 
 					<div id="pickcloth">
 
-						<img id="cloth_imgs" src="cloth_img/<%=cloth_info.getClothespath()%>" alt="" style="width: 105%; position: relative; right: 2.5%;">
+						<img id="cloth_imgs" src="cloth_img/<%=cloth_info.getClothespath()%>" alt="">
 					</div>
-						
+
 					<div id="pickbutten">
 
-					<input type="file" name="img_file">
-
-						<input type="button" style="position: relative;" value="사진찍기" onclick="history.back();">
+						<input type="file" class="cr_pick" name="img_file"> <input type="button" style="position: relative;" value="사진찍기" onclick="history.back();">
 
 					</div>
 				</div>
@@ -171,16 +116,15 @@ ol>li>.cr_pick {
 				<!-- 오른쪽 영역 -->
 				<div id="right">
 					<div id="input_tag_div">
-						<ol style="list-style: none;">
+						<ol style="">
 
-							<li><input type="button" id="del" value="삭제" onclick="oneDelete(<%=num%>)"></li>
-							
-				 			<li>옷 이름 <li>
-							
-							
-							
-							<li><input type="text" name="title" value = " <%=cloth_info.getClothesName()%>" > 
-							<input type="hidden" name="num" value="<%=num%>"><input type="hidden" name="old_img_path" value="<%=cloth_info.getClothespath() %>" > </li>
+							<li><input type="button" id="del"class="cr_pick" value="삭제" onclick="oneDelete(<%=num%>)"></li>
+
+							<li>옷 이름
+							<li>
+							<li><input type="text" name="title" value=" <%=cloth_info.getClothesName()%>"> <input type="hidden" name="num" value="<%=num%>"><input
+								type="hidden" name="old_img_path" value="<%=cloth_info.getClothespath() %>"
+							></li>
 							<!-- 사용자에게 히든 값을 저장해서 넘겨줌-->
 							<li>옷에 대한 사용자가 적을 것</li>
 							<li><textarea rows="68" cols="60" name="memo"><%=cloth_info.getMemo() %>

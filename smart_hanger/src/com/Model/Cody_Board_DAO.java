@@ -57,7 +57,7 @@ public class Cody_Board_DAO {
 			psmt.setString(2, dto.getContent());
 			psmt.setString(3, dto.getClothespath());
 
-			
+					
 			if (psmt.executeUpdate() > 0 ) {
 				sql = "select * from cody_board where userID = ? and content = ? and clothespath = ?";
 				

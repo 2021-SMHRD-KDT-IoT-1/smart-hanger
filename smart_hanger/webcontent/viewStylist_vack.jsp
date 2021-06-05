@@ -83,7 +83,7 @@
 
 
 			<!-- 오른쪽 영역 -->
-			<div id="right" style="overflow-y: scroll;">
+			<div id="right">
 				<form action="CodyCommentsInsertCon.do" id="input_tag" method="post">
 					<input type="hidden" name="num" value="<%=num%>">
 					<ul id="my_content">
