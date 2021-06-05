@@ -157,6 +157,7 @@ public class CommunityDAO {
 		return cnt;
 	}
 	
+	// Á¤Èñ°¡ ¸¸µë ³­ ¸ô¶ó
 	public CommunityDTO showOne(String choice) {
 		CommunityDTO dto = null;
 		conn();
@@ -186,6 +187,43 @@ public class CommunityDAO {
 			close();
 		}
 		return dto;
+	}
+	
+	
+	
+	// userIdº° Á¶È¸
+	public ArrayList<CommunityDTO> Community_Select_Show(String userId_input) {
+		ArrayList<CommunityDTO> community_list = new ArrayList<CommunityDTO>();
+		conn();
+
+		try {
+			String sql = "select * from board  where userid = ? order by upload_date desc";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, userId_input);
+			
+			
+			rs = psmt.executeQuery();
+
+			while (rs.next()) {
+				int board_num = rs.getInt("board_num");
+				String userid = rs.getString("userid");
+				String title = rs.getString("title");
+				String content = rs.getString("content");
+				String[] upload_dates = rs.getString("upload_date").split(" ");
+				String upload_date = upload_dates[0];
+				int like_num = rs.getInt("like_num");
+				int view_num = rs.getInt("view_num");
+				CommunityDTO dto = new CommunityDTO(board_num, title, userid, content, upload_date, like_num,view_num);
+				community_list.add(dto);
+
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return community_list;
 	}
 	
 }

@@ -62,13 +62,13 @@ public class FrontController extends HttpServlet {
 			command = new LogoutServiceCon();
 			
 	 			
-//			
-//			
-//		}else if(resultURI.equals("MessageDeleteOneServiceCon.do")) {
-//			command = new MessageDeleteOneServiceCon();
-//			
-//		
-//			
+			
+			
+//		}else if(resultURI.equals("CommunityDeleteOneServiceCon.do")) {
+//			command = new CommunityDeleteOneServiceCon();
+			
+		
+			
 //		}else if(resultURI.equals("MessageServiceCon.do")) {
 //			command = new MessageServiceCon();
 //			

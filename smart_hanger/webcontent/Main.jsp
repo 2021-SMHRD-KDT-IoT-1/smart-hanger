@@ -27,18 +27,18 @@
 
 
 	<%
-	MemberDTO dto = (MemberDTO) session.getAttribute("userInfo");
+	MemberDTO userInfo = (MemberDTO) session.getAttribute("userInfo");
 	
 	String userId = null;
 	String userPw = null;
 	String userName = null;
 	String userAge = null;
 	
-	if(dto != null){
-		userId = dto.getUserId(); 
-		userPw = dto.getUserPw(); 
-		userName = dto.getUserName(); 
-		userAge = dto.getUserAge(); 
+	if(userInfo != null){
+		userId = userInfo.getUserId(); 
+		userPw = userInfo.getUserPw(); 
+		userName = userInfo.getUserName(); 
+		userAge = userInfo.getUserAge(); 
 	}
 	%>
 	<!-- div 요소 불러오는 jq -->
@@ -88,7 +88,7 @@
 	<% if (userId != null) { %>
 	<h1 style="margin-left: 760px; font-size: 30px; color: white">
 
-		Welcome to <%=dto.getUserName()%> !
+		Welcome to <%=userInfo.getUserName()%> !
 	</h1>
 	<button class="btn_logout" onClick="location.href='LogoutServiceCon.do'" style="position: absolute; left: 74%; top: 10%; ntop: 50%;">로그아웃</button>
 	<button class="btn_logout" onClick="location.href='user_infor.jsp'" style="position: absolute; left: 84%; top: 10%; ntop: 50%;">내정보관리</button>
