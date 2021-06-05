@@ -1,0 +1,103 @@
+/* #cloth_main{
+	background-color: white;
+	width: 1000px;
+	height: 600px;	
+} */
+
+
+#container_div{
+	position: relative; 
+	width: 320px;
+	height: 320px; 
+	top: 20px; 
+	left: 20px; 
+	background-color: #333; 
+	padding: 10px; 
+	box-sizing: border-box;
+}
+
+#container {
+	width: 100%; 
+	height: 100%; 
+	overflow: hidden;
+}
+#videoElement {
+    position: relative; 
+    width: 135%; 
+    height: 100%; 
+    left: -50px; 
+}
+
+
+#main {
+	height: 500px;
+
+	/* =================여기는 왼쪽 화면 스타일 ======================= */
+}
+
+#left {
+	width: 50%;
+	height: 100%;
+	float: left;
+}
+
+#pickcloth {
+	position: relative;
+	overflow: hidden;
+}
+
+#pick_div {
+	position: relative;
+	width: 80%;
+	height: 350px;
+	top: 20px;
+	left: 20px;
+	overflow: hidden;
+}
+
+#cloth_imgs {
+	height: 100;
+}
+
+#pickbutten {
+	position: relative;
+	top: 20px;
+	left: 20px;
+}
+
+/* ==============여기는 오른쪽 화면 스타일 ==================== */
+#right {
+	overflow-y: scroll;
+	width: 50%;
+	height: 500px;
+	float: left;
+}
+
+#input_tag_div {
+	position: relative;
+	top: 37px;
+	width: 91%;
+	height: 115px;
+}
+
+#del {
+	float: right;
+	height: 50%;
+	width: 30%;
+}
+
+li>textarea {
+	resize: none;
+	height: 215px;
+}
+
+ol>li>.cr_pick {
+	margin: auto;
+	width: 49%;
+}
+
+#clothespick {
+	margin: auto;
+	width: 49%;
+	height: 59px;
+}

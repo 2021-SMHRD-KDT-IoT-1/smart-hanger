@@ -125,7 +125,7 @@ ol>li>.cr_pick {
 				document.getElementById('img_bt').style.display = 'block';
 				document.getElementById('take_picture').style.display = 'none';
 				document.getElementById('img_upload').style.display = 'none';
-				document.getElementById('img_type').style.value = 'take_picture';
+				document.getElementById('img_type').value = 'take_picture';
 
 
 			});
