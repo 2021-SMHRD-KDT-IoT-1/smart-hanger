@@ -317,92 +317,111 @@ create sequence num_cody_board_comments
 increment by 1 
 start with 1 
 minvalue 1 
-maxvalue 100 
 nocycle;
 --코디 게시판 시퀀스
 create sequence num_cody_board    
 increment by 1 
 start with 1 
 minvalue 1 
-maxvalue 100 
 nocycle;
 --옷장 이미지 시퀀스-- 
 create sequence num_my_clothes_img_path   
 increment by 1 
 start with 1 
 minvalue 1 
-maxvalue 100 
 nocycle;
 --커뮤니티 게시글 이미지 시퀀스 
 create sequence num_board_img_path   
 increment by 1 
 start with 1 
 minvalue 1 
-maxvalue 100 
 nocycle;
 --고객센터 시퀀스 
 create sequence num_SERVICE
 increment by 1 
 start with 1 
 minvalue 1 
-maxvalue 100 
 nocycle;
 --회원정보테이블 시퀀스 
 create sequence num_MEMBER 
 increment by 1 
 start with 1 
 minvalue 1 
-maxvalue 100 
 nocycle;
 --코디옷 시퀀스
 create sequence num_cody_clothes
 increment by 1 
 start with 1 
 minvalue 1 
-maxvalue 100 
 nocycle;
 --옷장 시퀀스
 create sequence num_my_clothes
 increment by 1 
 start with 1 
 minvalue 1 
-maxvalue 100 
 nocycle;
 --코디이미지 시퀀스
 create sequence num_cody_img_path 
 increment by 1 
 start with 1 
 minvalue 1 
-maxvalue 100 
 nocycle;
 --코디게시판 이미지 시퀀스
 create sequence num_cody_board_img_path 
 increment by 1 
 start with 1 
 minvalue 1 
-maxvalue 100 
 nocycle;
 --코디 시퀀스
 create sequence num_cody
 increment by 1 
 start with 1 
 minvalue 1 
-maxvalue 100 
 nocycle;
 --커뮤니티 게시판 시퀀스
 create sequence num_board  
 increment by 1 
 start with 1 
 minvalue 1 
-maxvalue 100 
 nocycle;
 --커뮤니티 댓글 시퀀스
 create sequence num_board_comments  
 increment by 1 
 start with 1 
 minvalue 1 
-maxvalue 100 
 nocycle;
+
+
+
+
+
+
+--코디 게시판 댓글 시퀀스
+drop sequence num_cody_board_comments;
+--코디 게시판 시퀀스
+drop sequence num_cody_board;
+--옷장 이미지 시퀀스-- 
+drop sequence num_my_clothes_img_path;
+--커뮤니티 게시글 이미지 시퀀스 
+drop sequence num_board_img_path;
+--고객센터 시퀀스 
+drop sequence num_SERVICE;
+--회원정보테이블 시퀀스 
+drop sequence num_MEMBER;
+--코디옷 시퀀스
+drop sequence num_cody_clothes;
+--옷장 시퀀스
+drop sequence num_my_clothes;
+--코디이미지 시퀀스
+drop sequence num_cody_img_path;
+--코디게시판 이미지 시퀀스
+drop sequence num_cody_board_img_path;
+--코디 시퀀스
+drop sequence num_cody;
+--커뮤니티 게시판 시퀀스
+drop sequence num_board;
+--커뮤니티 댓글 시퀀스
+drop sequence num_board_comments;
 
 
 

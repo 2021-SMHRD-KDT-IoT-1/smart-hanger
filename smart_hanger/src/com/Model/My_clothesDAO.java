@@ -62,6 +62,15 @@ public class My_clothesDAO {
 			psmt.setString(3, dto.getClothesType());
 			psmt.setString(4, dto.getMemo());
 			psmt.setString(5, dto.getClothespath());
+			
+			
+			
+
+			System.out.println(dto.getUserId());
+			System.out.println(dto.getClothesName());
+			System.out.println(dto.getClothesType());
+			System.out.println(dto.getMemo());
+			System.out.println(dto.getClothespath());
 
 			if (psmt.executeUpdate() > 0) {
 				sql = "select * from my_clothes where userID = ? and clothesname = ? and clothespath = ?";

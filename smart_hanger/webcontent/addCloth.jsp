@@ -192,7 +192,7 @@ ol>li>.cr_pick {
 							<li><input type="text" name="title" placeholder="옷 이름을 입력해주세요"> <!-- 사용자에게 히든 값을 저장해서 넘겨줌-->
 							<li>옷 메모</li>
 							<li><textarea rows="68" cols="60" name="memo" placeholder="옷 이름을 입력해주세요"></textarea>
-							<input type="hidden" name="img_type" value="upload">
+							<input type="hidden" name="img_type" id="img_type" value="upload">
 							</li>
 
 							<li><input id="img_bt" class="cr_pick" type="submit" value="등록" style="display: none;">

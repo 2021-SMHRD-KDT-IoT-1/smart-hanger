@@ -51,13 +51,22 @@ public class ClothesAddServiceCon implements Command {
 		
 		
 		
-		System.out.println(savePath);
+		System.out.println("여기!!!!!!!!!!!!!!!");
 
 		try {
 
 			// cos.jar 파일안에 있는 클래스 사용
 			// 요청, 저장경로, 사이즈 최대 크기, 인코딩 방식, DefaultFileRenamePolicy : 이미지파일중복제거
+			String savePath2 = savePath + "\\blob";
 
+			/*
+			 * // blob 파일이 먼저 존재하면 삭제하고 새로운 blob저장 File file_delete = new File(savePath2);
+			 * if (file_delete.exists()) { if (file_delete.delete()) {
+			 * System.out.println("파일삭제 성공"); } }
+			 */
+			
+			
+			
 			MultipartRequest multi = new MultipartRequest(request, savePath, maxSize, encoding, new DefaultFileRenamePolicy());
 
 			// 데이터베이스에 저장하기위해서 fileName, title, content 등의 정보 가져오기.
@@ -70,32 +79,25 @@ public class ClothesAddServiceCon implements Command {
 			
 			
 			
-			
-			if (img_type.equals("take_picture")) {
-
-				// String clothespath = URLEncoder.encode(multi.getFilesystemName("img_file"),
-				// "EUC-KR");
-				clothespath = multi.getFilesystemName("img_file");
-
-			} else {
-
-				// 혹시 오류로 인하여 존재하는 blob삭제를 위해 경로 설정
-				String savePath2 = savePath + "\\blob";
-
-				// blob 파일이 먼저 존재하면 삭제하고 새로운 blob저장
-				File file_delete = new File(savePath2);
-				if (file_delete.exists()) {
-					if (file_delete.delete()) {
-						System.out.println("파일삭제 성공");
-					}
-				}
-
-				// 파일 받기로 저장된 blob에 이름은 [현재날짜_시간]으로 저장함
-				file_delete.renameTo(new File(savePath + "\\" + local_time + ".png"));
-
-				clothespath = local_time + ".png";
-
-			}
+			/*
+			 * if (img_type.equals("upload")) {
+			 * 
+			 * // String clothespath =
+			 * URLEncoder.encode(multi.getFilesystemName("img_file"), // "EUC-KR");
+			 * clothespath = multi.getFilesystemName("img_file");
+			 * 
+			 * } else {
+			 * 
+			 * // 혹시 오류로 인하여 존재하는 blob삭제를 위해 경로 설정
+			 * 
+			 * 
+			 * // 파일 받기로 저장된 blob에 이름은 [현재날짜_시간]으로 저장함 file_delete.renameTo(new
+			 * File(savePath + "\\" + local_time + ".png"));
+			 * 
+			 * clothespath = local_time + ".png";
+			 * 
+			 * }
+			 */
 
 			My_clothesDAO dao = new My_clothesDAO();
 
