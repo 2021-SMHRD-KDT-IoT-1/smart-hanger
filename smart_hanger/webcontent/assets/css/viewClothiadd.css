@@ -72,21 +72,17 @@ ol>li>.cr_pick {
 	left: 20px;
 	display : inline-block;
 	border: none;
-	height: 100%;
+	height: 40px;
 	
 	border-radius: 10px;
 	background-color: rgb(150,150,150);
 	font-size: 14px;
 }
 
-#clothespick {
-	margin: auto;
-	width: 49%;
-	height: 59px;
-}
 #input_tag_div>ol {
 	list-style: none;
 }
+
 
 
 
