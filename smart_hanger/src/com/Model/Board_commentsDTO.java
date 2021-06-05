@@ -17,6 +17,19 @@ public class Board_commentsDTO {
 		this.upload_date = upload_date;
 	}
 
+	
+	
+	
+	public Board_commentsDTO(String userId, String board_num, String comments) {
+		super();
+		this.userId = userId;
+		this.board_num = board_num;
+		this.comments = comments;
+	}
+
+
+
+
 	public String getComments_num() {
 		return comments_num;
 	}

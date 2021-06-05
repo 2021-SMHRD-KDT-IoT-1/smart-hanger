@@ -6,7 +6,23 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="assets/css/joinFrame.css" />
+<style type="text/css">
 
+#real-join{
+	background-color: gray;
+	font-weight: bold ;
+	font-family: "Gmarket Sans";
+	
+}
+
+#home{
+	background-color: gray;
+	font-weight: bold ;
+	font-family: "Gmarket Sans";
+	
+}
+
+</style>
 </head>
 <body>
 

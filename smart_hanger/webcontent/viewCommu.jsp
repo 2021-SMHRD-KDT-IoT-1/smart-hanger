@@ -67,7 +67,7 @@
 
 			<!-- 오른쪽 영역 -->
 			<div id="right">
-				<form action="#" id="input_tag">
+				<form action="CommunityCommentsInsertCon.do" id="input_tag">
 					<ul id="my_content">
 						<li><p><%=communityInfo.getUserid()%></p>
 							<p><%=communityInfo.getTitle()%></p></li>
@@ -79,8 +79,17 @@
 								조회수 :
 								<%=communityInfo.getView_num()%></p></li>
 						<li><%=communityInfo.getUpload_date()%></li>
+						
+						
+						
+						
 						<li>여기 댓글 영역 수정 예정</li>
-						<li><textarea name="comment" placeholder="댓글 입력"></textarea><input type="submit" value="등록"></li>
+						
+						
+						
+						<li>
+						<textarea name="comment" placeholder="댓글 입력">
+						</textarea><input type="submit" value="등록"></li>
 
 					</ul>
 				</form>

@@ -19,6 +19,17 @@
 <noscript>
 <link rel="stylesheet" href="assets/css/noscript.css" />
 </noscript>
+<style>
+
+button{
+	
+	background-color: gray;
+	font-weight: bold ;
+	font-family: "Gmarket Sans";
+
+}
+
+</style>
 
 
 </head>

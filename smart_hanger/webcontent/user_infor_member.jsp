@@ -45,23 +45,24 @@
 		}
 	</script>
 
+
 					<nav id="Update">	
-		<ul class="actions vertical">
-			<li><h5>회원정보수정</h5></li>
-				<form action = "MemberUpdateServiceCon.do" method = "post">
-				
-					<%if(dto != null) {%>
-						<li>접속한 Id : <%=dto.getUserId() %></li><br>
-					<%}else { %>
-						<li>접속한 UserId : 세션영역에 저장된 email을 출력하시오.</li>
-					<%} %>
-					
-					<li><input type="password" name = "userPw" placeholder="PW를 입력하세요" style="width: 500px; margin: 0 auto;"></li>
-					<li><input type="text" name = "userName" placeholder="이름를 입력하세요" style="width: 500px; margin: 0 auto;"></li>
-					<li><input type="text" name = "userAge" placeholder="나이를 입력하세요" style="width: 500px; margin: 0 auto;"></li>
-					<li><input type="submit" value="업데이트" class="button fit" style="width: 500px; margin: 0 auto;"></li>
-				</form>
-		</ul>
-	</nav>			
+						<ul class="actions vertical">
+							<li><h5>회원정보수정</h5></li>
+								<form action = "MemberUpdateServiceCon.do" method = "post">
+								
+									<%if(dto != null) {%>
+										<li id="id">ID : <%=dto.getUserId() %></li><br>
+									<%}else { %>
+										<li>접속한 UserId : 세션영역에 저장된 email을 출력하시오.</li>
+									<%} %>
+									
+									<li><input type="password" name = "userPw" placeholder="PW를 입력하세요" style="width: 500px; margin-bottom: 10px;"></li><br>
+									<li><input type="text" name = "userName" placeholder="이름를 입력하세요" style="width: 500px; margin-bottom: 10px;"></li>
+									<li><input type="text" name = "userAge" placeholder="나이를 입력하세요" style="width: 500px; margin-bottom: 10px;"></li>
+									<li><input id = "update_btn" type="submit" value="업데이트" class="button fit" style="width: 500px; margin: 0 auto;"></li>
+								</form>
+						</ul>
+					</nav>			
 </body>
 </html>
