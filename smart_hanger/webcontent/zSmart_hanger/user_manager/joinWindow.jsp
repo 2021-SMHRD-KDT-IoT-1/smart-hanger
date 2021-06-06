@@ -87,7 +87,7 @@
 				<td><a id="real-join" onclick="join_click()" class="button fit">join</a>
 				
 				
-				<td><a id="home" onclick="btnclick('loginWindow')" class="button fit">home</a>
+				<td><a id="home" onclick="btnclick('zSmart_hanger/user_manager/loginWindow')" class="button fit">home</a>
 			</tr>
 		</table>
 

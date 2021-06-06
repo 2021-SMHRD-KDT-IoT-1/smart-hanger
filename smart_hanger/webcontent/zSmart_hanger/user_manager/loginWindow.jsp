@@ -48,7 +48,7 @@
 						<td><input id="login-btn" type="submit" value="LogIn" class="button fit"></td>
 
 
-						<td><a id="join-btn" onclick="btnclick('loginFrame','joinWindow.jsp')" class="button fit">join</a>
+						<td><a id="join-btn" onclick="btnclick('loginFrame','zSmart_hanger/user_manager/joinWindow.jsp')" class="button fit">join</a>
 
 
 					</tr>

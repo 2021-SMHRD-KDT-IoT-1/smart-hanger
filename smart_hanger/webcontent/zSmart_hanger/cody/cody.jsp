@@ -26,8 +26,6 @@ overflow-y: scroll; width: 750px; height: 400px;
 
 
 
-
-    
 	<%
 	Cody_Board_DAO codydao = new Cody_Board_DAO();
 	ArrayList<Cody_Board_DTO> cody_list = codydao.Cody_Board_All_Select();
@@ -35,7 +33,7 @@ overflow-y: scroll; width: 750px; height: 400px;
 
 
 	<div>
-		<input type="button" value="코디 등록" style="float: right;" onclick="location.href='viewAddStylist.jsp'">
+		<input type="button" value="코디 등록" style="float: right;" onclick="location.href='zSmart_hanger/cody/addCody.jsp'">
 	</div>
 	<header>
 		<h2 id="head_h2" Style = "position: relative; top: 10px;">옷장 : 여기 수정해야함</h2>
@@ -53,7 +51,7 @@ overflow-y: scroll; width: 750px; height: 400px;
 
 			<% for (int row = 0; row < cody_list.size(); row++) { %>
 			<div class="col-4 col-6-medium col-12-small">
-				<a href="viewStylist.jsp?num=<%=cody_list.get(row).getCody_board_num()%>" class="image fit">
+				<a href="zSmart_hanger/cody/viewStylist.jsp?num=<%=cody_list.get(row).getCody_board_num()%>" class="image fit">
 				<img class="cody_imgs" src="./cody_img/<%=cody_list.get(row).getClothespath()%>" alt=""></a>
 			</div>
 			<% } %>

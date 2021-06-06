@@ -9,7 +9,7 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
-<link rel="stylesheet" href="assets/css/community.css" />
+<link rel="stylesheet" href="assets/css/community.css">
 
 </head>
 <body>
@@ -27,9 +27,7 @@
 
 		<div style="border: 1px solid; width: 100%; height: 20%;"></div>
 
-		<%
-		System.out.println(community_list);
-		%>
+
 		<table id="commtitle">
 			<thead>
 				<tr>
@@ -49,7 +47,7 @@
 			<tbody>
 				<tr>
 					<td><%=i + 1%></td>
-					<td  onclick="location.href='viewCommu.jsp?board_num=<%=community_list.get(i).getBoard_num()%>'">
+					<td  onclick="location.href='zSmart_hanger/community/viewCommu.jsp?board_num=<%=community_list.get(i).getBoard_num()%>'">
 							<%=community_list.get(i).getUserid()%>
 					</td>
 					<td><%=community_list.get(i).getTitle()%></td>
@@ -63,7 +61,7 @@
 			%>
 		</table>
 	</header>
-	<button onclick="location.href='writerCommu.jsp'" id="writer"
+	<button onclick="location.href='zSmart_hanger/community/writerCommu.jsp'" id="writer"
 		style="position: relative; left: 75%;">작성하러가기</button>
 
 </body>

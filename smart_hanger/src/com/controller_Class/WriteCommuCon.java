@@ -41,8 +41,8 @@ public class WriteCommuCon implements Command {
 			String title = multi.getParameter("title");
 			
 			// 이미지태그에 작성 시 16진수로 나타내줘야해서 인코딩을 진행
-			String content = multi.getParameter("content");
-			String clothespath = URLEncoder.encode(multi.getFilesystemName("fileName"), "EUC-KR");
+			String content = multi.getParameter("memo");
+			String clothespath = URLEncoder.encode(multi.getFilesystemName("img_file"), "EUC-KR");
 
 			
 			System.out.println(clothespath);
@@ -54,7 +54,7 @@ public class WriteCommuCon implements Command {
 			int cnt = dao.community_Insert(new CommunityDTO(userid,title,content,clothespath));
 
 			if (cnt > 0) {
-				System.out.println("파일 업로드 성공");
+				//System.out.println("파일 업로드 성공");
 			} else {
 				System.out.println("파일 업로드 실패");
 			}
@@ -63,7 +63,7 @@ public class WriteCommuCon implements Command {
 			e.printStackTrace();
 		}
 
-		String moveURL = "Main.jsp#Community";
+		String moveURL = "../../Main.jsp#Community";
 
 		return moveURL;
 	}

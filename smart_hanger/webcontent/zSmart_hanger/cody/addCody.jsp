@@ -12,8 +12,8 @@
 <title>Astral by HTML5 UP</title>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-<link rel="stylesheet" href="assets/css/main.css" />
-<link rel="stylesheet" href="assets/css/viewCloth.css" />
+<link rel="stylesheet" href="../../assets/css/main.css" />
+<link rel="stylesheet" href="../../assets/css/viewCloth.css" />
 <style type="text/css">
 #main {
 	height: 500px;
@@ -107,7 +107,11 @@ position: absolute;
 <body class="is-preload">
 
 
-	<script src="js/jquery-3.6.0.min.js"></script>
+
+
+	<script type="text/javascript" src="../../js/jquery-3.6.0.min.js"></script>
+	<script type="text/javascript" src="../../webcamjs/webcam.min.js"></script>
+	<script type="text/javascript" src="../../js/html2canvas.js"></script>
 	<script type="text/javascript">
 		window.onload = function() {
 
@@ -158,7 +162,7 @@ position: absolute;
 
 			<!-- <button onclick="downImg()">사진 저장</button> -->
 			<button id="img_upload" onclick="file_upLoad()" accept="image/*" onchange="setThumbnail(event)">사진 업로드</button>
-			<form action="ClothesAddformServiceCon2.do" method="post" enctype="multipart/form-data">
+			<form action="CodyAddformServiceCon2.do" method="post" enctype="multipart/form-data">
 
 
 
@@ -183,9 +187,8 @@ position: absolute;
 
 					<div id="pickbutten">
 
-						<input type="file" name="img_file" id="img_file" accept=".gif, .jpg, .png" style="display: none;"> <input type="button" id="take_picture"
-							value="사진 찍기" onClick="take_snapshot()"
-						>
+						<input type="file" name="img_file" id="img_file" accept=".gif, .jpg, .png" style="display: none;"> 
+						<input type="button" id="take_picture" value="사진 찍기" onClick="take_snapshot()">
 
 					</div>
 				</div>
@@ -218,7 +221,7 @@ position: absolute;
 			<button onclick="upLoadImage()" id="pic_img_bt" class="cr_pick" style="display: none;">등록</button>
 		</div>
 
-		<input type="button" value="뒤로가기" onclick="history.back();" />
+		<input type="button" value="뒤로가기" onclick="location.href='../../Main.jsp#Stylist'" />
 		<!-- style="color:black" -->
 		<!-- Footer -->
 		<div id="footer">
@@ -230,20 +233,7 @@ position: absolute;
 
 	</div>
 
-	<!-- Scripts -->
-	<script src="assets/js/jquery.min.js">
-		
-	</script>
-	<script src="assets/js/browser.min.js"></script>
-	<script src="assets/js/breakpoints.min.js"></script>
-	<script src="assets/js/util.js"></script>
-	<script src="assets/js/main.js"></script>
 
-
-
-	<script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
-	<script type="text/javascript" src="webcamjs/webcam.min.js"></script>
-	<script type="text/javascript" src="js/html2canvas.js"></script>
 
 	<!-- Configure a few settings and attach camera -->
 	<script language="JavaScript">
@@ -314,7 +304,7 @@ position: absolute;
 
 			$.ajax({
 				type : 'post',
-				url : 'ClothesSaveServiceCon.do',
+				url : 'CodySaveServiceCon.do',
 				data : formdata,
 				processData : false, // data 파라미터 강제 string 변환 방지!!
 				contentType : false, // application/x-www-form-urlencoded; 방지!!
@@ -335,7 +325,7 @@ position: absolute;
 			
 			$.ajax({
 				type : 'post',
-				url : 'ClothesAddServiceCon.do',
+				url : 'CodyAddServiceCon.do',
 				data : {
 					'title' : $('#title').val(),
 					'memo' : $('#memo').val(),
@@ -344,7 +334,7 @@ position: absolute;
 				},
 				success : function(data) {
 					//alert("성공");
-					$(location).attr('href', 'viewCloth.jsp?num=' + board_num);
+					$(location).attr('href', data);
 
 				},
 				error : function() {
@@ -362,14 +352,11 @@ position: absolute;
 		
 	</script>
 
-
-
-	<!-- <div id="preview"></div><input type="file" name="" class="inp-img" accept=".gif, .jpg, .png"> <span class="btn-delete">삭제</span> -->
-
-
-
-	<!-- document.getElementById('style_test_hi098123').style.margin='20px'; -->
-	
+		
+	<script src="../../assets/js/browser.min.js"></script>
+	<script src="../../assets/js/breakpoints.min.js"></script>
+	<script src="../../assets/js/util.js"></script>
+	<script src="../../assets/js/main.js"></script>
 
 	
 </body>

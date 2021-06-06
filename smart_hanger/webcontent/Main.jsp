@@ -73,38 +73,32 @@ button{
 				}
 			});
 		}
-	
 		
 		
 		// 메인화면
-		btnclick("home", "home.jsp");
+		btnclick("home", "zSmart_hanger/service/home.jsp");
 		
 		// 옷장
-		btnclick("work", "my_cloth.jsp");
-		
+		btnclick("work", "zSmart_hanger/cloth/my_cloth.jsp");
+	
 		// 코디
-		btnclick("Stylist", "cody.jsp");
-		
+		btnclick("Stylist", "zSmart_hanger/cody/cody.jsp");
+	
 		// 커뮤니티 게시판
-		btnclick("Community", "Community.jsp");
+		btnclick("Community", "zSmart_hanger/community/Community.jsp");
 
 		// 고객센터
-		btnclick("contact", "service.jsp");
-
+		btnclick("contact", "zSmart_hanger/service/service.jsp");
 
 
 	</script>
 
 	<!-- Wrapper-->
 	<% if (userId != null) { %>
-	<h1 style="margin-left: 760px; font-size: 30px; color: white">
-
-		Welcome to <%=userInfo.getUserName()%> !
-	</h1>
 	<button class="btn_logout" onClick="location.href='LogoutServiceCon.do'" style="position: absolute; left: 74%; top: 10%; ntop: 50%;">로그아웃</button>
-	<button class="btn_logout" onClick="location.href='user_infor.jsp'" style="position: absolute; left: 84%; top: 10%; ntop: 50%;">내정보관리</button>
+	<button class="btn_logout" onClick="location.href='../../user_infor.jsp'" style="position: absolute; left: 84%; top: 10%; ntop: 50%;">내정보관리</button>
 	<% } else {	%>
-	<button class="btn_login" onclick="btnclick('loginWindow','loginWindow.jsp')" style="position: absolute; left: 74%; top: 10%; ntop: 50%;">로그인</button>
+	<button class="btn_login" onclick="btnclick('loginWindow','zSmart_hanger/user_manager/loginWindow.jsp')" style="position: absolute; left: 74%; top: 10%; ntop: 50%;">로그인</button>
 	<% } %>
 
 

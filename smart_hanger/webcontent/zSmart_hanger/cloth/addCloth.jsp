@@ -12,15 +12,106 @@
 <title>Astral by HTML5 UP</title>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-<link rel="stylesheet" href="assets/css/main.css" />
-<link rel="stylesheet" href="assets/css/addBoard.css" />
+<link rel="stylesheet" href="../../assets/css/main.css" />
+<link rel="stylesheet" href="../../assets/css/viewCloth.css" />
+<style type="text/css">
+#main {
+	height: 500px;
+
+	/* =================여기는 왼쪽 화면 스타일 ======================= */
+}
+
+#left {
+	width: 50%;
+	height: 100%;
+	float: left;
+}
+
+#pickcloth {
+	position: relative;
+	overflow: hidden;
+}
+
+#pick_div {
+	position: relative;
+	width: 80%;
+	height: 350px;
+	top: 20px;
+	left: 20px;
+	overflow: hidden;
+}
+
+#cloth_imgs {
+	height: 100;
+}
+
+#pickbutten {
+	position: relative;
+	top: 20px;
+	left: 20px;
+}
+
+/* ==============여기는 오른쪽 화면 스타일 ==================== */
+#right {
+	overflow-y: scroll;
+	width: 50%;
+	height: 500px;
+	float: left;
+}
+
+#input_tag_div {
+	position: relative;
+	top: 37px;
+	width: 91%;
+	height: 115px;
+}
+
+#del {
+	float: right;
+	height: 50%;
+	width: 30%;
+}
+
+li>textarea {
+	resize: none;
+	height: 215px;
+}
+
+ol>li>.cr_pick {
+	margin: auto;
+	width: 49%;
+}
+
+#clothespick {
+	margin: auto;
+	width: 49%;
+	height: 59px;
+}
+
+/* 전송 버튼 */
+#pic_img_bt{
+position: absolute;
+    display: block;
+    right: 10%;
+    top: 80%;
+    width: 20%;
+    height: 10%;
+    font-size: 17px;
+}
+
+
+</style>
 
 </head>
 
 <body class="is-preload">
 
 
-	<script src="js/jquery-3.6.0.min.js"></script>
+
+
+	<script type="text/javascript" src="../../js/jquery-3.6.0.min.js"></script>
+	<script type="text/javascript" src="../../webcamjs/webcam.min.js"></script>
+	<script type="text/javascript" src="../../js/html2canvas.js"></script>
 	<script type="text/javascript">
 		window.onload = function() {
 
@@ -48,18 +139,14 @@
 
 			$('#take_picture').click(function() {
 				// 사진을 전송하면 업로드 버튼 출력
-				document.getElementById('img_bt').style.display = 'block';
+				document.getElementById('pic_img_bt').style.display = 'block';
 				document.getElementById('take_picture').style.display = 'none';
 				document.getElementById('img_upload').style.display = 'none';
-				document.getElementById('img_type').style.value = 'take_picture';
-
+				document.getElementById('img_type').value = 'take_picture';
 
 			});
-			
 
 		}
-
-
 	</script>
 
 	<!-- Wrapper-->
@@ -70,9 +157,12 @@
 
 
 		<div id="main">
+
+
+
 			<!-- <button onclick="downImg()">사진 저장</button> -->
 			<button id="img_upload" onclick="file_upLoad()" accept="image/*" onchange="setThumbnail(event)">사진 업로드</button>
-			<form action="ClothesAddServiceCon.do" method="post" enctype="multipart/form-data">
+			<form action="ClothesAddformServiceCon2.do" method="post" enctype="multipart/form-data">
 
 
 
@@ -97,7 +187,7 @@
 
 					<div id="pickbutten">
 
-						<input type="file" name="img_file" id="img_file" accept=".gif, .jpg, .png" style="display: none;"> <input type=button id="take_picture"
+						<input type="file" name="img_file" id="img_file" accept=".gif, .jpg, .png" style="display: none;"> <input type="button" id="take_picture"
 							value="사진 찍기" onClick="take_snapshot()"
 						>
 
@@ -105,10 +195,7 @@
 				</div>
 
 
-				<!-- img_bt : 사진, memo : 내용, title : 제목 -->
-				
-				
-				
+
 				<!-- 오른쪽 영역 -->
 				<div id="right">
 					<div id="input_tag_div">
@@ -118,12 +205,10 @@
 
 							<li>옷 이름
 							<li>
-							<li><input type="text" name="title" placeholder="글 제목을 입력해주세요"> <!-- 사용자에게 히든 값을 저장해서 넘겨줌-->
+							<li><input type="text" id="title" name="title" placeholder="옷 이름을 입력해주세요"> <!-- 사용자에게 히든 값을 저장해서 넘겨줌-->
 							<li>옷 메모</li>
-							<li><textarea rows="68" cols="60" name="memo" placeholder="내용을 입력해주세요"></textarea>
-							<input type="hidden" name="img_type" value="upload">
-							<input type="hidden" name="community_Insert">
-							</li>
+							<li><textarea rows="68" cols="60" id="memo" name="memo" placeholder="옷 이름을 입력해주세요"></textarea> 
+							<input type="hidden" name="img_type" id="img_type" value="upload"></li>
 
 							<li><input id="img_bt" class="cr_pick" type="submit" value="등록" style="display: none;">
 						</ol>
@@ -134,10 +219,10 @@
 				</div>
 
 			</form>
-
+			<button onclick="upLoadImage()" id="pic_img_bt" class="cr_pick" style="display: none;">등록</button>
 		</div>
 
-		<input type="button" value="뒤로가기" onclick="history.back();" />
+		<input type="button" value="뒤로가기" onclick="location.href='../../Main.jsp#work'" />
 		<!-- style="color:black" -->
 		<!-- Footer -->
 		<div id="footer">
@@ -149,35 +234,17 @@
 
 	</div>
 
-	<!-- Scripts -->
-	<script src="assets/js/jquery.min.js">
-		
-	</script>
-	<script src="assets/js/browser.min.js"></script>
-	<script src="assets/js/breakpoints.min.js"></script>
-	<script src="assets/js/util.js"></script>
-	<script src="assets/js/main.js"></script>
 
-
-
-	<script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
-	<script type="text/javascript" src="webcamjs/webcam.min.js"></script>
-	<script src="js/html2canvas.js"></script>
 
 	<!-- Configure a few settings and attach camera -->
 	<script language="JavaScript">
-	
-	
-	
-	// 사진 업로드 버튼
-	function file_upLoad() {
-		document.getElementById("img_file").click();
-		Webcam.reset();
+		// 사진 업로드 버튼
+		function file_upLoad() {
+			document.getElementById("img_file").click();
+			Webcam.reset();
 
-		pick_div
+		}
 
-	}
-	
 		Webcam.set({
 			width : 640,
 			height : 360,
@@ -203,17 +270,23 @@
 						$('img').css('width', '75%');
 						$('img').css('height', '100%');
 					});
-		}
-
-		// div 영역 캡쳐 
-		//이미지전송
-		function downImg() {
+			
+			
 			html2canvas($("#pick_div")[0]).then(function(canvas) {
 				var myImage = canvas.toDataURL();
 				// downloadURI(myImage, "cloth_img.png") 
 				saveImage(myImage)
 
 			});
+			
+			
+			
+		}
+
+		// div 영역 캡쳐 
+		//이미지전송
+		function downImg() {
+
 		}
 
 		// url 데이터 파일로 변환
@@ -232,26 +305,60 @@
 
 			$.ajax({
 				type : 'post',
-				url : 'Save_img',
+				url : 'ClothesSaveServiceCon.do',
 				data : formdata,
 				processData : false, // data 파라미터 강제 string 변환 방지!!
 				contentType : false, // application/x-www-form-urlencoded; 방지!!
 				success : function(data) {
-					alert("성공");
+				}
+			});
+
+		}
+		
+		
+		// 데이터 전송
+		function upLoadImage(imgDataUrl) {
+
+			var fileValue = $("#img_file").val().split("\\");
+			var fileName = fileValue[fileValue.length-1]; // 파일명
+
+			
+			
+			$.ajax({
+				type : 'post',
+				url : 'ClothesAddServiceCon.do',
+				data : {
+					'title' : $('#title').val(),
+					'memo' : $('#memo').val(),
+					'img_type' : $('#img_type').val(),
+					'img_file' : fileName
+				},
+				success : function(data) {
+					//alert("성공");
+					$(location).attr('href', data);
+
 				},
 				error : function() {
 					alert("실패");
 				}
 			});
+
 		}
+		
+		
+		
+		
+		
+		
+		
 	</script>
 
+		
+	<script src="../../assets/js/browser.min.js"></script>
+	<script src="../../assets/js/breakpoints.min.js"></script>
+	<script src="../../assets/js/util.js"></script>
+	<script src="../../assets/js/main.js"></script>
 
-
-	<!-- <div id="preview"></div><input type="file" name="" class="inp-img" accept=".gif, .jpg, .png"> <span class="btn-delete">삭제</span> -->
-
-
-
-	<!-- document.getElementById('style_test_hi098123').style.margin='20px'; -->
+	
 </body>
 </html>

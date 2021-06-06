@@ -13,8 +13,9 @@ import com.controller_Class.ClothesAddServiceCon;
 import com.controller_Class.ClothesAddformServiceCon2;
 import com.controller_Class.ClothesOneDeleteServicCon;
 import com.controller_Class.ClothesUpdateServiceCon;
-import com.controller_Class.CodyAddServiceCon;
+import com.controller_Class.CodyAddServiceCon__delete;
 import com.controller_Class.CodyCommentsInsertCon;
+import com.controller_Class.CodySaveServiceCon;
 import com.controller_Class.CommunityCommentsInsertCon;
 import com.controller_Class.JoinServiceCon;
 import com.controller_Class.LoginServiceCon;
@@ -54,79 +55,84 @@ public class FrontController extends HttpServlet {
 		Command command = null;
 
 		
-		
+		// 로그인
 		if (resultURI.equals("LoginServiceCon.do")) {
 			command = new LoginServiceCon();
-		
-		}else if (resultURI.equals("JoinServiceCon.do")) {
+			// 회원가입
+		} else if (resultURI.equals("JoinServiceCon.do")) {
 			command = new JoinServiceCon();
-		
-		}else if (resultURI.equals("LogoutServiceCon.do")) {
+			// 로그아웃
+		} else if (resultURI.equals("LogoutServiceCon.do")) {
 			command = new LogoutServiceCon();
-			
-	 			
-		}else if (resultURI.equals("ClothesAddServiceCon.do")) {
-			command = new ClothesAddServiceCon();
-			
-			// 사진 저장
-		}else if (resultURI.equals("ClothesSaveServiceCon.do")) {
-			command = new ClothesSaveServiceCon();
-			
-			
-
-			
-		}else if(resultURI.equals("CommunityCommentsInsertCon.do")) {
-			command = new CommunityCommentsInsertCon();
-			
-		
-			
-//		}else if(resultURI.equals("MessageServiceCon.do")) {
-//			command = new MessageServiceCon();
-//			
-//			
-//			
 			// 회원 정보 수정
-			
-		}else if(resultURI.equals("MemberUpdateServiceCon.do")) {
+		} else if (resultURI.equals("zSmart_hanger/user_manager/MemberUpdateServiceCon.do")) {
 			command = new MemberUpdateServiceCon();
 			
 			
 			
+			// 옷장 옷 추가
+		} else if (resultURI.equals("zSmart_hanger/cloth/ClothesAddServiceCon.do")) {
+			command = new ClothesAddServiceCon();
+			// 사진 저장
+		} else if (resultURI.equals("zSmart_hanger/cloth/ClothesSaveServiceCon.do")) {
+			command = new ClothesSaveServiceCon();
 
-//		}else if(resultURI.equals("UpdateServiceCon.do")) {
-//			command = new UpdateServiceCon();
-//			
-//			
-//		
-			//여기는 코디 댓글 등록
-		} else if (resultURI.equals("CodyCommentsInsertCon.do")) {
-			command = new CodyCommentsInsertCon();	
-			//요기는 고객센터 등록
-		} else if (resultURI.equals("UserServiceCon.do")) {
-			command = new UserServiceCon();	
-            //여기는 코디 등록
-		} else if (resultURI.equals("CodyAddServiceCon.do")) {
-			command = new CodyAddServiceCon();
+
+		
+			
+			
+
 			// 여기는 옷 등록
-		} else if (resultURI.equals("ClothesAddServiceCon.do")) {
+		} else if (resultURI.equals("zSmart_hanger/cloth/ClothesAddServiceCon.do")) {
 			command = new ClothesAddServiceCon();
 			// 여기는 옷 등록2
-		} else if (resultURI.equals("ClothesAddformServiceCon2.do")) {
+		} else if (resultURI.equals("zSmart_hanger/cloth/ClothesAddformServiceCon2.do")) {
 			command = new ClothesAddformServiceCon2();
 			// 여기는 등록된 옷 삭제
-		} else if (resultURI.equals("ClothesOneDeleteServicCon.do")) {
+		} else if (resultURI.equals("zSmart_hanger/cloth/ClothesOneDeleteServicCon.do")) {
 			command = new ClothesOneDeleteServicCon();
-
 			// 여기는 옷 수정
-		} else if (resultURI.equals("ClothesUpdateServiceCon.do")) {
+		} else if (resultURI.equals("zSmart_hanger/cloth/ClothesUpdateServiceCon.do")) {
 			command = new ClothesUpdateServiceCon();
+			
+			
+			
 
+			// 코디 사진 촬영 사진 저장용
+		} else if (resultURI.equals("zSmart_hanger/cody/CodySaveServiceCon.do")) {
+			command = new CodySaveServiceCon();
+			//  코디 등록
+		} else if (resultURI.equals("zSmart_hanger/cody/CodyAddServiceCon.do")) {
+			command = new CodyAddServiceCon__delete();
+			// 코디 댓글 등록
+		} else if (resultURI.equals("zSmart_hanger/cody/CodyCommentsInsertCon.do")) {
+			command = new CodyCommentsInsertCon();
+			
+			
+			
 
-		}
-		else if(resultURI.equals("WriteCommuCon.do")) {
+			// 커뮤니티 글 작성
+		} else if (resultURI.equals("zSmart_hanger/community/WriteCommuCon.do")) {
 			command = new WriteCommuCon();
-			}
-		
+			// 커뮤니티 댓글 작성
+		} else if (resultURI.equals("zSmart_hanger/community/CommunityCommentsInsertCon.do")) {
+			command = new CommunityCommentsInsertCon();
+
+			
+			
+	
+
+			
+			
+			
+			
+			
+			
+			// 요기는 고객센터 등록
+		} else if (resultURI.equals("zSmart_hanger/service/UserServiceCon.do")) {
+			command = new UserServiceCon();
+		}
+
 		
 		String moveURL = command.execute(request, response);
 		response.sendRedirect(moveURL);
