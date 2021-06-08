@@ -1,6 +1,10 @@
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,300italic,400italic");
 @import url("fontawesome-all.min.css");
 
+
+
+
+
 /*
 	Astral by HTML5 UP
 	html5up.net | @ajlkn
@@ -2041,7 +2045,7 @@ input, select, textarea {
 						position: absolute;
 						top: 0;
 						left: 0;
-						background: url("images/newyork.jpg");
+						background: url("images/overlay.png");
 						width: 100%;
 						height: 100%;
 						z-index: 1;
