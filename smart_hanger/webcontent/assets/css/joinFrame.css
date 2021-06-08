@@ -1,0 +1,30 @@
+@charset "EUC-KR";
+
+
+.join_input {
+	width: 200px !important;
+	height: 30px ;
+	top : 100px;
+}
+
+input{
+	 line-height: 1.35em;
+    -webkit-appearance: none;
+    border: 0;
+    background: #f4f4f4;
+    padding: 1em;
+    width: 100%;
+    -moz-transition: background-color .25s ease-in-out;
+    -webkit-transition: background-color .25s ease-in-out;
+    -ms-transition: background-color .25s ease-in-out;
+    transition: background-color .25s ease-in-out;
+}
+
+
+
+#join_ul li{
+	padding-bottom : 1.5%;
+}
+#join_ul li:nth-last-of-type(1){
+	padding-left : 10%;
+}
