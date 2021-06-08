@@ -50,6 +50,8 @@
 			
 			
 			<p>SmartHanger에 오신것을 환영합니다!</p>
+			
+			
 			</header> <a href="#work" class="jumplink pic"> <span class="arrow icon solid fa-chevron-right"><span>See my work</span></span> <img src="images/me.jpg" alt="" />
 			</a>
 </body>
