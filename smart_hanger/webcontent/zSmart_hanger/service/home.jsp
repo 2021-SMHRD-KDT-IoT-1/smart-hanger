@@ -8,6 +8,54 @@
 <link rel="stylesheet" href="assets/css/home.css" />
 </head>
 <body>
+<<<<<<< HEAD
+ <header>
+
+ <%
+ 
+ 	MemberDTO userInfo = (MemberDTO)session.getAttribute("userInfo");
+ 
+ 
+ 
+ 	String userId = null;
+ 	String userPw = null;
+ 	String userName = null;
+ 	String userAge = null;
+ 
+ 	
+ 	if(userInfo != null){
+	 	userId = userInfo.getUserId();
+	 	userPw = userInfo.getUserPw();
+	 	userName = userInfo.getUserName();
+	 	userAge = userInfo.getUserAge();
+ 	}
+ 
+ 
+ 
+ %>
+ 
+           
+ 			
+ 				
+			<h1>
+				<%if (userId != null) {%><%= userId%><%}else{} %>
+			</h1>
+			<h1>
+				<%if (userName != null) {%><%= userName%><%}else{} %>
+			</h1>
+			<h1>
+				<%if (userAge != null) {%><%= userAge%><%}else{} %>
+			</h1>
+			
+			
+			
+			
+			<p>SmartHanger에 오신것을 환영합니다!</p>
+			
+		
+			</header> <a href="#work" class="jumplink pic"> <span class="arrow icon solid fa-chevron-right"><span>See my work</span></span> <img src="images/me.jpg" alt="" />
+			</a>
+=======
 
 	<%
 		MemberDTO userInfo = (MemberDTO) session.getAttribute("userInfo");
@@ -53,5 +101,6 @@
 	<a id="home_img_penal" href="#work" class="jumplink pic"> <span class="arrow icon solid fa-chevron-right"> <span>See my work</span></span> <img
 		src="assets/css/images/newyork.jpg" alt="" />
 	</a>
+>>>>>>> branch 'main' of https://github.com/2021-SMHRD-KDT-IoT-1/smart-hanger.git
 </body>
 </html>

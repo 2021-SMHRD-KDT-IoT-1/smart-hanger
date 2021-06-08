@@ -140,7 +140,9 @@ button{
 
 			<article id="home" class="panel intro">
 			
+			<img src = "./assets/css/images/day.PNG"/>
 			</article>
+         
 
 
 
