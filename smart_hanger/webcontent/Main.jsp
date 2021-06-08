@@ -104,9 +104,9 @@ button{
 
 
 
+	<!-- 수정이랑 확인 편하게 여기에 적용함 -->
 
-
-	<div id="wrapper">
+	<div id="wrapper" style="width: 100%;">
 
 		<!-- Nav -->
 		<nav id="nav"> 
@@ -180,6 +180,7 @@ button{
 			<ul class="copyright">
 				<li>&copy; Untitled.</li>
 				<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+				<a href='https://www.freepik.com/photos/wood'>Wood photo created by vanitjan - www.freepik.com</a>
 			</ul>
 		</div>
 
