@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="assets/css/loginFrame.css" />
+<link rel="stylesheet" href="assets/css/main.css" />
 
 </head>
 <body>
@@ -27,7 +27,7 @@
 			});
 		}
 	</script>
-	
+
 
 
 
@@ -37,22 +37,14 @@
 
 			<h2>로그인</h2>
 			<form action="LoginServiceCon.do" method="post">
-				<ul>
+				<ul id="login_ul">
 					<li><input class="Login_input" type="text" placeholder="Email을 입력하세요" name="userId"></li>
-				</ul>
-				<ul>
+					<li></li>
 					<li><input class="Login_input" type="password" placeholder="PW를 입력하세요" name="userPw"></li>
+					<li></li>
+					<li><input id="login-btn" type="submit" value="LogIn" class="button fit"> <a id="join-btn"
+						onclick="btnclick('loginFrame','zSmart_hanger/user_manager/joinWindow.jsp')" class="button fit">join</a></li>
 				</ul>
-				<table>
-					<tr>
-						<td><input id="login-btn" type="submit" value="LogIn" class="button fit"></td>
-
-
-						<td><a id="join-btn" onclick="btnclick('loginFrame','zSmart_hanger/user_manager/joinWindow.jsp')" class="button fit">join</a>
-
-
-					</tr>
-				</table>
 			</form>
 
 
