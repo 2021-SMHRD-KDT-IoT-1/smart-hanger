@@ -13,6 +13,13 @@
 </head>
 <body>
 
+
+
+
+
+
+
+
 	<%
 		String userId = ((MemberDTO) session.getAttribute("userInfo")).getUserId();
 
@@ -23,8 +30,6 @@
 		clothes_list = clothesdao.My_clothes_All_Select(userId);
 	}
 	%>
-	
-	
 	
 	
 	<div>
@@ -39,26 +44,27 @@
 	
 	<p>옷장 이미지 띄우는곳 설명은 나중에 바꿈</p>
 
-
-	<section>
-		<div class="row" style="width: 750px;">
-
+	<div class="row" style="width: 750px;">
+		<section>
 			<%	if (userId != null) {
+
+			
 				clothes_list = clothesdao.My_clothes_All_Select(userId);	%>
 
-	
-				<!-- 여기가 옷장에 있는 이미지 불러오는곳  -->
-				<%	for (int row = 0; row < clothes_list.size(); row++) {	%>
-				<div class="col-4 col-6-medium col-12-small">
-					<a href="zSmart_hanger/cloth/viewCloth.jsp?num=<%=clothes_list.get(row).getMy_clothes_num()%>" class="image fit"> <img class="cloth_imgs"
-						src="cloth_img/<%=clothes_list.get(row).getClothespath()%>" alt=""></a>
-				</div>
-				<%	}	%>
 
+			<!-- 여기가 옷장에 있는 이미지 불러오는곳  -->
+			<%	for (int row = 0; row < clothes_list.size(); row++) {	%>
+			<div class="col-4 col-6-medium col-12-small">
+				<a href="zSmart_hanger/cloth/viewCloth.jsp?num=<%=clothes_list.get(row).getMy_clothes_num()%>" class="image fit"> <img class="cloth_imgs"
+					src="cloth_img/<%=clothes_list.get(row).getClothespath()%>" alt=""></a>
+			</div>
 			<%	}	%>
 
-		</div>
-	</section>
+
+			<% } %>
+			
+		</section>
+	</div>
 
 
 
