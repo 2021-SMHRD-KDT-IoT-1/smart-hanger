@@ -14,93 +14,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="../../assets/css/main.css" />
 <link rel="stylesheet" href="../../assets/css/viewCloth.css" />
-<style type="text/css">
-#main {
-	height: 500px;
-
-	/* =================여기는 왼쪽 화면 스타일 ======================= */
-}
-
-#left {
-	width: 50%;
-	height: 100%;
-	float: left;
-}
-
-#pickcloth {
-	position: relative;
-	overflow: hidden;
-}
-
-#pick_div {
-	position: relative;
-	width: 80%;
-	height: 350px;
-	top: 20px;
-	left: 20px;
-	overflow: hidden;
-}
-
-#cloth_imgs {
-	height: 100;
-}
-
-#pickbutten {
-	position: relative;
-	top: 20px;
-	left: 20px;
-}
-
-/* ==============여기는 오른쪽 화면 스타일 ==================== */
-#right {
-	overflow-y: scroll;
-	width: 50%;
-	height: 500px;
-	float: left;
-}
-
-#input_tag_div {
-	position: relative;
-	top: 37px;
-	width: 91%;
-	height: 115px;
-}
-
-#del {
-	float: right;
-	height: 50%;
-	width: 30%;
-}
-
-li>textarea {
-	resize: none;
-	height: 215px;
-}
-
-ol>li>.cr_pick {
-	margin: auto;
-	width: 49%;
-}
-
-#clothespick {
-	margin: auto;
-	width: 49%;
-	height: 59px;
-}
-
-/* 전송 버튼 */
-#pic_img_bt{
-position: absolute;
-    display: block;
-    right: 10%;
-    top: 80%;
-    width: 20%;
-    height: 10%;
-    font-size: 17px;
-}
-
-
-</style>
+<link rel="stylesheet" href="../../assets/css/addcloth.css" />
 
 </head>
 
@@ -143,6 +57,7 @@ position: absolute;
 				document.getElementById('take_picture').style.display = 'none';
 				document.getElementById('img_upload').style.display = 'none';
 				document.getElementById('img_type').value = 'take_picture';
+				document.getElementById('white_img').value= 'take_picture';
 
 			});
 
@@ -161,13 +76,16 @@ position: absolute;
 
 
 			<!-- <button onclick="downImg()">사진 저장</button> -->
-			<button id="img_upload" onclick="file_upLoad()" accept="image/*" onchange="setThumbnail(event)">사진 업로드</button>
+			
+			
 			<form action="ClothesAddformServiceCon2.do" method="post" enctype="multipart/form-data">
 
 
 
 				<!-- 왼쪽 영역 -->
 				<div id="left">
+				<button id="img_upload" onclick="file_upLoad()" accept="image/*" onchange="setThumbnail(event)">사진 업로드</button>
+				
 
 					<div id="pick_div">
 						<div id="pickcloth">
@@ -198,7 +116,10 @@ position: absolute;
 
 				<!-- 오른쪽 영역 -->
 				<div id="right">
+				
 					<div id="input_tag_div">
+					
+					
 						<ol style="list-style: none;">
 
 							<li></li>
@@ -242,7 +163,6 @@ position: absolute;
 		function file_upLoad() {
 			document.getElementById("img_file").click();
 			Webcam.reset();
-
 		}
 
 		Webcam.set({
