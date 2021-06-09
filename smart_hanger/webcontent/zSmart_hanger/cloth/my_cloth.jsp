@@ -14,47 +14,55 @@
 <link rel="stylesheet" href="assets/css/my_cloth.css">
 </head>
 <body>
+	<script src="./js/jquery-3.6.0.min.js"></script>
 
 	<%
-		String userId = ((MemberDTO) session.getAttribute("userInfo")).getUserId();
+	MemberDTO userInfo = (MemberDTO) session.getAttribute("userInfo");
 
-	My_clothesDAO clothesdao = new My_clothesDAO();
-	ArrayList<My_clothesDTO> clothes_list = new ArrayList<My_clothesDTO>();
+	ArrayList<My_clothesDTO> clothes_list = null;
 
-	if (userId != null) {
+	if (userInfo != null) {
+
+		String userId = (userInfo).getUserId();
+
+		My_clothesDAO clothesdao = new My_clothesDAO();
 		clothes_list = clothesdao.My_clothes_All_Select(userId);
+
 	}
 	%>
-	
-	
+
+
 	<div>
 		<button style="float: left; height: 50px;" onclick="location.href = 'zSmart_hanger/cloth/addCloth.jsp'">옷 등록</button>
 	</div>
-	
-	
+
+
 	<header>
 		<h2 Style="position: relative; top: 10px; display: inline-block;">옷장 : 여기 수정해야함</h2>
 	</header>
-	
-	
+
+
 	<p>옷장 이미지 띄우는곳 설명은 나중에 바꿈</p>
 
 	<section>
-		<div  id="img_box" class="row">
+		<div id="img_box" class="row">
 
-	
-				<!-- 여기가 옷장에 있는 이미지 불러오는곳  -->
-				<%	for (int row = 0; row < clothes_list.size(); row++) {	%>
-				<div class="col-3">
-					<a href="zSmart_hanger/cloth/viewCloth.jsp?num=<%=clothes_list.get(row).getMy_clothes_num()%>" class="image fit"> <img class="cloth_imgs"
-						src="cloth_img/<%=clothes_list.get(row).getClothespath()%>" alt=""></a>
-				</div>
-				
-				<% } %>
 
-			
-		</section>
-	</div>
+			<!-- 여기가 옷장에 있는 이미지 불러오는곳  -->
+			<%	if (clothes_list != null) {
+
+				for (int row = 0; row < clothes_list.size(); row++) {	%>
+					<div class="col-3">
+						<a href="zSmart_hanger/cloth/viewCloth.jsp?num=<%=clothes_list.get(row).getMy_clothes_num()%>" class="image fit"> <img class="cloth_imgs"
+							src="cloth_img/<%=clothes_list.get(row).getClothespath()%>" alt=""></a>
+					</div>
+
+			<%	}
+
+			}	%>
+
+		</div>
+	</section>
 
 
 

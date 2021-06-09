@@ -14,7 +14,35 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="../../assets/css/main.css" />
 <link rel="stylesheet" href="../../assets/css/addBoard.css" />
+<style>
 
+#img_upload{
+	font-family: "Gmarket Sans";
+	font-weight: bold;
+	border-radius: 15px;
+	background-color: gray;
+}
+
+#back_btn{
+	font-family: "Gmarket Sans";
+	font-weight: bold;
+	border-radius: 15px;
+	background-color: gray;
+}
+
+ol>li{
+	font-family: "Gmarket Sans";
+	font-weight: bold;
+}
+
+#img_bt{
+	font-family: "Gmarket Sans";
+	font-weight: bold;
+	border-radius: 15px;
+	background-color: gray;
+}
+
+</style>
 </head>
 
 <body class="is-preload">
@@ -132,7 +160,7 @@
 
 		</div>
 
-		<input type="button" value="뒤로가기" onclick="history.back();" />
+		<input id="back_btn" type="button" value="뒤로가기" onclick="history.back();" />
 		<!-- style="color:black" -->
 		<!-- Footer -->
 		<div id="footer">

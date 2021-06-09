@@ -79,7 +79,7 @@ ol>li>.cr_pick {
 
 /* 전송 버튼 */
 #pic_img_bt{
-position: absolute;
+	position: absolute;
     display: block;
     right: 10%;
     top: 89%;
@@ -87,6 +87,41 @@ position: absolute;
     height: 10%;
     font-size: 17px;
 }
+
+ol>li{
+	font-family: "Gmarket Sans";
+	font-weight: bold;
+}
+
+#img_upload{
+	font-family: "Gmarket Sans";
+	font-weight: bold;
+	border-radius: 15px;
+	background-color: gray;
+}  
+
+#take_picture{
+	font-family: "Gmarket Sans";
+	font-weight: bold;
+	border-radius: 15px;
+	background-color: gray;
+}
+
+#back_btn{
+	font-family: "Gmarket Sans";
+	font-weight: bold;
+	border-radius: 15px;
+	background-color: gray;
+}
+
+#pic_img_bt{
+	font-family: "Gmarket Sans";
+	font-weight: bold;
+	border-radius: 15px;
+	background-color: gray;
+}
+
+
 
 /*
 </style>

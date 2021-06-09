@@ -57,8 +57,6 @@
 				document.getElementById('take_picture').style.display = 'none';
 				document.getElementById('img_upload').style.display = 'none';
 				document.getElementById('img_type').value = 'take_picture';
-				document.getElementById('white_img').value= 'take_picture';
-
 			});
 
 		}
@@ -105,9 +103,8 @@
 
 					<div id="pickbutten">
 
-						<input type="file" name="img_file" id="img_file" accept=".gif, .jpg, .png" style="display: none;"> <input type="button" id="take_picture"
-							value="사진 찍기" onClick="take_snapshot()"
-						>
+						<input type="file" name="img_file" id="img_file" accept=".gif, .jpg, .png" style="display: none;"> 
+						<input type="button" id="take_picture" value="사진 찍기" onClick="take_snapshot()">
 
 					</div>
 				</div>
@@ -143,7 +140,7 @@
 			<button onclick="upLoadImage()" id="pic_img_bt" class="cr_pick" style="display: none;">등록</button>
 		</div>
 
-		<input type="button" value="뒤로가기" onclick="location.href='../../Main.jsp#work'" />
+		<input id = "back_btn" type="button" value="뒤로가기" onclick="location.href='../../Main.jsp#work'" />
 		<!-- style="color:black" -->
 		<!-- Footer -->
 		<div id="footer">

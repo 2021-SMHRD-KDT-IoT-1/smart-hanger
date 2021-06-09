@@ -34,18 +34,15 @@
 
 			
 			<header id="home_header">
-				<%
-					if (userId != null) {
-					out.print("<h1>" + userId + "</h1>");
-					out.print("<h1>" + userName + "</h1>");
-					out.print("<h1>" + userAge +"세"+"</h1>");
+				
+				<%	if (userId != null) { %>
+					<p id = "welcome" ><%=userId %>(<%=userName%>)님 환영합니다!</p>
+									
+				<% }else { %>
+					<p id = "welcome" >SmartHanger에 오신것을 환영합니다!</p>
+			
+				<% } %>
 
-				} else {
-					out.print("");
-				}
-				%>
-
-				<p id = "welcome">SmartHanger에 오신것을 환영합니다!</p>
 			</header>
 
 		</div>

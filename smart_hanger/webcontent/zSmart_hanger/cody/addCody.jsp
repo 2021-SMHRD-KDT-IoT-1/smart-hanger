@@ -99,6 +99,33 @@ position: absolute;
     font-size: 17px;
 }
 
+#img_upload{
+	font-family: "Gmarket Sans";
+	font-weight: bold;
+	border-radius: 15px;
+	background-color: gray;
+}
+
+#take_picture{
+	font-family: "Gmarket Sans";
+	font-weight: bold;
+	border-radius: 15px;
+	background-color: gray;
+}
+
+#back_btn{
+	font-family: "Gmarket Sans";
+	font-weight: bold;
+	border-radius: 15px;
+	background-color: gray;
+}
+
+#pic_img_bt{
+	font-family: "Gmarket Sans";
+	font-weight: bold;
+	border-radius: 15px;
+	background-color: gray;
+}
 
 </style>
 
@@ -221,7 +248,7 @@ position: absolute;
 			<button onclick="upLoadImage()" id="pic_img_bt" class="cr_pick" style="display: none;">등록</button>
 		</div>
 
-		<input type="button" value="뒤로가기" onclick="location.href='../../Main.jsp#Stylist'" />
+		<input id = "back_btn" type="button" value="뒤로가기" onclick="location.href='../../Main.jsp#Stylist'" />
 		<!-- style="color:black" -->
 		<!-- Footer -->
 		<div id="footer">
