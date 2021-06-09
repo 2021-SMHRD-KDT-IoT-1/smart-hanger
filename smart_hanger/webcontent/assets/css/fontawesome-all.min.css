@@ -121,8 +121,8 @@
 	animation: fa-spin 1s infinite steps(8)
 }
 
-@
-keyframes fa-spin { 0%{
+
+keyframes fa-spin { 
 	transform: rotate(0deg)
 }
 
@@ -130,7 +130,7 @@ to {
 	transform: rotate(1turn)
 }
 
-}
+
 .fa-rotate-90 {
 	-ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=1)";
 	transform: rotate(90deg)

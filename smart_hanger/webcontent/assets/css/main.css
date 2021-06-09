@@ -1334,7 +1334,7 @@ input, select, textarea {
 	}
 
 	body {
-		background-image: url("images/overlay.png"), url("images/bg.jpg");
+		background-image: url("images/overlay.png"), url("images/bg2.jpg");
 		background-repeat: repeat, no-repeat;
 		background-size: auto, 100% 100%;
 		background-attachment: fixed;
@@ -1398,8 +1398,12 @@ input, select, textarea {
 	}
 
 	h1 {
-		font-size: 2.4em;
-		letter-spacing: -0.015em;
+		/* font-size: 2.4em;
+		letter-spacing: -0.015em; */
+		font-size: 1.999em;
+        letter-spacing: -0.00em;
+        line-height: 120%;
+         position: relative;
 	}
 
 	h2 {
