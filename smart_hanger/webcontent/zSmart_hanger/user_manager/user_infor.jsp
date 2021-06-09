@@ -11,8 +11,8 @@
 <title>Astral by HTML5 UP</title>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-<link rel="stylesheet" href="assets/css/main.css" />
-<link rel="stylesheet" href="assets/css/viewCloth.css" />
+<link rel="stylesheet" href="../../assets/css/main.css" />
+<link rel="stylesheet" href="../../assets/css/viewCloth.css" />
 <style type="text/css">
 #main {
 	height: 500px;
@@ -215,7 +215,7 @@ h1 {
 
 		</div>
 
-		<input id = "back_btn" type="button" value="뒤로가기" onclick="location.href='Main.jsp#work'" />
+		<input id = "back_btn" type="button" value="뒤로가기" onclick="location.href='../../Main.jsp#home'" />
 		<!-- style="color:black" -->
 		<!-- Footer -->
 		<div id="footer">
@@ -228,11 +228,11 @@ h1 {
 	</div>
 
 	<!-- Scripts -->
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/browser.min.js"></script>
-	<script src="assets/js/breakpoints.min.js"></script>
-	<script src="assets/js/util.js"></script>
-	<script src="assets/js/main.js"></script>
+	<script src="../../assets/js/jquery.min.js"></script>
+	<script src="../../assets/js/browser.min.js"></script>
+	<script src="../../assets/js/breakpoints.min.js"></script>
+	<script src="../../assets/js/util.js"></script>
+	<script src="../../assets/js/main.js"></script>
 
 </body>
 </html>
