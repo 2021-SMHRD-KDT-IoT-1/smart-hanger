@@ -96,7 +96,7 @@ button{
 	<!-- Wrapper-->
 	<% if (userId != null) { %>
 	<button class="btn_logout" onClick="location.href='LogoutServiceCon.do'" style="position: absolute; left: 74%; top: 10%; ntop: 50%;">로그아웃</button>
-	<button class="btn_logout" onClick="location.href='../../user_infor.jsp'" style="position: absolute; left: 84%; top: 10%; ntop: 50%;">내정보관리</button>
+	<button class="btn_logout" onClick="location.href='./zSmart_hanger/user_manager/user_infor.jsp'" style="position: absolute; left: 84%; top: 10%; ntop: 50%;">내정보관리</button>
 	<% } else {	%>
 	<button class="btn_login" onclick="btnclick('loginWindow','zSmart_hanger/user_manager/loginWindow.jsp')" style="position: absolute; left: 74%; top: 10%; ntop: 50%;">로그인</button>
 	<% } %>
