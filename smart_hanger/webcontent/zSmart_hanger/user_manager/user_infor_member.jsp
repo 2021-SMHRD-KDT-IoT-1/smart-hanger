@@ -11,8 +11,8 @@
 <title>Astral by HTML5 UP</title>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-<link rel="stylesheet" href="assets/css/main.css" />
-<link rel="stylesheet" href="assets/css/userInfo_member.css" />
+<link rel="stylesheet" href="../../assets/css/main.css" />
+<link rel="stylesheet" href="../../assets/css/userInfo_member.css" />
 
 
 </head>
@@ -48,7 +48,7 @@
 
 					<nav id="Update">	
 						<ul class="actions vertical">
-							<li><h5>회원정보수정</h5></li>
+							<li><h5 style = "font-size = 30px">회원정보수정</h5></li>
 								<form action = "MemberUpdateServiceCon.do" method = "post">
 								
 									<%if(dto != null) {%>

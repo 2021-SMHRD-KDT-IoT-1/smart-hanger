@@ -20,3 +20,12 @@
 		overflow-y: scroll;
 }
 
+h1{
+ font-family: "Gmarket Sans";
+ font-weight: bold ;
+ color : #3f3f3f;
+}
+
+p:nth-last-of-type(1){
+	color : white;
+}

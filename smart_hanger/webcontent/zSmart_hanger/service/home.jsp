@@ -38,13 +38,13 @@
 					if (userId != null) {
 					out.print("<h1>" + userId + "</h1>");
 					out.print("<h1>" + userName + "</h1>");
-					out.print("<h1>" + userAge + "</h1>");
+					out.print("<h1>" + userAge +"세"+"</h1>");
 				} else {
 					out.print("");
 				}
 				%>
 
-				<p>SmartHanger에 오신것을 환영합니다!</p>
+				<p id = "welcome">SmartHanger에 오신것을 환영합니다!</p>
 			</header>
 		</div>
 	</div>

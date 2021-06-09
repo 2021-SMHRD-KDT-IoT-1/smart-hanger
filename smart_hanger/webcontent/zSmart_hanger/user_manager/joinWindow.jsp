@@ -74,8 +74,10 @@
 		<li><input class="join_input" type="text" placeholder="나이를 입력하세요" id="age"></li>
 		<li></li>
 
-		<li><a id="real-join" onclick="join_click()" class="button fit">join</a> <a id="home" onclick="btnclick('zSmart_hanger/user_manager/loginWindow')"
-			class="button fit">home</a></li>
+		<li>
+			<a id="real-join" onclick="join_click()" class="button fit">join</a> 
+			<a id="home" onclick="btnclick('loginWindow')" class="button fit">home</a>
+		</li>
 
 	</ul>
 
