@@ -24,6 +24,8 @@ public class ClothesSaveServiceCon implements Command {
 
 		String savePath = request.getServletContext().getRealPath("cloth_img");
 
+		System.out.println(savePath);
+		
 		// 이미지 크기 지정
 		int maxSize = 5 * 1024 * 1024;
 

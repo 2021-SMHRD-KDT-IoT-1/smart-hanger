@@ -10,6 +10,7 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
+<link rel="stylesheet" href="assets/css/my_cloth.css">
 </head>
 <body>
 
@@ -41,7 +42,7 @@
 
 
 	<section>
-		<div class="row" style="width: 750px;">
+		<div  id="img_box" class="row">
 
 			<%	if (userId != null) {
 				clothes_list = clothesdao.My_clothes_All_Select(userId);	%>
@@ -49,7 +50,7 @@
 	
 				<!-- 여기가 옷장에 있는 이미지 불러오는곳  -->
 				<%	for (int row = 0; row < clothes_list.size(); row++) {	%>
-				<div class="col-4 col-6-medium col-12-small">
+				<div class="col-3">
 					<a href="zSmart_hanger/cloth/viewCloth.jsp?num=<%=clothes_list.get(row).getMy_clothes_num()%>" class="image fit"> <img class="cloth_imgs"
 						src="cloth_img/<%=clothes_list.get(row).getClothespath()%>" alt=""></a>
 				</div>
