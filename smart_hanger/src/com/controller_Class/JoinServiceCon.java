@@ -39,7 +39,7 @@ public class JoinServiceCon implements Command {
 		if (cnt > 0) {
 			//System.out.println("회원가입 성공");
 
-			moveURL = "join_success.jsp";
+			moveURL = "zSmart_hanger/user_manager/join_success.jsp";
 			
 		} else {
 			System.out.println("회원가입 실패");

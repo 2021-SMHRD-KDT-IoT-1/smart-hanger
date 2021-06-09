@@ -32,8 +32,8 @@
 
 		<div id="left_page_info">
 
-			<!-- <header> -->
-
+			
+			<header id="home_header">
 				<%
 					if (userId != null) {
 					out.print("<h1>" + userId + "</h1>");

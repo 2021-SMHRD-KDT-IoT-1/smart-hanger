@@ -46,12 +46,6 @@ drop sequence num_board_comments;
 
 
 
-
-insert into my_clothes values(num_my_clothes.nextval, '12', '12', '12', sysdate, '12', '12');
-
-
-
-
 -- 코디 게시판 댓글
 CREATE TABLE cody_board_comments (
 	comments_num   VARCHAR(255)   PRIMARY KEY,
@@ -239,6 +233,7 @@ increment by 1
 start with 1 
 minvalue 1 
 nocycle;
+
 
 
 

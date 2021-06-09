@@ -1,3 +1,15 @@
+
+#loginFrame *{
+	font-family: "Gmarket Sans";
+	font-weight: bold;
+}
+
+#login_ul>li>input:nt{
+	border-radius: 10px;
+	
+}
+
+
 #loginFrame_back {
 	width: 100%;
 	height: 100%;
@@ -17,7 +29,7 @@
 	width: 100%;
 	height: 100%;
 	content: "";
-	background: url("./images/bg.jpg");
+	background: url("./images/bg2.jpg");
 	background-size: 100% 100%;
 	position: fixed;
 	top: 0;
@@ -38,9 +50,6 @@
 
 
 
-
-
-
 h2 {
 	font-size: 1em;
 	position: relative;
@@ -54,12 +63,14 @@ table {
 	margin-left: 80px;
 }
 
+
 li {
 	list-style: none;
+	padding: 0px;
 }
 
 .Login_input {
-	width: 200px !important;
+	width: 58% !important;
 	height: 30px ;
 	top : 100px;
 }
@@ -92,8 +103,12 @@ loginFrame h2:nth-of-type(2) {
 
 
 
+#login_ul{
+	padding : 0%;
+}
 #login_ul li{
-	padding-bottom : 1.5%;
+	padding : 0%;
+	padding-bottom : 2%;
 }
 #login_ul li:nth-last-of-type(1){
 	padding-left : 10%;

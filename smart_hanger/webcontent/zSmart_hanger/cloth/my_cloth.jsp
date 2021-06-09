@@ -27,11 +27,8 @@
 	%>
 	
 	
-	
-	
 	<div>
 		<button style="float: left; height: 50px;" onclick="location.href = 'zSmart_hanger/cloth/addCloth.jsp'">옷 등록</button>
-		
 	</div>
 	
 	
@@ -42,12 +39,8 @@
 	
 	<p>옷장 이미지 띄우는곳 설명은 나중에 바꿈</p>
 
-
 	<section>
 		<div  id="img_box" class="row">
-
-			<%	if (userId != null) {
-				clothes_list = clothesdao.My_clothes_All_Select(userId);	%>
 
 	
 				<!-- 여기가 옷장에 있는 이미지 불러오는곳  -->
@@ -56,12 +49,12 @@
 					<a href="zSmart_hanger/cloth/viewCloth.jsp?num=<%=clothes_list.get(row).getMy_clothes_num()%>" class="image fit"> <img class="cloth_imgs"
 						src="cloth_img/<%=clothes_list.get(row).getClothespath()%>" alt=""></a>
 				</div>
-				<%	}	%>
+				
+				<% } %>
 
-			<%	}	%>
-
-		</div>
-	</section>
+			
+		</section>
+	</div>
 
 
 

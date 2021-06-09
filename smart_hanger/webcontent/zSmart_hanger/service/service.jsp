@@ -5,6 +5,19 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+
+#send_message{
+
+ background: gray;
+ font-family: "Gmarket Sans";
+ font-weight: bold;
+ border-radius: 15px;
+
+
+}
+
+</style>
 </head>
 <body>
 					
@@ -26,7 +39,7 @@
 												<textarea name="Content" placeholder="Content" rows="6"></textarea>
 											</div>
 											<div class="col-12">
-												<input type="submit" value="Send Message" />
+												<input id="send_message" type="submit" value="Send Message" />
 											</div>
 										</div>
 									</div>

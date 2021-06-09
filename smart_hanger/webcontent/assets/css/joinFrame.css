@@ -28,3 +28,10 @@ input{
 #join_ul li:nth-last-of-type(1){
 	padding-left : 10%;
 }
+
+#home:nth-last-of-type(1){
+	
+	font-weight: bold;
+	
+	
+}

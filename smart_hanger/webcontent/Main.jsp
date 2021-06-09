@@ -21,12 +21,25 @@
 </noscript>
 <style>
 
+
+body{
+	font-weight: bold ;
+	font-family: "Gmarket Sans";
+
+}
+
 button{
 	
 	background-color: gray;
 	font-weight: bold ;
 	font-family: "Gmarket Sans";
+}
 
+#closet:nth-last-of-type(1){
+	
+	font-weight: bold ;
+	font-family: "Gmarket Sans" ;
+	
 }
 
 </style>
@@ -53,7 +66,7 @@ button{
 	}
 	%>
 	<!-- div 요소 불러오는 jq -->
-	<script src="./js/jquery-3.6.0.min.js"></script>
+	<script src="js/jquery-3.6.0.min.js"></script>
 	<script type="text/javascript">
 	
 	
@@ -113,7 +126,7 @@ button{
 			<a href="#" class="icon solid fa-home"><span>Home</span></a> 
 		
 		
-		<a href="#work" class="icon solid fas fa-tshirt"><span>Closet</span></a> 
+		<a href="#work" id = "closet" class="icon solid fas fa-tshirt"><span>Closet</span></a> 
 		<a href="#Stylist" class="icon solid fas fa-user-tie"><span>Stylist</span></a> 
 		<a href="#Community" class="icon solid fas fa-clipboard-list"><span>Community</span></a>
 		<a href="#contact" class="icon solid fas fa-phone"><span>고객센터</span></a> </nav>
