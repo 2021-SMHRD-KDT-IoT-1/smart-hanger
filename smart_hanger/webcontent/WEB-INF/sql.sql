@@ -54,7 +54,7 @@ CREATE TABLE cody_board_comments (
   	comments   varchar2(200)   NULL,
  	upload_date   date   NULL
 );
-select * from cody_board_comments;
+
 
 -- 코디 게시판
 CREATE TABLE cody_board (
@@ -67,7 +67,7 @@ CREATE TABLE cody_board (
 	view_num		varchar2(200)	NULL,
 	clothespath varchar2(200) NOT NULL
 );
-select * from cody_board;
+
 
 -- 고객센터
 CREATE TABLE SERVICE (
@@ -77,7 +77,7 @@ CREATE TABLE SERVICE (
 	CONTENT	 varchar2(200) 	NULL,
 	UPLOAD_DATE	 date 	NULL
 );
-select * from SERVICE;
+
 
 -- 회원정보테이블
 CREATE TABLE MEMBER (
@@ -86,7 +86,8 @@ CREATE TABLE MEMBER (
 	USERNAME	 varchar2(200)	 NULL,
 	USERAGE	 varchar2(200)	 NULL
 );
-select * from MEMBER;
+
+
 -- 코디 옷 
 CREATE TABLE cody_clothes (
 	cody_num varchar2(200) NOT NULL PRIMARY KEY,
@@ -97,7 +98,6 @@ CREATE TABLE cody_clothes (
 	kind varchar2(200)  NULL,
 	clothespath varchar2(200) NOT NULL
 );
-select * from cody_clothes;
 
 -- 옷장
 CREATE TABLE my_clothes (
@@ -109,7 +109,6 @@ CREATE TABLE my_clothes (
 	Memo varchar2(500) NULL,
 	clothespath varchar2(200) NOT NULL
 );
-;
 
 
 -- 커뮤니티 게시판
@@ -123,7 +122,6 @@ CREATE TABLE board (
 	view_num varchar2(200) NOT NULL,
 	clothespath varchar2(200) NULL
 );
-select * from board;
 
 
 -- 커뮤니티 댓글
@@ -134,8 +132,6 @@ CREATE TABLE board_comments (
 	content   varchar2(200) NOT NULL,
 	upload_date   date  NOT NULL
 );
-
-select * from board_comments;
 
 
 

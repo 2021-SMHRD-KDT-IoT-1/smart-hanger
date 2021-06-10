@@ -13,21 +13,6 @@
 <link rel="stylesheet" href="../../assets/css/viewCloth.css" />
 <link rel="stylesheet" href="../../assets/css/viewClothiadd.css" />
 
-<style type="text/css">
-
-
-
-
-
-
-
-
-
-
-
-
-</style>
-
 
 </head>
 

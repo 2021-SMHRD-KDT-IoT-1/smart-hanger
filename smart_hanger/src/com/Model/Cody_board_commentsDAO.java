@@ -73,14 +73,16 @@ public class Cody_board_commentsDAO {
 	}
 
 	
-	// 전체 조회
-	public ArrayList<Cody_board_commentsDTO> Board_comments_All_Select() {
+	// 개별 조회
+	public ArrayList<Cody_board_commentsDTO> Board_comments_Select(String num) {
 		ArrayList<Cody_board_commentsDTO> list = new ArrayList<Cody_board_commentsDTO>();
 		conn();
 
 		try {
-			String sql = "select * from Cody_board_comments";
+			String sql = "select * from Cody_board_comments where cody_board_num = ?";
 			psmt = conn.prepareStatement(sql);
+			
+			psmt.setString(1, num);
 
 			rs = psmt.executeQuery();
 

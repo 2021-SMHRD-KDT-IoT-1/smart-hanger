@@ -1,35 +1,32 @@
 package com.controller_Class;
 
-import java.io.File;
 import java.io.IOException;
-import java.net.URLEncoder;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.io.PrintWriter;
 
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.websocket.Session;
 
 import com.Model.Cody_Board_DAO;
 import com.Model.Cody_Board_DTO;
 import com.Model.MemberDTO;
-import com.Model.My_clothesDAO;
-import com.Model.My_clothesDTO;
-import com.command.Command;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
-public class CodyAddformServiceCon2 implements Command {
 
-	@Override
-	public String execute(HttpServletRequest request, HttpServletResponse response) {
+@WebServlet("/CodyAddServiceCon2")
+public class CodyAddServiceCon2 extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// title, writer, content에 대한 인코딩
 
 		HttpSession session = request.getSession();
 
-
-		String moveURL = null;
 
 		// 이미지의 저장 경로 지정(서버 내 폴더)
 		// getServletContext : 서블릿의 정보
@@ -42,8 +39,6 @@ public class CodyAddformServiceCon2 implements Command {
 		// 사진 이름 인코딩 설정
 		String encoding = "EUC-KR";
 
-		// 사진 이름
-		String clothespath = "";
 
 		try {
 
@@ -66,16 +61,17 @@ public class CodyAddformServiceCon2 implements Command {
 			String cody_board_num =  dao.Cody_BoardInsert(new Cody_Board_DTO(userId, title, codycontent, codypath));
 			
 			
-			moveURL="zSmart_hanger/cody/viewStylist.jsp?num=" + cody_board_num;
+			response.setCharacterEncoding("utf-8");
+			PrintWriter out = response.getWriter();
+			
+			
+			
+			out.print("zSmart_hanger/cody/viewStylist.jsp?num=" + cody_board_num);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
-		
-		return moveURL;
-		
-
 	}
 
 }

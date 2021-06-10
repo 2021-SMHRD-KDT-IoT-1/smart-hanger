@@ -1,9 +1,37 @@
 @charset "EUC-KR";
+li{
+	list-style: none;
+	float: left;
+}
 
-#img_box{
-	
-	
-  background-color:white;
 
+*{
+	font-weight: bold;
+    font-family: "Gmarket Sans";
+}
 
+#work {
+	padding-top: 30px! important;
+}
+
+#img_box {
+	background-color: white;
+}
+
+header{
+	height: 80px;
+	margin: 0px;
+}
+
+header>h2 {
+	position: relative;
+	padding-top : 20px;
+	width : 50%;
+	float: left;
+}
+
+header>input {
+	position: relative;
+	width : 20%;
+	float: right;
 }

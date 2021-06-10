@@ -13,7 +13,8 @@ import com.controller_Class.ClothesAddServiceCon;
 import com.controller_Class.ClothesAddformServiceCon2;
 import com.controller_Class.ClothesOneDeleteServicCon;
 import com.controller_Class.ClothesUpdateServiceCon;
-import com.controller_Class.CodyAddServiceCon__delete;
+import com.controller_Class.CodyAddServiceCon;
+import com.controller_Class.CodyAddformServiceCon2;
 import com.controller_Class.CodyCommentsInsertCon;
 import com.controller_Class.CodySaveServiceCon;
 import com.controller_Class.CommunityCommentsInsertCon;
@@ -101,12 +102,22 @@ public class FrontController extends HttpServlet {
 			// 코디 사진 촬영 사진 저장용
 		} else if (resultURI.equals("zSmart_hanger/cody/CodySaveServiceCon.do")) {
 			command = new CodySaveServiceCon();
-			//  코디 등록
+			//  코디 등록	1
 		} else if (resultURI.equals("zSmart_hanger/cody/CodyAddServiceCon.do")) {
-			command = new CodyAddServiceCon__delete();
+			command = new CodyAddServiceCon();
+			//  코디 등록	2
+		} else if (resultURI.equals("CodyAddformServiceCon2.do")) {
+			command = new CodyAddformServiceCon2();
 			// 코디 댓글 등록
 		} else if (resultURI.equals("zSmart_hanger/cody/CodyCommentsInsertCon.do")) {
 			command = new CodyCommentsInsertCon();
+			
+			
+			
+			
+			
+			
+			
 			
 			
 			

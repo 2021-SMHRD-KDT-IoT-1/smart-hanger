@@ -38,7 +38,7 @@
 	
 	Cody_board_commentsDAO comment_dao = new Cody_board_commentsDAO();
 	
-	ArrayList<Cody_board_commentsDTO> commemtLists = comment_dao.Board_comments_All_Select();
+	ArrayList<Cody_board_commentsDTO> commemtLists = comment_dao.Board_comments_Select(num);
 	
 	
 	
@@ -79,7 +79,7 @@
 				<form action="CodyCommentsInsertCon.do" id="input_tag" method="post">
 					<input type="hidden" name="num" value="<%=num%>">
 					<ul id="my_content">
-						<li><%=cody_info.getUserid()%></li>
+						<li><%=cody_info.getTitle()%> (<%=cody_info.getUserid()%>) </li>
 						<li><%=cody_info.getContent()%></li>
 						<li><p>좋아요 : <%=cody_info.getLike_num()%></p>
 							<p>조회수 : <%=cody_info.getView_num()%></p></li>

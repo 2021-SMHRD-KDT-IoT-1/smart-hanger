@@ -50,21 +50,23 @@ public class Cody_Board_DAO {
 		String cody_num = null;
 		
 		try {
-			String sql = "insert into cody_board values(num_cody_board.nextval,?, 'TITLE', ?, sysdate, 0, 0, ?)";
+			String sql = "insert into cody_board values(num_cody_board.nextval,?, ?, ?, sysdate, 0, 0, ?)";
 			
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, dto.getUserid());
-			psmt.setString(2, dto.getContent());
-			psmt.setString(3, dto.getClothespath());
+			psmt.setString(2, dto.getTitle());
+			psmt.setString(3, dto.getContent());
+			psmt.setString(4, dto.getClothespath());
 
 					
 			if (psmt.executeUpdate() > 0 ) {
-				sql = "select * from cody_board where userID = ? and content = ? and clothespath = ?";
+				sql = "select * from cody_board where userID = ? and title = ? and content = ? and clothespath = ?";
 				
 				psmt = conn.prepareStatement(sql);
 				psmt.setString(1, dto.getUserid());
-				psmt.setString(2, dto.getContent());
-				psmt.setString(3, dto.getClothespath());
+				psmt.setString(2, dto.getTitle());
+				psmt.setString(3, dto.getContent());
+				psmt.setString(4, dto.getClothespath());
 				
 				rs = psmt.executeQuery();
 				

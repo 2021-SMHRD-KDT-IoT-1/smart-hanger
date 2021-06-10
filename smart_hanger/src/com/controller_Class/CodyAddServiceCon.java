@@ -17,7 +17,7 @@ import com.command.Command;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
-public class CodyAddServiceCon__delete implements Command {
+public class CodyAddServiceCon implements Command {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
@@ -50,11 +50,12 @@ public class CodyAddServiceCon__delete implements Command {
 			// 데이터베이스에 저장하기위해서 fileName, title, content 등의 정보 가져오기.
 			//String userId = "a";
 			String userId = ((MemberDTO)session.getAttribute("userInfo")).getUserId();
-			String clothesType = "no";
-			String clothesName = request.getParameter("title");
+			
+			// 옷 종류
+			//String clothesType = "no";
+			String title = request.getParameter("title");
 			String memo = request.getParameter("memo");
-			
-			
+
 
 
 			File file = new File(savePath + "\\blob");
@@ -67,7 +68,7 @@ public class CodyAddServiceCon__delete implements Command {
 			
 			Cody_Board_DAO dao = new Cody_Board_DAO();
 			
-			String cody_board_num =  dao.Cody_BoardInsert(new Cody_Board_DTO(userId, memo, local_time + ".png"));
+			String cody_board_num =  dao.Cody_BoardInsert(new Cody_Board_DTO(userId, title, memo, local_time + ".png"));
 			
 			
 			moveURL="viewStylist.jsp?num=" + cody_board_num;

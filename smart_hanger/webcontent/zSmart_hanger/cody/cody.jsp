@@ -10,26 +10,7 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
-<style type="text/css">
-#cody_sc{
-overflow-y: scroll; width: 750px; height: 400px;
-}
-
-#head_h2{
-	display: inline-block;
-}
-
-#cody_uqpdate{
-
- background: gray;
- font-family: "Gmarket Sans";
- font-weight: bold;
- border-radius: 15px;
-
-}
-
-
-</style>
+<link rel="stylesheet" href="assets/css/cody.css">
 </head>
 <body>
 
@@ -42,10 +23,10 @@ overflow-y: scroll; width: 750px; height: 400px;
 
 
 	<div>
-		<input id = "cody_uqpdate" type="button" value="코디 등록" style="float: right;" onclick="location.href='zSmart_hanger/cody/addCody.jsp'">
+		<input id = "cody_uqpdate" type="button" value="코디 등록" onclick="location.href='zSmart_hanger/cody/addCody.jsp'">
 	</div>
 	<header>
-		<h2 id="head_h2" Style = "position: relative; top: 10px;">옷장 : 여기 수정해야함</h2>
+		<h2 id="head_h2">옷장 : 여기 수정해야함</h2>
 	</header>
 	
 	

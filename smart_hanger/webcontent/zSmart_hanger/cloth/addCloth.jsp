@@ -48,15 +48,24 @@
 			upload.addEventListener('change', function(e) {
 				readInputFile(this);
 				document.getElementById('take_picture').style.display = 'none';
-				document.getElementById('img_bt').style.display = 'block';
+				document.getElementById('img_upload').style.display = 'none';
+
+
+				document.getElementById('pic_img_bt').style.display = 'block';
+				document.getElementById('pic_img_bt').setAttribute('onclick','');
+				document.getElementById('pic_img_bt').setAttribute('type','submit');
 			});
 
 			$('#take_picture').click(function() {
 				// 사진을 전송하면 업로드 버튼 출력
 				document.getElementById('pic_img_bt').style.display = 'block';
+				document.getElementById('pic_img_bt').setAttribute('onclick','upLoadImage()');
+				document.getElementById('pic_img_bt').setAttribute('type','button');
+
 				document.getElementById('take_picture').style.display = 'none';
 				document.getElementById('img_upload').style.display = 'none';
 				document.getElementById('img_type').value = 'take_picture';
+
 			});
 
 		}
@@ -74,16 +83,12 @@
 
 
 			<!-- <button onclick="downImg()">사진 저장</button> -->
-			
-			
 			<form action="ClothesAddformServiceCon2.do" method="post" enctype="multipart/form-data">
 
 
 
 				<!-- 왼쪽 영역 -->
 				<div id="left">
-				<button id="img_upload" onclick="file_upLoad()" accept="image/*" onchange="setThumbnail(event)">사진 업로드</button>
-				
 
 					<div id="pick_div">
 						<div id="pickcloth">
@@ -102,10 +107,13 @@
 					</div>
 
 					<div id="pickbutten">
-
-						<input type="file" name="img_file" id="img_file" accept=".gif, .jpg, .png" style="display: none;"> 
-						<input type="button" id="take_picture" value="사진 찍기" onClick="take_snapshot()">
-
+						<ul>
+							<li><input type="file" name="img_file" id="img_file" accept=".gif, .jpg, .png" style="display: none;"> 
+							<li><input type="button" id="take_picture" value="사진 찍기" onClick="take_snapshot()">
+							<li>
+							<li><input type="button" id="img_upload" value="사진 업로드" onclick="file_upLoad()" accept="image/*" onchange="setThumbnail(event)">
+						</ul>
+						
 					</div>
 				</div>
 
@@ -113,19 +121,16 @@
 
 				<!-- 오른쪽 영역 -->
 				<div id="right">
-				
 					<div id="input_tag_div">
-					
-					
 						<ol style="list-style: none;">
 
 							<li></li>
 
 							<li>옷 이름
 							<li>
-							<li><input type="text" id="title" name="title" placeholder="옷 이름을 입력해주세요"> <!-- 사용자에게 히든 값을 저장해서 넘겨줌-->
+							<li><input type="text" id="title" name="title" placeholder="코디 이름을 입력해주세요"> <!-- 사용자에게 히든 값을 저장해서 넘겨줌-->
 							<li>옷 메모</li>
-							<li><textarea rows="68" cols="60" id="memo" name="memo" placeholder="옷 이름을 입력해주세요"></textarea> 
+							<li><textarea rows="68" cols="60" id="memo" name="memo" placeholder="코디 메모를 입력해주세요"></textarea> 
 							<input type="hidden" name="img_type" id="img_type" value="upload"></li>
 
 							<li><input id="img_bt" class="cr_pick" type="submit" value="등록" style="display: none;">
@@ -136,11 +141,11 @@
 
 				</div>
 
-			</form>
 			<button onclick="upLoadImage()" id="pic_img_bt" class="cr_pick" style="display: none;">등록</button>
+			</form>
 		</div>
 
-		<input id = "back_btn" type="button" value="뒤로가기" onclick="location.href='../../Main.jsp#work'" />
+		<input id = "back_btn" type="button" value="뒤로가기" onclick="location.href='../../Main.jsp#Stylist'" />
 		<!-- style="color:black" -->
 		<!-- Footer -->
 		<div id="footer">
@@ -160,6 +165,7 @@
 		function file_upLoad() {
 			document.getElementById("img_file").click();
 			Webcam.reset();
+
 		}
 
 		Webcam.set({
@@ -243,7 +249,7 @@
 			
 			$.ajax({
 				type : 'post',
-				url : 'ClothesAddServiceCon.do',
+				url : '../../ClothesAddServieceCon2',
 				data : {
 					'title' : $('#title').val(),
 					'memo' : $('#memo').val(),
@@ -275,6 +281,13 @@
 	<script src="../../assets/js/breakpoints.min.js"></script>
 	<script src="../../assets/js/util.js"></script>
 	<script src="../../assets/js/main.js"></script>
+
+
+
+
+
+
+
 
 	
 </body>

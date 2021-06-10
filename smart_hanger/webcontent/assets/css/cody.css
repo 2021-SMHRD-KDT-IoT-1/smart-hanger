@@ -1,0 +1,40 @@
+@charset "EUC-KR";
+
+li{
+	list-style: none;
+	float: left;
+}
+
+
+*{
+	font-weight: bold;
+    font-family: "Gmarket Sans";
+}
+
+#cody_sc{
+overflow-y: scroll; width: 750px; height: 400px;
+}
+
+#head_h2{
+	display: inline-block;
+}
+
+#cody_uqpdate{
+
+ background: gray;
+ font-family: "Gmarket Sans";
+ font-weight: bold;
+ border-radius: 15px;
+
+
+}
+
+
+
+/* header>h2{
+	position: relative; top: 10px; display: inline-block;
+} */
+
+#cody_uqpdate{
+		float: right;
+}

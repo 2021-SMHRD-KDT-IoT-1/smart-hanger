@@ -70,21 +70,12 @@ public class ClothesAddServiceCon implements Command {
 
 			board_num = dao.My_clothes_Insert(new My_clothesDTO(userId, clothesName, clothesType, memo, clothespath));
 
-			moveURL = "viewCloth.jsp?num=" + board_num;
+			moveURL =  board_num;
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
-		PrintWriter out;
-		try {
-			out = response.getWriter();
-			out.print(board_num);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
 		return moveURL;
 
 	}

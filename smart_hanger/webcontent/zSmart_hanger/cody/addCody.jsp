@@ -14,120 +14,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="../../assets/css/main.css" />
 <link rel="stylesheet" href="../../assets/css/viewCloth.css" />
-<style type="text/css">
-#main {
-	height: 500px;
+<link rel="stylesheet" href="../../assets/css/addCody.css" />
 
-	/* =================여기는 왼쪽 화면 스타일 ======================= */
-}
-
-#left {
-	width: 50%;
-	height: 100%;
-	float: left;
-}
-
-#pickcloth {
-	position: relative;
-	overflow: hidden;
-}
-
-#pick_div {
-	position: relative;
-	width: 80%;
-	height: 350px;
-	top: 20px;
-	left: 20px;
-	overflow: hidden;
-}
-
-#cloth_imgs {
-	height: 100;
-}
-
-#pickbutten {
-	position: relative;
-	top: 20px;
-	left: 20px;
-}
-
-/* ==============여기는 오른쪽 화면 스타일 ==================== */
-#right {
-	overflow-y: scroll;
-	width: 50%;
-	height: 500px;
-	float: left;
-}
-
-#input_tag_div {
-	position: relative;
-	top: 37px;
-	width: 91%;
-	height: 115px;
-}
-
-#del {
-	float: right;
-	height: 50%;
-	width: 30%;
-}
-
-li>textarea {
-	resize: none;
-	height: 215px;
-}
-
-ol>li>.cr_pick {
-	margin: auto;
-	width: 49%;
-}
-
-#clothespick {
-	margin: auto;
-	width: 49%;
-	height: 59px;
-}
-
-/* 전송 버튼 */
-#pic_img_bt{
-position: absolute;
-    display: block;
-    right: 10%;
-    top: 80%;
-    width: 20%;
-    height: 10%;
-    font-size: 17px;
-}
-
-#img_upload{
-	font-family: "Gmarket Sans";
-	font-weight: bold;
-	border-radius: 15px;
-	background-color: gray;
-}
-
-#take_picture{
-	font-family: "Gmarket Sans";
-	font-weight: bold;
-	border-radius: 15px;
-	background-color: gray;
-}
-
-#back_btn{
-	font-family: "Gmarket Sans";
-	font-weight: bold;
-	border-radius: 15px;
-	background-color: gray;
-}
-
-#pic_img_bt{
-	font-family: "Gmarket Sans";
-	font-weight: bold;
-	border-radius: 15px;
-	background-color: gray;
-}
-
-</style>
 
 </head>
 
@@ -161,12 +49,20 @@ position: absolute;
 			upload.addEventListener('change', function(e) {
 				readInputFile(this);
 				document.getElementById('take_picture').style.display = 'none';
-				document.getElementById('img_bt').style.display = 'block';
+				document.getElementById('img_upload').style.display = 'none';
+
+
+				document.getElementById('pic_img_bt').style.display = 'block';
+				document.getElementById('pic_img_bt').setAttribute('onclick','');
+				document.getElementById('pic_img_bt').setAttribute('type','submit');
 			});
 
 			$('#take_picture').click(function() {
 				// 사진을 전송하면 업로드 버튼 출력
 				document.getElementById('pic_img_bt').style.display = 'block';
+				document.getElementById('pic_img_bt').setAttribute('onclick','upLoadImage()');
+				document.getElementById('pic_img_bt').setAttribute('type','button');
+
 				document.getElementById('take_picture').style.display = 'none';
 				document.getElementById('img_upload').style.display = 'none';
 				document.getElementById('img_type').value = 'take_picture';
@@ -188,8 +84,7 @@ position: absolute;
 
 
 			<!-- <button onclick="downImg()">사진 저장</button> -->
-			<button id="img_upload" onclick="file_upLoad()" accept="image/*" onchange="setThumbnail(event)">사진 업로드</button>
-			<form action="CodyAddformServiceCon2.do" method="post" enctype="multipart/form-data">
+			<form action="../../CodyAddformServiceCon2.do" method="post" enctype="multipart/form-data">
 
 
 
@@ -213,10 +108,13 @@ position: absolute;
 					</div>
 
 					<div id="pickbutten">
-
-						<input type="file" name="img_file" id="img_file" accept=".gif, .jpg, .png" style="display: none;"> 
-						<input type="button" id="take_picture" value="사진 찍기" onClick="take_snapshot()">
-
+						<ul>
+							<li><input type="file" name="img_file" id="img_file" accept=".gif, .jpg, .png" style="display: none;"> 
+							<li><input type="button" id="take_picture" value="사진 찍기" onClick="take_snapshot()">
+							<li>
+							<li><input type="button" id="img_upload" value="사진 업로드" onclick="file_upLoad()" accept="image/*" onchange="setThumbnail(event)">
+						</ul>
+						
 					</div>
 				</div>
 
@@ -229,11 +127,11 @@ position: absolute;
 
 							<li></li>
 
-							<li>옷 이름
+							<li>코디 이름
 							<li>
-							<li><input type="text" id="title" name="title" placeholder="옷 이름을 입력해주세요"> <!-- 사용자에게 히든 값을 저장해서 넘겨줌-->
-							<li>옷 메모</li>
-							<li><textarea rows="68" cols="60" id="memo" name="memo" placeholder="옷 이름을 입력해주세요"></textarea> 
+							<li><input type="text" id="title" name="title" placeholder="코디 이름을 입력해주세요"> <!-- 사용자에게 히든 값을 저장해서 넘겨줌-->
+							<li>코디 메모</li>
+							<li><textarea rows="68" cols="60" id="memo" name="memo" placeholder="코디 메모를 입력해주세요"></textarea> 
 							<input type="hidden" name="img_type" id="img_type" value="upload"></li>
 
 							<li><input id="img_bt" class="cr_pick" type="submit" value="등록" style="display: none;">
@@ -244,8 +142,8 @@ position: absolute;
 
 				</div>
 
-			</form>
 			<button onclick="upLoadImage()" id="pic_img_bt" class="cr_pick" style="display: none;">등록</button>
+			</form>
 		</div>
 
 		<input id = "back_btn" type="button" value="뒤로가기" onclick="location.href='../../Main.jsp#Stylist'" />
@@ -352,7 +250,7 @@ position: absolute;
 			
 			$.ajax({
 				type : 'post',
-				url : 'CodyAddServiceCon.do',
+				url : '../../CodyAddServiceCon2',
 				data : {
 					'title' : $('#title').val(),
 					'memo' : $('#memo').val(),

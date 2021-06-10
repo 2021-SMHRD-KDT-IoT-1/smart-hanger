@@ -12,6 +12,14 @@
 <meta charset="EUC-KR">
 <title>Insert title here</title>
 <link rel="stylesheet" href="assets/css/my_cloth.css">
+<!-- 
+
+	<script type="text/javascript">
+		var ver = Math.floor((Math.random() * 1000));
+		document.write('<link rel="stylesheet" href="assets/css/my_cloth.css?ver=' + ver + '">');
+	</script>
+ -->
+
 </head>
 <body>
 	<script src="./js/jquery-3.6.0.min.js"></script>
@@ -32,17 +40,16 @@
 	%>
 
 
-	<div>
-		<button style="float: left; height: 50px;" onclick="location.href = 'zSmart_hanger/cloth/addCloth.jsp'">옷 등록</button>
-	</div>
-
 
 	<header>
-		<h2 Style="position: relative; top: 10px; display: inline-block;">옷장 : 여기 수정해야함</h2>
+		<h2><%=userInfo.getUserName()%>
+			님의 옷장
+		</h2>
+		<input type="button" id="cloth_uqpdate" value="옷 등록" onclick="location.href = 'zSmart_hanger/cloth/addCloth.jsp'">
 	</header>
 
 
-	<p>옷장 이미지 띄우는곳 설명은 나중에 바꿈</p>
+	<p>“허름한 옷을 입으면 사람들은 옷을 기억하고 흠잡을데 없이 옷을 입으면 사람들은 그 여자를 기억한다” - 코코 샤넬</p>
 
 	<section>
 		<div id="img_box" class="row">
@@ -50,16 +57,15 @@
 
 			<!-- 여기가 옷장에 있는 이미지 불러오는곳  -->
 			<%	if (clothes_list != null) {
+				for (int row = 0; row < clothes_list.size(); row++) { %>
+						<div class="col-3">
+							<a href="zSmart_hanger/cloth/viewCloth.jsp?num=<%=clothes_list.get(row).getMy_clothes_num()%>" class="image fit"> <img class="cloth_imgs"
+								src="cloth_img/<%=clothes_list.get(row).getClothespath()%>" alt=""></a>
+						</div>
 
-				for (int row = 0; row < clothes_list.size(); row++) {	%>
-					<div class="col-3">
-						<a href="zSmart_hanger/cloth/viewCloth.jsp?num=<%=clothes_list.get(row).getMy_clothes_num()%>" class="image fit"> <img class="cloth_imgs"
-							src="cloth_img/<%=clothes_list.get(row).getClothespath()%>" alt=""></a>
-					</div>
-
-			<%	}
-
-			}	%>
+				<%	}
+				}
+			%>
 
 		</div>
 	</section>
