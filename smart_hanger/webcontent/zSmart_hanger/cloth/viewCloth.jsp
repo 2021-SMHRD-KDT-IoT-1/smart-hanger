@@ -14,6 +14,12 @@
 <link rel="stylesheet" href="../../assets/css/viewClothiadd.css" />
 
 
+   <!-- <script type="text/javascript">
+      var ver = Math.floor((Math.random() * 1000));
+      document.write('<link rel="stylesheet" href="../../assets/css/viewCloth.css?ver=' + ver + '">');
+   </script> -->
+
+
 </head>
 
 <body class="is-preload">
@@ -41,6 +47,7 @@
 	}
 
 	My_clothesDTO cloth_info = dao.My_clothes_One_Select(num);
+	
 	%>
 
 
@@ -55,7 +62,7 @@
 	            data : {num : num},
 	            success: function(data) {
 	                alert('삭제성공');
-	                $(location).attr('href', 'Main.jsp');
+	                $(location).attr('href', '../../Main.jsp');
 	            },
 	            	error: function() {
 	                alert('삭제실패');
@@ -65,8 +72,61 @@
 		}
 		
 		
+		function file_upLoad() {
+			document.getElementById("img_file").click();
+			Webcam.reset();
+		}  
 		
-	</script>
+		</script>
+		
+		
+		<script type="text/javascript" src="../../js/jquery-3.6.0.min.js"></script>
+		<script type="text/javascript" src="../../webcamjs/webcam.min.js"></script>
+		<script type="text/javascript" src="../../js/html2canvas.js"></script>
+		<script type="text/javascript">
+		
+			
+		
+			
+		// 페이지 로딩이 끝나면 실행되는 메서드
+		window.onload = function() {
+			
+			
+			// 등록 이미지 등록 미리보기
+			function readInputFile(input) {
+				if (input.files && input.files[0]) {
+					var reader = new FileReader();
+					reader.onload = function(e) {
+						$('#pick_div').html("<img id='img_preview' style='width : 100%;' src=" + e.target.result + ">");
+					}
+					reader.readAsDataURL(input.files[0]);
+				}
+
+			}
+			
+			var upload = document.querySelector('#img_file');
+
+			upload.addEventListener('change', function(e) {
+				readInputFile(this);
+				document.getElementById('take_picture').style.display = 'none'; 
+			});
+
+			$('#update_btn_fake').click(function() {
+				// fake수정버튼을 누르면 fake수정버튼을 없애고 진짜수정버튼 사진업로드, 사진 찍기, 삭제 버튼 출력
+				document.getElementById('img_upload').style.display = 'block';
+				document.getElementById('take_picture').style.display = 'block';
+				document.getElementById('del').style.display = 'block';
+				document.getElementById('update_btn').style.display = 'inline';
+				document.getElementById('update_btn_fake').style.display = 'none';
+
+			});
+
+		}
+		
+		
+		
+		
+	</script> 
 
 	<!-- Wrapper-->
 	<div id="wrapper">
@@ -76,7 +136,8 @@
 
 
 		<div id="main">
-			<form action="ClothesUpdateServiceCon.do" method="post" enctype="multipart/form-data">
+			<button id="img_upload" onclick="file_upLoad()" accept="image/*" onchange="setThumbnail(event)" style="display: none;">사진 업로드</button> 
+			<form id="update_form" action="ClothesUpdateServiceCon.do" method="post" enctype="multipart/form-data">
 
 
 
@@ -86,13 +147,15 @@
 
 					<div id="pickcloth">
 
-						<img id="cloth_imgs" src="../../cloth_img/<%=cloth_info.getClothespath()%>" alt="">
+						<img id="cloth_imgs" src="../../cloth_img/<%=URLEncoder.encode(cloth_info.getClothespath(), "EUC-KR")%>" alt="">
+						
 					</div>
 
 					<div id="pickbutten">
 
-						<input type="file" class="cr_pick" name="img_file"> <input type="button" style="position: relative;" value="사진찍기" onclick="history.back();">
-
+						<input type="file" class="cr_pick" name="img_file" id="img_file" accept=".gif, .jpg, .png" style="display: none">
+						<input id = "take_picture" type="button" style="position: relative; display: none; "  value="사진찍기" onclick="history.back();">
+							
 					</div>
 				</div>
 
@@ -101,9 +164,9 @@
 				<!-- 오른쪽 영역 -->
 				<div id="right">
 					<div id="input_tag_div">
-						<ol style="">
+						<ol id="update_ol">
 
-							<li><input type="button" id="del"class="cr_pick" value="삭제" onclick="oneDelete(<%=num%>)"></li>
+							<li><input type="button" id="del"class="cr_pick" style="display: none;" value="삭제" onclick="oneDelete(<%=num%>)"></li>
 
 							<li>옷 이름
 							<li>
@@ -116,9 +179,12 @@
 							</textarea></li>
 
 
-							<li><input class="cr_pick" type="submit" value="수정">
+							<li>
+								<input id = "update_btn" style = "display :none;" class="cr_pick" type="submit" value="수정" >
+								<input id = "update_btn_fake" class="cr_pick" type="button" value="수정">
 
-								<button id="clothespick" class="cr_pick">선택</button></li>
+								<button id="clothespick" class="cr_pick">꺼내기</button>
+							</li>
 						</ol>
 
 

@@ -37,7 +37,7 @@
 
 /* ==============여기는 오른쪽 화면 스타일 ==================== */
 #right {
-	overflow-y: scroll;
+	
 	width: 50%;
 	height: 500px;
 	float: left;
