@@ -32,7 +32,7 @@ public class ClothesOneDeleteServicCon implements Command {
 			System.out.println("ø  ªË¡¶ Ω«∆–§–§–§–");
 		}
 		
-		moveURL ="Main.jsp";
+		moveURL ="../../Main.jsp";
 				
 		return moveURL;
 	}
