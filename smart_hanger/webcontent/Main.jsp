@@ -48,7 +48,7 @@ button{
 </head>
 
 <body class="is-preload" style="height: auto;">
-
+ 
 
 	<%
 	MemberDTO userInfo = (MemberDTO) session.getAttribute("userInfo");
