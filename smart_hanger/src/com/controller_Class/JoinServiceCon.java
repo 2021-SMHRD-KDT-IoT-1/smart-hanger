@@ -1,21 +1,25 @@
 package com.controller_Class;
 
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.Model.MemberDAO;
 import com.Model.MemberDTO;
-import com.command.Command;
 
-public class JoinServiceCon implements Command {
 
-	@Override
-	public String execute(HttpServletRequest request, HttpServletResponse response) {
+@WebServlet("/JoinServiceCon")
+public class JoinServiceCon extends HttpServlet {
+	private static final long serialVersionUID = 1L;
 
-		String moveURL = null;
+
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	String moveURL = null;
 		
 		
 		try {
@@ -43,11 +47,11 @@ public class JoinServiceCon implements Command {
 			
 		} else {
 			System.out.println("회원가입 실패");
-			moveURL = "main.jsp";
+			moveURL = "zSmart_hanger/user_manager/join_fail.jsp";
 			
 		}
 
-		return moveURL;
+		response.setCharacterEncoding("utf-8");
+		response.sendRedirect(moveURL);
 	}
-
 }

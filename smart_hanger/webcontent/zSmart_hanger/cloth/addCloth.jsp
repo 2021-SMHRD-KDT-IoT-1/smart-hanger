@@ -228,7 +228,7 @@
 
 			$.ajax({
 				type : 'post',
-				url : 'ClothesSaveServiceCon.do',
+				url : 'CodySaveServiceCon.do',
 				data : formdata,
 				processData : false, // data 파라미터 강제 string 변환 방지!!
 				contentType : false, // application/x-www-form-urlencoded; 방지!!
@@ -249,7 +249,7 @@
 			
 			$.ajax({
 				type : 'post',
-				url : '../../ClothesAddServieceCon2',
+				url : '../../CodyAddServieceCon2',
 				data : {
 					'title' : $('#title').val(),
 					'memo' : $('#memo').val(),

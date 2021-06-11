@@ -250,7 +250,7 @@
 			
 			$.ajax({
 				type : 'post',
-				url : '../../CodyAddServiceCon2',
+				url : '../../CodyAddServiceCon',
 				data : {
 					'title' : $('#title').val(),
 					'memo' : $('#memo').val(),
@@ -259,7 +259,8 @@
 				},
 				success : function(data) {
 					//alert("¼º°ø");
-					$(location).attr('href', data);
+					$(location).attr('href', data)
+					//$(location).attr('href', data);
 
 				},
 				error : function() {
