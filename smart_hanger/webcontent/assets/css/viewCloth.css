@@ -49,7 +49,7 @@ li{
 
 li>textarea {
 	resize: none;
-	height: 215px;
+	height: 228px;
 }
 
 ol>li>.cr_pick {
@@ -150,7 +150,7 @@ position: absolute;
 	width: 50%;
 	height: 100%;
 	float: left;
-	padding: 30px 40px 30px 30px;
+	padding: 30px 20px 30px 20px;
 }
 
 #pickcloth {

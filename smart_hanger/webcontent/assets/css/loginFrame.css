@@ -75,12 +75,8 @@
 	list-style: none;
 }
 
-#login_ul>li:nth-of-type(n+2){
+#login_ul>li:nth-of-type(2n){
 	height: 5%;
-}
-
-#login_ul>li:nth-last-of-type(1){
-	padding-top : 8%;
 }
 
 

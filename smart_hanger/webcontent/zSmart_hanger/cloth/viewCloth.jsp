@@ -12,13 +12,13 @@
 <link rel="stylesheet" href="../../assets/css/main.css" />
 <link rel="stylesheet" href="../../assets/css/viewCloth.css" />
 
-
-   <!-- <script type="text/javascript">
+<!-- 
+   <script type="text/javascript">
       var ver = Math.floor((Math.random() * 1000));
       document.write('<link rel="stylesheet" href="../../assets/css/viewCloth.css?ver=' + ver + '">');
-   </script> -->
+   </script>
 
-
+ -->
 </head>
 
 <body class="is-preload">
@@ -51,8 +51,12 @@
 
 
 
-
-   <script type="text/javascript">
+      
+      <script type="text/javascript" src="../../js/jquery-3.6.0.min.js"></script>
+      <script type="text/javascript" src="../../webcamjs/webcam.min.js"></script>
+      <script type="text/javascript" src="../../js/html2canvas.js"></script>
+		<script type="text/javascript">
+   
    
    
    
@@ -80,16 +84,7 @@
 	      }
       
    
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
+  
    
    
    
@@ -103,7 +98,7 @@
                data : {num : num},
                success: function(data) {
                    alert('삭제성공');
-                   $(location).attr('href', '../../Main.jsp');
+                   $(location).attr('href', '../../Main.jsp#work');
                },
                   error: function() {
                    alert('삭제실패');
@@ -118,16 +113,7 @@
          Webcam.reset();
       }  
       
-      </script>
-      
-      
-      <script type="text/javascript" src="../../js/jquery-3.6.0.min.js"></script>
-      <script type="text/javascript" src="../../webcamjs/webcam.min.js"></script>
-      <script type="text/javascript" src="../../js/html2canvas.js"></script>
-      <script type="text/javascript">
-      
-         
-      
+
          
       // 페이지 로딩이 끝나면 실행되는 메서드
       window.onload = function() {
@@ -164,7 +150,7 @@
             document.getElementById('clothespick').setAttribute('value','삭제');
           	document.getElementById('clothespick').setAttribute('onclick','oneDelete("<%=num%>")');
           	document.getElementById('update_ol').style.padding = '25px';
-          	document.getElementById('memo_text').style.height = '239px';
+          	document.getElementById('memo_text').style.height = '273px';
             
 
           	
@@ -207,7 +193,7 @@
 					<div id="pickbutten">
 						<ul>
 							<li><input type="file" name="img_file" id="img_file" accept=".gif, .jpg, .png" style="display: none;"> 
-							<li><input id = "take_picture" type="button" style="position: relative; display: none; left:20px; "  value="사진찍기" onclick="history.back();">
+							<li><input id = "take_picture" type="button" style="position: relative; display: none; left:7px; "  value="사진찍기" onclick="history.back();">
 							<li>
 							<li><input type="button" id="img_upload" value="사진 업로드" onclick="file_upLoad()" accept="image/*" onchange="setThumbnail(event)" style="display: none;">
 						</ul>

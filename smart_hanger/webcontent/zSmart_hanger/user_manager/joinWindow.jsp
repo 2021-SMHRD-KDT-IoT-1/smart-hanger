@@ -76,7 +76,7 @@
 
 		<li>
 			<a id="real-join" onclick="join_click()" class="button fit">join</a> 
-			<a id="home" onclick="btnclick('loginWindow')" class="button fit">home</a>
+			<a id="home" onclick="btnclick('loginWindow')" class="button fit" style="padding-top: 0.7em !important;">home</a>
 		</li>
 
 	</ul>

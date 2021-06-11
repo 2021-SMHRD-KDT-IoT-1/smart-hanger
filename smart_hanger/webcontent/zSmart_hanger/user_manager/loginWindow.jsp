@@ -6,10 +6,13 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="assets/css/loginFrame.css" />
 <link rel="stylesheet" href="assets/css/main.css" />
-<style>
-</style>
+
 </head>
 <body>
+
+
+
+
 
 	<!-- div 요소 불러오는 jq -->
 	<script src="./js/jquery-3.6.0.min.js"></script>
