@@ -111,6 +111,7 @@
 						<ul>
 							<li><input type="file" name="img_file" id="img_file" accept=".gif, .jpg, .png" style="display: none;"> 
 							<li><input type="button" id="take_picture" value="사진 찍기" onClick="take_snapshot()">
+							
 							<li>
 							<li><input type="button" id="img_upload" value="사진 업로드" onclick="file_upLoad()" accept="image/*" onchange="setThumbnail(event)">
 						</ul>

@@ -108,7 +108,7 @@
 
 			upload.addEventListener('change', function(e) {
 				readInputFile(this);
-				document.getElementById('take_picture').style.display = 'none'; 
+				document.getElementById('take_picture').style.display = 'block'; 
 			});
 
 			$('#update_btn_fake').click(function() {
@@ -136,7 +136,7 @@
 
 
 		<div id="main">
-			<button id="img_upload" onclick="file_upLoad()" accept="image/*" onchange="setThumbnail(event)" style="display: none;">사진 업로드</button> 
+			<!-- <button id="img_upload" onclick="file_upLoad()" accept="image/*" onchange="setThumbnail(event)" style="display: none;">사진 업로드</button>  -->
 			<form id="update_form" action="ClothesUpdateServiceCon.do" method="post" enctype="multipart/form-data">
 
 
@@ -154,8 +154,9 @@
 					<div id="pickbutten">
 
 						<input type="file" class="cr_pick" name="img_file" id="img_file" accept=".gif, .jpg, .png" style="display: none">
-						<input id = "take_picture" type="button" style="position: relative; display: none; "  value="사진찍기" onclick="history.back();">
-							
+						<input id = "take_picture" type="button" style="position: relative; display: none; left:20px; "  value="사진찍기" onclick="history.back();">
+						<input id = "img_upload" type="button" value="사진업로드" onclick="file_upLoad()" accept="image/*" onchange="setThumbnail(event)" style="position: fixed; display: none; left:280px; bottom:116px;" >
+					    
 					</div>
 				</div>
 
@@ -182,7 +183,6 @@
 							<li>
 								<input id = "update_btn" style = "display :none;" class="cr_pick" type="submit" value="수정" >
 								<input id = "update_btn_fake" class="cr_pick" type="button" value="수정">
-
 								<button id="clothespick" class="cr_pick">꺼내기</button>
 							</li>
 						</ol>
