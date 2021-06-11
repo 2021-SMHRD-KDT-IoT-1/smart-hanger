@@ -11,7 +11,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="../../assets/css/main.css" />
 <link rel="stylesheet" href="../../assets/css/viewCloth.css" />
-<link rel="stylesheet" href="../../assets/css/viewClothiadd.css" />
 
 
    <!-- <script type="text/javascript">
@@ -54,6 +53,48 @@
 
 
    <script type="text/javascript">
+   
+   
+   
+   // 아두이노 통신용
+   
+   
+ 		function arduino(in_num){
+	   		var num = in_num;
+	   		
+	   		console.log(num);
+
+	           $.ajax({
+	               url : 'Arduino',
+	               type : 'post',
+	               data : {num : num},
+	               success: function(data) {
+	                   alert('전송성공');
+	                   
+	               },
+	                  error: function() {
+	                   alert('통신실패');
+	               }
+	           });
+	      
+	      }
+      
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
    
       function oneDelete(num){
            $.ajax({
@@ -115,15 +156,28 @@
             // fake수정버튼을 누르면 fake수정버튼을 없애고 진짜수정버튼 사진업로드, 사진 찍기, 삭제 버튼 출력
             document.getElementById('img_upload').style.display = 'block';
             document.getElementById('take_picture').style.display = 'block';
-            document.getElementById('del').style.display = 'block';
             document.getElementById('update_btn').style.display = 'inline';
             document.getElementById('update_btn_fake').style.display = 'none';
+            
+            
+            document.getElementById('back_btn').style.display = 'none';
+            document.getElementById('clothespick').setAttribute('value','삭제');
+          	document.getElementById('clothespick').setAttribute('onclick','oneDelete("<%=num%>")');
+          	document.getElementById('update_ol').style.padding = '25px';
+          	document.getElementById('memo_text').style.height = '239px';
+            
+
+          	
+            
 
          });
+         
+         
+         
+       
 
       }
-      
-      
+
       
       
    </script> 
@@ -138,30 +192,7 @@
       <div id="main">
          <!-- <button id="img_upload" onclick="file_upLoad()" accept="image/*" onchange="setThumbnail(event)" style="display: none;">사진 업로드</button>  -->
          <form id="update_form" action="ClothesUpdateServiceCon.do" method="post" enctype="multipart/form-data">
-
-
-
-<%--             <!-- 왼쪽 영역 -->
-            <div id="left">
-
-
-               <div id="pickcloth">
-
-                  <img id="cloth_imgs" src="../../cloth_img/<%=URLEncoder.encode(cloth_info.getClothespath(), "EUC-KR")%>" alt="">
-                  
-               </div>
-
-               <div id="pickbutten">
-
-                  <input type="file" class="cr_pick" name="img_file" id="img_file" accept=".gif, .jpg, .png" style="display: none">
-                  <input id = "take_picture" type="button" style="position: relative; display: none; left:20px; "  value="사진찍기" onclick="history.back();">
-                  <input id = "img_upload" type="button" value="사진업로드" onclick="file_upLoad()" accept="image/*" onchange="setThumbnail(event)" style="position: fixed; display: none; left:280px; bottom:116px;" >
-                   
-               </div>
-            </div>
- --%>
-
-
+  		
 
 				<!-- 왼쪽 영역 -->
 				<div id="left">
@@ -178,28 +209,13 @@
 							<li><input type="file" name="img_file" id="img_file" accept=".gif, .jpg, .png" style="display: none;"> 
 							<li><input id = "take_picture" type="button" style="position: relative; display: none; left:20px; "  value="사진찍기" onclick="history.back();">
 							<li>
-							<li><input type="button" id="img_upload" value="사진 업로드" onclick="file_upLoad()" accept="image/*" onchange="setThumbnail(event)">
+							<li><input type="button" id="img_upload" value="사진 업로드" onclick="file_upLoad()" accept="image/*" onchange="setThumbnail(event)" style="display: none;">
 						</ul>
 						
 					</div>
 				</div>
 				
 				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-
-
-
-
 
 
 
@@ -208,7 +224,9 @@
                <div id="input_tag_div">
                   <ol id="update_ol">
 
-                     <li><input type="button" id="del"class="cr_pick" style="display: none;" value="삭제" onclick="oneDelete(<%=num%>)"></li>
+					<li><input id="back_btn" type="button" value="뒤로가기" onclick="location.href='../../Main.jsp#work'" />
+
+
 
                      <li>옷 이름
                      <li>
@@ -217,14 +235,14 @@
                      ></li>
                      <!-- 사용자에게 히든 값을 저장해서 넘겨줌-->
                      <li>옷에 대한 사용자가 적을 것</li>
-                     <li><textarea rows="68" cols="60" name="memo"><%=cloth_info.getMemo() %>
+                     <li><textarea id="memo_text" rows="68" cols="60" name="memo"><%=cloth_info.getMemo() %>
                      </textarea></li>
 
 
                      <li>
                         <input id = "update_btn" style = "display :none;" class="cr_pick" type="submit" value="수정" >
                         <input id = "update_btn_fake" class="cr_pick" type="button" value="수정">
-                        <button id="clothespick" class="cr_pick">꺼내기</button>
+                        <input type="button" id="clothespick" class="cr_pick" value="꺼내기" onclick="arduino(<%=num%>)">
                      </li>
                   </ol>
 
@@ -237,7 +255,7 @@
 
       </div>
 
-      <input type="button" value="뒤로가기" onclick="location.href='../../Main.jsp#work'" />
+    
       <!-- style="color:black" -->
       <!-- Footer -->
       <div id="footer">

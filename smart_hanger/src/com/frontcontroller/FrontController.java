@@ -87,14 +87,18 @@ public class FrontController extends HttpServlet {
 			
 			
 
-			// 여기는 옷 등록
+			// 여기는 옷 등록1
 		} else if (resultURI.equals("zSmart_hanger/cloth/ClothesAddServiceCon.do")) {
 			command = new ClothesAddServiceCon();
 			
-			// 여기는 옷 등록
+			// 여기는 옷 등록2
 		} else if (resultURI.equals("zSmart_hanger/cloth/ClothSaveServiceCon.do")) {
 			command = new ClothesSaveServiceCon();
 
+			// 여기는 옷 등록2
+		} else if (resultURI.equals("zSmart_hanger/cloth/ClothesAddformServiceCon2.do")) {
+			command = new ClothesAddformServiceCon2();
+			
 			// 여기는 등록된 옷 삭제
 		} else if (resultURI.equals("zSmart_hanger/cloth/ClothesOneDeleteServicCon.do")) {
 			command = new ClothesOneDeleteServicCon();

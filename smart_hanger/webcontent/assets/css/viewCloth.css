@@ -21,55 +21,6 @@ li{
 
 
 
-#left {
-	width: 50%;
-	height: 100%;
-	float: left;
-	padding: 30px 40px 30px 30px;
-}
-
-#pickcloth {
-	position: relative;
-	overflow: hidden;
-}
-
-#pick_div {
-	position: relative;
-	width: 100%;
-	height: 360px;
-	overflow: hidden;
-	border-radius: 20px;
-}
-
-#cloth_imgs {
-	height: 100;
-}
-
-/* 사진 찍기, 사진 업로드 버튼 div */
-#pickbutten{
-	position : relative;
-	width: 100%;
-	height : 80px;
-	margin: 0px;
-	padding: 10px 0px;
-	
-}
-
-#pickbutten li{
-	padding:0px;
-	width: 45%;
-}
-#pickbutten li:nth-of-type(3){
-	width: 10%;
-	height: 100%;
-}
-
-#pickbutten input{
-	width: 100%;
-	margin: 0px
-}
-
-
 
 /* ==============여기는 오른쪽 화면 스타일 ==================== */
 #right {
@@ -132,6 +83,7 @@ position: absolute;
 	font-weight: bold;
 	border-radius: 15px;
 	background-color: gray;
+
 }
 
 #take_picture{
@@ -139,6 +91,7 @@ position: absolute;
 	font-weight: bold;
 	border-radius: 15px;
 	background-color: gray;
+
 }
 
 #back_btn{
@@ -150,6 +103,7 @@ position: absolute;
     margin-top: 15px;
     margin-right: 37px;
     z-index: 1;
+    margin-right: 0px;
 }
 #container_div{
 	position: relative; 
@@ -184,3 +138,59 @@ position: absolute;
     left: -50px; 
 }
 
+
+
+
+
+
+
+
+
+#left {
+	width: 50%;
+	height: 100%;
+	float: left;
+	padding: 30px 40px 30px 30px;
+}
+
+#pickcloth {
+	position: relative;
+	overflow: hidden;
+}
+
+#pick_div {
+	position: relative;
+	width: 100%;
+	height: 360px;
+	overflow: hidden;
+	border-radius: 20px;
+}
+
+#cloth_imgs {
+	width: 100%;
+	
+}
+
+/* 사진 찍기, 사진 업로드 버튼 div */
+#pickbutten{
+	position : relative;
+	width: 100%;
+	height : 80px;
+	margin: 0px;
+	padding: 10px 0px;
+	
+}
+
+#pickbutten li{
+	padding:0px;
+	width: 45%;
+}
+#pickbutten li:nth-of-type(3){
+	width: 10%;
+	height: 100%;
+}
+
+#pickbutten input{
+	width: 100%;
+	margin: 0px;
+}
