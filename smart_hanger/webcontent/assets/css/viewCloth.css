@@ -21,8 +21,8 @@ li{
 
 
 
-
 /* ==============여기는 오른쪽 화면 스타일 ==================== */
+
 #right {
 	overflow-y: scroll;
 	width: 50%;
@@ -165,6 +165,9 @@ position: absolute;
 	overflow: hidden;
 	border-radius: 20px;
 }
+
+
+
 
 #cloth_imgs {
 	width: 100%;

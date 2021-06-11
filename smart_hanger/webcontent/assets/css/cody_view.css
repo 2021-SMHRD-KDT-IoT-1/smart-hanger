@@ -18,6 +18,18 @@ table {
 	padding-right: 0px;
 }
 
+
+#home_img_penal{
+	position: fixed;
+	opacity: 0.6;
+	width: 56px;
+    z-index: 2;
+    border-radius: 25px;
+    text-align: center;
+}
+
+
+
 #camera {
 	position: relative;
 	width: 100%;

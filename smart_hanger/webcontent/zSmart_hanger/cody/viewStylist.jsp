@@ -23,7 +23,7 @@
 <body class="is-preload">
 
 	<%
-	Cookie cookie = null;
+		Cookie cookie = null;
 
 	Cody_Board_DAO dao = new Cody_Board_DAO();
 
@@ -34,37 +34,40 @@
 	// 사용자아이디를 가져오고 내가 작성한 것들을 가져옴
 	// 그래서 사용자 아이디랑 내용을 합쳐서 테이블에 올림
 	// 이걸 dao 에서 만들고 서블릿도 만들면 됩니다
-	
-	
+
 	Cody_board_commentsDAO comment_dao = new Cody_board_commentsDAO();
-	
+
 	ArrayList<Cody_board_commentsDTO> commemtLists = comment_dao.Board_comments_Select(num);
-	
-	
-	
-	
 	%>
+
+
+
+
+
+
 
 	<!-- Wrapper-->
 	<div id="wrapper">
 
+
+
+
+
 		<!-- Main -->
 		<!-- red == 여기는 옷 사진 출력  -->
-			<a id="home_img_penal" href="#work" class="jumplink pic"> 
-			<span class="arrow icon solid fa-chevron-right"></span></a>
+
+
 
 		<div id="main">
-
-
-
 
 
 			<!-- 왼쪽 영역 -->
 			<div id="left">
 
-
 				<div id="camera">
-
+					<a id="home_img_penal" href="../../Main.jsp#Stylist" class="jumplink pic" style="z-index: 2;">
+					<span class="arrow icon solid fas fa-angle-double-left fa-2x " style="z-index: 1; color: white;"></span></a>
+					
 					<img id="cloth_imgs" src="../../cody_img/<%=cody_info.getClothespath()%>" alt=#>
 
 				</div>
@@ -81,26 +84,41 @@
 				<form action="CodyCommentsInsertCon.do" id="input_tag" method="post">
 					<input type="hidden" name="num" value="<%=num%>">
 					<ul id="my_content">
-						<li><%=cody_info.getTitle()%> (<%=cody_info.getUserid()%>) </li>
+						<li><%=cody_info.getTitle()%> (<%=cody_info.getUserid()%>)</li>
 						<li><%=cody_info.getContent()%></li>
-						<li><p>좋아요 : <%=cody_info.getLike_num()%></p>
-							<p>조회수 : <%=cody_info.getView_num()%></p></li>
+						<li><p>
+								좋아요 :
+								<%=cody_info.getLike_num()%></p>
+							<p>
+								조회수 :
+								<%=cody_info.getView_num()%></p></li>
 						<li><%=cody_info.getUpload_date()%></li>
 						<li>
-							<ul style="list-style:none">
-							<% for(int row = 0 ; row < commemtLists.size(); row++){ %> 
+							<ul style="list-style: none">
+								<%
+									for (int row = 0; row < commemtLists.size(); row++) {
+								%>
 								<li>
-									<p> <%= commemtLists.get(row).getUserId() %>	</p> 
-									<p> <%= commemtLists.get(row).getUpload_date() %> </p>
-									<p> <%= commemtLists.get(row).getComments() %> </p>
-								</li>	
-								<% } %>
-								<li id = "line"><textarea class="chat" name="comment" style="resize : none" placeholder="댓글 입력"></textarea><input class="chat2" type="submit" value="등록"></li>
+									<p>
+										<%=commemtLists.get(row).getUserId()%>
+									</p>
+									<p>
+										<%=commemtLists.get(row).getUpload_date()%>
+									</p>
+									<p>
+										<%=commemtLists.get(row).getComments()%>
+									</p>
+								</li>
+								<%
+									}
+								%>
+								<li id="line"><textarea class="chat" name="comment" style="resize: none" placeholder="댓글 입력"></textarea><input class="chat2" type="submit"
+									value="등록"></li>
 							</ul>
-							
+
 						</li>
-						
-						
+
+
 
 					</ul>
 				</form>
@@ -113,7 +131,7 @@
 
 
 
-			<input type="button" value="뒤로가기" onclick="location.href='Main.jsp#Stylist'" >
+			<input type="button" value="뒤로가기" onclick="location.href='Main.jsp#Stylist'">
 			<!-- style="color:black" -->
 			<!-- Footer -->
 			<div id="footer">
