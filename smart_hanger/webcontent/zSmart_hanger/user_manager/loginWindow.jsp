@@ -66,7 +66,7 @@
 		<div id="loginFrame">
 
 			<form>
-			<h2 style="left: 0px">로그인</h2>
+			<h2>로그인</h2>
 			<ul id="login_ul">
 				<li><input id="userId" class="Login_input" type="text" placeholder="Email을 입력하세요" name="userId"></li>
 				<li></li>

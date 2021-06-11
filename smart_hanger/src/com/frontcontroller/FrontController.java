@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.command.Command;
 import com.controller_Class.ClothesAddServiceCon;
+import com.controller_Class.ClothesAddServieceCon2;
 import com.controller_Class.ClothesAddformServiceCon2;
 import com.controller_Class.ClothesOneDeleteServicCon;
 import com.controller_Class.ClothesUpdateServiceCon;
@@ -89,9 +90,11 @@ public class FrontController extends HttpServlet {
 			// 여기는 옷 등록
 		} else if (resultURI.equals("zSmart_hanger/cloth/ClothesAddServiceCon.do")) {
 			command = new ClothesAddServiceCon();
-			// 여기는 옷 등록2
-		} else if (resultURI.equals("zSmart_hanger/cloth/ClothesAddformServiceCon2.do")) {
-			command = new ClothesAddformServiceCon2();
+			
+			// 여기는 옷 등록
+		} else if (resultURI.equals("zSmart_hanger/cloth/ClothSaveServiceCon.do")) {
+			command = new ClothesSaveServiceCon();
+
 			// 여기는 등록된 옷 삭제
 		} else if (resultURI.equals("zSmart_hanger/cloth/ClothesOneDeleteServicCon.do")) {
 			command = new ClothesOneDeleteServicCon();
