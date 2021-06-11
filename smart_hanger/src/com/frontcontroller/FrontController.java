@@ -39,6 +39,7 @@ public class FrontController extends HttpServlet {
 		// getRequestURI : 어떤 jsp/servlet에서 들어오는지 알기위한 함수
 		String reqURI = request.getRequestURI();
 
+		//System.out.println(reqURI);
 		// Project이름출력
 		String path = request.getContextPath();
 
@@ -59,9 +60,11 @@ public class FrontController extends HttpServlet {
 		// 로그인
 		if (resultURI.equals("LoginServiceCon.do")) {
 			command = new LoginServiceCon();
+			
 			// 회원가입
-		} else if (resultURI.equals("JoinServiceCon.do")) {
-			command = new JoinServiceCon();
+			/* } else if (resultURI.equals("JoinServiceCon.do")) { command = new
+			 * JoinServiceCon(); */
+			
 			// 로그아웃
 		} else if (resultURI.equals("LogoutServiceCon.do")) {
 			command = new LogoutServiceCon();
@@ -98,26 +101,18 @@ public class FrontController extends HttpServlet {
 			
 			
 			
-
 			// 코디 사진 촬영 사진 저장용
 		} else if (resultURI.equals("zSmart_hanger/cody/CodySaveServiceCon.do")) {
 			command = new CodySaveServiceCon();
-			//  코디 등록	1
+			//  코디 등록1
 		} else if (resultURI.equals("zSmart_hanger/cody/CodyAddServiceCon.do")) {
 			command = new CodyAddServiceCon();
-			//  코디 등록	2
+			//  코디 등록2
 		} else if (resultURI.equals("CodyAddformServiceCon2.do")) {
 			command = new CodyAddformServiceCon2();
 			// 코디 댓글 등록
 		} else if (resultURI.equals("zSmart_hanger/cody/CodyCommentsInsertCon.do")) {
 			command = new CodyCommentsInsertCon();
-			
-			
-			
-			
-			
-			
-			
 			
 			
 			

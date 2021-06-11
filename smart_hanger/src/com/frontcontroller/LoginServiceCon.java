@@ -1,22 +1,33 @@
-package com.controller_Class;
+package com.frontcontroller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.Model.MemberDAO;
 import com.Model.MemberDTO;
-import com.command.Command;
 
-public class LoginServiceCon implements Command {
+/**
+ * Servlet implementation class LoginServiceCon
+ */
+@WebServlet("/LoginServiceCon")
+public class LoginServiceCon extends HttpServlet {
+	private static final long serialVersionUID = 1L;
 
-	@Override
-	public String execute(HttpServletRequest request, HttpServletResponse response) {
 
-		String moveURL = null;
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
+		
+		response.setCharacterEncoding("UTF-8");
+		PrintWriter out = response.getWriter();
+		
+		
 		
 
 		// 값 받아오기.
@@ -34,19 +45,17 @@ public class LoginServiceCon implements Command {
 			HttpSession session = request.getSession();
 			session.setAttribute("userInfo", resultDTO);
 			
-			moveURL = "goMainPage";			
+			out.print("goMainPage");			
 		} else {
 			System.out.println("로그인 실패");
 
 			HttpSession session = request.getSession();
 			session.invalidate();
 
-			moveURL = "zSmart_hanger/user_manager/login_fail.jsp";
+			response.sendRedirect("zSmart_hanger/user_manager/login_fail.jsp");
 		}
 
 		
-
-		return moveURL;
 	}
 
 }

@@ -83,6 +83,10 @@ form{
 	float: left;
 }
 
+#right li{
+	width: 100%;
+}
+
 #input_tag_div {
 	position: relative;
 	top: 37px;

@@ -33,12 +33,12 @@ h1{
 	    }
 	</script>
 
-	<div style="position: relative; left: 127px;">
+	<div  style="position: relative; left: 127px;">
 
 		<ul class="actions vertical">
-			<li style="margin-top: 30%"><h1>환영합니다!</h1></li><br>
-			<li id="welcom">회원가입을 축하합니다.</li><br>
-			<li id="start"><button onclick='location.href="Main.jsp"'>시작하기</button></li>
+			<li style="margin-top: 30%"><h1>죄송합니다.</h1></li><br>
+			<li id="welcom">로그인을 실패했습니다.</li><br>
+			<li id="start"><button onclick='location.href="Main.jsp"'>Main</button></li>
 		</ul>
 		
 	</div>

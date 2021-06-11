@@ -1,4 +1,4 @@
-package com.controller_Class;
+package com.frontcontroller;
 
 import java.io.File;
 import java.io.IOException;
@@ -14,19 +14,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.Model.Cody_Board_DAO;
+import com.Model.Cody_Board_DTO;
 import com.Model.MemberDTO;
-import com.Model.My_clothesDAO;
-import com.Model.My_clothesDTO;
 
-@WebServlet("/ClothesAddServieceCon2")
-public class ClothesAddServieceCon2 extends HttpServlet {
+@WebServlet("/CodyAddServiceCon")
+public class CodyAddServiceCon extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String board_num = "";
 
 		request.setCharacterEncoding("utf-8");
 
+		String moveURL = null;
 		HttpSession session = request.getSession();
 
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -35,15 +35,16 @@ public class ClothesAddServieceCon2 extends HttpServlet {
 		local_time = local_time.replace(" ", "_");
 		local_time = local_time.replace(":", "-");
 
-		String savePath = request.getServletContext().getRealPath("cloth_img");
+		String savePath = request.getServletContext().getRealPath("cody_img");
 
 		// 데이터베이스에 저장하기위해서 fileName, title, content 등의 정보 가져오기.
 		// String userId = "a";
 		String userId = ((MemberDTO) session.getAttribute("userInfo")).getUserId();
-		String clothesType = "no";
-		String clothesName = request.getParameter("title");
+
+		// 옷 종류
+		// String clothesType = "no";
+		String title = request.getParameter("title");
 		String memo = request.getParameter("memo");
-		//String img_type = request.getParameter("img_type");
 
 		File file = new File(savePath + "\\blob");
 
@@ -52,13 +53,16 @@ public class ClothesAddServieceCon2 extends HttpServlet {
 
 		String clothespath = local_time + ".png";
 
-		My_clothesDAO dao = new My_clothesDAO();
+		Cody_Board_DAO dao = new Cody_Board_DAO();
 
-		board_num = dao.My_clothes_Insert(new My_clothesDTO(userId, clothesName, clothesType, memo, clothespath));
-		
+		String cody_board_num = dao.Cody_BoardInsert(new Cody_Board_DTO(userId, title, memo, local_time + ".png"));
+
+		moveURL = "viewStylist.jsp?num=" + cody_board_num;
+
 		response.setCharacterEncoding("utf-8");
 		PrintWriter out = response.getWriter();
-		out.print("viewCloth.jsp?num=" + board_num);
+		
+		out.print(moveURL);
 
 	}
 

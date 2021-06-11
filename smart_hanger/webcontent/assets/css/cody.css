@@ -1,40 +1,50 @@
 @charset "EUC-KR";
 
-li{
+li {
 	list-style: none;
 	float: left;
 }
 
-
-*{
+* {
 	font-weight: bold;
-    font-family: "Gmarket Sans";
+	font-family: "Gmarket Sans";
 }
 
-#cody_sc{
-overflow-y: scroll; width: 750px; height: 400px;
+#cloth_header h2:nth-of-type(1) {
+	float: left;
+	width: 50%;
+	margin: 0px;
+	padding: 20px 0px 0px 0px;
 }
 
-#head_h2{
+#cloth_header input:nth-of-type(1) {
+	float: right;
+	margin: 0px;
+}
+
+#cloth_header p:nth-of-type(1) {
+	padding-top: 30px;
+}
+
+#cody_sc {
+	overflow-y: scroll;
+	width: 100%;
+}
+
+#head_h2 {
 	display: inline-block;
 }
 
-#cody_uqpdate{
-
- background: gray;
- font-family: "Gmarket Sans";
- font-weight: bold;
- border-radius: 15px;
-
-
+#cody_uqpdate {
+	background: gray;
+	font-family: "Gmarket Sans";
+	font-weight: bold;
+	border-radius: 15px;
 }
-
-
 
 /* header>h2{
 	position: relative; top: 10px; display: inline-block;
 } */
-
-#cody_uqpdate{
-		float: right;
+#cody_uqpdate {
+	float: right;
 }

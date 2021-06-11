@@ -23,6 +23,7 @@ public class CodySaveServiceCon implements Command {
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 
 		String savePath = request.getServletContext().getRealPath("cody_img");
+		
 
 		// 이미지 크기 지정
 		int maxSize = 5 * 1024 * 1024;
