@@ -89,9 +89,9 @@ form{
 
 #input_tag_div {
 	position: relative;
-	top: 37px;
 	width: 91%;
 	height: 115px;
+	float: left;
 }
 
 #del {
@@ -121,7 +121,7 @@ ol>li>.cr_pick {
 position: absolute;
     display: block;
     right: 10%;
-    top: 80%;
+    top: 86%;
     width: 20%;
     height: 10%;
     font-size: 17px;
@@ -150,4 +150,8 @@ position: absolute;
 	font-weight: bold;
 	border-radius: 15px;
 	background-color: gray;
+	float: right;
+    margin-top: 15px;
+    margin-right: 37px;
+    z-index: 1;
 }

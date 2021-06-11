@@ -50,6 +50,8 @@
 
 		<!-- Main -->
 		<!-- red == 여기는 옷 사진 출력  -->
+			<a id="home_img_penal" href="#work" class="jumplink pic"> 
+			<span class="arrow icon solid fa-chevron-right"></span></a>
 
 		<div id="main">
 

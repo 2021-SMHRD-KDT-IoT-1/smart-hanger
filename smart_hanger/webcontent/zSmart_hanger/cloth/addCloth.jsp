@@ -121,8 +121,9 @@
 
 				<!-- 오른쪽 영역 -->
 				<div id="right">
+				<input id = "back_btn" type="button" value="뒤로가기" onclick="location.href='../../Main.jsp#work'" />
 					<div id="input_tag_div">
-						<ol style="list-style: none;">
+						<ol style="list-style: none; z-index: 2;">
 
 							<li></li>
 
@@ -142,10 +143,10 @@
 				</div>
 
 			<button onclick="upLoadImage()" id="pic_img_bt" class="cr_pick" style="display: none;">등록</button>
+			
 			</form>
 		</div>
 
-		<input id = "back_btn" type="button" value="뒤로가기" onclick="location.href='../../Main.jsp#Stylist'" />
 		<!-- style="color:black" -->
 		<!-- Footer -->
 		<div id="footer">
