@@ -122,6 +122,7 @@
 
 				<!-- 오른쪽 영역 -->
 				<div id="right">
+				<input id = "back_btn" type="button" value="뒤로가기" onclick="location.href='../../Main.jsp#Stylist'" />
 					<div id="input_tag_div">
 						<ol style="list-style: none;">
 
@@ -146,7 +147,6 @@
 			</form>
 		</div>
 
-		<input id = "back_btn" type="button" value="뒤로가기" onclick="location.href='../../Main.jsp#Stylist'" />
 		<!-- style="color:black" -->
 		<!-- Footer -->
 		<div id="footer">

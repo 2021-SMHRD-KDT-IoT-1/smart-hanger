@@ -103,7 +103,7 @@
 
 
 
-		<input type="button" value="뒤로가기" onclick="location.href='../../Main.jsp#Community'" />
+		
 		<!-- style="color:black" -->
 		<!-- Footer -->
 		<div id="footer">
