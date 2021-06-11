@@ -13,7 +13,7 @@ input{
     border: 0;
     background: #f4f4f4;
     padding: 1em;
-    width: 100%;
+    width: 200px;
     -moz-transition: background-color .25s ease-in-out;
     -webkit-transition: background-color .25s ease-in-out;
     -ms-transition: background-color .25s ease-in-out;
