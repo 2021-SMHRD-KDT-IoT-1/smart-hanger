@@ -75,14 +75,14 @@ table {
 /* 좋아요 , 조회수 */
 #my_content>li:nth-of-type(3) p {
 	width: 40%;
-	float: left;
+	float: right;
 	margin: 0px;
-	poipadding-top: 5px;
+	padding-top: 5px;
 }
 
 #my_content>li:nth-of-type(3) p:nth-of-type(1) {
 	width: 8%;
-	float: right;
+	float: left;
 	color: red;
 	padding-top: 0px;
 }
@@ -101,6 +101,7 @@ table {
 /* 등록날짜 */
 #my_content>li:nth-of-type(4) {
 	text-align: right;
+	line-height: 28px;
 }
 
 #update_date {

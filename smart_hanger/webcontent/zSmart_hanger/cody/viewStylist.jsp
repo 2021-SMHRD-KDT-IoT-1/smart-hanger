@@ -1,3 +1,4 @@
+<%@page import="com.Model.MemberDTO"%>
 <%@page import="com.Model.Cody_board_commentsDTO"%>
 <%@page import="com.Model.Cody_board_commentsDAO"%>
 <%@page import="java.util.ArrayList"%>
@@ -30,6 +31,9 @@
 	String num = request.getParameter("num");
 
 	dao.Cody_Board_upView(num);
+	
+	
+	
 
 	Cody_Board_DTO cody_info = dao.Cody_Board_One_Select(num);
 
@@ -40,53 +44,90 @@
 	Cody_board_commentsDAO comment_dao = new Cody_board_commentsDAO();
 
 	ArrayList<Cody_board_commentsDTO> commemtLists = comment_dao.Board_comments_Select(num);
+	
+	
+	
+	MemberDTO userInfo = (MemberDTO) session.getAttribute("userInfo");
+	
+	
+	
+	int btn_state = 0;
+	String userId = null;
+
+	
+	if(userInfo != null){
+		userId = userInfo.getUserId(); 
+		btn_state = dao.Cody_Board_Like_view(num, userId);
+		System.out.println(btn_state);
+	}
+	
+	
 	%>
 
 
 
 
- <script type="text/javascript" src="../../js/jquery-3.6.0.min.js"></script>
-      <script type="text/javascript" src="../../webcamjs/webcam.min.js"></script>
-      <script type="text/javascript" src="../../js/html2canvas.js"></script>
-		<script type="text/javascript">
-   
-   
-
+	<script type="text/javascript" src="../../js/jquery-3.6.0.min.js"></script>
+	<script type="text/javascript">
 		// 좋아요 이미지 변경용   
- 		function like_btn(in_num){
-	   		
- 			var className = $('#like_icon').attr('class');
- 			
- 			if (className === 'icon solid fas fa-heart  fa-2x') {
-
- 				$('#like_icon').attr('class','icon solid fa fa-heart  fa-2x');
-
+		
+	
+					
+			if ('<%=btn_state%>' === '1') {
+				$('#like_icon').attr('class', 'icon solid far fa-heart  fa-2x');
 			}else{
- 				$('#like_icon').attr('class','icon solid fas fa-heart  fa-2x');
-				
+				$('#like_icon').attr('class', 'icon Regular far fa-heart  fa-2x');
 			}
+
+		
+		function like_btn(in_num, userId) {
 			
-/* 
-	           $.ajax({
-	               url : 'Arduino',
-	               type : 'post',
-	               data : {num : in_num},
-	               data : {check : check},
-	               success: function(data) {
-	                   //alert('좋아요');
-	                   
-	               },
-	                  error: function() {
-	                   alert('통신실패');
-	               }
-	           });
-	       */
-	      }
-   
-   
-      </script>
+			var check = 'insert';
+			
+			var className = $('#like_icon').attr('class');
 
 
+			// 좋아요 취소
+			if (className === 'icon solid far fa-heart  fa-2x') {
+
+				$('#like_icon').attr('class', 'icon Regular far fa-heart  fa-2x');
+				$('#like_num').text(Number($('#like_num').text()) - 1);
+
+				// 좋아요
+			} else {
+				$('#like_icon').attr('class', 'icon solid far fa-heart  fa-2x');
+				$('#like_num').text(Number($('#like_num').text()) + 1);
+
+			}
+
+			$.ajax({
+				url : '../../CodyBoardLikeUpdate',
+				type : 'post',
+				data : {
+					'num' : in_num,
+					'userId' : userId,
+					'check' : check
+				},
+				success : function(data) {
+					//alert('좋아요');
+
+				},
+				error : function() {
+					alert('통신실패');
+				}
+			});
+
+		}
+	</script>
+
+
+	<!-- 페이지 접속시 좋아요 기록 조회 -->
+	<%
+		
+		
+	
+	
+	%>
 
 
 
@@ -130,13 +171,9 @@
 						<li><%=cody_info.getTitle()%> (<%=cody_info.getUserid()%>)</li>
 						<li><%=cody_info.getContent()%></li>
 						<li>
-							<p id="like_icon" class="icon solid fas fa-heart  fa-2x" onclick="like_btn('<%=num%>')" style="cursor: pointer;"></p>
-							<p>
-								조회수 :
-								<%=cody_info.getView_num()%></p>
-							<p>
-								좋아요 :
-								<%=cody_info.getLike_num()%></p>
+							<p id="like_icon" class="icon Regular far fa-heart  fa-2x" onclick="like_btn('<%=num%>','<%=userId %>')" style="cursor: pointer;"></p>
+							<p>조회수 : <span id="view_num"><%=cody_info.getView_num()%></span></p>
+							<p>좋아요 : <span id="like_num"><%=cody_info.getLike_num()%></span></p>
 						</li>
 						<li id="update_date"><%=cody_info.getUpload_date()%></li>
 						<li>
@@ -145,15 +182,9 @@
 								for (int row = 0; row < commemtLists.size(); row++) {
 								%>
 								<li>
-									<p>
-										<%=commemtLists.get(row).getUserId()%>
-									</p>
-									<p>
-										<%=commemtLists.get(row).getUpload_date()%>
-									</p>
-									<p>
-										<%=commemtLists.get(row).getComments()%>
-									</p>
+									<p><%=commemtLists.get(row).getUserId()%></p>
+									<p><%=commemtLists.get(row).getUpload_date()%></p>
+									<p><%=commemtLists.get(row).getComments()%></p>
 								</li>
 								<%
 								}

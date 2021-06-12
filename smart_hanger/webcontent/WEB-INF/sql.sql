@@ -68,6 +68,12 @@ CREATE TABLE cody_board (
 	clothespath varchar2(200) NOT NULL
 );
 
+-- 코디 게시판
+CREATE TABLE cody_board_like (
+	cody_board_num varchar2(200),
+	userid	varchar2(200)
+);
+
 
 -- 고객센터
 CREATE TABLE SERVICE (
@@ -270,7 +276,11 @@ CREATE TABLE cody_board (
 	FOREIGN KEY (userid) REFERENCES member(userid)
 );
 
-
+-- 코디 게시판
+CREATE TABLE cody_board_like (
+	cody_board_num varchar2(200),
+	userid	varchar2(200)
+);
 
 
 -- 옷장 이미지
