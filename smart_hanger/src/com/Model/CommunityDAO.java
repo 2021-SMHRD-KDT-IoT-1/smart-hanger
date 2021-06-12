@@ -226,6 +226,42 @@ public class CommunityDAO {
 		return community_list;
 	}
 	
+	
+	
+	
+	// Á¶È¸¼ö
+	public int Board_upView(String num) {
+		conn();
+
+		try {
+
+			String sql = "select * from board where board_num = ?";
+
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, num);
+
+			rs = psmt.executeQuery();
+			if (rs.next()) {
+				int viewNum = Integer.parseInt(rs.getString("view_num"));
+
+				sql = "update board set view_num = ? where board_num = ?";
+
+				psmt = conn.prepareStatement(sql);
+				psmt.setString(1, viewNum + 1 + "");
+				psmt.setString(2, num);
+
+				cnt = psmt.executeUpdate();
+
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return cnt;
+	}
+	
 }
 
 

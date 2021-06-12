@@ -117,6 +117,23 @@ CREATE TABLE my_clothes (
 );
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 -- 커뮤니티 게시판
 CREATE TABLE board (
 	board_num   varchar2(200) NOT NULL PRIMARY KEY,
@@ -139,6 +156,12 @@ CREATE TABLE board_comments (
 	upload_date   date  NOT NULL
 );
 
+
+-- 코디 게시판
+CREATE TABLE board_like (
+	board_num varchar2(200),
+	userid	varchar2(200)
+);
 
 
 CREATE TABLE email {

@@ -104,6 +104,8 @@ public class Cody_Board_DAO {
 				String like_num = rs.getString(6);
 				String view_num = rs.getString(7);
 				String clothespath = rs.getString(8);
+				
+				
 
 				list.add(new Cody_Board_DTO(cody_board_num, userid, title, content, upload_date, like_num, view_num, clothespath));
 
@@ -138,10 +140,26 @@ public class Cody_Board_DAO {
 				String title = rs.getString(3);
 				String content = rs.getString(4);
 				String upload_date = rs.getString(5);
-				String like_num = rs.getString(6);
+				String like_num = "";
 				String view_num = rs.getString(7);
 				String clothespath = rs.getString(8);
 
+				
+				sql = "select * from cody_board_like where cody_board_num = ?";
+				psmt = conn.prepareStatement(sql);
+
+				psmt.setString(1, cody_board_num);
+				
+				rs = psmt.executeQuery();
+				
+				int num = 0;
+				while (rs.next()) {
+					num++;
+				}
+				
+				like_num += num;
+				
+				
 				info = new Cody_Board_DTO(cody_board_num, userid, title, content, upload_date, like_num, view_num, clothespath);
 
 			}
@@ -207,6 +225,7 @@ public class Cody_Board_DAO {
 
 	// 좋아요 0없음 1있음 2실행성공 3실패
 	public int Cody_Board_Like(String check, String num, String userId) {
+		cnt = 3;
 		conn();
 
 		try {
@@ -277,6 +296,8 @@ public class Cody_Board_DAO {
 			
 			if (rs.next()) {
 				cnt = 1;
+			}else {
+				cnt = 0;
 			}
 
 		} catch (
