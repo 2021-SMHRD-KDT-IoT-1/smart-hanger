@@ -23,6 +23,10 @@ import com.controller_Class.JoinServiceCon;
 import com.controller_Class.LoginServiceCon;
 import com.controller_Class.LogoutServiceCon;
 import com.controller_Class.MemberUpdateServiceCon;
+import com.controller_Class.MyCodyAddServiceCon;
+import com.controller_Class.MyCodyAddServieceCon2;
+import com.controller_Class.MyCodyAddformServiceCon2;
+import com.controller_Class.MyCodySaveServiceCon;
 import com.controller_Class.ClothesSaveServiceCon;
 import com.controller_Class.UserServiceCon;
 import com.controller_Class.WriteCommuCon;
@@ -105,6 +109,41 @@ public class FrontController extends HttpServlet {
 			// 여기는 옷 수정
 		} else if (resultURI.equals("zSmart_hanger/cloth/ClothesUpdateServiceCon.do")) {
 			command = new ClothesUpdateServiceCon();
+			
+			
+			
+			
+			
+			// 사용자 코디
+		} else if (resultURI.equals("zSmart_hanger/cloth/MyCodyAddformServiceCon2.do")) {
+		command = new MyCodyAddformServiceCon2();
+		
+		// 사용자 코디
+		} else if (resultURI.equals("zSmart_hanger/cloth/MyCodyAddServiceCon.do")) {
+			command = new MyCodyAddServiceCon();
+
+			// 사용자 코디
+		} else if (resultURI.equals("zSmart_hanger/cloth/MyCodySaveServiceCon.do")) {
+			command = new MyCodySaveServiceCon();
+			
+			
+			
+
+			
+
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
 			
 			
 			

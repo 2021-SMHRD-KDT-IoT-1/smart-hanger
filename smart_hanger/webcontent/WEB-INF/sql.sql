@@ -94,17 +94,6 @@ CREATE TABLE MEMBER (
 );
 
 
--- ÄÚµð ¿Ê 
-CREATE TABLE cody_clothes (
-	cody_num varchar2(200) NOT NULL PRIMARY KEY,
-	my_clothes_num varchar2(200) NOT NULL,
-	userID varchar2(200) NOT NULL,
-	title varchar2(200)  NULL,
-	content varchar2(200)  NULL,
-	kind varchar2(200)  NULL,
-	clothespath varchar2(200) NOT NULL
-);
-
 -- ¿ÊÀå
 CREATE TABLE my_clothes (
 	my_clothes_num varchar2(20) NOT NULL ,
@@ -114,6 +103,23 @@ CREATE TABLE my_clothes (
 	upload_date date NOT NULL ,
 	Memo varchar2(500) NULL,
 	clothespath varchar2(200) NOT NULL
+);
+
+-- ÄÚµð ¿Ê 
+CREATE TABLE my_cody (
+	my_cody_num varchar2(20) NOT NULL ,
+	userID varchar2(200) NOT NULL ,
+	clothesname varchar2(200) NULL ,
+	Memo varchar2(500) NULL,
+	clothespath varchar2(200) NOT NULL
+);
+
+-- num_cody_clothes
+
+-- ÄÚµð ¿Ê ¸ñ·Ï
+CREATE TABLE my_cody_clothes (
+	my_cody_num varchar2(20) NOT NULL ,
+	my_clothes varchar2(20) NOT NULL
 );
 
 
@@ -365,6 +371,27 @@ CREATE TABLE cody_clothes (
 	constraint cody_clothes_userID_fk foreign key(userID) 
 	references member(userID)
 );
+
+
+
+
+-- ÄÚµð ¿Ê 
+CREATE TABLE my_cody (
+	my_cody_num varchar2(20) NOT NULL ,
+	userID varchar2(200) NOT NULL ,
+	clothesname varchar2(200) NULL ,
+	Memo varchar2(500) NULL,
+	clothespath varchar2(200) NOT NULL
+);
+
+-- ÄÚµð ¿Ê ¸ñ·Ï
+CREATE TABLE my_cody_clothes (
+	my_cody_num varchar2(20) NOT NULL ,
+	my_clothes varchar2(20) NOT NULL
+);
+
+
+
 
 -- ¿ÊÀå
 CREATE TABLE my_clothes (

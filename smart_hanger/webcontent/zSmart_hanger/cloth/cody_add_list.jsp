@@ -1,9 +1,10 @@
+<%@page import="com.Model.My_codyDTO"%>
+<%@page import="com.Model.My_codyDAO"%>
 <%@page import="java.net.URLEncoder"%>
 <%@page import="java.net.URLDecoder"%>
 <%@page import="com.Model.MemberDTO"%>
 <%@page import="com.Model.My_clothesDTO"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="com.Model.My_clothesDAO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
@@ -23,52 +24,28 @@
 </head>
 <body>
 
-	<script src="./js/jquery-3.6.0.min.js"></script>
-	<script type="text/javascript">
-	
-	
-		// 페이지 전환용 변수
-		/* 페이지 불러오기 (바꿀 div id입력 , 가져올 파일) */
-		function btnclick(inner, _url) {
-			
-			
-			$.ajax({
-				url : _url,
-				type : 'post',
-				success : function(data) {
-					$('#' + inner).html(data);
-				},
-				error : function() {
-					$('#' + inner).text('페이지 점검중 입니다.');
-				}
-			});
-		}
-
-	</script>
-
 
 	<%
 	MemberDTO userInfo = (MemberDTO) session.getAttribute("userInfo");
 
-	ArrayList<My_clothesDTO> clothes_list = null;
+	ArrayList<My_codyDTO> cody_list = null;
 
 	if (userInfo != null) {
 
 		String userId = (userInfo).getUserId();
 
-		My_clothesDAO clothesdao = new My_clothesDAO();
-		clothes_list = clothesdao.My_clothes_All_Select(userId);
+		My_codyDAO cody_dao = new My_codyDAO();
+		cody_list = cody_dao.My_cody_All_Select(userId);
 
 	}
+
 	
-	
-	if (clothes_list != null) { %>
+	if (cody_list != null) { %>
 	<header id="cloth_header">
 		<h2><%=userInfo.getUserName()%>
-			님의 옷장
+			님의 코디목록
 		</h2>
-		<input type="button" id="cloth_uqpdate" value="옷 등록" onclick="location.href = 'zSmart_hanger/cloth/addCloth.jsp'">
-		<input type="button" id="cody_add" value="코디 등록" onclick="btnclick('work', 'zSmart_hanger/cloth/cody_add_list.jsp')">
+		<input type="button" id="cloth_uqpdate" value="코디 등록" onclick="location.href = 'zSmart_hanger/cloth/cody_add.jsp'">
 	<br>
 	
 	<p>“허름한 옷을 입으면 사람들은 옷을 기억하고 흠잡을데 없이 옷을 입으면 사람들은 그 여자를 기억한다” - 코코 샤넬</p>
@@ -79,10 +56,10 @@
 
 			<!-- 여기가 옷장에 있는 이미지 불러오는곳  -->
 			
-				<% for (int row = 0; row < clothes_list.size(); row++) { %>
+				<% for (int row = 0; row < cody_list.size(); row++) { %>
 						<div class="col-3">
-							<a href="zSmart_hanger/cloth/viewCloth.jsp?num=<%=clothes_list.get(row).getMy_clothes_num()%>" class="image fit"> 
-							<img class="cloth_imgs" src="cloth_img/<%=clothes_list.get(row).getClothespath()%>" alt=""></a>
+							<a href="zSmart_hanger/cloth/viewCody.jsp?num=<%=cody_list.get(row).getMy_cody_num()%>" class="image fit"> 
+							<img class="cloth_imgs" src="myCody/<%=cody_list.get(row).getClothespath()%>" alt=""></a>
 						</div>
 
 				<%	} %>

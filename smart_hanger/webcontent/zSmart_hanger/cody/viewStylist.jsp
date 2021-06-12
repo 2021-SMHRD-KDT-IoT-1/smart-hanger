@@ -167,6 +167,7 @@
 								for (int row = 0; row < commemtLists.size(); row++) {
 								%>
 								<li>
+									<p><%=commemtLists.get(row).getUserId()%></p>
 									<p><%=commemtLists.get(row).getUpload_date()%></p>
 									<p><%=commemtLists.get(row).getComments()%></p>
 								</li>

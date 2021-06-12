@@ -1,0 +1,168 @@
+@charset "EUC-KR";
+
+/* 요소 전체 스타일 */
+ul{
+	height: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+li{
+	list-style: none;
+	float: left;
+	margin: 0px;
+	padding: 0px;
+}
+form{
+	height:100%;	
+}
+
+
+
+#main {
+	height: 500px;
+
+	/* =================여기는 왼쪽 화면 스타일 ======================= */
+}
+
+#left {
+	width: 50%;
+	height: 100%;
+	float: left;
+	padding: 30px 40px 30px 30px;
+}
+
+#pickcloth {
+	position: relative;
+	overflow: hidden;
+}
+
+#pick_div {
+	position: relative;
+	width: 100%;
+	height: 360px;
+	overflow: hidden;
+	border-radius: 20px;
+}
+
+#cloth_imgs {
+	height: 100;
+}
+
+/* 사진 찍기, 사진 업로드 버튼 div */
+#pickbutten{
+	position : relative;
+	width: 100%;
+	height : 80px;
+	margin: 0px;
+	padding: 10px 0px;
+	
+}
+
+#pickbutten li{
+	padding:0px;
+	width: 45%;
+}
+#pickbutten li:nth-of-type(3){
+	width: 10%;
+	height: 100%;
+}
+
+#pickbutten input{
+	width: 100%;
+	margin: 0px
+}
+
+
+
+/* ==============여기는 오른쪽 화면 스타일 ==================== */
+#right {
+	overflow-y: scroll;
+	width: 50%;
+	height: 500px;
+	float: left;
+}
+
+#right li{
+	width: 100%;
+}
+
+#input_tag_div {
+	position: relative;
+	width: 91%;
+	height: 115px;
+	float: left;
+}
+
+#del {
+	float: right;
+	height: 50%;
+	width: 30%;
+}
+
+li>textarea {
+	resize: none;
+	height: 195px;
+}
+
+ol>li>.cr_pick {
+	margin: auto;
+	width: 49%;
+}
+
+#clothespick {
+	margin: auto;
+	width: 49%;
+	height: 59px;
+}
+
+/* 전송 버튼 */
+#pic_img_bt{
+position: absolute;
+    display: block;
+    right: 10%;
+    top: 86%;
+    width: 20%;
+    height: 10%;
+    font-size: 17px;
+    font-family: "Gmarket Sans";
+	font-weight: bold;
+	border-radius: 15px;
+	background-color: gray;
+}
+
+#img_upload{
+	font-family: "Gmarket Sans";
+	font-weight: bold;
+	border-radius: 15px;
+	background-color: gray;
+}
+
+#take_picture{
+	font-family: "Gmarket Sans";
+	font-weight: bold;
+	border-radius: 15px;
+	background-color: gray;
+}
+
+#cloth_add_btn{
+	font-family: "Gmarket Sans";
+	font-weight: bold;
+	border-radius: 15px;
+	background-color: gray;
+	float: right;
+    margin-top: 15px;
+    margin-right: 20px;
+    z-index: 1;
+}
+
+#back_btn{
+	font-family: "Gmarket Sans";
+	font-weight: bold;
+	border-radius: 15px;
+	background-color: gray;
+	float: right;
+    margin-top: 15px;
+    margin-right: 37px;
+    z-index: 1;
+}

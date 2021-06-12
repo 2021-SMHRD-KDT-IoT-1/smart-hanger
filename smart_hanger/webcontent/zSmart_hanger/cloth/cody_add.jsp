@@ -13,7 +13,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="../../assets/css/main.css" />
-<link rel="stylesheet" href="../../assets/css/addcloth.css" />
+<link rel="stylesheet" href="../../assets/css/cody_add.css" />
 
 </head>
 
@@ -26,6 +26,12 @@
 	<script type="text/javascript" src="../../webcamjs/webcam.min.js"></script>
 	<script type="text/javascript" src="../../js/html2canvas.js"></script>
 	<script type="text/javascript">
+	
+		function back_page(){
+			window.history.back();
+		}
+	
+	
 		window.onload = function() {
 
 			// 등록 이미지 등록 미리보기
@@ -66,6 +72,10 @@
 				document.getElementById('img_type').value = 'take_picture';
 
 			});
+			
+			
+			
+
 
 		}
 	</script>
@@ -82,7 +92,7 @@
 
 
 			<!-- <button onclick="downImg()">사진 저장</button> -->
-			<form action="ClothesAddformServiceCon2.do" method="post" enctype="multipart/form-data">
+			<form action="MyCodyAddformServiceCon2.do" method="post" enctype="multipart/form-data">
 
 
 
@@ -120,17 +130,18 @@
 
 				<!-- 오른쪽 영역 -->
 				<div id="right">
-				<input id = "back_btn" type="button" value="뒤로가기" onclick="location.href='../../Main.jsp#work'" />
+				<input id = "back_btn" type="button" value="뒤로가기" onclick="back_page()" />
+				<input id = "cloth_add_btn" type="button" value="옷 추가" onclick="back_page()" />
 					<div id="input_tag_div">
 						<ol style="list-style: none; z-index: 2;">
 
 							<li></li>
 
-							<li>코디 이름
+							<li>옷 이름
 							<li>
-							<li><input type="text" id="title" name="title" placeholder="옷 이름을 입력해주세요"> <!-- 사용자에게 히든 값을 저장해서 넘겨줌-->
-							<li>코디 메모</li>
-							<li><textarea rows="68" cols="60" id="memo" name="memo" placeholder="옷 메모를 입력해주세요"></textarea> 
+							<li><input type="text" id="title" name="title" placeholder="코디 이름을 입력해주세요"> <!-- 사용자에게 히든 값을 저장해서 넘겨줌-->
+							<li>옷 메모</li>
+							<li><textarea rows="68" cols="60" id="memo" name="memo" placeholder="코디 메모를 입력해주세요"></textarea> 
 							<input type="hidden" name="img_type" id="img_type" value="upload"></li>
 
 							<li><input id="img_bt" class="cr_pick" type="submit" value="등록" style="display: none;">
@@ -228,7 +239,7 @@
 
 			$.ajax({
 				type : 'post',
-				url : 'ClothSaveServiceCon.do',
+				url : 'MyCodySaveServiceCon.do',
 				data : formdata,
 				processData : false, // data 파라미터 강제 string 변환 방지!!
 				contentType : false, // application/x-www-form-urlencoded; 방지!!
@@ -249,7 +260,7 @@
 			
 			$.ajax({
 				type : 'post',
-				url : '../../ClothesAddServieceCon2',
+				url : '../../MyCodyAddServieceCon2',
 				data : {
 					'title' : $('#title').val(),
 					'memo' : $('#memo').val(),
