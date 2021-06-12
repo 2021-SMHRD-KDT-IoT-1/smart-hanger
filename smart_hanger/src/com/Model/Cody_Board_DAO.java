@@ -173,5 +173,44 @@ public class Cody_Board_DAO {
 		}
 		return cnt ;
 	}
+	
+	
+	
+	// Á¶È¸¼ö
+	public int Cody_Board_upView(String num) {
+		conn();
+		
+		try {
+			
+		String sql = "select * from Cody_Board where cody_board_num = ?";
+		
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, num);
+			
+			rs = psmt.executeQuery();
+			if (rs.next()) {
+				int viewNum = Integer.parseInt(rs.getString("view_num"));
+				
+				
+				sql = "update Cody_Board set view_num = ? where cody_board_num = ?";
+				
+				
+				
+				psmt = conn.prepareStatement(sql);
+				psmt.setString(1, viewNum + 1 + "");
+				psmt.setString(2, num);
+				
+				cnt = psmt.executeUpdate();
+		
+			}
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return cnt ;
+	}
 		
 }

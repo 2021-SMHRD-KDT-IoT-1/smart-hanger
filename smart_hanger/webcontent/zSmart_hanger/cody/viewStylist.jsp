@@ -23,11 +23,13 @@
 <body class="is-preload">
 
 	<%
-		Cookie cookie = null;
+	Cookie cookie = null;
 
 	Cody_Board_DAO dao = new Cody_Board_DAO();
 
 	String num = request.getParameter("num");
+
+	dao.Cody_Board_upView(num);
 
 	Cody_Board_DTO cody_info = dao.Cody_Board_One_Select(num);
 
@@ -41,6 +43,48 @@
 	%>
 
 
+
+
+ <script type="text/javascript" src="../../js/jquery-3.6.0.min.js"></script>
+      <script type="text/javascript" src="../../webcamjs/webcam.min.js"></script>
+      <script type="text/javascript" src="../../js/html2canvas.js"></script>
+		<script type="text/javascript">
+   
+   
+
+		// 좋아요 이미지 변경용   
+ 		function like_btn(in_num){
+	   		
+ 			var className = $('#like_icon').attr('class');
+ 			
+ 			if (className === 'icon solid fas fa-heart  fa-2x') {
+
+ 				$('#like_icon').attr('class','icon solid fa fa-heart  fa-2x');
+
+			}else{
+ 				$('#like_icon').attr('class','icon solid fas fa-heart  fa-2x');
+				
+			}
+			
+/* 
+	           $.ajax({
+	               url : 'Arduino',
+	               type : 'post',
+	               data : {num : in_num},
+	               data : {check : check},
+	               success: function(data) {
+	                   //alert('좋아요');
+	                   
+	               },
+	                  error: function() {
+	                   alert('통신실패');
+	               }
+	           });
+	       */
+	      }
+   
+   
+      </script>
 
 
 
@@ -65,10 +109,9 @@
 			<div id="left">
 
 				<div id="camera">
-					<a id="home_img_penal" href="../../Main.jsp#Stylist" class="jumplink pic" style="z-index: 2;">
-					<span class="arrow icon solid fas fa-angle-double-left fa-2x " style="z-index: 1; color: white;"></span></a>
-					
-					<img id="cloth_imgs" src="../../cody_img/<%=cody_info.getClothespath()%>" alt=#>
+					<a id="home_img_penal" href="../../Main.jsp#Stylist" class="jumplink pic" style="z-index: 2;"> <span
+						class="arrow icon solid fas fa-angle-double-left fa-2x " style="z-index: 1; color: white;"></span></a> <img id="cloth_imgs"
+						src="../../cody_img/<%=cody_info.getClothespath()%>" alt=#>
 
 				</div>
 
@@ -86,17 +129,20 @@
 					<ul id="my_content">
 						<li><%=cody_info.getTitle()%> (<%=cody_info.getUserid()%>)</li>
 						<li><%=cody_info.getContent()%></li>
-						<li><p>
-								좋아요 :
-								<%=cody_info.getLike_num()%></p>
+						<li>
+							<p id="like_icon" class="icon solid fas fa-heart  fa-2x" onclick="like_btn('<%=num%>')" style="cursor: pointer;"></p>
 							<p>
 								조회수 :
-								<%=cody_info.getView_num()%></p></li>
-						<li><%=cody_info.getUpload_date()%></li>
+								<%=cody_info.getView_num()%></p>
+							<p>
+								좋아요 :
+								<%=cody_info.getLike_num()%></p>
+						</li>
+						<li id="update_date"><%=cody_info.getUpload_date()%></li>
 						<li>
 							<ul style="list-style: none">
 								<%
-									for (int row = 0; row < commemtLists.size(); row++) {
+								for (int row = 0; row < commemtLists.size(); row++) {
 								%>
 								<li>
 									<p>
@@ -110,9 +156,9 @@
 									</p>
 								</li>
 								<%
-									}
+								}
 								%>
-								<li id="line"><textarea class="chat" name="comment" style="resize: none" placeholder="댓글 입력"></textarea><input class="chat2" type="submit"
+								<li id="line"><textarea class="chat" name="comment" style="resize: none" placeholder="댓글 입력"></textarea> <input class="chat2" type="submit"
 									value="등록"></li>
 							</ul>
 

@@ -150,7 +150,7 @@
             document.getElementById('clothespick').setAttribute('value','ªË¡¶');
           	document.getElementById('clothespick').setAttribute('onclick','oneDelete("<%=num%>")');
           	document.getElementById('update_ol').style.padding = '25px';
-          	document.getElementById('memo_text').style.height = '273px';
+          	document.getElementById('memo_text').style.height = '268px';
             
 
           	
