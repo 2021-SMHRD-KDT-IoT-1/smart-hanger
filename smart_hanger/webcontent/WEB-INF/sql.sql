@@ -69,10 +69,12 @@ CREATE TABLE cody_board (
 );
 
 -- 코디 게시판
+drop TABLE cody_board_like;
 CREATE TABLE cody_board_like (
 	cody_board_num varchar2(200),
 	userid	varchar2(200)
 );
+
 
 
 -- 고객센터
@@ -102,10 +104,12 @@ CREATE TABLE my_clothes (
 	clothestype varchar2(200) NULL ,
 	upload_date date NOT NULL ,
 	Memo varchar2(500) NULL,
-	clothespath varchar2(200) NOT NULL
+	clothespath varchar2(200) NOT NULL,
+	cloth_state varchar2(200) NOT NULL
 );
 
 -- 코디 옷 
+drop TABLE my_cody;
 CREATE TABLE my_cody (
 	my_cody_num varchar2(20) NOT NULL ,
 	userID varchar2(200) NOT NULL ,
@@ -117,26 +121,11 @@ CREATE TABLE my_cody (
 -- num_cody_clothes
 
 -- 코디 옷 목록
+drop TABLE my_cody_clothes;
 CREATE TABLE my_cody_clothes (
 	my_cody_num varchar2(20) NOT NULL ,
 	my_clothes varchar2(20) NOT NULL
 );
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -163,9 +152,10 @@ CREATE TABLE board_comments (
 );
 
 
--- 코디 게시판
-CREATE TABLE board_like (
-	board_num varchar2(200),
+-- 커뮤니티 like
+drop TABLE community_board_like;
+CREATE TABLE community_board_like (
+	community_board_num varchar2(200),
 	userid	varchar2(200)
 );
 
@@ -180,6 +170,7 @@ SERVICE_NUM  varchar2(200)	 NOT NULL PRIMARY KEY,
 	UPLOAD_DATE	 date 	NULL
 	
 );
+
 
 
 
@@ -229,6 +220,7 @@ start with 1
 minvalue 1 
 nocycle;
 --옷장 시퀀스
+drop sequence num_my_clothes
 create sequence num_my_clothes
 increment by 1 
 start with 1 

@@ -60,7 +60,7 @@
 
 
 
-	<h2 style="margin-left:180px">회원가입</h2>
+	<h2 style="margin-left: 26px">회원가입</h2>
 	<ul id="join_ul">
 		<li><input class="join_input" type="text" placeholder="Email을 입력하세요" id="email"></li>
 		<li></li>

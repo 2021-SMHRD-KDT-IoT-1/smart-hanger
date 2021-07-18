@@ -61,6 +61,15 @@
 
 	}
 	
+	String set_page = request.getParameter("set_page");
+	
+	if(set_page != null){
+		%>
+			<script type="text/javascript">	btnclick('work', 'zSmart_hanger/cloth/cody_add_list.jsp'); </script>
+		<%
+	}
+	
+	
 	
 	if (clothes_list != null) { %>
 	<header id="cloth_header">

@@ -1,3 +1,4 @@
+<%@page import="com.Model.MemberDTO"%>
 <%@page import="java.net.URLEncoder"%>
 <%@page import="com.Model.My_clothesDTO"%>
 <%@page import="com.Model.My_clothesDAO"%>
@@ -47,6 +48,20 @@
 
    My_clothesDTO cloth_info = dao.My_clothes_One_Select(num);
    
+   
+   
+   
+	MemberDTO userInfo = (MemberDTO) session.getAttribute("userInfo");
+
+	String userId = null;
+	
+	if (userInfo != null) {
+		userId = (userInfo).getUserId();
+
+	}
+   
+   
+   
    %>
 
 
@@ -57,23 +72,30 @@
       <script type="text/javascript" src="../../js/html2canvas.js"></script>
 		<script type="text/javascript">
    
-   
+		function back_page() {
+			window.history.back();
+			arduino('<%=num%>', '<%=userId%>', '0');
+		}
    
    
    // 아두이노 통신용
    
    
- 		function arduino(in_num){
-	   		var num = in_num;
-	   		
-	   		console.log(num);
+ 		function arduino(in_num, userId, set){
+
+	   		console.log(in_num);
+	   		console.log(userId);
 
 	           $.ajax({
-	               url : 'Arduino',
+	               url : '../../Arduidno_change',
 	               type : 'post',
-	               data : {num : num},
+	               data : {
+	            	   'set' : set,
+	            	   	'num' : in_num,
+	            		'userId' : userId   
+	               },
 	               success: function(data) {
-	                   alert('전송성공');
+	                   //alert('전송성공');
 	                   
 	               },
 	                  error: function() {
@@ -210,7 +232,8 @@
                <div id="input_tag_div">
                   <ol id="update_ol">
 
-					<li><input id="back_btn" type="button" value="뒤로가기" onclick="location.href='../../Main.jsp#work'" />
+					<li><input id="back_btn" type="button" value="뒤로가기" onclick="back_page()" />
+
 
 
 
@@ -228,7 +251,7 @@
                      <li>
                         <input id = "update_btn" style = "display :none;" class="cr_pick" type="submit" value="수정" >
                         <input id = "update_btn_fake" class="cr_pick" type="button" value="수정">
-                        <input type="button" id="clothespick" class="cr_pick" value="꺼내기" onclick="arduino(<%=num%>)">
+                        <input type="button" id="clothespick" class="cr_pick" value="꺼내기" onclick="arduino('<%=num%>', '<%=userId%>', '1')">
                      </li>
                   </ol>
 

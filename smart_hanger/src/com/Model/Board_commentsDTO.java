@@ -9,12 +9,14 @@ public class Board_commentsDTO {
 	private String comments;
 	private String upload_date;
 	
+	
 	public Board_commentsDTO(String comments_num, String userId, String board_num, String comments, String upload_date) {
 		this.comments_num = comments_num;
 		this.userId = userId;
 		this.board_num = board_num;
 		this.comments = comments;
 		this.upload_date = upload_date;
+		
 	}
 
 	

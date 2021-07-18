@@ -8,16 +8,10 @@
 <link rel="stylesheet" href="assets/css/loginFrame.css" />
 <style>
 
-h1{
-	padding-right: 63px;
-}
 
-#welcom{
-	padding-right: 230px;
-}
-
-#start{
-	padding-right: 200px;
+#start button:nth-last-of-type(1){
+    
+       margin-left: 40px;
 }
 
 </style>
@@ -33,11 +27,13 @@ h1{
 	    }
 	</script>
 
-	<div style="position: relative; left: 127px;">
+	<div style="position: relative;  top: 75px;">
 
-		<ul class="actions vertical">
-			<li style="margin-top: 30%"><h1>환영합니다!</h1></li><br>
-			<li id="welcom">회원가입을 축하합니다.</li><br>
+		<ul class="actions vertical"  id="logins_ul">
+			<li style="margin-top: 4%"><h1>환영합니다!</h1></li>
+			<li></li>
+			<li id="welcom">회원가입을 축하합니다.</li>
+			<li></li>
 			<li id="start"><button onclick='location.href="Main.jsp"'>시작하기</button></li>
 		</ul>
 		

@@ -74,14 +74,14 @@ public class Board_commentsDAO {
 	}
 
 	// 전체 조회
-	public ArrayList<Board_commentsDTO> Board_comments_All_Select(Board_commentsDTO dto) {
+	public ArrayList<Board_commentsDTO> Board_comments_All_Select(String num) {
 		ArrayList<Board_commentsDTO> list = new ArrayList<Board_commentsDTO>();
 		conn();
 
 		try {
-			String sql = "select * from board_comments";
+			String sql = "select * from board_comments where board_num = ?";
 			psmt = conn.prepareStatement(sql);
-
+			psmt.setString(1, num);
 			rs = psmt.executeQuery();
 
 			while (rs.next()) {

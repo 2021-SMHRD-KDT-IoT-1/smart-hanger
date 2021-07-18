@@ -56,14 +56,19 @@ public class MyCodyAddformServiceCon2 implements Command {
 			String userID = (String) ((MemberDTO) session.getAttribute("userInfo")).getUserId();
 			String clothesname = multi.getParameter("title");
 			String memo = multi.getParameter("memo");
-
 			clothespath = multi.getFilesystemName("img_file");
+			
 
 
 			My_codyDAO dao = new My_codyDAO();
 
 			String cody_num = dao.My_cody_Insert(new My_codyDTO(userID, clothesname, memo, clothespath));
 
+			
+			
+			
+			
+			
 			moveURL = "viewCody.jsp?num=" + cody_num;
 
 		} catch (IOException e) {

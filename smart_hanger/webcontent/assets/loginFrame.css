@@ -94,7 +94,7 @@ loginFrame h2:nth-of-type(2) {
 }
 
 #join-btn:nth-of-type(1){
-	width : 110px;
+
 	background-color: gray;
 	font-weight: bold ;
 	font-family: "Gmarket Sans";
@@ -117,26 +117,5 @@ loginFrame h2:nth-of-type(2) {
 #login_ul li:nth-last-of-type(1){
 	padding-left : 8%;
 }
-
-
-
-
-
-#logins_ul{
-	height: 400px;
-}
-
-#logins_ul li{
-	width : 100%;
-	float : left;
-	margin: 0px;
-	padding: 0px;
-	text-align: center;
-}
-#logins_ul li:nth-of-type(2n){
-	height: 4%;
-}
-
-
 
 

@@ -53,7 +53,7 @@ public class My_clothesDAO {
 		conn();
 
 		try {
-			String sql = "insert into my_clothes values(num_my_clothes.nextval, ?, ?, ?, sysdate, ?, ?)";
+			String sql = "insert into my_clothes values(num_my_clothes.nextval, ?, ?, ?, sysdate, ?, ?,'0')";
 			psmt = conn.prepareStatement(sql);
 
 			

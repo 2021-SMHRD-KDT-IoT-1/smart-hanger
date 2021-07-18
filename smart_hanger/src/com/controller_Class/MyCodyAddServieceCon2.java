@@ -44,6 +44,9 @@ public class MyCodyAddServieceCon2 extends HttpServlet {
 		String userID = ((MemberDTO) session.getAttribute("userInfo")).getUserId();
 		String clothesname = request.getParameter("title");
 		String memo = request.getParameter("memo");
+		String[] cloth_num = request.getParameterValues("cloth_num");
+		
+
 		//String img_type = request.getParameter("img_type");
 
 		File file = new File(savePath + "\\blob");
@@ -56,6 +59,8 @@ public class MyCodyAddServieceCon2 extends HttpServlet {
 		My_codyDAO dao = new My_codyDAO();
 
 		board_num = dao.My_cody_Insert(new My_codyDTO(userID, clothesname, memo, codypath));
+		
+		dao.My_cody_cloth_Insert(board_num ,cloth_num);
 		
 		response.setCharacterEncoding("utf-8");
 		PrintWriter out = response.getWriter();

@@ -106,6 +106,8 @@ public class Cody_Board_DAO {
 				String clothespath = rs.getString(8);
 				
 				
+				
+				
 
 				list.add(new Cody_Board_DTO(cody_board_num, userid, title, content, upload_date, like_num, view_num, clothespath));
 

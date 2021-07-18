@@ -93,6 +93,24 @@ public class CommunityDAO {
 				String upload_date = upload_dates[0];
 				int like_num = rs.getInt("like_num");
 				int view_num = rs.getInt("view_num");
+				
+				
+				
+				sql = "select * from community_board_like where community_board_num = ?";
+				psmt = conn.prepareStatement(sql);
+
+				psmt.setString(1, board_num+"");
+				
+				ResultSet rss = psmt.executeQuery();
+				
+				int num = 0;
+				while (rss.next()) {
+					num++;
+				}
+				
+				like_num += num;
+				
+				
 				CommunityDTO dto = new CommunityDTO(board_num, title, userid, content, upload_date, like_num,view_num);
 				community_list.add(dto);
 
@@ -174,9 +192,25 @@ public class CommunityDAO {
 				String title = rs.getString("title");
 				String content = rs.getString("content");
 				String upload_date = rs.getString("upload_date");
-				int like_num = rs.getInt("like_num");
+				int like_num = 0;
 				int view_num = rs.getInt("view_num");
 				String clothespath = rs.getString("clothespath");
+				
+				
+				sql = "select * from community_board_like where community_board_num = ?";
+				psmt = conn.prepareStatement(sql);
+
+				psmt.setString(1, board_num+"");
+				
+				rs = psmt.executeQuery();
+				
+				int num = 0;
+				while (rs.next()) {
+					num++;
+				}
+				
+				like_num += num;
+				
 				
 				dto = new CommunityDTO(board_num,userid, title,content,upload_date, like_num,view_num, clothespath);
 			}
@@ -262,6 +296,113 @@ public class CommunityDAO {
 		return cnt;
 	}
 	
-}
+	
+	// 좋아요 0없음 1있음
+		public int Community_Board_Like_view(String num, String userId) {
+			conn();
+
+			try {
+
+				String sql = "select * from community_board_like where community_board_num = ? and userid = ?";
+
+				psmt = conn.prepareStatement(sql);
+				psmt.setString(1, num);
+				psmt.setString(2, userId);
+
+				rs = psmt.executeQuery();
+				
+				if (rs.next()) {
+					cnt = 1;
+				}else {
+					cnt = 0;
+				}
+
+			} catch (
+
+			SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close();
+			}
+			return cnt;
+		}
+		
+		
+		
+		
+		
+		// 좋아요 0없음 1있음 2실행성공 3실패
+		public int Community_Board_Like(String check, String num, String userId) {
+			cnt = 3;
+			conn();
+
+			try {
+
+				String sql = "select * from community_board_like where community_board_num = ? and userid = ?";
+
+				psmt = conn.prepareStatement(sql);
+				psmt.setString(1, num);
+				psmt.setString(2, userId);
+
+				rs = psmt.executeQuery();
+
+				boolean rs_check = rs.next();
+
+				if (rs_check) {
+					cnt = 1;
+
+					if (!check.equals("check")) {
+						sql = "delete from community_board_like where community_board_num = ? and userid = ?";
+
+						psmt = conn.prepareStatement(sql);
+						psmt.setString(1, num);
+						psmt.setString(2, userId);
+
+						cnt = psmt.executeUpdate() > 0 ? 2 : 3;
+					}
+
+				} else {
+					cnt = 0;
+
+					if (!check.equals("check")) {
+
+						sql = "insert into community_board_like values(?, ?)";
+
+						psmt = conn.prepareStatement(sql);
+						psmt.setString(1, num);
+						psmt.setString(2, userId);
+
+						cnt = psmt.executeUpdate() > 0 ? 2 : 3;
+
+					}
+
+				}
+
+			} catch (
+
+			SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close();
+			}
+			return cnt;
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+	
+
+
+
 
 

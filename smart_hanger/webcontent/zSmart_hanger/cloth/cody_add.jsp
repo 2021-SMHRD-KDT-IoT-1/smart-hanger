@@ -1,3 +1,4 @@
+<%@page import="com.Model.MemberDTO"%>
 <%@page import="java.nio.file.Paths"%>
 <%@page import="java.nio.file.Files"%>
 <%@page import="java.io.InputStream"%>
@@ -20,6 +21,34 @@
 <body class="is-preload">
 
 
+	<%
+		MemberDTO userInfo = (MemberDTO) session.getAttribute("userInfo");
+
+	ArrayList<My_clothesDTO> clothes_list = null;
+
+	if (userInfo != null) {
+
+		String userId = (userInfo).getUserId();
+
+		My_clothesDAO clothesdao = new My_clothesDAO();
+		clothes_list = clothesdao.My_clothes_All_Select(userId);
+
+	}
+	%>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 	<script type="text/javascript" src="../../js/jquery-3.6.0.min.js"></script>
@@ -27,11 +56,31 @@
 	<script type="text/javascript" src="../../js/html2canvas.js"></script>
 	<script type="text/javascript">
 	
-		function back_page(){
+	
+	// 선택된 옷
+	var checkBoxArr = [];
+	
+	
+		// 페이지 전환용 변수
+		/* 페이지 불러오기 (바꿀 div id입력 , 가져올 파일) */
+
+		function btnclick(inner, _url) {
+			$.ajax({
+				url : _url,
+				type : 'post',
+				success : function(data) {
+					$('#' + inner).html(data);
+				},
+				error : function() {
+					$('#' + inner).text('페이지 점검중 입니다.');
+				}
+			});
+		}
+
+		function back_page() {
 			window.history.back();
 		}
-	
-	
+
 		window.onload = function() {
 
 			// 등록 이미지 등록 미리보기
@@ -55,27 +104,29 @@
 				document.getElementById('take_picture').style.display = 'none';
 				document.getElementById('img_upload').style.display = 'none';
 
-
 				document.getElementById('pic_img_bt').style.display = 'block';
-				document.getElementById('pic_img_bt').setAttribute('onclick','');
-				document.getElementById('pic_img_bt').setAttribute('type','submit');
+				document.getElementById('pic_img_bt').setAttribute('onclick',
+						'');
+				document.getElementById('pic_img_bt').setAttribute('type',
+						'submit');
 			});
 
-			$('#take_picture').click(function() {
-				// 사진을 전송하면 업로드 버튼 출력
-				document.getElementById('pic_img_bt').style.display = 'block';
-				document.getElementById('pic_img_bt').setAttribute('onclick','upLoadImage()');
-				document.getElementById('pic_img_bt').setAttribute('type','button');
+			$('#take_picture')
+					.click(
+							function() {
+								// 사진을 전송하면 업로드 버튼 출력
+								document.getElementById('pic_img_bt').style.display = 'block';
+								document.getElementById('pic_img_bt')
+										.setAttribute('onclick',
+												'upLoadImage()');
+								document.getElementById('pic_img_bt')
+										.setAttribute('type', 'button');
 
-				document.getElementById('take_picture').style.display = 'none';
-				document.getElementById('img_upload').style.display = 'none';
-				document.getElementById('img_type').value = 'take_picture';
+								document.getElementById('take_picture').style.display = 'none';
+								document.getElementById('img_upload').style.display = 'none';
+								document.getElementById('img_type').value = 'take_picture';
 
-			});
-			
-			
-			
-
+							});
 
 		}
 	</script>
@@ -86,8 +137,58 @@
 		<!-- Main -->
 		<!-- red == 여기는 옷 사진 출력  -->
 
+		<div id="main2" style="display: none">
+			<div style="padding: 30px;">
 
-		<div id="main">
+
+				<input type="button" id="cody_add" value="코디 등록" onclick="img_select()"> <br>
+
+				<div id="img_box" class="row">
+
+
+					<!-- 여기가 옷장에 있는 이미지 불러오는곳  -->
+					<%
+						for (int row = 0; row < clothes_list.size(); row++) {
+					%>
+						<div class="col-3">
+								
+							<input type="checkbox" value="<%=clothes_list.get(row).getMy_clothes_num()%>" name="img_check" id="img_check<%=row%>">	
+							
+							<img id="img_<%=row%>" onclick="img_btn('<%=row%>')" class="cloth_imgs" src="../../cloth_img/<%=clothes_list.get(row).getClothespath()%>" alt=""
+								style="width: 100%; height: auto;">
+
+						</div>
+					<%
+						}
+					%>
+
+				</div>
+
+			</div>
+		</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<div id="main" style="display: block;">
 
 
 
@@ -117,12 +218,12 @@
 
 					<div id="pickbutten">
 						<ul>
-							<li><input type="file" name="img_file" id="img_file" accept=".gif, .jpg, .png" style="display: none;"> 
+							<li><input type="file" name="img_file" id="img_file" accept=".gif, .jpg, .png" style="display: none;">
 							<li><input type="button" id="take_picture" value="사진 찍기" onClick="take_snapshot()">
 							<li>
 							<li><input type="button" id="img_upload" value="사진 업로드" onclick="file_upLoad()" accept="image/*" onchange="setThumbnail(event)">
 						</ul>
-						
+
 					</div>
 				</div>
 
@@ -130,8 +231,8 @@
 
 				<!-- 오른쪽 영역 -->
 				<div id="right">
-				<input id = "back_btn" type="button" value="뒤로가기" onclick="back_page()" />
-				<input id = "cloth_add_btn" type="button" value="옷 추가" onclick="back_page()" />
+					<input id="back_btn" type="button" value="뒤로가기" onclick="back_page()" /> 
+					<input id="cloth_add_btn" type="button" value="옷 추가" onclick="add_close()" />
 					<div id="input_tag_div">
 						<ol style="list-style: none; z-index: 2;">
 
@@ -141,10 +242,11 @@
 							<li>
 							<li><input type="text" id="title" name="title" placeholder="코디 이름을 입력해주세요"> <!-- 사용자에게 히든 값을 저장해서 넘겨줌-->
 							<li>옷 메모</li>
-							<li><textarea rows="68" cols="60" id="memo" name="memo" placeholder="코디 메모를 입력해주세요"></textarea> 
-							<input type="hidden" name="img_type" id="img_type" value="upload"></li>
+							<li><textarea rows="68" cols="60" id="memo" name="memo" placeholder="코디 메모를 입력해주세요"></textarea> <input type="hidden" name="img_type" id="img_type"
+								value="upload"></li>
 
 							<li><input id="img_bt" class="cr_pick" type="submit" value="등록" style="display: none;">
+							<input id="cloth_num" class="cr_pick" type="hidden" value="" name="cloth_num" >
 						</ol>
 
 
@@ -152,8 +254,8 @@
 
 				</div>
 
-			<button onclick="upLoadImage()" id="pic_img_bt" class="cr_pick" style="display: none;">등록</button>
-			
+				<button onclick="upLoadImage()" id="pic_img_bt" class="cr_pick" style="display: none;">등록</button>
+
 			</form>
 		</div>
 
@@ -204,17 +306,14 @@
 						$('img').css('width', '75%');
 						$('img').css('height', '100%');
 					});
-			
-			
+
 			html2canvas($("#pick_div")[0]).then(function(canvas) {
 				var myImage = canvas.toDataURL();
 				// downloadURI(myImage, "cloth_img.png") 
 				saveImage(myImage)
 
 			});
-			
-			
-			
+
 		}
 
 		// div 영역 캡쳐 
@@ -248,24 +347,29 @@
 			});
 
 		}
-		
-		
+
 		// 데이터 전송
 		function upLoadImage(imgDataUrl) {
+			
+			//console.log(checkBoxArr);
 
 			var fileValue = $("#img_file").val().split("\\");
-			var fileName = fileValue[fileValue.length-1]; // 파일명
-
+			var fileName = fileValue[fileValue.length - 1]; // 파일명
+		
+			
 			
 			
 			$.ajax({
 				type : 'post',
 				url : '../../MyCodyAddServieceCon2',
+				traditional : true,
 				data : {
 					'title' : $('#title').val(),
 					'memo' : $('#memo').val(),
 					'img_type' : $('#img_type').val(),
-					'img_file' : fileName
+					'img_file' : fileName,
+					'cloth_num' : checkBoxArr
+					
 				},
 				success : function(data) {
 					//alert("성공");
@@ -278,8 +382,59 @@
 			});
 
 		}
+	</script>
+
+
+	<script src="../../assets/js/browser.min.js"></script>
+	<script src="../../assets/js/breakpoints.min.js"></script>
+	<script src="../../assets/js/util.js"></script>
+	<script src="../../assets/js/main.js"></script>
+
+	<script type="text/javascript">
+		function img_btn(num) {
+
+			var img_scc = $('#img_' + num).css('border');
+
+			if (img_scc === '0px none rgb(119, 119, 119)') {
+				$('#img_' + num).css('border', '8px solid darkgrey');
+				$('#img_' + num).css('border-radius', '20px');
+				$("input:checkbox[id='img_check" + num +"']").prop("checked", true);
+
+			} else {
+				$('#img_' + num).css('border', 'none');
+				$("input:checkbox[id='img_check" + num +"']").prop("checked", false);
+			}			
+		}
 		
 		
+		function img_select() {
+			
+			
+			$("input[name=img_check]:checked").each(function(i){
+
+			checkBoxArr.push($(this).val());
+			
+			
+			$('#main').css('display','block');
+			$('#cloth_num').val(checkBoxArr);
+
+
+			});
+	
+			//console.log(checkBoxArr);
+			
+			$('#main').css('display','block');
+			$('#main2').css('display','none');
+			$('#cloth_add_btn').css('display','none');
+			
+		} 
+		
+		
+		
+		function add_close() {
+			$('#main').css('display','none');
+			$('#main2').css('display','block');
+		}
 		
 		
 		
@@ -287,19 +442,11 @@
 		
 	</script>
 
-		
-	<script src="../../assets/js/browser.min.js"></script>
-	<script src="../../assets/js/breakpoints.min.js"></script>
-	<script src="../../assets/js/util.js"></script>
-	<script src="../../assets/js/main.js"></script>
 
 
 
 
 
 
-
-
-	
 </body>
 </html>

@@ -1,3 +1,4 @@
+<%@page import="com.Model.MemberDTO"%>
 <%@page import="com.Model.My_codyDAO"%>
 <%@page import="com.Model.My_codyDTO"%>
 <%@page import="java.net.URLEncoder"%>
@@ -50,6 +51,17 @@
    My_codyDAO dao = new My_codyDAO();
    My_codyDTO cody_info = dao.My_cody_One_Select(num);
    
+   
+	MemberDTO userInfo = (MemberDTO) session.getAttribute("userInfo");
+
+	String userId = null;
+	
+	if (userInfo != null) {
+		userId = (userInfo).getUserId();
+
+	}
+   
+   
    %>
 
 
@@ -61,22 +73,30 @@
 		<script type="text/javascript">
    
    
+		function back_page() {
+			window.history.back();
+			arduino('<%=num%>', '<%=userId%>', '0');
+		}
    
    
    // 아두이노 통신용
    
    
- 		function arduino(in_num){
-	   		var num = in_num;
-	   		
-	   		console.log(num);
+ 		function arduino(in_num, userId, set){
+
+	   		console.log(in_num);
+	   		console.log(userId);
 
 	           $.ajax({
-	               url : 'Arduino',
+	               url : '../../Arduidno_change2',
 	               type : 'post',
-	               data : {num : num},
+	               data : {
+	            	   'set' : set,
+	            	   	'num' : in_num,
+	            		'userId' : userId   
+	               },
 	               success: function(data) {
-	                   alert('전송성공');
+	                   //alert('전송성공');
 	                   
 	               },
 	                  error: function() {
@@ -86,6 +106,8 @@
 	      
 	      }
       
+   
+  
    
   
    
@@ -143,8 +165,8 @@
 
          $('#update_btn_fake').click(function() {
             // fake수정버튼을 누르면 fake수정버튼을 없애고 진짜수정버튼 사진업로드, 사진 찍기, 삭제 버튼 출력
-            document.getElementById('img_upload').style.display = 'block';
-            document.getElementById('take_picture').style.display = 'block';
+            document.getElementById('img_upload').style.display = 'none';
+            document.getElementById('take_picture').style.display = 'none';
             document.getElementById('update_btn').style.display = 'inline';
             document.getElementById('update_btn_fake').style.display = 'none';
             
@@ -196,7 +218,7 @@
 					<div id="pickbutten">
 						<ul>
 							<li><input type="file" name="img_file" id="img_file" accept=".gif, .jpg, .png" style="display: none;"> 
-							<li><input id = "take_picture" type="button" style="position: relative; display: none; left:7px; "  value="사진찍기" onclick="history.back();">
+							<li><input id = "take_picture" type="button" style="position: relative; display: none; left:7px; "  value="사진찍기" onclick="take_snapshot()">
 							<li>
 							<li><input type="button" id="img_upload" value="사진 업로드" onclick="file_upLoad()" accept="image/*" onchange="setThumbnail(event)" style="display: none;">
 						</ul>
@@ -213,7 +235,7 @@
                <div id="input_tag_div">
                   <ol id="update_ol">
 
-					<li><input id="back_btn" type="button" value="뒤로가기" onclick="location.href='../../Main.jsp#work'" />
+					<li><input id="back_btn" type="button" value="뒤로가기" onclick="back_page()" />
 
 
 
@@ -231,7 +253,7 @@
                      <li>
                         <input id = "update_btn" style = "display :none;" class="cr_pick" type="submit" value="수정" >
                         <input id = "update_btn_fake" class="cr_pick" type="button" value="수정">
-                        <input type="button" id="clothespick" class="cr_pick" value="꺼내기" onclick="arduino(<%=num%>)">
+                        <input type="button" id="clothespick" class="cr_pick" value="꺼내기" onclick="arduino('<%=num%>', '<%=userId%>', '1')">
                      </li>
                   </ol>
 
@@ -255,6 +277,12 @@
       </div>
 
    </div>
+   
+   
+   
+   
+   
+   
 
    <!-- Scripts -->
    <script src="../../assets/js/jquery.min.js"></script>
